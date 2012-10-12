@@ -19,7 +19,7 @@ import org.apache.xmlrpc.client.XmlRpcClient;
 public class JiraClientSession {
   private final XmlRpcClient rpc;
   private String sessionId;
-  
+
   public JiraClientSession(XmlRpcClient rpc, String sessionId) {
     this.rpc = rpc;
     this.sessionId = sessionId;

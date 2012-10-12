@@ -79,7 +79,7 @@ class RefUpdated implements GitReferenceUpdatedListener {
 
       try {
         for (Update u : event.getUpdates()) {
-          String newObjId = u.getNewObjectId();
+          String newObjId = u.getRefName();
           if (newObjId == null) {
             continue;
           }
