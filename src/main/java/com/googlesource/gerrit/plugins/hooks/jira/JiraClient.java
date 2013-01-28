@@ -1,4 +1,4 @@
-// Copyright (C) 2012 The Android Open Source Project
+// Copyright (C) 2013 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -11,63 +11,69 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package com.googlesource.gerrit.plugins.hooks.jira;
 
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.rmi.RemoteException;
 
-import org.apache.xmlrpc.XmlRpcException;
-import org.apache.xmlrpc.client.XmlRpcClient;
-import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.atlassian.jira.rpc.soap.client.JiraSoapService;
+import com.atlassian.jira.rpc.soap.client.JiraSoapServiceServiceLocator;
+import com.atlassian.jira.rpc.soap.client.RemoteComment;
+import com.atlassian.jira.rpc.soap.client.RemoteFieldValue;
+import com.atlassian.jira.rpc.soap.client.RemoteIssue;
+import com.atlassian.jira.rpc.soap.client.RemoteNamedObject;
+import com.atlassian.jira.rpc.soap.client.RemoteServerInfo;
 
-import com.google.gerrit.extensions.annotations.Listen;
-import com.google.gerrit.extensions.events.LifecycleListener;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
+public class JiraClient {
 
-@Listen
-@Singleton
-public class JiraClient implements LifecycleListener {
-  private static Logger log = LoggerFactory.getLogger(JiraClient.class);
+  private final JiraSoapService service;
 
-  private final String username;
-  private final String password;
-  private final XmlRpcClientConfigImpl rpcConfig;
-  private final XmlRpcClient rpcClient;
-
-  @Inject
-  public JiraClient(JiraPluginConfig config) throws MalformedURLException {
-    this(config.rpcUrl, config.username, config.password);
+  public JiraClient(final String baseUrl) throws RemoteException {
+    this(baseUrl, "/rpc/soap/jirasoapservice-v2");
   }
 
-  public JiraClient(final String rpcUrl, final String username,
-      final String password) throws MalformedURLException {
-    this.username = username;
-    this.password = password;
-    rpcConfig = new XmlRpcClientConfigImpl();
-    rpcConfig.setServerURL(new URL(rpcUrl));
-    rpcClient = new XmlRpcClient();
-    rpcClient.setConfig(rpcConfig);
+  public JiraClient(final String baseUrl, final String rpcPath) throws RemoteException {
+    try {
+      JiraSoapServiceServiceLocator locator = new JiraSoapServiceServiceLocator();
+      service = locator.getJirasoapserviceV2(new URL(baseUrl+rpcPath));
+    }
+    catch (Exception e) {
+        throw new RemoteException("ServiceException during SOAPClient contruction", e);
+    }
   }
 
-  public JiraClientSession newSession() throws XmlRpcException {
-    return new JiraClientSession(this.rpcClient, (String) rpcClient.execute(
-        "jira1.login", new Object[] {username, password}));
+  public JiraSession login(final String username, final String password) throws RemoteException {
+    String token = service.login(username, password);
+    return new JiraSession(username, token);
   }
 
-  public void start() {
-      try {
-        JiraClientSession session = newSession();
-        session.close();
-      } catch (XmlRpcException e) {
-        log.error("Cannot validate Jira configuration and connectivity", e);
-        throw new RuntimeException(e);
-      }
+  public void logout(JiraSession token) throws RemoteException {
+    service.logout(getToken(token));
   }
 
-  public void stop() {
+  public RemoteIssue getIssue(JiraSession token, String issueKey) throws RemoteException {
+    return service.getIssue(getToken(token), issueKey);
+  }
+
+  public RemoteNamedObject[] getAvailableActions(JiraSession token, String issueKey) throws RemoteException {
+    return service.getAvailableActions(getToken(token), issueKey);
+  }
+
+  public RemoteIssue performAction(JiraSession token, String issueKey, String actionId, RemoteFieldValue... params) throws RemoteException {
+    return service.progressWorkflowAction(getToken(token), issueKey, actionId, params);
+  }
+
+  public void addComment(JiraSession token, String issueKey, RemoteComment comment) throws RemoteException {
+    service.addComment(getToken(token), issueKey, comment);
+  }
+
+  public RemoteServerInfo getServerInfo(JiraSession token) throws RemoteException {
+    return service.getServerInfo(getToken(token));
+  }
+
+  private String getToken(JiraSession token) {
+    return token == null ? null : token.getToken();
   }
 
 }

@@ -5,3 +5,7 @@
 .idea
 target/
 hooks-jira.iml
+.classpath
+.project
+.settings
+
