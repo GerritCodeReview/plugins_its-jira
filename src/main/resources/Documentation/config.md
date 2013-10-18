@@ -53,6 +53,45 @@ Example:
 
 Jira credentials and connectivity details are asked and verified during the Gerrit init.
 
+Comment configuration
+---------------------
+
+It is possible to choose which kind of Gerrit event will trigger the plugin to comment on
+the Jira issue by adding the following in your gerrit.config file under the [jira] section:
+
+commentOnChangeAbandoned
+:	If true, abandoning a change adds a comment to the issue.
+
+commentOnChangeCreated
+:	If true, creating a change adds a comment to the issue.
+
+commentOnChangeMerged
+:	If true, merging a change adds a comment to the issue.
+
+commentOnChangeRestored
+:	If true, restoring an abandoned change adds a comment to the issue.
+
+commentOnCommentAdded
+:	If true, adding a comment or reviewing a change adds a comment to the issue.
+
+commentOnFirstLinkedPatchSetCreated
+:	If true, creating a patch set for a change adds a comment to the issue if
+	the issue has not been mentioned in previous patch sets of the same change.
+
+commentOnPatchSetCreated
+:	If true, creating a patch set for a change adds a comment to the issue.
+
+commentOnRefUpdatedGitWeb
+:	If true, updating a ref adds a comment to the issue.
+
+By default they are set to true
+
+Example:
+
+    [jira]
+    commentOnCommentAdded=false
+    commentOnRefUpdatedGitWeb=false
+
 Gerrit init integration
 -----------------------
 
