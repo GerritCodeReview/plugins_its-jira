@@ -96,7 +96,8 @@ Issues workflow automation
 Jira plugin is able to automate status transition on the issues based on
 code-review actions performed on Gerrit; actions are performed on Jira using
 the username/password provided during Gerrit init.
-Transition automation is driven by `$GERRIT_SITE/issue-state-transition.config` file.
+Transition automation is driven by `$GERRIT_SITE/etc/issue-state-transition.config`
+file.
 
 Syntax of the status transition configuration file is the following:
 
