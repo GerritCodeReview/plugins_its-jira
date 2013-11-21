@@ -1,14 +1,14 @@
 Plugin @PLUGIN@
 ===============
 
-This plugin allows to associate Jira issues to Git commits thanks to
-the Gerrit listener interface.
+This plugin allows to associate Jira issues to Git commits.
 
 Comment links
 ----------------
 
 Git commits are associated to Jira issues reusing the existing Gerrit
-[commitLink configuration][1] to extract the issue ID from commit comments.
+[commitLink configuration][1] to extract the issue-id from the commit
+messages.
 
 [1]: ../../../Documentation/config-gerrit.html#__a_id_commentlink_a_section_commentlink
 
@@ -20,11 +20,11 @@ MANDATORY
 	 the git push will be rejected.
 
 SUGGESTED
-:	 Whenever git commit message does not contain one or more issue-ids,
+:	 Whenever a git commit message does not contain any issue-id,
 	 a warning message is displayed as a suggestion on the client.
 
 OPTIONAL
-:	 Issues-ids are linked when found on git commit message, no warnings are
+:	 Issue-ids are linked when found in a git commit message. No warning is
 	 displayed otherwise.
 
 Example:
@@ -35,14 +35,15 @@ Example:
     association = SUGGESTED
 
 Once a Git commit with a comment link is detected, the Jira issue ID
-is extracted and a new comment added to the issue, pointing back to
+is extracted and a new comment is added to the issue, pointing back to
 the original Git commit.
 
 Jira connectivity
 -----------------
 
-In order for Gerrit to connect to Jira/SOAP-API url and credentials
-are required in your gerrit.config / secure.config under the [jira] section.
+In order for Gerrit to connect to Jira/SOAP-API URL and credentials
+are required in your `gerrit.config` / `secure.config` under the
+`[jira]` section.
 
 Example:
 
@@ -57,7 +58,7 @@ Comment configuration
 ---------------------
 
 It is possible to choose which kind of Gerrit event will trigger the plugin to comment on
-the Jira issue by adding the following in your gerrit.config file under the [jira] section:
+the Jira issue by adding the following in your `gerrit.config` file under the `[jira]` section:
 
 commentOnChangeAbandoned
 :	If true, abandoning a change adds a comment to the issue.
@@ -84,7 +85,7 @@ commentOnPatchSetCreated
 commentOnRefUpdatedGitWeb
 :	If true, updating a ref adds a comment to the issue.
 
-By default they are set to true
+By default all parameters are set to true.
 
 Example:
 
@@ -95,9 +96,9 @@ Example:
 Gerrit init integration
 -----------------------
 
-Jira plugin is integrated as a Gerrit init step in order to simplify and guide
-through the configuration of Jira integration and connectivity check, avoiding
-bogus settings to prevent Gerrit plugin to start correctly.
+The Jira plugin comes with a Gerrit init step that simplifies the
+initial configuration. It guides through the configuration of the Jira
+integration and checks the connectivity.
 
 Gerrit init example:
 
@@ -141,24 +142,25 @@ file.
 Syntax of the status transition configuration file is the following:
 
     [action "<issue-status-action>"]
-    change=<change-action>
+    change=<state-change-type>
     verified=<verified-value>
     code-review=<code-review-value>
 
 `<issue-status-action>`
-:	Action to perform on Jira issue when all the condition in the stanza are met.
+:	Action to be performed on the Jira issue when all the condition in the stanza are met.
 
-`<change-action>`
-:	Action performed on Gerrit change-id, possible values are:
-	`created, commented, merged, abandoned, restored`
+`<state-change-type>`
+:	Gerrit state change type on which the action will be triggered.
+	Possible values are: `created`, `commented`, `merged`, `abandoned`,
+	`restored`
 
 `<verified-value>`
-:	Verified flag added on Gerrit with values from -1 to +1
+:	Verified label added on the Gerrit change with a value from -1 to +1
 
 `<code-review-value>`
-:	Code-Review flag added on Gerrit with values from -2 to +2
+:	Code-Review label added on the Gerrit change with a value from -2 to +2
 
-Note: multiple conditions in the action stanza are optional but at least one must be present.
+Note: multiple conditions in the action stanza are possible but at least one must be present.
 
 Example:
 
@@ -175,9 +177,9 @@ Example:
     [action "Stop Progress"]
     change=abandoned
 
-The above example defines four status transition on Jira, based on the following conditions:
+The above example defines four status transitions on Jira, based on the following conditions:
 
-* Whenever a new Change-set is created on Gerrit, start progress on the Jira issue
-* Whenever a change is verified and reviewed with +2, transition the Jira issue to resolved
-* Whenever a change is merged to branch, mark the Jira transition the Jira issue to closed
-* Whenever a change is abandoned, stop the progress on Jira issue
+* Whenever a new Change is created on Gerrit, start progress on the Jira issue
+* Whenever a change is verified and reviewed with +2, set the Jira issue to resolved
+* Whenever a change is merged to the branch, close the Jira issue
+* Whenever a change is abandoned, stop the progress on the Jira issue
