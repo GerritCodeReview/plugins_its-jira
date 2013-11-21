@@ -18,14 +18,11 @@ import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.config.GerritServerConfig;
-import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.hooks.ItsHookModule;
 import com.googlesource.gerrit.plugins.hooks.its.ItsFacade;
-import com.googlesource.gerrit.plugins.hooks.validation.ItsValidateComment;
 
 public class JiraModule extends AbstractModule {
 
