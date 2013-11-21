@@ -16,9 +16,6 @@ package com.googlesource.gerrit.plugins.hooks.jira;
 
 import java.rmi.RemoteException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.google.gerrit.pgm.init.InitStep;
 import com.google.gerrit.pgm.init.Section;
 import com.google.gerrit.pgm.init.Section.Factory;
@@ -32,7 +29,6 @@ import com.googlesource.gerrit.plugins.hooks.validation.ItsAssociationPolicy;
 /** Initialize the GitRepositoryManager configuration section. */
 @Singleton
 class InitJira extends InitIts implements InitStep {
-  private static final Logger log = LoggerFactory.getLogger(InitJira.class);
   private static final String JIRA_SECTION = "jira";
   private static final String COMMENT_LINK_SECTION = "commentLink";
   private final ConsoleUI ui;
