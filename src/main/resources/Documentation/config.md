@@ -109,7 +109,7 @@ Gerrit init example:
     Change admin's password        [y/N]? y
     admin's password               : *****
                   confirm password : *****
-    Test connectivity to http://jira.example.com [N/?]: y
+    Test connectivity to http://jira.example.com [y/N]: y
     Checking Jira connectivity ... [OK]
 
     *** Jira issue-tracking association
