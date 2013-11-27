@@ -14,27 +14,27 @@
 
 package com.googlesource.gerrit.plugins.hooks.jira;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 
 import com.google.gerrit.extensions.annotations.PluginName;
-import com.google.gerrit.pgm.init.InitStep;
+import com.google.gerrit.pgm.init.AllProjectsConfig;
 import com.google.gerrit.pgm.init.Section;
-import com.google.gerrit.pgm.init.Section.Factory;
 import com.google.gerrit.pgm.util.ConsoleUI;
 import com.google.inject.Inject;
-import com.google.inject.Injector;
 import com.google.inject.Singleton;
 
 import com.googlesource.gerrit.plugins.hooks.its.InitIts;
 import com.googlesource.gerrit.plugins.hooks.validation.ItsAssociationPolicy;
 
+import org.eclipse.jgit.errors.ConfigInvalidException;
+
 /** Initialize the GitRepositoryManager configuration section. */
 @Singleton
-class InitJira extends InitIts implements InitStep {
+class InitJira extends InitIts {
   private static final String COMMENT_LINK_SECTION = "commentLink";
   private final String pluginName;
-  private final ConsoleUI ui;
-  private final Factory sections;
+  private final Section.Factory sections;
   private Section jira;
   private Section jiraComment;
   private String jiraUrl;
@@ -42,14 +42,17 @@ class InitJira extends InitIts implements InitStep {
   private String jiraPassword;
 
   @Inject
-  InitJira(final @PluginName String pluginName, final ConsoleUI ui,
-      final Injector injector, final Section.Factory sections) {
+  InitJira(@PluginName String pluginName, ConsoleUI ui,
+      Section.Factory sections, AllProjectsConfig allProjectsConfig) {
+    super(pluginName, "Jira", ui, allProjectsConfig);
     this.pluginName = pluginName;
     this.sections = sections;
-    this.ui = ui;
   }
 
-  public void run() {
+  @Override
+  public void postRun() throws IOException, ConfigInvalidException {
+    super.postRun();
+
     this.jira = sections.get(pluginName, null);
     this.jiraComment = sections.get(COMMENT_LINK_SECTION, pluginName);
 
@@ -59,7 +62,7 @@ class InitJira extends InitIts implements InitStep {
     do {
       enterJiraConnectivity();
     } while (jiraUrl != null
-        && (isConnectivityRequested(ui, jiraUrl) && !isJiraConnectSuccessful()));
+        && (isConnectivityRequested(jiraUrl) && !isJiraConnectSuccessful()));
 
     if (jiraUrl == null) {
       return;

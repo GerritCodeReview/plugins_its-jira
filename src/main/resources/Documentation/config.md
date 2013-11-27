@@ -3,6 +3,28 @@ Plugin @PLUGIN@
 
 This plugin allows to associate Jira issues to Git commits.
 
+It can be configured per project whether the Jira integration is
+enabled or not. To enable the Jira integration for a project the
+project must have the following entry in its `project.config` file in
+the `refs/meta/config` branch:
+
+```
+  [plugin "its-jira"]
+    enabled = true
+```
+
+If `plugin.its-jira.enabled` is not specified in the `project.config` file
+the value is inherited from the parent project. If it is also not set
+on any parent project the Jira integration is disabled for this
+project.
+
+By setting `plugin.its-jira.enabled` to true in the `project.config` of the
+`All-Projects` project the Jira integration can be enabled by default
+for all projects. During the initialization of the plugin you are asked
+if the Jira integration should be enabled by default for all projects
+and if yes this setting in the `project.config` of the `All-Projects`
+project is done automatically.
+
 Comment links
 ----------------
 
@@ -101,6 +123,11 @@ initial configuration. It guides through the configuration of the Jira
 integration and checks the connectivity.
 
 Gerrit init example:
+
+    *** Jira Integration
+    ***
+
+    By default enabled for all projects [Y/n]?
 
     *** Jira connectivity
     ***
