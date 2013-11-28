@@ -25,6 +25,10 @@ if the Jira integration should be enabled by default for all projects
 and if yes this setting in the `project.config` of the `All-Projects`
 project is done automatically.
 
+If child projects must not be allowed to disable the Jira integration
+a project can enforce the Jira integration for all child projects by
+setting `plugin.its-jira.enabled` to `enforced`.
+
 Comment links
 ----------------
 
