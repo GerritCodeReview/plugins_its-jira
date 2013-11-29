@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.hooks.jira;
 
 import java.rmi.RemoteException;
 
+import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.pgm.init.InitStep;
 import com.google.gerrit.pgm.init.Section;
 import com.google.gerrit.pgm.init.Section.Factory;
@@ -23,14 +24,15 @@ import com.google.gerrit.pgm.util.ConsoleUI;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Singleton;
+
 import com.googlesource.gerrit.plugins.hooks.its.InitIts;
 import com.googlesource.gerrit.plugins.hooks.validation.ItsAssociationPolicy;
 
 /** Initialize the GitRepositoryManager configuration section. */
 @Singleton
 class InitJira extends InitIts implements InitStep {
-  private static final String JIRA_SECTION = "jira";
   private static final String COMMENT_LINK_SECTION = "commentLink";
+  private final String pluginName;
   private final ConsoleUI ui;
   private final Factory sections;
   private Section jira;
@@ -40,14 +42,16 @@ class InitJira extends InitIts implements InitStep {
   private String jiraPassword;
 
   @Inject
-  InitJira(final ConsoleUI ui, final Injector injector, final Section.Factory sections) {
+  InitJira(final @PluginName String pluginName, final ConsoleUI ui,
+      final Injector injector, final Section.Factory sections) {
+    this.pluginName = pluginName;
     this.sections = sections;
     this.ui = ui;
   }
 
   public void run() {
-    this.jira = sections.get(JIRA_SECTION, null);
-    this.jiraComment = sections.get(COMMENT_LINK_SECTION, JIRA_SECTION);
+    this.jira = sections.get(pluginName, null);
+    this.jiraComment = sections.get(COMMENT_LINK_SECTION, pluginName);
 
     ui.message("\n");
     ui.header("Jira connectivity");

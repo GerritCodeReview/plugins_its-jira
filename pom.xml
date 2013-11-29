@@ -28,6 +28,7 @@ limitations under the License.
   <properties>
     <Gerrit-ApiType>plugin</Gerrit-ApiType>
     <Gerrit-ReloadMode>reload</Gerrit-ReloadMode>
+    <Gerrit-PluginName>jira</Gerrit-PluginName>
     <Gerrit-InitStep>com.googlesource.gerrit.plugins.hooks.jira.InitJira</Gerrit-InitStep>
     <Gerrit-Module>com.googlesource.gerrit.plugins.hooks.jira.JiraModule</Gerrit-Module>
   </properties>
@@ -112,6 +113,7 @@ limitations under the License.
                 <Gerrit-ApiType>${Gerrit-ApiType}</Gerrit-ApiType>
                 <Gerrit-ApiVersion>${project.version}</Gerrit-ApiVersion>
                 <Gerrit-ReloadMode>${Gerrit-ReloadMode}</Gerrit-ReloadMode>
+                <Gerrit-PluginName>${Gerrit-PluginName}</Gerrit-PluginName>
                 <Gerrit-InitStep>${Gerrit-InitStep}</Gerrit-InitStep>
                 <Gerrit-Module>${Gerrit-Module}</Gerrit-Module>
               </manifestEntries>
