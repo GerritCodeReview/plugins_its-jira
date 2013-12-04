@@ -35,6 +35,21 @@ On the project info screen there is a dropdown list for the
 parameter and save it. If the Jira integration is enforced by a parent
 project the dropdown list is disabled.
 
+The Jira integration can be limited to specific branches by setting
+`plugin.its-jira.branch`. The branches may be configured using explicit
+branch names, ref patterns, or regular expressions. Multiple branches
+may be specified.
+
+E.g. to limit the Jira integration to the `master` branch and all
+stable branches the following could be configured:
+
+```
+  [plugin "its-jira"]
+    enabled = true
+    branch = refs/heads/master
+    branch = ^refs/heads/stable-.*
+```
+
 Comment links
 ----------------
 
