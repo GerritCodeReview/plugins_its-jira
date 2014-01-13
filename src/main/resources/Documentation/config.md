@@ -29,7 +29,7 @@ OPTIONAL
 
 Example:
 
-    [commentLink "Jira"]
+    [commentLink "its-jira"]
     match = (\\[[A-Z][A-Z]+-[1-9][0-9]*\\])
     html = "<a href=\"http://jira.example.com/browse/$1\">$1</a>"
     association = SUGGESTED
@@ -43,11 +43,11 @@ Jira connectivity
 
 In order for Gerrit to connect to Jira/SOAP-API URL and credentials
 are required in your `gerrit.config` / `secure.config` under the
-`[jira]` section.
+`[its-jira]` section.
 
 Example:
 
-    [jira]
+    [its-jira]
     url=http://jira.example.com
     username=admin
     password=jirapass
@@ -58,7 +58,7 @@ Comment configuration
 ---------------------
 
 It is possible to choose which kind of Gerrit event will trigger the plugin to comment on
-the Jira issue by adding the following in your `gerrit.config` file under the `[jira]` section:
+the Jira issue by adding the following in your `gerrit.config` file under the `[its-jira]` section:
 
 commentOnChangeAbandoned
 :	If true, abandoning a change adds a comment to the issue.
@@ -89,7 +89,7 @@ By default all parameters are set to true.
 
 Example:
 
-    [jira]
+    [its-jira]
     commentOnCommentAdded=false
     commentOnRefUpdatedGitWeb=false
 
