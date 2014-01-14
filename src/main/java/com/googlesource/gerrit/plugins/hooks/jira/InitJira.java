@@ -19,6 +19,7 @@ import java.rmi.RemoteException;
 
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.pgm.init.AllProjectsConfig;
+import com.google.gerrit.pgm.init.AllProjectsNameOnInitProvider;
 import com.google.gerrit.pgm.init.Section;
 import com.google.gerrit.pgm.util.ConsoleUI;
 import com.google.inject.Inject;
@@ -43,8 +44,9 @@ class InitJira extends InitIts {
 
   @Inject
   InitJira(@PluginName String pluginName, ConsoleUI ui,
-      Section.Factory sections, AllProjectsConfig allProjectsConfig) {
-    super(pluginName, "Jira", ui, allProjectsConfig);
+      Section.Factory sections, AllProjectsConfig allProjectsConfig,
+      AllProjectsNameOnInitProvider allProjects) {
+    super(pluginName, "Jira", ui, allProjectsConfig, allProjects);
     this.pluginName = pluginName;
     this.sections = sections;
   }
