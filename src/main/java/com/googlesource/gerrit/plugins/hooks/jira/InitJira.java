@@ -52,8 +52,8 @@ class InitJira extends InitIts {
   }
 
   @Override
-  public void postRun() throws IOException, ConfigInvalidException {
-    super.postRun();
+  public void run() throws IOException, ConfigInvalidException {
+    super.run();
 
     this.jira = sections.get(pluginName, null);
     this.jiraComment = sections.get(COMMENT_LINK_SECTION, pluginName);
