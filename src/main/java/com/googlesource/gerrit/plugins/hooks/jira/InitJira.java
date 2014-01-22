@@ -16,10 +16,12 @@ package com.googlesource.gerrit.plugins.hooks.jira;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
+import java.util.Arrays;
 
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.pgm.init.AllProjectsConfig;
 import com.google.gerrit.pgm.init.AllProjectsNameOnInitProvider;
+import com.google.gerrit.pgm.init.InitFlags;
 import com.google.gerrit.pgm.init.Section;
 import com.google.gerrit.pgm.util.ConsoleUI;
 import com.google.inject.Inject;
@@ -36,6 +38,7 @@ class InitJira extends InitIts {
   private static final String COMMENT_LINK_SECTION = "commentLink";
   private final String pluginName;
   private final Section.Factory sections;
+  private final InitFlags flags;
   private Section jira;
   private Section jiraComment;
   private String jiraUrl;
@@ -45,21 +48,49 @@ class InitJira extends InitIts {
   @Inject
   InitJira(@PluginName String pluginName, ConsoleUI ui,
       Section.Factory sections, AllProjectsConfig allProjectsConfig,
-      AllProjectsNameOnInitProvider allProjects) {
+      AllProjectsNameOnInitProvider allProjects, InitFlags flags) {
     super(pluginName, "Jira", ui, allProjectsConfig, allProjects);
     this.pluginName = pluginName;
     this.sections = sections;
+    this.flags = flags;
   }
 
   @Override
   public void run() throws IOException, ConfigInvalidException {
     super.run();
 
-    this.jira = sections.get(pluginName, null);
-    this.jiraComment = sections.get(COMMENT_LINK_SECTION, pluginName);
-
     ui.message("\n");
     ui.header("Jira connectivity");
+
+    if (!pluginName.equalsIgnoreCase("jira")
+        && !flags.cfg.getSections().contains(pluginName)
+        && flags.cfg.getSections().contains("jira")) {
+      ui.message("A Jira configuration for the 'hooks-jira' plugin was found.\n");
+      if (ui.yesno(true, "Copy it for the '%s' plugin?", pluginName)) {
+        for (String n : flags.cfg.getNames("jira")) {
+          flags.cfg.setStringList(pluginName, null, n,
+              Arrays.asList(flags.cfg.getStringList("jira", null, n)));
+        }
+        for (String n : flags.cfg.getNames(COMMENT_LINK_SECTION, "jira")) {
+          flags.cfg.setStringList(COMMENT_LINK_SECTION, pluginName, n,
+              Arrays.asList(flags.cfg.getStringList(COMMENT_LINK_SECTION, "jira", n)));
+        }
+
+        if (ui.yesno(false, "Remove configuration for 'hooks-jira' plugin?")) {
+          flags.cfg.unsetSection("jira", null);
+          flags.cfg.unsetSection(COMMENT_LINK_SECTION, "jira");
+        }
+      } else {
+        init();
+      }
+    } else {
+      init();
+    }
+  }
+
+  private void init() {
+    this.jira = sections.get(pluginName, null);
+    this.jiraComment = sections.get(COMMENT_LINK_SECTION, pluginName);
 
     do {
       enterJiraConnectivity();
