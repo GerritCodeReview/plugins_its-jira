@@ -29,6 +29,12 @@ If child projects must not be allowed to disable the Jira integration
 a project can enforce the Jira integration for all child projects by
 setting `plugin.its-jira.enabled` to `enforced`.
 
+On the project info screen there is a dropdown list for the
+`plugin.its-jira.enabled` parameter which offers the values `true`,
+`false`, `enforced` and `INHERIT`. Project owners can change this
+parameter and save it. If the Jira integration is enforced by a parent
+project the dropdown list is disabled.
+
 The Jira integration can be limited to specific branches by setting
 `plugin.its-jira.branch`. The branches may be configured using explicit
 branch names, ref patterns, or regular expressions. Multiple branches
