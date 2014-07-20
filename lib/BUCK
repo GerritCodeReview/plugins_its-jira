@@ -1,4 +1,16 @@
-include_defs('//lib/maven.defs')
+include_defs('//bucklets/maven_jar.bucklet')
+
+VER = '2.10-SNAPSHOT'
+REPO = MAVEN_LOCAL
+
+maven_jar(
+  name = 'its-base',
+  id = 'com.googlesource.gerrit.plugins.its:its-base:' + VER,
+  sha1 = '0e053550bbdbe234b0bab85450a8e0d2a8fd4701',
+  license = 'Apache2.0',
+  attach_source = False,
+  repository = REPO,
+)
 
 maven_jar(
   name = 'xmlrpc-client',
