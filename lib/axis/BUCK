@@ -1,4 +1,4 @@
-include_defs('//lib/maven.defs')
+include_defs('//bucklets/maven_jar.bucklet')
 
 maven_jar(
   name = 'axis',

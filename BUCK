@@ -1,3 +1,8 @@
+include_defs('//bucklets/gerrit_plugin.bucklet')
+
+ITS_BASE = '//lib:its-base' if __standalone_mode__ \
+  else '//plugins/its-base:its-base__plugin'
+
 def genwsdl2java(
     name,
     srcs,
@@ -27,16 +32,16 @@ gerrit_plugin(
   ],
   deps = [
     ':wsdl2java_lib',
-    '//plugins/its-base:its-base__plugin',
-    '//plugins/its-jira/lib/axis:axis',
-    '//plugins/its-jira/lib:xmlrpc-client',
+    ITS_BASE,
+    align_path('its-jira', '//lib/axis:axis'),
+    align_path('its-jira', '//lib:xmlrpc-client'),
   ],
 )
 
 java_library(
   name = 'wsdl2java_lib',
   srcs = [':wsdl2java_src'],
-  deps = ['//plugins/its-jira/lib/axis:axis'],
+  deps = [align_path('its-jira', '//lib/axis:axis')],
 )
 
 genwsdl2java(
@@ -49,7 +54,7 @@ java_binary(
   name = 'wsdl2java',
   main_class = 'org.apache.axis.wsdl.WSDL2Java',
   deps = [
-    '//plugins/its-jira/lib/axis:axis',
-    '//plugins/its-jira/lib/axis:wsdl4j',
+    align_path('its-jira', '//lib/axis:axis'),
+    align_path('its-jira', '//lib/axis:wsdl4j'),
   ],
 )
