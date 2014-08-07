@@ -26,6 +26,7 @@ import org.slf4j.LoggerFactory;
 
 import com.atlassian.jira.rpc.soap.client.RemoteAuthenticationException;
 import com.atlassian.jira.rpc.soap.client.RemoteComment;
+import com.atlassian.jira.rpc.soap.client.RemoteIssue;
 import com.atlassian.jira.rpc.soap.client.RemoteNamedObject;
 import com.atlassian.jira.rpc.soap.client.RemoteServerInfo;
 
@@ -147,13 +148,22 @@ public class JiraItsFacade implements ItsFacade {
     }
   }
 
-
   @Override
   public boolean exists(final String issueKey) throws IOException {
     return execute(new Callable<Boolean>(){
       @Override
       public Boolean call() throws Exception {
         return client().getIssue(token, issueKey) != null;
+      }});
+  }
+  
+  @Override
+  public String getStatus(final String issueKey) throws IOException {
+    return execute(new Callable<String>(){
+      @Override
+      public String call() throws Exception {
+        RemoteIssue issue = client().getIssue(token, issueKey);
+        return issue != null ? issue.getStatus() : null;
       }});
   }
 
