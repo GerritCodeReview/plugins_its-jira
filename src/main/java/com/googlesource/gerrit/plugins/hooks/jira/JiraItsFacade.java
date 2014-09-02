@@ -68,7 +68,7 @@ public class JiraItsFacade implements ItsFacade {
 
   @Override
   public String name() {
-    return "Jira";
+    return pluginName;
   }
 
   @Override
