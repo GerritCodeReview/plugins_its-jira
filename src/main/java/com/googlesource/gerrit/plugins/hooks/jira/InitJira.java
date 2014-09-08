@@ -19,11 +19,11 @@ import java.rmi.RemoteException;
 import java.util.Arrays;
 
 import com.google.gerrit.extensions.annotations.PluginName;
-import com.google.gerrit.pgm.init.AllProjectsConfig;
-import com.google.gerrit.pgm.init.AllProjectsNameOnInitProvider;
-import com.google.gerrit.pgm.init.InitFlags;
-import com.google.gerrit.pgm.init.Section;
-import com.google.gerrit.pgm.util.ConsoleUI;
+import com.google.gerrit.pgm.init.api.AllProjectsConfig;
+import com.google.gerrit.pgm.init.api.AllProjectsNameOnInitProvider;
+import com.google.gerrit.pgm.init.api.InitFlags;
+import com.google.gerrit.pgm.init.api.Section;
+import com.google.gerrit.pgm.init.api.ConsoleUI;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
