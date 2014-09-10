@@ -182,7 +182,7 @@ public class JiraItsFacade implements ItsFacade {
     }
     catch (Exception ex) {
       if (!quiet) {
-        log.error("I was unable to logout", ex);
+        log.error("I was unable to login", ex);
       }
 
       return null;
