@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "106cff13_f934f312",
+        "filename": "lib/BUCK",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1012155
+      },
+      "writtenOn": "2014-09-10T09:57:36Z",
+      "side": 1,
+      "message": "This allows to compile the plugin, but it breaks \u0027buck targets\u0027. Once\n\n  Icc40c413eed65a0b6e3003021050d91086ca4c34\n\nis in, we can use it to make \u0027buck targets\u0027 work again.",
+      "range": {
+        "startLine": 40,
+        "startChar": 13,
+        "endLine": 40,
+        "endChar": 19
+      },
+      "revId": "9c4f24b1999bf8f133a7e6b995a472e2c0f96d1b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "106cff13_5946c78b",
         "filename": "src/main/resources/Documentation/build.md",
         "patchSetId": 4
