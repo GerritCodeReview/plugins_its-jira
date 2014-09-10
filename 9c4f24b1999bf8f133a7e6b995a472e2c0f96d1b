@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d065072b_da02c571",
+        "filename": "lib/BUCK",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1012155
+      },
+      "writtenOn": "2014-09-10T14:44:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "106cff13_f934f312",
+      "range": {
+        "startLine": 40,
+        "startChar": 13,
+        "endLine": 40,
+        "endChar": 19
+      },
+      "revId": "9c4f24b1999bf8f133a7e6b995a472e2c0f96d1b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "106cff13_5946c78b",
         "filename": "src/main/resources/Documentation/build.md",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-10T09:54:03Z",
       "side": 1,
       "message": "This is not sufficient. One also must clone the its-base plugin into the plugins directory.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "9c4f24b1999bf8f133a7e6b995a472e2c0f96d1b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "106cff13_dc692532",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1012155
+      },
+      "writtenOn": "2014-09-10T14:44:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "106cff13_5946c78b",
       "range": {
         "startLine": 6,
         "startChar": 0,
