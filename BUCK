@@ -17,11 +17,10 @@ gerrit_plugin(
   srcs = glob(['src/main/java/**/*.java']),
   resources = glob(['src/main/resources/**/*']),
   manifest_entries = [
-    'Gerrit-PluginName: its-jira',
     'Gerrit-Module: com.googlesource.gerrit.plugins.hooks.jira.JiraModule',
     'Gerrit-InitStep: com.googlesource.gerrit.plugins.hooks.jira.InitJira',
     'Gerrit-ReloadMode: reload',
-    'Implementation-Title: Plugin its-jira',
+    'Implementation-Title: Jira ITS Plugin',
     'Implementation-URL: http://www.gerritforge.com',
     'Implementation-Vendor: GerritForge LLP',
   ],
