@@ -40,5 +40,5 @@ maven_jar(
   id = 'wsdl4j:wsdl4j:1.5.1',
   sha1 = 'bd804633b9c2cf06258641febc31a8ff3b0906bc',
   license = 'CPL1.0',
-  local_license = True,
+#  local_license = True,
 )
