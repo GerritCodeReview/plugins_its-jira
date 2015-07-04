@@ -24,8 +24,8 @@ import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 
-import com.googlesource.gerrit.plugins.hooks.ItsHookModule;
-import com.googlesource.gerrit.plugins.hooks.its.ItsFacade;
+import com.googlesource.gerrit.plugins.its.base.ItsHookModule;
+import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
 
 public class JiraModule extends AbstractModule {
 

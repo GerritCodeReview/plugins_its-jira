@@ -27,8 +27,8 @@ import com.google.gerrit.pgm.init.api.ConsoleUI;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import com.googlesource.gerrit.plugins.hooks.its.InitIts;
-import com.googlesource.gerrit.plugins.hooks.validation.ItsAssociationPolicy;
+import com.googlesource.gerrit.plugins.its.base.its.InitIts;
+import com.googlesource.gerrit.plugins.its.base.validation.ItsAssociationPolicy;
 
 import org.eclipse.jgit.errors.ConfigInvalidException;
 
