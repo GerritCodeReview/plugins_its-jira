@@ -220,4 +220,13 @@ limitations under the License.
       <version>1.1</version>
     </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>gerritforge</id>
+      <name>GerritForge Repository</name>
+      <url>http://www.gerritforge.com/snapshot</url>
+      <layout>default</layout>
+    </repository>
+  </repositories>
 </project>
