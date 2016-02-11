@@ -15,7 +15,7 @@
 package com.googlesource.gerrit.plugins.its.jira;
 
 import java.io.IOException;
-import java.rmi.RemoteException;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 
 import com.google.gerrit.extensions.annotations.PluginName;
@@ -40,7 +40,6 @@ class InitJira extends InitIts {
   private final Section.Factory sections;
   private final InitFlags flags;
   private Section jira;
-  private Section jiraComment;
   private String jiraUrl;
   private String jiraUsername;
   private String jiraPassword;
@@ -90,7 +89,7 @@ class InitJira extends InitIts {
 
   private void init() {
     this.jira = sections.get(pluginName, null);
-    this.jiraComment = sections.get(COMMENT_LINK_SECTION, pluginName);
+    Section jiraComment = sections.get(COMMENT_LINK_SECTION, pluginName);
 
     do {
       enterJiraConnectivity();
@@ -120,13 +119,10 @@ class InitJira extends InitIts {
   private boolean isJiraConnectSuccessful() {
     ui.message("Checking Jira connectivity ... ");
     try {
-      JiraClient jiraClient = new JiraClient(jiraUrl);
-      JiraSession jiraToken =
-          jiraClient.login(jiraUsername, jiraPassword);
-      jiraClient.logout(jiraToken);
+      new JiraClient(jiraUrl, jiraUsername, jiraPassword).sysInfo().getVersion();
       ui.message("[OK]\n");
       return true;
-    } catch (RemoteException e) {
+    } catch (URISyntaxException | IOException e) {
       ui.message("*FAILED* (%s)\n", e.toString());
       return false;
     }

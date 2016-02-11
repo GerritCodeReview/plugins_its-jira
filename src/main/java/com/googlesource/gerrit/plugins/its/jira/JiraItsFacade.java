@@ -14,27 +14,20 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
-import java.io.IOException;
-import java.net.URL;
-import java.rmi.RemoteException;
-import java.util.concurrent.Callable;
-
-import org.apache.axis.AxisFault;
+import com.atlassian.jira.rest.client.domain.Comment;
+import com.atlassian.jira.rest.client.domain.ServerInfo;
+import com.atlassian.jira.rest.client.domain.Transition;
+import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.server.config.GerritServerConfig;
+import com.google.inject.Inject;
+import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
 import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.atlassian.jira.rpc.soap.client.RemoteAuthenticationException;
-import com.atlassian.jira.rpc.soap.client.RemoteComment;
-import com.atlassian.jira.rpc.soap.client.RemoteNamedObject;
-import com.atlassian.jira.rpc.soap.client.RemoteServerInfo;
-
-import com.google.gerrit.extensions.annotations.PluginName;
-import com.google.gerrit.server.config.GerritServerConfig;
-import com.google.inject.Inject;
-
-import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
-import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class JiraItsFacade implements ItsFacade {
 
@@ -42,25 +35,21 @@ public class JiraItsFacade implements ItsFacade {
   private static final String GERRIT_CONFIG_PASSWORD = "password";
   private static final String GERRIT_CONFIG_URL = "url";
 
-  private static final int MAX_ATTEMPTS = 3;
-
   private Logger log = LoggerFactory.getLogger(JiraItsFacade.class);
 
   private final String pluginName;
   private Config gerritConfig;
 
   private JiraClient client;
-  private JiraSession token;
 
   @Inject
   public JiraItsFacade(@PluginName String pluginName,
-      @GerritServerConfig Config cfg) {
+                       @GerritServerConfig Config cfg) {
     this.pluginName = pluginName;
     try {
       this.gerritConfig = cfg;
-      RemoteServerInfo info = client().getServerInfo(token);
-      log.info("Connected to JIRA at " + info.getBaseUrl()
-          + ", reported version is " + info.getVersion());
+      ServerInfo info = client().sysInfo();
+      log.info("Connected to JIRA at {}, reported version is {}", info.getBaseUri(), info.getVersion());
     } catch (Exception ex) {
       log.warn("Jira is currently not available", ex);
     }
@@ -68,30 +57,21 @@ public class JiraItsFacade implements ItsFacade {
 
   @Override
   public String healthCheck(final Check check) throws IOException {
-
-      return execute(new Callable<String>(){
-        @Override
-        public String call() throws Exception {
-          if (check.equals(Check.ACCESS))
-            return healthCheckAccess();
-          else
-            return healthCheckSysinfo();
-        }});
+    if (check.equals(Check.ACCESS))
+      return healthCheckAccess();
+    else
+      return healthCheckSysinfo();
   }
 
   @Override
   public void addComment(final String issueKey, final String comment) throws IOException {
-
-    execute(new Callable<String>(){
-      @Override
-      public String call() throws Exception {
-        log.debug("Adding comment " + comment + " to issue " + issueKey);
-        RemoteComment remoteComment = new RemoteComment();
-        remoteComment.setBody(comment);
-        client().addComment(token, issueKey, remoteComment);
-        log.debug("Added comment " + comment + " to issue " + issueKey);
-        return issueKey;
-      }});
+    try {
+      log.debug("Adding comment {} to issue {}", comment, issueKey);
+      client().addComment(issueKey, Comment.valueOf(comment));
+      log.debug("Added comment {} to issue {}", comment, issueKey);
+    } catch (IOException e) {
+      log.error("Failed to add comment {} to issue {}", comment, issueKey);
+    }
   }
 
   @Override
@@ -103,178 +83,93 @@ public class JiraItsFacade implements ItsFacade {
   @Override
   public void performAction(final String issueKey, final String actionName)
       throws IOException {
-
-    execute(new Callable<String>(){
-      @Override
-      public String call() throws Exception {
-        doPerformAction(issueKey, actionName);
-        return issueKey;
-      }});
+    try {
+      log.debug("Performing action {} on issue {}", actionName, issueKey);
+      doPerformAction(issueKey, actionName);
+    } catch (IOException e) {
+      log.error("Failed to perform action {} on issue {}", actionName, issueKey);
+      throw new IOException(e);
+    }
   }
 
   private void doPerformAction(final String issueKey, final String actionName)
-      throws RemoteException, IOException {
-    String actionId = null;
-    RemoteNamedObject[] actions =
-        client().getAvailableActions(token, issueKey);
-    for (RemoteNamedObject action : actions) {
-      if (action.getName().equalsIgnoreCase(actionName)) {
-        actionId = action.getId();
+    throws IOException {
+    log.debug("Trying to perform action: " + actionName + " on issue " + issueKey);
+    try {
+      boolean ret = client().doTransition(issueKey, actionName);
+      if (ret) {
+        log.debug("Action " + actionName + " successful on Issue " + issueKey);
+      } else {
+        log.debug("Transitioning to current status not possible");
       }
-    }
-
-    if (actionId != null) {
-      log.debug("Executing action " + actionName + " on issue " + issueKey);
-      client().performAction(token, issueKey, actionId);
-    } else {
+    } catch (IOException e) {
       StringBuilder sb = new StringBuilder();
-      for (RemoteNamedObject action : actions) {
-        if (sb.length() > 0) sb.append(',');
+      for (Transition t : client().getTransitions(issueKey)) {
+        if (sb.length() > 0) {
+          sb.append(',');
+        }
         sb.append('\'');
-        sb.append(action.getName());
+        sb.append(t.getName());
         sb.append('\'');
       }
-
-      log.error("Action " + actionName
-          + " not found within available actions: " + sb);
-      throw new InvalidTransitionException("Action " + actionName
-          + " not executable on issue " + issueKey);
+      log.error("Available Transitions: " + sb);
+      throw e;
     }
   }
 
 
   @Override
   public boolean exists(final String issueKey) throws IOException {
-    return execute(new Callable<Boolean>(){
-      @Override
-      public Boolean call() throws Exception {
-        return client().getIssue(token, issueKey) != null;
-      }});
-  }
-
-  public void logout() {
-    this.logout(false);
-  }
-
-  public void logout(boolean quiet) {
-    try {
-      client().logout(token);
-    }
-    catch (Exception ex) {
-      if (!quiet) log.error("I was unable to logout", ex);
-    }
-  }
-
-  public Object login() {
-    return login(false);
-  }
-
-  public Object login(boolean quiet) {
-    try {
-      token = client.login(getUsername(), getPassword());
-      log.info("Connected to " + getUrl() + " as " + token);
-      return token;
-    }
-    catch (Exception ex) {
-      if (!quiet) {
-        log.error("I was unable to login", ex);
-      }
-
-      return null;
-    }
+    return client().issueExists(issueKey);
   }
 
   private JiraClient client() throws IOException {
-
     if (client == null) {
       try {
-        log.debug("Connecting to jira at URL " + getUrl());
-        client = new JiraClient(getUrl());
-        log.debug("Autenthicating as user " + getUsername());
-      } catch (Exception ex) {
-        log.info("Unable to connect to Connected to " + getUrl() + " as "
-            + getUsername());
-        throw new IOException(ex);
+        log.debug("Connecting to jira at {}", getUrl());
+        client = new JiraClient(getUrl(), getUsername(), getPassword());
+        log.debug("Authenticating as User {}", getUsername());
+      } catch (URISyntaxException e) {
+        log.error("Connecting failed at {} as user {}", getUrl(), getUsername());
+        throw new IOException(e);
       }
-
-      login();
     }
-
     return client;
   }
 
-  private <P> P execute(Callable<P> function) throws IOException {
-
-    int attempt = 0;
-    while(true) {
-      try {
-        return function.call();
-      } catch (Exception ex) {
-        if (isRecoverable(ex) && ++attempt < MAX_ATTEMPTS) {
-          log.debug("Call failed - retrying, attempt {} of {}", attempt, MAX_ATTEMPTS);
-          logout(true);
-          login(true);
-          continue;
-        }
-
-        if (ex instanceof IOException)
-          throw ((IOException)ex);
-        else
-          throw new IOException(ex);
-      }
-    }
-  }
-
-  private boolean isRecoverable(Exception ex) {
-    if (ex instanceof RemoteAuthenticationException)
-      return true;
-
-    String className = ex.getClass().getName();
-    if (ex instanceof AxisFault) {
-      AxisFault af = (AxisFault)ex;
-      className = (af.detail == null ? "unknown" : af.detail.getClass().getName());
-    }
-
-    return className.startsWith("java.net");
-  }
-
   private String getPassword() {
-    final String pass =
-        gerritConfig.getString(pluginName, null,
-            GERRIT_CONFIG_PASSWORD);
-    return pass;
+    return gerritConfig.getString(pluginName, null,
+      GERRIT_CONFIG_PASSWORD);
   }
 
   private String getUsername() {
-    final String user =
-        gerritConfig.getString(pluginName, null,
-            GERRIT_CONFIG_USERNAME);
-    return user;
+    return gerritConfig.getString(pluginName, null,
+      GERRIT_CONFIG_USERNAME);
   }
 
   private String getUrl() {
-    final String url =
-        gerritConfig.getString(pluginName, null, GERRIT_CONFIG_URL);
-    return url;
+    return gerritConfig.getString(pluginName, null, GERRIT_CONFIG_URL);
   }
 
   @Override
   public String createLinkForWebui(String url, String text) {
-    return "["+text+"|"+url+"]";
+    return "[" + text + "|" + url + "]";
   }
 
-  private String healthCheckAccess() throws RemoteException {
-    JiraClient client = new JiraClient(getUrl());
-    JiraSession token = client.login(getUsername(), getPassword());
-    client.logout(token);
-    final String result = "{\"status\"=\"ok\",\"username\"=\""+getUsername()+"\"}";
+  private String healthCheckAccess() throws IOException {
+    try {
+      new JiraClient(getUrl(), getUsername(), getPassword()).sysInfo();
+    } catch (URISyntaxException e) {
+      throw new IOException(e);
+    }
+    final String result = "{\"status\"=\"ok\",\"username\"=\"" + getUsername() + "\"}";
     log.debug("Healtheck on access result: {}", result);
     return result;
   }
 
-  private String healthCheckSysinfo() throws RemoteException, IOException {
-    final RemoteServerInfo res = client().getServerInfo(token);
-    final String result = "{\"status\"=\"ok\",\"system\"=\"Jira\",\"version\"=\""+res.getVersion()+"\",\"url\"=\""+getUrl()+"\",\"build\"=\""+res.getBuildNumber()+"\"}";
+  private String healthCheckSysinfo() throws IOException {
+    ServerInfo info = client().sysInfo();
+    final String result = "{\"status\"=\"ok\",\"system\"=\"Jira\",\"version\"=\"" + info.getVersion() + "\",\"url\"=\"" + getUrl() + "\",\"build\"=\"" + info.getBuildNumber() + "\"}";
     log.debug("Healtheck on sysinfo result: {}", result);
     return result;
   }

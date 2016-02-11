@@ -30,6 +30,8 @@ gerrit_plugin(
     '//plugins/its-jira/lib/axis:axis',
     '//plugins/its-jira/lib:xmlrpc-client',
     '//plugins/its-jira/lib:wsdl4j',
+    '//plugins/its-jira/lib:jira-rest-client',
+    '//plugins/its-jira/lib:atlassian-util',
   ],
 )
 
