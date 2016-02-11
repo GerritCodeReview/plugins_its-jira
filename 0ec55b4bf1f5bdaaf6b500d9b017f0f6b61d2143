@@ -22,6 +22,122 @@
       "revId": "0ec55b4bf1f5bdaaf6b500d9b017f0f6b61d2143",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9db840d6_3c0bdd47",
+        "filename": "lib/BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-02-11T14:04:59Z",
+      "side": 1,
+      "message": "Is this the only place where the atlassian jars are distributed?",
+      "parentUuid": "9db840d6_bc58cd60",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 53
+      },
+      "revId": "0ec55b4bf1f5bdaaf6b500d9b017f0f6b61d2143",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5dd9683d_a219809e",
+        "filename": "lib/BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-02-11T14:04:59Z",
+      "side": 1,
+      "message": "Why not using the 3.0.0 version ?\nhttps://maven-repository.com/artifact/com.atlassian.jira/jira-rest-java-client-api/3.0.0",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 58
+      },
+      "revId": "0ec55b4bf1f5bdaaf6b500d9b017f0f6b61d2143",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5dd9683d_e2138878",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-02-11T14:04:59Z",
+      "side": 1,
+      "message": "Can we be more specific? If there is any other sort of problem with connectivity with Jira ... we are still returning that the issue does not exist whilst possibly we shouldn\u0027t be swallowing the real exception.",
+      "range": {
+        "startLine": 81,
+        "startChar": 13,
+        "endLine": 81,
+        "endChar": 26
+      },
+      "revId": "0ec55b4bf1f5bdaaf6b500d9b017f0f6b61d2143",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9db840d6_5c00911f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-02-11T14:04:59Z",
+      "side": 1,
+      "message": "Are we sure we want to just log and do nothing about this failed transition?",
+      "range": {
+        "startLine": 137,
+        "startChar": 6,
+        "endLine": 137,
+        "endChar": 32
+      },
+      "revId": "0ec55b4bf1f5bdaaf6b500d9b017f0f6b61d2143",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9db840d6_9c19499f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacade.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-02-11T14:04:59Z",
+      "side": 1,
+      "message": "We shouldn\u0027t mix formatting fixes with functional ones.",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 40
+      },
+      "revId": "0ec55b4bf1f5bdaaf6b500d9b017f0f6b61d2143",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
