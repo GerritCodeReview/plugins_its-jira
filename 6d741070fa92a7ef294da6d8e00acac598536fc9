@@ -42,6 +42,81 @@
     },
     {
       "key": {
+        "uuid": "bd342467_8515a4d0",
+        "filename": "lib/BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-02-17T09:35:28Z",
+      "side": 1,
+      "message": "Nope.",
+      "parentUuid": "7d654c95_e87f9386",
+      "revId": "6d741070fa92a7ef294da6d8e00acac598536fc9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d654c95_c8616fe3",
+        "filename": "lib/BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-02-17T09:35:28Z",
+      "side": 1,
+      "message": "Keep this and all other lists alphabetically sorted.",
+      "revId": "6d741070fa92a7ef294da6d8e00acac598536fc9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd342467_251298e7",
+        "filename": "lib/BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-02-17T09:35:28Z",
+      "side": 1,
+      "message": "One artifact per line, like above.",
+      "revId": "6d741070fa92a7ef294da6d8e00acac598536fc9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d654c95_e866b3f8",
+        "filename": "lib/BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-02-17T09:35:28Z",
+      "side": 1,
+      "message": "Spring-core for REST client?",
+      "range": {
+        "startLine": 84,
+        "startChar": 37,
+        "endLine": 84,
+        "endChar": 51
+      },
+      "revId": "6d741070fa92a7ef294da6d8e00acac598536fc9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd342467_c522cc3b",
         "filename": "lib/LICENSE-BSD",
         "patchSetId": 2
