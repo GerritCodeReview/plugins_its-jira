@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd342467_6518a009",
+        "filename": "lib/BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1024218
+      },
+      "writtenOn": "2016-02-17T09:28:43Z",
+      "side": 1,
+      "message": "Thats maybe a better repo to get the atlassian jars",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 65
+      },
+      "revId": "6d741070fa92a7ef294da6d8e00acac598536fc9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d654c95_e87f9386",
+        "filename": "lib/BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1024218
+      },
+      "writtenOn": "2016-02-17T09:28:43Z",
+      "side": 1,
+      "message": "Is there a way to let buck get the transitive dependencies? I couldn\u0027t find a way :(",
+      "revId": "6d741070fa92a7ef294da6d8e00acac598536fc9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd342467_c522cc3b",
+        "filename": "lib/LICENSE-BSD",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1024218
+      },
+      "writtenOn": "2016-02-17T09:28:43Z",
+      "side": 1,
+      "message": "Is it really needed to import licences for the dependencies of the dependencies?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 65
+      },
+      "revId": "6d741070fa92a7ef294da6d8e00acac598536fc9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
