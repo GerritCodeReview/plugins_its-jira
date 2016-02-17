@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7d654c95_488fbfe7",
+        "filename": "lib/BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1024218
+      },
+      "writtenOn": "2016-02-17T09:30:42Z",
+      "side": 1,
+      "message": "They are distributed in the atlassian public repo too.",
+      "parentUuid": "9db840d6_3c0bdd47",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 53
+      },
+      "revId": "0ec55b4bf1f5bdaaf6b500d9b017f0f6b61d2143",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5dd9683d_a219809e",
         "filename": "lib/BUCK",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2016-02-11T14:04:59Z",
       "side": 1,
       "message": "Why not using the 3.0.0 version ?\nhttps://maven-repository.com/artifact/com.atlassian.jira/jira-rest-java-client-api/3.0.0",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 58
+      },
+      "revId": "0ec55b4bf1f5bdaaf6b500d9b017f0f6b61d2143",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d654c95_a8899be5",
+        "filename": "lib/BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1024218
+      },
+      "writtenOn": "2016-02-17T09:30:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5dd9683d_a219809e",
       "range": {
         "startLine": 50,
         "startChar": 0,
