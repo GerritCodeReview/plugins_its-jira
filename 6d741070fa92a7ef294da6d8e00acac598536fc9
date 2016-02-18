@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "bdd7c47d_aa056f33",
+        "filename": "lib/BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1024218
+      },
+      "writtenOn": "2016-02-18T09:38:24Z",
+      "side": 1,
+      "message": "I got that from mavens dependency tree for the\njira-rest-java-client-core\ntake a look: http://pastebin.com/Z1iSidEj",
+      "parentUuid": "7d654c95_e866b3f8",
+      "range": {
+        "startLine": 84,
+        "startChar": 37,
+        "endLine": 84,
+        "endChar": 51
+      },
+      "revId": "6d741070fa92a7ef294da6d8e00acac598536fc9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd342467_c522cc3b",
         "filename": "lib/LICENSE-BSD",
         "patchSetId": 2
