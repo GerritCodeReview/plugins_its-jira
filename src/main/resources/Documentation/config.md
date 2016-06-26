@@ -150,50 +150,38 @@ Issues workflow automation
 Jira plugin is able to automate status transition on the issues based on
 code-review actions performed on Gerrit; actions are performed on Jira using
 the username/password provided during Gerrit init.
-Transition automation is driven by `$GERRIT_SITE/etc/issue-state-transition.config`
-file.
 
-Syntax of the status transition configuration file is the following:
+Transition automation is driven by `$GERRIT_SITE/etc/its/actions.config` or
+`$GERRIT_SITE/etc/its/actions-its-jira.config` file.
 
-    [action "<issue-status-action>"]
-    change=<state-change-type>
-    verified=<verified-value>
-    code-review=<code-review-value>
+The syntax of this file follows the conventions described in its-base
+config-rulebase.common.md, where actions are those set up in the JIRA workflow
+scheme. For example, assuming you have configured the following issue-state
+transitions:
 
-`<issue-status-action>`
-:	Action to be performed on the Jira issue when all the condition in the stanza are met.
+Submit --> Start Progress --> Resolve Issue / Stop Progress --> Close Issue
 
-`<state-change-type>`
-:	Gerrit state change type on which the action will be triggered.
-	Possible values are: `created`, `commented`, `merged`, `abandoned`,
-	`restored`
+Then you can choose to have this configuration:
 
-`<verified-value>`
-:	Verified label added on the Gerrit change with a value from -1 to +1
+[rule "open"]
+    event-type = patchset-created
+    action = add-standard-comment
+    action = Start Progress
+[rule "resolve"]
+    verified = +1
+    approval-Code-Review = +2
+    action = Resolve Issue
+[rule "merged"]
+    event-type = change-merged
+    action = Close Issue
+[rule "abandoned"]
+    event-type = change-abandoned
+    action = Stop progress
 
-`<code-review-value>`
-:	Code-Review label added on the Gerrit change with a value from -2 to +2
-
-Note: multiple conditions in the action stanza are possible but at least one must be present.
-
-Example:
-
-    [action "Start Progress"]
-    change=created
-
-    [action "Resolve Issue"]
-    verified=+1
-    code-review=+2
-
-    [action "Close Issue"]
-    change=merged
-
-    [action "Stop Progress"]
-    change=abandoned
 
 The above example defines four status transitions on Jira, based on the following conditions:
 
-* Whenever a new Change is created on Gerrit, start progress on the Jira issue
+* Whenever a new patchset is created on Gerrit, start progress on the Jira issue
 * Whenever a change is verified and reviewed with +2, set the Jira issue to resolved
 * Whenever a change is merged to the branch, close the Jira issue
 * Whenever a change is abandoned, stop the progress on the Jira issue
