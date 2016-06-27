@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a02ecf8e_2ba539b1",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1023193
+      },
+      "writtenOn": "2016-06-27T23:44:00Z",
+      "side": 1,
+      "message": "Will fix it thanks",
+      "parentUuid": "438c3d87_7066303b",
+      "range": {
+        "startLine": 153,
+        "startChar": 57,
+        "endLine": 153,
+        "endChar": 69
+      },
+      "revId": "fa758ba069ed149cc146d3688296f9475909fca3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a325f944_73386030",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a02ecf8e_0baa7d7f",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1023193
+      },
+      "writtenOn": "2016-06-27T23:44:00Z",
+      "side": 1,
+      "message": "same as previous. will fix.",
+      "parentUuid": "a325f944_73386030",
+      "range": {
+        "startLine": 156,
+        "startChar": 25,
+        "endLine": 156,
+        "endChar": 30
+      },
+      "revId": "fa758ba069ed149cc146d3688296f9475909fca3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a325f944_13456c9f",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-06-27T07:50:02Z",
       "side": 1,
       "message": "config-rulebase.common.md does not describe what \"Start Progress\" is. The Jira-specific actions should be described in this documentation file.",
+      "range": {
+        "startLine": 164,
+        "startChar": 13,
+        "endLine": 164,
+        "endChar": 27
+      },
+      "revId": "fa758ba069ed149cc146d3688296f9475909fca3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02ecf8e_4bb085f3",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1023193
+      },
+      "writtenOn": "2016-06-27T23:44:00Z",
+      "side": 1,
+      "message": "Actually the names of the JIRA statuses are completely flexible and every JIRA installation can be configured with completely different names Start Progress can even be not existent (in one sample installation it can be for example \"In Progress\"). Maybe we can say something like \"it depends on how they have been configured in the JIRA workflow scheme, see JIRA related documentation [*]\n[*] https://confluence.atlassian.com/adminjiraserver071/working-with-workflows-802592661.html",
+      "parentUuid": "a325f944_13456c9f",
       "range": {
         "startLine": 164,
         "startChar": 13,
