@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "438c3d87_7066303b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-06-27T07:50:02Z",
+      "side": 1,
+      "message": "Accordign to https://gerrit.googlesource.com/plugins/its-base/+/refs/heads/master/src/main/java/com/googlesource/gerrit/plugins/its/base/workflow/RuleBase.java the file name is built in this way:\n\n// Add global rules\n    File globalRuleFile \u003d new File(sitePath.toFile(), ITS_CONFIG_FILE_START +\n        ITS_CONFIG_FILE_END);\n    addRulesFromFile(globalRuleFile);\n    // Add its-specific rules\n    File itsSpecificRuleFile \u003d new File(sitePath.toFile(), ITS_CONFIG_FILE_START + \"-\" +\n        pluginName + ITS_CONFIG_FILE_END);\n    addRulesFromFile(itsSpecificRuleFile);\n\nIt should then be /etc/its/actions.config OR /etc/its/actions-its-jira.config (plugin name is \u0027its-jira\u0027)",
+      "range": {
+        "startLine": 153,
+        "startChar": 57,
+        "endLine": 153,
+        "endChar": 69
+      },
+      "revId": "fa758ba069ed149cc146d3688296f9475909fca3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a325f944_73386030",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-06-27T07:50:02Z",
+      "side": 1,
+      "message": "[its-jira]",
+      "range": {
+        "startLine": 156,
+        "startChar": 25,
+        "endLine": 156,
+        "endChar": 30
+      },
+      "revId": "fa758ba069ed149cc146d3688296f9475909fca3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a325f944_13456c9f",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-06-27T07:50:02Z",
+      "side": 1,
+      "message": "config-rulebase.common.md does not describe what \"Start Progress\" is. The Jira-specific actions should be described in this documentation file.",
+      "range": {
+        "startLine": 164,
+        "startChar": 13,
+        "endLine": 164,
+        "endChar": 27
+      },
+      "revId": "fa758ba069ed149cc146d3688296f9475909fca3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
