@@ -140,6 +140,29 @@
       "revId": "fa758ba069ed149cc146d3688296f9475909fca3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02ecf8e_2bbbf987",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1011624
+      },
+      "writtenOn": "2016-06-28T13:09:00Z",
+      "side": 1,
+      "message": "patchset",
+      "range": {
+        "startLine": 179,
+        "startChar": 17,
+        "endLine": 179,
+        "endChar": 24
+      },
+      "revId": "fa758ba069ed149cc146d3688296f9475909fca3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
