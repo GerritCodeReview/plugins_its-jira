@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a02ecf8e_6b96a1bf",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-06-29T07:29:05Z",
+      "side": 1,
+      "message": "s/or/and\n\nsee the code below:\n\n// Add global rules\n    File globalRuleFile \u003d new File(sitePath.toFile(), ITS_CONFIG_FILE_START +\n        ITS_CONFIG_FILE_END);\n    addRulesFromFile(globalRuleFile);\n    // Add its-specific rules\n    File itsSpecificRuleFile \u003d new File(sitePath.toFile(), ITS_CONFIG_FILE_START + \"-\" +\n        pluginName + ITS_CONFIG_FILE_END);\n    addRulesFromFile(itsSpecificRuleFile);",
+      "range": {
+        "startLine": 154,
+        "startChar": 73,
+        "endLine": 154,
+        "endChar": 75
+      },
+      "revId": "210b3b1b5ea798f0d7815d120d96d45841527c41",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
