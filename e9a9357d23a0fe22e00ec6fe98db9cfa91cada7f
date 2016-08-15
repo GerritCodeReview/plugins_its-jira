@@ -49,6 +49,24 @@
     },
     {
       "key": {
+        "uuid": "3e2a0961_68db6317",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "2016-08-15T20:32:41Z",
+      "side": 1,
+      "message": "Not a bit deal. I\u0027ve already +1.  The way it\u0027s worded, it sounds like you need setup both files which isn\u0027t true.  However I can also see how it could mean that actions are defined by both files.",
+      "parentUuid": "fea23110_ce89e321",
+      "revId": "e9a9357d23a0fe22e00ec6fe98db9cfa91cada7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ec8559a_d3a6f4a4",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 4
