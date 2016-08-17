@@ -35,7 +35,6 @@ import org.eclipse.jgit.errors.ConfigInvalidException;
 /** Initialize the GitRepositoryManager configuration section. */
 @Singleton
 class InitJira extends InitIts {
-  private static final String COMMENT_LINK_SECTION = "commentLink";
   private final String pluginName;
   private final Section.Factory sections;
   private final InitFlags flags;
