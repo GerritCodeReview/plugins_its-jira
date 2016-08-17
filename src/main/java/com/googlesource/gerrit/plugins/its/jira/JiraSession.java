@@ -33,6 +33,7 @@ public class JiraSession {
     return token;
   }
 
+  @Override
   public String toString() {
     return "username="+username+", token="+token;
   }
