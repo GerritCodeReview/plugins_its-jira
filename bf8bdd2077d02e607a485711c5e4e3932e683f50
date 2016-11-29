@@ -88,6 +88,24 @@
       "revId": "bf8bdd2077d02e607a485711c5e4e3932e683f50",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70e76057_a613f2d2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-11-29T22:08:11Z",
+      "side": 1,
+      "message": "\u003e \u003e They are two different repos :-) I\u0027ve included both in the same topic name.\n\u003e \n\u003e Oh, right, i knew I missed something very obvious ;-)\n\u003e \n\u003e  \u003e How does it sound?\n\u003e \n\u003e You mean that commentlink.assosiation is not used by core gerrit at all? But why you havn\u0027t uploaded a change that is dropping this attribute as a part of this series?\n\nExactly: commentLink.association never existed in Gerrit, was an ITS-* specific thing ... even illegal in terms of the API contract.\n\nI should possibly separate the change in two:\n1) Dropping commentLink.association (deprecated) and move to plugin-its-jira.association\n2) Inheritance from project.config\n\nSound better?",
+      "parentUuid": "70e76057_66cbaa35",
+      "revId": "bf8bdd2077d02e607a485711c5e4e3932e683f50",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
