@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50ec1c3c_257cfa22",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-11-29T10:25:15Z",
+      "side": 1,
+      "message": "Now it\u0027s broken, as the retrieve config code is still using the old location:\n\n  return gerritConfig.getEnum(\"commentlink\", getCommentLinkName(),\n        \"association\", ItsAssociationPolicy.OPTIONAL);",
+      "revId": "bf8bdd2077d02e607a485711c5e4e3932e683f50",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
