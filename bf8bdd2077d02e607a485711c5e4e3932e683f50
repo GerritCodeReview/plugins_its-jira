@@ -52,6 +52,24 @@
       "revId": "bf8bdd2077d02e607a485711c5e4e3932e683f50",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70e76057_e6de9af9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-11-29T21:58:26Z",
+      "side": 1,
+      "message": "\u003e But then this change should be rebased on the top of that one.\n\nThey are two different repos :-) I\u0027ve included both in the same topic name.\n\n\u003e Just to check my understanding. With supported project inheritance in ITS-BASE configuration deetection, now user can provider contradictional configurations:\n\u003e \n\u003e * gerrit.config:\n\u003e   [commentlink \"its-jira\"]\n\u003e   match \u003d ([A-Z]+-[0-9]+)\n\u003e   html \u003d \u003ca href\u003d\\\"https://jira.intern/browse/$1\\\"\u003e$1\u003c/a\u003e\n\u003e   association \u003d OPTIONAL\n\u003e \n\u003e but in the project \"foo\" in project.config\n\u003e \n\u003e * project.config:\n\u003e   [commentlink \"its-jira\"]\n\u003e   match \u003d ([A-Z]+-[0-9]+)\n\u003e   link \u003d https://jira.intern/browse/$1\n\u003e   association \u003d MANDATORY\n\u003e \n\u003e and the plugin configuration in the same project config:\n\u003e \n\u003e   [plugin \"its-jira\"]\n\u003e   association \u003d SUGGESTED\n\u003e \n\u003e That would be very confusing. \n\nIt was confusing indeed: that why I decided to:\n\na) Deprecate the \"association\" attribute in the commentLink section. That section is dedicated to Gerrit and not to plugins. It was an \"illegal hijack\" and needed to be sanitised anyway.\n\nb) Move the association parameter to the [plugin \"its-jira\"] section.\n\nExample gerrit.config:\n\n[plugin \"its-jira\"]\n  association \u003d OPTIONAL\n\nExample project.config of project \"foo\":\n\n[plugin \"its-jira\"]\n  association \u003d MANDATORY\n\n--- * ---\n\ncommentLink isn\u0027t different as it is governed by Gerrit and not by the ITS-* plugins.\n\nHow does it sound?",
+      "parentUuid": "50ec1c3c_059296e6",
+      "revId": "bf8bdd2077d02e607a485711c5e4e3932e683f50",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
