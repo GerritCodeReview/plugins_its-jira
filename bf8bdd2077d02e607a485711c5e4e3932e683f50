@@ -34,6 +34,24 @@
       "revId": "bf8bdd2077d02e607a485711c5e4e3932e683f50",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50ec1c3c_059296e6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-11-29T21:42:31Z",
+      "side": 1,
+      "message": "But then this change should be rebased on the top of that one.\n\nJust to check my understanding. With supported project inheritance in ITS-BASE configuration deetection, now user can provider contradictional configurations:\n\n* gerrit.config:\n  [commentlink \"its-jira\"]\n  match \u003d ([A-Z]+-[0-9]+)\n  html \u003d \u003ca href\u003d\\\"https://jira.intern/browse/$1\\\"\u003e$1\u003c/a\u003e\n  association \u003d OPTIONAL\n\nbut in the project \"foo\" in project.config\n\n* project.config:\n  [commentlink \"its-jira\"]\n  match \u003d ([A-Z]+-[0-9]+)\n  link \u003d https://jira.intern/browse/$1\n  association \u003d MANDATORY\n\nand the plugin configuration in the same project config:\n\n  [plugin \"its-jira\"]\n  association \u003d SUGGESTED\n\nThat would be very confusing. On the gerrit level, for project foo association is MANDATORY but on the its-jira plugin level it\u0027s SUGGESTED. I think the reason you are trying to move assosiation from commentlink to the plugin section is to not need to re-define commentlink.{match,link} attributes?",
+      "parentUuid": "50ec1c3c_c591ce35",
+      "revId": "bf8bdd2077d02e607a485711c5e4e3932e683f50",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
