@@ -106,6 +106,24 @@
       "revId": "bf8bdd2077d02e607a485711c5e4e3932e683f50",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70e76057_0619fef2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-11-29T22:13:36Z",
+      "side": 1,
+      "message": "Oh yes, it was definitely wrong thing to hijack core owned section and poisen it with some plugin speciufic stuff.\n\nSo yes, please split them in two independent work items:\n\n* Revert poisoning of commentlink section with association, that can be submited.\n* Support project inheritance for its-jira plugin configurations",
+      "parentUuid": "70e76057_a613f2d2",
+      "revId": "bf8bdd2077d02e607a485711c5e4e3932e683f50",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
