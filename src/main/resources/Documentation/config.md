@@ -77,7 +77,7 @@ OPTIONAL
 Example:
 
     [commentLink "its-jira"]
-    match = (\\[[A-Z][A-Z]+-[1-9][0-9]*\\])
+    match = ([A-Z]+-[0-9]+)
     html = "<a href=\"http://jira.example.com/browse/$1\">$1</a>"
     association = SUGGESTED
 
