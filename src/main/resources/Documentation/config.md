@@ -81,6 +81,56 @@ Example:
     html = "<a href=\"http://jira.example.com/browse/$1\">$1</a>"
     association = SUGGESTED
 
+Footer links
+----------------
+
+The following will need to be added to etc/gerrit.config
+
+    [trackingid "jira"]
+        footer = Issue:
+        match = "\\d+"
+        system = Jira
+
+its-base configuation
+---------------------
+
+You will need to add these three following files
+
+This file needs adding to etc/its/actions.config
+
+    [rule "standardItsComments"]
+            event-type = change-merged,change-abandoned,change-restored
+            status = !,DRAFT
+            is-draft = !,true
+            association = subject,footer-Issue,footer-issue
+            action = add-standard-comment
+
+    [rule "patchSetCreated"]
+            event-type = patchset-created
+            status = !,DRAFT
+            is-draft = !,true
+            association = added@subject,added@footer-Issue,added@footer-issue
+            action = add-velocity-comment PatchSetCreated
+
+    [rule "changeDraftPublished"]
+            event-type = draft-published
+            association = added@subject,added@footer-Issue,added@footer-issue
+            action = add-velocity-comment DraftPublished
+
+This one needs adding to etc/its/templates/DraftPublished.vm
+
+    Change $change-number had a related patch set (by $author-name) published:
+    $subject
+
+    ${its.formatLink($change-url)}
+
+This one needs adding to etc/its/templates/PatchSetCreated.vm
+
+    Change $change-number had a related patch set uploaded (by $uploader-name):
+    $subject
+
+    ${its.formatLink($change-url)}
+
 Jira connectivity
 -----------------
 
