@@ -1,16 +1,24 @@
 Build
 =====
 
-This @PLUGIN@ plugin is built with Buck.
+This @PLUGIN@ plugin is built with Bazel.
 
 Clone (or link) both this plugin and also
 [plugins/its-base](https://gerrit-review.googlesource.com/#/admin/projects/plugins/its-base)
 to the `plugins` directory of Gerrit's source tree.
 
+Put the external dependency Bazel build file into the Gerrit /plugins directory, replacing the existing empty one.
+
+```
+  cd gerrit/plugins
+  rm external_plugin_deps.bzl
+  ln -s @PLUGIN@/external_plugin_deps.bzl .
+```
+
 Then issue
 
 ```
-  buck build plugins/@PLUGIN@
+  bazel build plugins/@PLUGIN@
 ```
 
 in the root of Gerrit's source tree to build
@@ -18,10 +26,12 @@ in the root of Gerrit's source tree to build
 The output is created in
 
 ```
-  buck-out/gen/plugins/@PLUGIN@/@PLUGIN@.jar
+  bazel-genfiles/plugins/@PLUGIN@/@PLUGIN@.jar
 ```
 
-This project can be imported into the Eclipse IDE:
+This project can be imported into the Eclipse IDE.
+Add the plugin name to the `CUSTOM_PLUGINS` set in
+Gerrit core in `tools/bzl/plugins.bzl`, and execute:
 
 ```
   ./tools/eclipse/project.py
@@ -30,7 +40,7 @@ This project can be imported into the Eclipse IDE:
 To execute the tests run:
 
 ```
-  buck test --all --include @PLUGIN@
+  bazel test plugins/@PLUGIN@
 ```
 
 [Back to @PLUGIN@ documentation index][index]
