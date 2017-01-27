@@ -77,9 +77,30 @@ OPTIONAL
 Example:
 
     [commentLink "its-jira"]
-    match = (\\[[A-Z][A-Z]+-[1-9][0-9]*\\])
+    match = ([A-Z]+-[0-9]+)
     html = "<a href=\"http://jira.example.com/browse/$1\">$1</a>"
     association = SUGGESTED
+
+Footer links (Optional)
+----------------
+
+This is optional, but if you choose you want to do this
+then please add the following in etc/gerrit.config.
+
+Also see
+https://gerrit-review.googlesource.com/Documentation/config-gerrit.html#trackingid
+
+    [trackingid "jira"]
+        footer = Issue:
+        match = "\\d+"
+        system = Jira
+
+its-base configuation (Optional)
+---------------------
+
+You will need to follow
+https://gerrit.googlesource.com/plugins/its-base/+/master/src/main/resources/Documentation/config-rulebase-common.md
+to use its-base configuation.
 
 Jira connectivity
 -----------------
