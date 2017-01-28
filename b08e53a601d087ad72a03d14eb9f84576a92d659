@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "537a1368_297ce804",
+        "filename": "BUILD",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 27, 2017 11:53:39 PM",
+      "side": 1,
+      "message": "You missed all exported deps in dependency definiotion, so now your plugin built with Bazel has 10% of transitive dependencies, that the one built with Buck.\n\nI see that you wrote a question on developer mailing list asking to add exported_deps to maven_jar() Skylark rule in Bazel. But still you could add a WIP/TODO here in the commit message about missing dependencies or whatever. I also conused about your VRFY+1 in the current state of this implementation with missing 90% deps. Have you tested the plugin in the gerrit server against JIRA instance and it worked?\n\nmaven_jar(\n  name \u003d \u0027jira-rest-java-client-core\u0027,\n  id \u003d \u0027com.atlassian.jira:jira-rest-java-client-core:3.0.0\u0027,\n  sha1 \u003d \u00276dd9fcb1b6cbf2e266270bd3ab10a10f8c8a5464\u0027,\n  deps \u003d [\n    \u0027:atlassian-httpclient-apache-httpcomponents\u0027,\n    \u0027:atlassian-util-concurrent\u0027,\n    \u0027:guava\u0027,\n    \u0027:httpmime\u0027,\n    \u0027:jersey-client\u0027,\n    \u0027:jersey-json\u0027,\n    \u0027:jira-rest-java-client-api\u0027,\n    \u0027:joda-time\u0027\n  ],\n  license \u003d \u0027Apache2.0\u0027,\n  repository \u003d ATLASSIAN_REPO\n)\nmaven_jar(\n  name \u003d \u0027atlassian-httpclient-apache-httpcomponents\u0027,\n  id \u003d \u0027com.atlassian.httpclient:atlassian-httpclient-apache-httpcomponents:0.13.2\u0027,\n  deps \u003d [\n    \u0027:atlassian-event\u0027,\n    \u0027:atlassian-httpclient-api\u0027,\n    \u0027:httpasyncclient\u0027,\n    \u0027:httpasyncclient-cache\u0027,\n    \u0027:httpclient-cache\u0027,\n    \u0027:httpcore\u0027,\n    \u0027:httpcore-nio\u0027,\n    \u0027:sal-api\u0027,\n    \u0027:slf4j-api\u0027,\n    \u0027:spring-context\u0027\n  ],\n  repository \u003d ATLASSIAN_REPO,\n  license \u003d \u0027Apache2.0\u0027\n)",
+      "revId": "b08e53a601d087ad72a03d14eb9f84576a92d659",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fb3262c_76fd1100",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 27, 2017 11:53:39 PM",
+      "side": 1,
+      "message": "In Buck build it was consumed from different Maven repository:\n\n  ATLASSIAN_REPO \u003d \u0027https://maven.atlassian.com/repository/public/\u0027",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 3
+      },
+      "revId": "b08e53a601d087ad72a03d14eb9f84576a92d659",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
