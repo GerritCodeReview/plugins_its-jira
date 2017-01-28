@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "215289cd_b3e78353",
+        "filename": "BUILD",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Jan 28, 2017 5:02:23 AM",
+      "side": 1,
+      "message": "Oh, i\u0027ve only tested it by building it. I doint have any jira setup.\nAlso i can\u0027t do deps and exported_deps as it is doint supported in bazel version of maven_jar. It was supported in buck\u0027s.",
+      "revId": "b08e53a601d087ad72a03d14eb9f84576a92d659",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0fb3262c_76fd1100",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 8
