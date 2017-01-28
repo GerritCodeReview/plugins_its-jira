@@ -56,6 +56,29 @@
       "revId": "b08e53a601d087ad72a03d14eb9f84576a92d659",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fff7d494_52e8c2cf",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Jan 28, 2017 8:50:51 AM",
+      "side": 1,
+      "message": "yep, it\u0027s using that url.",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 3
+      },
+      "revId": "b08e53a601d087ad72a03d14eb9f84576a92d659",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
