@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33d2129e_a8c0104f",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 17
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 29, 2017 11:40:15 AM",
+      "side": 1,
+      "message": "Actually i looks like all Atlassian\u0027s artifact also published on Maven Central, right? In which case, it could be removed. In any event, define a constant in the top of this file to reuse it, if you decide to consume them from Atlassian own Maven repository.",
+      "range": {
+        "startLine": 76,
+        "startChar": 17,
+        "endLine": 76,
+        "endChar": 65
+      },
+      "revId": "53ee2f35811339b0cf06805afe4dea62d0199935",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
