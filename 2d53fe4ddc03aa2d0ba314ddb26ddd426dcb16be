@@ -91,6 +91,29 @@
       "revId": "2d53fe4ddc03aa2d0ba314ddb26ddd426dcb16be",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a954da1_173653ce",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 15
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Jan 29, 2017 11:14:04 AM",
+      "side": 1,
+      "message": "Oh, nope, dosent look like it\u0027s supported.",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 20
+      },
+      "revId": "2d53fe4ddc03aa2d0ba314ddb26ddd426dcb16be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
