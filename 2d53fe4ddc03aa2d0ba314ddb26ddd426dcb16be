@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "938144d8_c979ceb7",
+        "filename": "BUILD",
+        "patchSetId": 15
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 29, 2017 10:52:33 AM",
+      "side": 1,
+      "message": "Can fit on the same line.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 1
+      },
+      "revId": "2d53fe4ddc03aa2d0ba314ddb26ddd426dcb16be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ebdb9d1_dcb5d11c",
+        "filename": "BUILD",
+        "patchSetId": 15
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 29, 2017 10:52:33 AM",
+      "side": 1,
+      "message": "This is defined in the gerrit_plugin() rule. Remove.",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 49
+      },
+      "revId": "2d53fe4ddc03aa2d0ba314ddb26ddd426dcb16be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd2662e4_d8ca6cbd",
+        "filename": "BUILD",
+        "patchSetId": 15
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 29, 2017 10:52:33 AM",
+      "side": 1,
+      "message": "Should be sorted.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 58
+      },
+      "revId": "2d53fe4ddc03aa2d0ba314ddb26ddd426dcb16be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "770e02bc_1078889a",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 15
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 29, 2017 10:52:33 AM",
+      "side": 1,
+      "message": "Is it supported at all?",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 20
+      },
+      "revId": "2d53fe4ddc03aa2d0ba314ddb26ddd426dcb16be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
