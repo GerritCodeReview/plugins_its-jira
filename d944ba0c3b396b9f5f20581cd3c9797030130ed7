@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c0c370a_a860b31b",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 18
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 31, 2017 12:51:17 PM",
+      "side": 1,
+      "message": "ATLASSIAN_REPO, here and below. Also missing comma at the end of the line (on every line).",
+      "range": {
+        "startLine": 40,
+        "startChar": 17,
+        "endLine": 40,
+        "endChar": 65
+      },
+      "revId": "d944ba0c3b396b9f5f20581cd3c9797030130ed7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dafac1c1_abe669af",
+        "filename": "lib/BUILD",
+        "patchSetId": 18
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 31, 2017 12:51:17 PM",
+      "side": 1,
+      "message": "This is the default. Remove.",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 18
+      },
+      "revId": "d944ba0c3b396b9f5f20581cd3c9797030130ed7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80ec9bb4_10474a1a",
+        "filename": "lib/axis/BUILD",
+        "patchSetId": 18
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 31, 2017 12:51:17 PM",
+      "side": 1,
+      "message": "This is default. Remove here and in all other places.",
+      "revId": "d944ba0c3b396b9f5f20581cd3c9797030130ed7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11581683_541d508c",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 18
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 31, 2017 12:51:17 PM",
+      "side": 1,
+      "message": "Nit: long line.",
+      "revId": "d944ba0c3b396b9f5f20581cd3c9797030130ed7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
