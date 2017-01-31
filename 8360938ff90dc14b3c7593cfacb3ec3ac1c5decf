@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2970237d_7df69980",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 19
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 31, 2017 2:26:27 PM",
+      "side": 1,
+      "message": "How this supposed to work? No classpath collisions? Gerrit core is using Guava 20.",
+      "range": {
+        "startLine": 175,
+        "startChar": 39,
+        "endLine": 175,
+        "endChar": 45
+      },
+      "revId": "8360938ff90dc14b3c7593cfacb3ec3ac1c5decf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8814e4b8_04ecdad2",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 19
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 31, 2017 2:26:27 PM",
+      "side": 1,
+      "message": "This is not supported?",
+      "range": {
+        "startLine": 283,
+        "startChar": 4,
+        "endLine": 283,
+        "endChar": 20
+      },
+      "revId": "8360938ff90dc14b3c7593cfacb3ec3ac1c5decf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60e9f0f6_f09ff79c",
+        "filename": "lib/BUILD",
+        "patchSetId": 19
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 31, 2017 2:26:27 PM",
+      "side": 1,
+      "message": "We certainly have guava in gerrit core, also many other dependencies are duplicated. I know, this change just migrating broken Buck build, so I\u0027m not sure if this must be fixed in this change.",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 1
+      },
+      "revId": "8360938ff90dc14b3c7593cfacb3ec3ac1c5decf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
