@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "1e368dff_852f6329",
+        "filename": "lib/BUILD",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 31, 2017 12:51:52 PM",
+      "side": 1,
+      "message": "Inconsistent indentation. Run all files through buildifier utility.",
+      "revId": "d944ba0c3b396b9f5f20581cd3c9797030130ed7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dafac1c1_abe669af",
         "filename": "lib/BUILD",
         "patchSetId": 18
