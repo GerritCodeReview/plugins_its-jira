@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d45866dd_7f301c44",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 19
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Jan 31, 2017 2:32:48 PM",
+      "side": 1,
+      "message": "Not sure i think that this plugin was broken recently due to changes in the core because of packages updates.\n\nSee https://groups.google.com/forum/#!msg/repo-discuss/A9eT0bjWjmA/hs5cvZTzAAAJ;context-place\u003dforum/repo-discuss please.",
+      "parentUuid": "2970237d_7df69980",
+      "range": {
+        "startLine": 175,
+        "startChar": 39,
+        "endLine": 175,
+        "endChar": 45
+      },
+      "revId": "8360938ff90dc14b3c7593cfacb3ec3ac1c5decf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8814e4b8_04ecdad2",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 19
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "28a5c704_c57a006c",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 19
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Jan 31, 2017 2:32:48 PM",
+      "side": 1,
+      "message": "Woops, sorry, thanks, done.",
+      "parentUuid": "8814e4b8_04ecdad2",
+      "range": {
+        "startLine": 283,
+        "startChar": 4,
+        "endLine": 283,
+        "endChar": 20
+      },
+      "revId": "8360938ff90dc14b3c7593cfacb3ec3ac1c5decf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60e9f0f6_f09ff79c",
         "filename": "lib/BUILD",
         "patchSetId": 19
@@ -59,6 +107,30 @@
       "writtenOn": "Jan 31, 2017 2:26:27 PM",
       "side": 1,
       "message": "We certainly have guava in gerrit core, also many other dependencies are duplicated. I know, this change just migrating broken Buck build, so I\u0027m not sure if this must be fixed in this change.",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 1
+      },
+      "revId": "8360938ff90dc14b3c7593cfacb3ec3ac1c5decf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c6280f9_37649b9a",
+        "filename": "lib/BUILD",
+        "patchSetId": 19
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Jan 31, 2017 2:32:48 PM",
+      "side": 1,
+      "message": "See https://groups.google.com/forum/#!msg/repo-discuss/A9eT0bjWjmA/hs5cvZTzAAAJ;context-place\u003dforum/repo-discuss\n\nI could remove this dep or update it but im not sure if this plugin needs a big update to fix the issues described in the link above.",
+      "parentUuid": "60e9f0f6_f09ff79c",
       "range": {
         "startLine": 172,
         "startChar": 0,
