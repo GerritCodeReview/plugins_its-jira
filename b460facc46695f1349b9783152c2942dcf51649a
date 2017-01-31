@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9945ba14_a13d37c5",
+        "filename": "lib/BUILD",
+        "patchSetId": 20
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Jan 31, 2017 2:47:13 PM",
+      "side": 1,
+      "message": "Should i rename this from httpasyncclient to atlassian-httpasyncclient ?\n\nIm hoping this will fix https://groups.google.com/forum/#!msg/repo-discuss/A9eT0bjWjmA/hs5cvZTzAAAJ;context-place\u003dforum/repo-discuss\n\nBut i need someone\u0027s opinion first on if that will work, or just break it more. Will gerrit\u0027s version conflict?\n\nIs there a way we can use a plugin\u0027s version over core\u0027s?",
+      "range": {
+        "startLine": 89,
+        "startChar": 12,
+        "endLine": 89,
+        "endChar": 27
+      },
+      "revId": "b460facc46695f1349b9783152c2942dcf51649a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
