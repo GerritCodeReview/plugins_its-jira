@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "300636d2_b6d50b19",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 18
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Jan 31, 2017 1:56:06 PM",
+      "side": 1,
+      "message": "Thanks, done. Woops sorry for missing these two.",
+      "parentUuid": "6c0c370a_a860b31b",
+      "range": {
+        "startLine": 40,
+        "startChar": 17,
+        "endLine": 40,
+        "endChar": 65
+      },
+      "revId": "d944ba0c3b396b9f5f20581cd3c9797030130ed7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e368dff_852f6329",
         "filename": "lib/BUILD",
         "patchSetId": 18
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "1e53e6d1_30128631",
+        "filename": "lib/BUILD",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Jan 31, 2017 1:56:06 PM",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "1e368dff_852f6329",
+      "revId": "d944ba0c3b396b9f5f20581cd3c9797030130ed7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dafac1c1_abe669af",
         "filename": "lib/BUILD",
         "patchSetId": 18
@@ -53,6 +95,30 @@
       "writtenOn": "Jan 31, 2017 12:51:17 PM",
       "side": 1,
       "message": "This is the default. Remove.",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 18
+      },
+      "revId": "d944ba0c3b396b9f5f20581cd3c9797030130ed7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631d2d95_1bfafe9a",
+        "filename": "lib/BUILD",
+        "patchSetId": 18
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Jan 31, 2017 1:56:06 PM",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "dafac1c1_abe669af",
       "range": {
         "startLine": 13,
         "startChar": 2,
@@ -93,6 +159,24 @@
       "writtenOn": "Jan 31, 2017 12:51:17 PM",
       "side": 1,
       "message": "Nit: long line.",
+      "revId": "d944ba0c3b396b9f5f20581cd3c9797030130ed7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8328fe37_04d4aa15",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 18
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "Jan 31, 2017 1:56:06 PM",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "11581683_541d508c",
       "revId": "d944ba0c3b396b9f5f20581cd3c9797030130ed7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
