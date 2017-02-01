@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "dc87d517_9639a24d",
+        "filename": "lib/BUILD",
+        "patchSetId": 20
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "Feb 1, 2017 12:28:33 AM",
+      "side": 1,
+      "message": "Do we still need all that XML stuff? We\u0027re using now the REST API.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 1
+      },
+      "revId": "b460facc46695f1349b9783152c2942dcf51649a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9945ba14_a13d37c5",
         "filename": "lib/BUILD",
         "patchSetId": 20
@@ -19,6 +42,47 @@
         "endLine": 89,
         "endChar": 27
       },
+      "revId": "b460facc46695f1349b9783152c2942dcf51649a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b4dc9b3_01300601",
+        "filename": "lib/BUILD",
+        "patchSetId": 20
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "Feb 1, 2017 12:28:33 AM",
+      "side": 1,
+      "message": "Nope, the only way would be JAR shading with package relocation.",
+      "parentUuid": "9945ba14_a13d37c5",
+      "range": {
+        "startLine": 89,
+        "startChar": 12,
+        "endLine": 89,
+        "endChar": 27
+      },
+      "revId": "b460facc46695f1349b9783152c2942dcf51649a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f22ae306_66c78927",
+        "filename": "lib/axis/BUILD",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "Feb 1, 2017 12:28:33 AM",
+      "side": 1,
+      "message": "We shouldn\u0027t need Axis at all.",
       "revId": "b460facc46695f1349b9783152c2942dcf51649a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
