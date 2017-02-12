@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9ed244bf_8fa8012b",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 25
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-12T18:07:19Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "a03fffe3_a20e51fd",
+      "range": {
+        "startLine": 91,
+        "startChar": 12,
+        "endLine": 91,
+        "endChar": 23
+      },
+      "revId": "c8142d3dfdc8f45659c5b051ed5e69ded9d01216",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f74f9ca6_b99ce5e1",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 25
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-12T16:37:41Z",
       "side": 1,
       "message": "Exists in ore:\n\n  \"commons-codec:commons-codec:1.4\"",
+      "range": {
+        "startLine": 120,
+        "startChar": 16,
+        "endLine": 120,
+        "endChar": 47
+      },
+      "revId": "c8142d3dfdc8f45659c5b051ed5e69ded9d01216",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "061dce01_305e8486",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 25
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-12T18:07:19Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "f74f9ca6_b99ce5e1",
       "range": {
         "startLine": 120,
         "startChar": 16,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8e369c50_9dfc8a69",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 25
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-12T18:07:19Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "71c14cc1_9bd5a30f",
+      "range": {
+        "startLine": 131,
+        "startChar": 2,
+        "endLine": 135,
+        "endChar": 3
+      },
+      "revId": "c8142d3dfdc8f45659c5b051ed5e69ded9d01216",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "915b147a_8dfe55b6",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 25
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-12T16:37:41Z",
       "side": 1,
       "message": "Exists on core:\n\n  \"joda-time:joda-time:2.9.4\"",
+      "range": {
+        "startLine": 168,
+        "startChar": 16,
+        "endLine": 168,
+        "endChar": 39
+      },
+      "revId": "c8142d3dfdc8f45659c5b051ed5e69ded9d01216",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e207c1b_628876ed",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 25
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-12T18:07:19Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "915b147a_8dfe55b6",
       "range": {
         "startLine": 168,
         "startChar": 16,
@@ -111,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "fc2ddd67_ff807e6a",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 25
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-12T18:07:19Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "c456c2cc_7e7bbe17",
+      "revId": "c8142d3dfdc8f45659c5b051ed5e69ded9d01216",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2078aa9_71931da3",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 25
@@ -122,6 +236,30 @@
       "writtenOn": "2017-02-12T16:37:41Z",
       "side": 1,
       "message": "Same here.",
+      "range": {
+        "startLine": 186,
+        "startChar": 12,
+        "endLine": 186,
+        "endChar": 18
+      },
+      "revId": "c8142d3dfdc8f45659c5b051ed5e69ded9d01216",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "944bf3dc_51f15a44",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 25
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-12T18:07:19Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "f2078aa9_71931da3",
       "range": {
         "startLine": 186,
         "startChar": 12,
