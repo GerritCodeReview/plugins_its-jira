@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a03fffe3_a20e51fd",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 25
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-12T16:37:41Z",
+      "side": 1,
+      "message": "Exists in core.",
+      "range": {
+        "startLine": 91,
+        "startChar": 12,
+        "endLine": 91,
+        "endChar": 23
+      },
+      "revId": "c8142d3dfdc8f45659c5b051ed5e69ded9d01216",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f74f9ca6_b99ce5e1",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 25
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-12T16:37:41Z",
+      "side": 1,
+      "message": "Exists in ore:\n\n  \"commons-codec:commons-codec:1.4\"",
+      "range": {
+        "startLine": 120,
+        "startChar": 16,
+        "endLine": 120,
+        "endChar": 47
+      },
+      "revId": "c8142d3dfdc8f45659c5b051ed5e69ded9d01216",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71c14cc1_9bd5a30f",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 25
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-12T16:37:41Z",
+      "side": 1,
+      "message": "Exists in core:\n\n  org.slf4j:slf4j-api:1.7.7",
+      "range": {
+        "startLine": 131,
+        "startChar": 2,
+        "endLine": 135,
+        "endChar": 3
+      },
+      "revId": "c8142d3dfdc8f45659c5b051ed5e69ded9d01216",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "915b147a_8dfe55b6",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 25
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-12T16:37:41Z",
+      "side": 1,
+      "message": "Exists on core:\n\n  \"joda-time:joda-time:2.9.4\"",
+      "range": {
+        "startLine": 168,
+        "startChar": 16,
+        "endLine": 168,
+        "endChar": 39
+      },
+      "revId": "c8142d3dfdc8f45659c5b051ed5e69ded9d01216",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c456c2cc_7e7bbe17",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 25
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-12T16:37:41Z",
+      "side": 1,
+      "message": "Exists in core.",
+      "revId": "c8142d3dfdc8f45659c5b051ed5e69ded9d01216",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2078aa9_71931da3",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 25
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-12T16:37:41Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 186,
+        "startChar": 12,
+        "endLine": 186,
+        "endChar": 18
+      },
+      "revId": "c8142d3dfdc8f45659c5b051ed5e69ded9d01216",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
