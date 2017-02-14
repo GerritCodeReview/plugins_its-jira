@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eea27f8d_ff63b356",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 27
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "2017-02-14T23:16:08Z",
+      "side": 1,
+      "message": "wondering if someone can request atlassian to create a release of these so we can avoid this mess.",
+      "revId": "e3e184c4ed64c7f9d186964af99335d1a8f70842",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
