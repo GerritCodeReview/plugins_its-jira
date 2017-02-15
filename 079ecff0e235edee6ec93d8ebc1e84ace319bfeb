@@ -16,6 +16,24 @@
       "revId": "079ecff0e235edee6ec93d8ebc1e84ace319bfeb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77d63271_72b13fd9",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 28
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-15T11:53:07Z",
+      "side": 1,
+      "message": "Not sure, i though i would try to keep all the deps as possible like we do in the BUCK version, then we can remove this in another patch if this is not needed.",
+      "parentUuid": "6b501ee2_5c736169",
+      "revId": "079ecff0e235edee6ec93d8ebc1e84ace319bfeb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
