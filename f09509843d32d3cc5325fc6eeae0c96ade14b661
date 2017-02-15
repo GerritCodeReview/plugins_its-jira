@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50b01f60_7501ef69",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 29
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-15T20:48:08Z",
+      "side": 1,
+      "message": "Is this really needed?",
+      "range": {
+        "startLine": 45,
+        "startChar": 6,
+        "endLine": 45,
+        "endChar": 30
+      },
+      "revId": "f09509843d32d3cc5325fc6eeae0c96ade14b661",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be248f6c_ecb1e792",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 29
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-15T20:48:08Z",
+      "side": 1,
+      "message": "This is include in gerrit core. See yoursel:\n\n  $ bazel build headless\n  $ unzip -t bazel-bin/headless.war | grep joda\n  testing: WEB-INF/lib/joda-time-2.9.4.jar   OK\n  testing: WEB-INF/lib/joda-convert-1.8.1.jar   OK",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 23
+      },
+      "revId": "f09509843d32d3cc5325fc6eeae0c96ade14b661",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37e50d17_61d257ca",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 29
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-15T20:48:08Z",
+      "side": 1,
+      "message": "What\u0027s that?",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 29
+      },
+      "revId": "f09509843d32d3cc5325fc6eeae0c96ade14b661",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "accf79ba_d3771ba7",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 29
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-15T20:48:08Z",
+      "side": 1,
+      "message": "And that?",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 29
+      },
+      "revId": "f09509843d32d3cc5325fc6eeae0c96ade14b661",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
