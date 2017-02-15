@@ -70,6 +70,24 @@
       "revId": "079ecff0e235edee6ec93d8ebc1e84ace319bfeb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b450ee05_4ce7cc91",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 28
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-15T14:37:47Z",
+      "side": 1,
+      "message": "Oh, so i should remove it?",
+      "parentUuid": "4f24426a_d3f44c68",
+      "revId": "079ecff0e235edee6ec93d8ebc1e84ace319bfeb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
