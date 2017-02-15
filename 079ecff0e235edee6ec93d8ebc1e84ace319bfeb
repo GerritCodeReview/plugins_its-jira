@@ -88,6 +88,24 @@
       "revId": "079ecff0e235edee6ec93d8ebc1e84ace319bfeb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a874bac_8ea320ef",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 28
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-02-15T21:44:44Z",
+      "side": 1,
+      "message": "Yes, please :-) They have been loitering for months, this is the right time to get rid of them and put a thumb stone with the writing \"SOAP is Dead\" *please*",
+      "parentUuid": "b450ee05_4ce7cc91",
+      "revId": "079ecff0e235edee6ec93d8ebc1e84ace319bfeb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
