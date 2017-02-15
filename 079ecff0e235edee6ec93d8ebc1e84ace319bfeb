@@ -106,6 +106,24 @@
       "revId": "079ecff0e235edee6ec93d8ebc1e84ace319bfeb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e8a140e_5183613b",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 28
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-15T21:59:29Z",
+      "side": 1,
+      "message": "Ok, thanks done. :) :). I\u0027ve also tested and nothing breaks. :)",
+      "parentUuid": "2a874bac_8ea320ef",
+      "revId": "079ecff0e235edee6ec93d8ebc1e84ace319bfeb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
