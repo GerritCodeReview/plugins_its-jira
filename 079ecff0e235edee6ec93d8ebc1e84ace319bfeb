@@ -52,6 +52,24 @@
       "revId": "079ecff0e235edee6ec93d8ebc1e84ace319bfeb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f24426a_d3f44c68",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 28
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-02-15T14:34:15Z",
+      "side": 1,
+      "message": "Exactly, and we don\u0027t use anymore the SOAP API and aren\u0027t supported either by Jira itself.",
+      "parentUuid": "a4903814_b739b922",
+      "revId": "079ecff0e235edee6ec93d8ebc1e84ace319bfeb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
