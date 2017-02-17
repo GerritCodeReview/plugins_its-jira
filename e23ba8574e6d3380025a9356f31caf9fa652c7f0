@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8edd5f8d_7cca9da5",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "2017-02-17T20:12:28Z",
+      "side": 1,
+      "message": "This is a bad regex.  A change[1] was merged to fix it.\n\n[1] https://gerrit-review.googlesource.com/#/c/93328/",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95faa9e3_b8de81f0",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "2017-02-17T20:12:28Z",
+      "side": 1,
+      "message": "I don\u0027t think this is a requirement.  Maybe you want to let users know that this is optional?  Also this is a gerrit core feature so might be better to link to core docs?\n\n[1] https://gerrit-review.googlesource.com/Documentation/config-gerrit.html#trackingid",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bc8fb3c_ba0ca170",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "2017-02-17T20:12:28Z",
+      "side": 1,
+      "message": "You make these sound like it\u0027s a requirement but really it\u0027s all optional.  If you want to keep it then maybe make users aware that its optional?",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f58b7988_97df0718",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "2017-02-17T20:12:28Z",
+      "side": 1,
+      "message": "I believe this is already in the its-base docs[1] and this is an its-base specific feature.  Would it make more sense to provide a link to its-base docs instead?  otherwise my concern is that this will very likely not be updated when its-base is changed.\n\n[1] https://gerrit.googlesource.com/plugins/its-base/+/master/src/main/resources/Documentation/config-rulebase-common.md",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8febf8cc_235dde84",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "2017-02-17T20:12:28Z",
+      "side": 1,
+      "message": "these template configurations are optional as well.",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
