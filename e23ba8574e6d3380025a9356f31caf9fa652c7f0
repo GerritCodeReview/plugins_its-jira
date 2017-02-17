@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6345b351_d8c661ab",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-17T20:19:34Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "8edd5f8d_7cca9da5",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95faa9e3_b8de81f0",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 33
@@ -30,6 +48,24 @@
       "writtenOn": "2017-02-17T20:12:28Z",
       "side": 1,
       "message": "I don\u0027t think this is a requirement.  Maybe you want to let users know that this is optional?  Also this is a gerrit core feature so might be better to link to core docs?\n\n[1] https://gerrit-review.googlesource.com/Documentation/config-gerrit.html#trackingid",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2200b860_26126561",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-17T20:19:34Z",
+      "side": 1,
+      "message": "This is required for it to work. I coulden\u0027t get jira to post to my test jira install without this.",
+      "parentUuid": "95faa9e3_b8de81f0",
       "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "03139b99_f8306837",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-17T20:19:34Z",
+      "side": 1,
+      "message": "There is alot of spam in the logs if a user dosent set this.\n\nAlso you have to set this for the plugin to correctly post correctly to issues on a jira install.\n\nBut it\u0027s optional as far as the plugin wont fail to work if you doint set these.",
+      "parentUuid": "7bc8fb3c_ba0ca170",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f58b7988_97df0718",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 33
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "9aca4574_0c04065a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-17T20:19:34Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "f58b7988_97df0718",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8febf8cc_235dde84",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 33
@@ -81,6 +153,24 @@
       "writtenOn": "2017-02-17T20:12:28Z",
       "side": 1,
       "message": "these template configurations are optional as well.",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "758c698c_8e0bf697",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-17T20:19:34Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "8febf8cc_235dde84",
       "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
