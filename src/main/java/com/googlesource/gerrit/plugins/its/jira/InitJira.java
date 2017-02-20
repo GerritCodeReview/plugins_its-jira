@@ -104,7 +104,10 @@ class InitJira extends InitIts {
     jiraComment.string("Jira issue-Id regex", "match", "([A-Z]+-[0-9]+)");
     jiraComment.set("html",
         String.format("<a href=\"%s/browse/$1\">$1</a>", jiraUrl));
-    jiraComment.select("Issue-id enforced in commit message", "association",
+
+    Section pluginConfig = sections.get("plugin", pluginName);
+
+    pluginConfig.select("Issue-id enforced in commit message", "association",
         ItsAssociationPolicy.SUGGESTED);
   }
 
