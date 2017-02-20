@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "f857a7bf_471effeb",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-02-20T08:05:15Z",
+      "side": 1,
+      "message": "All those changes have nothing to do with a Bazel build, isn\u0027t it?",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8edd5f8d_7cca9da5",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 33
@@ -72,6 +89,47 @@
     },
     {
       "key": {
+        "uuid": "7160da1c_1a155f5d",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-02-20T08:05:15Z",
+      "side": 1,
+      "message": "This *ISN\u0027T* required and has nothing to do with the Jira plugin.",
+      "parentUuid": "2200b860_26126561",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58314071_0e020395",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-02-20T08:05:15Z",
+      "side": 1,
+      "message": "configuration",
+      "range": {
+        "startLine": 94,
+        "startChar": 9,
+        "endLine": 94,
+        "endChar": 21
+      },
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7bc8fb3c_ba0ca170",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 33
@@ -101,6 +159,24 @@
       "side": 1,
       "message": "There is alot of spam in the logs if a user dosent set this.\n\nAlso you have to set this for the plugin to correctly post correctly to issues on a jira install.\n\nBut it\u0027s optional as far as the plugin wont fail to work if you doint set these.",
       "parentUuid": "7bc8fb3c_ba0ca170",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db292e72_f57ea0da",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-02-20T08:05:15Z",
+      "side": 1,
+      "message": "its-base configuration is in the its-base project and not here.",
+      "parentUuid": "03139b99_f8306837",
       "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
