@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "00ac9fc9_fd3072e8",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-20T08:37:26Z",
+      "side": 1,
+      "message": "Yep.",
+      "parentUuid": "f857a7bf_471effeb",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8edd5f8d_7cca9da5",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 33
@@ -107,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "72ee7f4c_65ed18aa",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-20T08:37:26Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "7160da1c_1a155f5d",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58314071_0e020395",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 33
@@ -118,6 +154,30 @@
       "writtenOn": "2017-02-20T08:05:15Z",
       "side": 1,
       "message": "configuration",
+      "range": {
+        "startLine": 94,
+        "startChar": 9,
+        "endLine": 94,
+        "endChar": 21
+      },
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa79de8c_5a601238",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-20T08:37:26Z",
+      "side": 1,
+      "message": "I\u0027ve removed this section.",
+      "parentUuid": "58314071_0e020395",
       "range": {
         "startLine": 94,
         "startChar": 9,
@@ -177,6 +237,24 @@
       "side": 1,
       "message": "its-base configuration is in the its-base project and not here.",
       "parentUuid": "03139b99_f8306837",
+      "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6579fba7_f9c82caf",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-20T08:37:26Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "db292e72_f57ea0da",
       "revId": "e23ba8574e6d3380025a9356f31caf9fa652c7f0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
