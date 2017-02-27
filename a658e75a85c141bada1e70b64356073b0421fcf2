@@ -22,6 +22,30 @@
       "revId": "a658e75a85c141bada1e70b64356073b0421fcf2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3134b9fe_ef92abc8",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 36
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-27T09:15:18Z",
+      "side": 1,
+      "message": "That is a repo uses the atlassian-webhooks-plugin newer version you build, see above. We need to do this as the plugin has to use a newer httpclient version to match gerrit.\n\nI could give you the repo if you want.\n\nThis is the only way I could get it working as I found open patches upstream that added the newer httpclient version support.",
+      "parentUuid": "ee06dbcb_e25d1b14",
+      "range": {
+        "startLine": 14,
+        "startChar": 14,
+        "endLine": 14,
+        "endChar": 66
+      },
+      "revId": "a658e75a85c141bada1e70b64356073b0421fcf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
