@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee06dbcb_e25d1b14",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 36
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-02-27T09:10:57Z",
+      "side": 1,
+      "message": "What is that?",
+      "range": {
+        "startLine": 14,
+        "startChar": 14,
+        "endLine": 14,
+        "endChar": 66
+      },
+      "revId": "a658e75a85c141bada1e70b64356073b0421fcf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
