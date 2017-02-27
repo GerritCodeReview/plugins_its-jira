@@ -94,6 +94,30 @@
       "revId": "a658e75a85c141bada1e70b64356073b0421fcf2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cfd2cee_448ac0da",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 36
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-02-27T10:58:28Z",
+      "side": 1,
+      "message": "A REST API client in Java is more than trivial: I am happy to do it in the follow-up change.",
+      "parentUuid": "28feaec9_b5dd27a8",
+      "range": {
+        "startLine": 14,
+        "startChar": 14,
+        "endLine": 14,
+        "endChar": 66
+      },
+      "revId": "a658e75a85c141bada1e70b64356073b0421fcf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
