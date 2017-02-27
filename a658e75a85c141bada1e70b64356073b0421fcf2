@@ -46,6 +46,30 @@
       "revId": "a658e75a85c141bada1e70b64356073b0421fcf2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a67085d_e5f25da4",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 36
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-02-27T09:33:18Z",
+      "side": 1,
+      "message": "This isn\u0027t the right way to solve the problem: we should get rid of the Atlassian REST API client libraries and rely on pure HTTP invocations.\n\nThis patch add only complexity to something already very complex.",
+      "parentUuid": "3134b9fe_ef92abc8",
+      "range": {
+        "startLine": 14,
+        "startChar": 14,
+        "endLine": 14,
+        "endChar": 66
+      },
+      "revId": "a658e75a85c141bada1e70b64356073b0421fcf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
