@@ -118,6 +118,30 @@
       "revId": "a658e75a85c141bada1e70b64356073b0421fcf2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efcdc663_cfb71792",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 36
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-27T11:01:16Z",
+      "side": 1,
+      "message": "Oh yes please, I just thought that no one knew how to do it so I included the manual build doc.",
+      "parentUuid": "2cfd2cee_448ac0da",
+      "range": {
+        "startLine": 14,
+        "startChar": 14,
+        "endLine": 14,
+        "endChar": 66
+      },
+      "revId": "a658e75a85c141bada1e70b64356073b0421fcf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
