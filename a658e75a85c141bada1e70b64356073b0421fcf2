@@ -70,6 +70,30 @@
       "revId": "a658e75a85c141bada1e70b64356073b0421fcf2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28feaec9_b5dd27a8",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 36
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-27T10:54:09Z",
+      "side": 1,
+      "message": "Oh ok, would you know how to do that as I doint know how to do that.\n\nAlso yes it adds more complexity it at least it will unbreak the plugin allowing someone to remove the atlassion rest api client at some point as I doint know how to do that.",
+      "parentUuid": "7a67085d_e5f25da4",
+      "range": {
+        "startLine": 14,
+        "startChar": 14,
+        "endLine": 14,
+        "endChar": 66
+      },
+      "revId": "a658e75a85c141bada1e70b64356073b0421fcf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
