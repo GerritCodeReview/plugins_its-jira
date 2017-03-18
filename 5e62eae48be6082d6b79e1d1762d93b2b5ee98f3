@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "506b3bac_96e5846c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-18T21:59:15Z",
+      "side": 1,
+      "message": "This is what the code says, do we really need the comment?",
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab76d77f_0e3a6fe7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-18T21:59:15Z",
+      "side": 1,
+      "message": "import static HttpUrlConnection.*",
+      "range": {
+        "startLine": 68,
+        "startChar": 37,
+        "endLine": 68,
+        "endChar": 55
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef6abb49_bd6c8760",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-18T21:59:15Z",
+      "side": 1,
+      "message": "Are we sure we do not have to throw an exception?",
+      "range": {
+        "startLine": 100,
+        "startChar": 7,
+        "endLine": 100,
+        "endChar": 14
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4826b47_db13fafd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-18T21:59:15Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 3
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06c8e933_55a8d856",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-18T21:59:15Z",
+      "side": 1,
+      "message": "just return t;",
+      "range": {
+        "startLine": 145,
+        "startChar": 8,
+        "endLine": 145,
+        "endChar": 14
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9957befa_809c07ae",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-18T21:59:15Z",
+      "side": 1,
+      "message": "return null",
+      "range": {
+        "startLine": 148,
+        "startChar": 11,
+        "endLine": 148,
+        "endChar": 14
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c0f4094_72d6b874",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-18T21:59:15Z",
+      "side": 1,
+      "message": "why don\u0027t we use generics?\n\nE.g.\n```\n  private \u003cT\u003e T doGet(String spec, Class\u003cT\u003e) {\n  ...\n```",
+      "range": {
+        "startLine": 154,
+        "startChar": 36,
+        "endLine": 154,
+        "endChar": 53
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39d0981d_fcd291cc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-18T21:59:15Z",
+      "side": 1,
+      "message": "Would be best to inject the same Gerrit HTTP client layer, so that all the associated HTTP settings (e.g. https://gerrit-documentation.storage.googleapis.com/Documentation/2.13.6/config-gerrit.html#http.proxy) would be automatically applied.",
+      "range": {
+        "startLine": 157,
+        "startChar": 6,
+        "endLine": 157,
+        "endChar": 28
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71e22e50_8955f9a8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-18T21:59:15Z",
+      "side": 1,
+      "message": "What about using auto-closeable?",
+      "range": {
+        "startLine": 173,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 24
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59b63a36_4f928ebd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-18T21:59:15Z",
+      "side": 1,
+      "message": "void? Typically the post returns the location of the created item.",
+      "range": {
+        "startLine": 185,
+        "startChar": 10,
+        "endLine": 185,
+        "endChar": 14
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "421663b7_09342bb7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacade.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-18T21:59:15Z",
+      "side": 1,
+      "message": "Why do we need this?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 7
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cbbe192_d70956c5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestException.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-18T21:59:15Z",
+      "side": 1,
+      "message": "Why don\u0027t we extend RuntimeException so that we don\u0027t have the hassle to declare and re-throw them?",
+      "range": {
+        "startLine": 24,
+        "startChar": 39,
+        "endLine": 24,
+        "endChar": 48
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "759a8751_4a1befe4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestException.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-18T21:59:15Z",
+      "side": 1,
+      "message": "It isn\u0027t a good rule to use an Exception for the same of managing status codes.",
+      "range": {
+        "startLine": 28,
+        "startChar": 39,
+        "endLine": 28,
+        "endChar": 59
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
