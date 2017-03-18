@@ -1,4 +1,4 @@
-// Copyright (C) 2013 The Android Open Source Project
+// Copyright (C) 2017 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,26 +14,26 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
-public class JiraSession {
+public class JiraServerInfo {
 
-  private final String username;
-  private final String token;
+  String baseUrl;
+  String version;
+  String deploymentType;
+  String buildNumber;
+  String buildDate;
+  String serverTime;
+  String scmInfo;
+  String serverTitle;
 
-  public JiraSession(final String username, final String loginToken) {
-    super();
-    this.username = username;
-    this.token = loginToken;
+  public String getVersion() {
+    return version;
   }
 
-  public String getUsername() {
-    return username;
+  public String getBuildNumber() {
+    return buildNumber;
   }
 
-  public String getToken() {
-    return token;
-  }
-
-  public String toString() {
-    return "username="+username+", token="+token;
+  public String getBaseUri() {
+    return baseUrl;
   }
 }
