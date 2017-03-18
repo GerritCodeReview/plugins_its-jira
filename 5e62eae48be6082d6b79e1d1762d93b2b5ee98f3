@@ -531,6 +531,23 @@
     },
     {
       "key": {
+        "uuid": "4c42eaa0_0819dc35",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacade.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-18T23:15:16Z",
+      "side": 1,
+      "message": "It is  now done only on plugin load time. The init step is something I rarely run, and if I do then only on system upgrades...",
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1cbbe192_d70956c5",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestException.java",
         "patchSetId": 1
