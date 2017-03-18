@@ -12,9 +12,6 @@ gerrit_plugin(
   ],
   deps = [
     '//plugins/its-base:its-base__plugin',
-    '//plugins/its-jira/lib:jira-rest-java-client-core',
-    '//plugins/its-jira/lib:atlassian-httpclient-apache-httpcomponents',
-    '//plugins/its-jira/lib:jira-rest-java-client-api',
-    '//plugins/its-jira/lib:atlassian-util-concurrent'
-],
+    '//lib/commons:codec',
+  ],
 )

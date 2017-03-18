@@ -14,17 +14,17 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
-import com.atlassian.jira.rest.client.api.domain.Comment;
-import com.atlassian.jira.rest.client.api.domain.ServerInfo;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.inject.Inject;
+import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
 import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.Callable;
 
@@ -49,8 +49,11 @@ public class JiraItsFacade implements ItsFacade {
     this.pluginName = pluginName;
     try {
       this.gerritConfig = cfg;
-      ServerInfo info = client().sysInfo();
+      JiraServerInfo info = client().sysInfo();
       log.info("Connected to JIRA at {}, reported version is {}", info.getBaseUri(), info.getVersion());
+      for (JiraProject p : client().getProjects()) {
+        log.info("Found project: {} (key: {})", p.getName(), p.getKey());
+      }
     } catch (Exception ex) {
       log.warn("Jira is currently not available", ex);
     }
@@ -76,7 +79,7 @@ public class JiraItsFacade implements ItsFacade {
       @Override
       public String call() throws Exception {
         log.debug("Adding comment {} to issue {}", comment, issueKey);
-        client().addComment(issueKey, Comment.valueOf(comment));
+        client().addComment(issueKey, comment);
         log.debug("Added comment {} to issue {}", comment, issueKey);
         return issueKey;
       }});
@@ -102,7 +105,7 @@ public class JiraItsFacade implements ItsFacade {
   }
 
   private void doPerformAction(final String issueKey, final String actionName)
-      throws IOException {
+      throws IOException, InvalidTransitionException {
     log.debug("Trying to perform action: " + actionName + " on issue " + issueKey);
     boolean ret = client().doTransition(issueKey, actionName);
     if (ret) {
@@ -127,10 +130,10 @@ public class JiraItsFacade implements ItsFacade {
         log.debug("Connecting to jira at {}", getUrl());
         client = new JiraClient(getUrl(), getUsername(), getPassword());
         log.debug("Authenticating as User {}", getUsername());
-      } catch (Exception e) {
-        log.info("Unable to connect to " + getUrl() + " as "
-          + getUsername());
-        throw new IOException(e);
+      } catch (MalformedURLException e) {
+        String msg = "Unable to connect to " + getUrl() + " as " + getUsername();
+        log.info(msg);
+        throw e;
       }
     }
     return client;
@@ -185,7 +188,7 @@ public class JiraItsFacade implements ItsFacade {
   }
 
   private String healthCheckSysinfo() throws IOException {
-    ServerInfo info = client().sysInfo();
+    JiraServerInfo info = client().sysInfo();
     final String result = "{\"status\"=\"ok\",\"system\"=\"Jira\",\"version\"=\""+info.getVersion()+"\",\"url\"=\""+getUrl()+"\",\"build\"=\""+info.getBuildNumber()+"\"}";
     log.debug("Healtheck on sysinfo result: {}", result);
     return result;
