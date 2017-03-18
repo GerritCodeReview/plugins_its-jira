@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8f9f537e_c71216d0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-18T22:54:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "506b3bac_96e5846c",
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab76d77f_0e3a6fe7",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-03-18T21:59:15Z",
       "side": 1,
       "message": "import static HttpUrlConnection.*",
+      "range": {
+        "startLine": 68,
+        "startChar": 37,
+        "endLine": 68,
+        "endChar": 55
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3974a143_b4f36521",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-18T22:54:58Z",
+      "side": 1,
+      "message": "Matter of taste I guess. I prefer no static imports. But I can rework.",
+      "parentUuid": "ab76d77f_0e3a6fe7",
       "range": {
         "startLine": 68,
         "startChar": 37,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "405aa28c_b53d711a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-18T22:54:58Z",
+      "side": 1,
+      "message": "That pollutes the Gerrit errorlog without providing decent information. This is not an actual plugin exception. Just a configuration issue on Jira side or the user who made a typo in the issue id in the commit message. Exception should be used for debugging code errors in the plugin, not regular user errors or Jira server permission issues.",
+      "parentUuid": "ef6abb49_bd6c8760",
+      "range": {
+        "startLine": 100,
+        "startChar": 7,
+        "endLine": 100,
+        "endChar": 14
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4826b47_db13fafd",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2017-03-18T21:59:15Z",
       "side": 1,
       "message": "Why is this needed?",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 3
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bdd2864_96e1b080",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-18T22:54:58Z",
+      "side": 1,
+      "message": "See my other xomment about this: debugging configuration issues. Get some insight in what goes on when things do not work.",
+      "parentUuid": "d4826b47_db13fafd",
       "range": {
         "startLine": 135,
         "startChar": 0,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "53b1fc62_c1a63852",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-18T22:54:58Z",
+      "side": 1,
+      "message": "Ack.... I tried to follow original code a bit too much :-)",
+      "parentUuid": "06c8e933_55a8d856",
+      "range": {
+        "startLine": 145,
+        "startChar": 8,
+        "endLine": 145,
+        "endChar": 14
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9957befa_809c07ae",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
         "patchSetId": 1
@@ -122,6 +236,30 @@
       "writtenOn": "2017-03-18T21:59:15Z",
       "side": 1,
       "message": "return null",
+      "range": {
+        "startLine": 148,
+        "startChar": 11,
+        "endLine": 148,
+        "endChar": 14
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7967c37e_e24ba394",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-18T22:54:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9957befa_809c07ae",
       "range": {
         "startLine": 148,
         "startChar": 11,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "c1bc1e2b_6965e19b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-18T22:54:58Z",
+      "side": 1,
+      "message": "Tried that but got stuck when I also wanted to get List\u003csomeclass\u003e back.\nSee for example the transitions lists.",
+      "parentUuid": "0c0f4094_72d6b874",
+      "range": {
+        "startLine": 154,
+        "startChar": 36,
+        "endLine": 154,
+        "endChar": 53
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39d0981d_fcd291cc",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
         "patchSetId": 1
@@ -168,6 +330,30 @@
       "writtenOn": "2017-03-18T21:59:15Z",
       "side": 1,
       "message": "Would be best to inject the same Gerrit HTTP client layer, so that all the associated HTTP settings (e.g. https://gerrit-documentation.storage.googleapis.com/Documentation/2.13.6/config-gerrit.html#http.proxy) would be automatically applied.",
+      "range": {
+        "startLine": 157,
+        "startChar": 6,
+        "endLine": 157,
+        "endChar": 28
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0aa2a4c8_25b3d564",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-18T22:54:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "39d0981d_fcd291cc",
       "range": {
         "startLine": 157,
         "startChar": 6,
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "76348046_2e3b032a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-18T22:54:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "71e22e50_8955f9a8",
+      "range": {
+        "startLine": 173,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 24
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59b63a36_4f928ebd",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
         "patchSetId": 1
@@ -214,6 +424,30 @@
       "writtenOn": "2017-03-18T21:59:15Z",
       "side": 1,
       "message": "void? Typically the post returns the location of the created item.",
+      "range": {
+        "startLine": 185,
+        "startChar": 10,
+        "endLine": 185,
+        "endChar": 14
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6867c026_0766668e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-18T22:54:58Z",
+      "side": 1,
+      "message": "Indeed, but that return data is not needed as all is IssueKey driven and that would result in a lot of different types to return back and more dead code.",
+      "parentUuid": "59b63a36_4f928ebd",
       "range": {
         "startLine": 185,
         "startChar": 10,
@@ -249,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "28f48c2f_e213d317",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacade.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-18T22:54:58Z",
+      "side": 1,
+      "message": "Imagine you have a central Jira instance with tons of projects for which the configured plugin has limited access. Now a user adds a reference to another project in a commit message and finding that issue fails. Now this info is useful to find out to which Jira projects the plugin has actually acces in that Jira instance. Thus very useful for debugging configuration issues.",
+      "parentUuid": "421663b7_09342bb7",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 7
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cbbe192_d70956c5",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestException.java",
         "patchSetId": 1
@@ -272,6 +530,30 @@
     },
     {
       "key": {
+        "uuid": "6be216f1_5b5001fa",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestException.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-18T22:54:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1cbbe192_d70956c5",
+      "range": {
+        "startLine": 24,
+        "startChar": 39,
+        "endLine": 24,
+        "endChar": 48
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "759a8751_4a1befe4",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestException.java",
         "patchSetId": 1
@@ -283,6 +565,30 @@
       "writtenOn": "2017-03-18T21:59:15Z",
       "side": 1,
       "message": "It isn\u0027t a good rule to use an Exception for the same of managing status codes.",
+      "range": {
+        "startLine": 28,
+        "startChar": 39,
+        "endLine": 28,
+        "endChar": 59
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c58c86e_ab437947",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestException.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-18T22:54:58Z",
+      "side": 1,
+      "message": "Ugly indeed... Wanted to stay close with iriginal code which did the same thing. Will rework",
+      "parentUuid": "759a8751_4a1befe4",
       "range": {
         "startLine": 28,
         "startChar": 39,
