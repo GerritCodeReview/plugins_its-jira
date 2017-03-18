@@ -507,6 +507,30 @@
     },
     {
       "key": {
+        "uuid": "1b5fded1_98d60271",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacade.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-18T22:57:36Z",
+      "side": 1,
+      "message": "Yes, good point: it is a very common mistake to use a user without all the necessary projects visibility. Why not calling it during the init step when we request to check connectivity?",
+      "parentUuid": "28f48c2f_e213d317",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 7
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cbbe192_d70956c5",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestException.java",
         "patchSetId": 1
