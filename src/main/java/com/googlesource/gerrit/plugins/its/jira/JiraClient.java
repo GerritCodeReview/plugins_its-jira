@@ -1,4 +1,4 @@
-// Copyright (C) 2013 The Android Open Source Project
+// Copyright (C) 2013 - 2017 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,23 +14,21 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
-import com.atlassian.jira.rest.client.api.IssueRestClient;
-import com.atlassian.jira.rest.client.api.JiraRestClient;
-import com.atlassian.jira.rest.client.api.JiraRestClientFactory;
-import com.atlassian.jira.rest.client.api.RestClientException;
-import com.atlassian.jira.rest.client.api.domain.Comment;
-import com.atlassian.jira.rest.client.api.domain.Issue;
-import com.atlassian.jira.rest.client.api.domain.ServerInfo;
-import com.atlassian.jira.rest.client.api.domain.Transition;
-import com.atlassian.jira.rest.client.api.domain.input.TransitionInput;
-import com.atlassian.jira.rest.client.internal.async.AsynchronousJiraRestClientFactory;
-import com.atlassian.util.concurrent.Promise;
+import com.google.gson.Gson;
 import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.URI;
-import java.net.URISyntaxException;
+import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
+import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
+import static java.net.HttpURLConnection.HTTP_OK;
+import static java.net.HttpURLConnection.HTTP_CREATED;
+import static java.net.HttpURLConnection.HTTP_NO_CONTENT;
 
 /**
  * Jira Rest Client.
@@ -38,109 +36,124 @@ import java.net.URISyntaxException;
 public class JiraClient {
   private static final Logger log = LoggerFactory.getLogger(JiraClient.class);
 
-  private JiraRestClient client = null;
+  private final String url;
+  private final String user;
+  private final String pass;
+  private final Gson gson;
 
   /**
    * @param url  jira url
    * @param user username of the jira user
    * @param pass password of the jira user
-   * @throws URISyntaxException
    */
-  public JiraClient(String url, String user, String pass) throws URISyntaxException {
-    URI jiraUri = new URI(url);
-    log.debug("Trying to access Jira at " + jiraUri);
-    JiraRestClientFactory factory = new AsynchronousJiraRestClientFactory();
-    client = factory.createWithBasicHttpAuthentication(jiraUri, user, pass);
-    log.debug("Initialized jira client " + client);
-  }
-
-  /**
-   * @param issueKey Issue id
-   * @return Issueobjekt by issue id
-   * @throws RestClientException
-   */
-  public Issue getIssue(String issueKey) throws RestClientException {
-    IssueRestClient issueClient = this.client.getIssueClient();
-    return issueClient.getIssue(issueKey).claim();
+  public JiraClient(String url, String user, String pass) {
+    this.url = url;
+    this.user = user;
+    this.pass = pass;
+    this.gson = new Gson();
   }
 
   /**
    * @param issueKey Jira Issue key
    * @return true if issue exists
    */
-  public boolean issueExists(String issueKey) throws RestClientException {
-    boolean ret = true;
-    try{
-      getIssue(issueKey);
-    } catch (RestClientException e) {
-      if (e.getStatusCode().get() == 404){
-        log.error("Issue " + issueKey + " not found ");
-        ret = false;
-      } else {
-        throw e;
-      }
+  public boolean issueExists(String issueKey) throws IOException {
+
+    JiraRestApi api = new JiraRestApi<JiraIssue>(url, user, pass);
+
+    api.doGet("/rest/api/2/issue/" + issueKey, HTTP_OK,
+      new int[] {HTTP_NOT_FOUND, HTTP_FORBIDDEN}, JiraIssue.class);
+
+    Integer code = api.getResponseCode();
+    switch (code) {
+    case HTTP_OK:
+      return true;
+    case HTTP_NOT_FOUND:
+      log.error("Issue " + issueKey + " not found ");
+      return false;
+    case HTTP_FORBIDDEN:
+      log.error("No permission to read Issue " + issueKey);
+      return false;
+    default:
+      // Cannot happen due to passCodes filter
+      throw new IOException("Unexpected HTTP code received:" + code.toString());
     }
-    return ret;
   }
 
   /**
    * @param issueKey Jira Issue key
    * @return Iterable of available transitions
-   * @throws RestClientException
+   * @throws IOException
    */
-  public Iterable<Transition> getTransitions(String issueKey) throws RestClientException {
-    return client.getIssueClient().getTransitions(getIssue(issueKey)).claim();
+  public List<JiraTransition.Item> getTransitions(String issueKey) throws IOException {
+
+    JiraRestApi api = new JiraRestApi<List<JiraTransition.Item>>(url, user, pass);
+    return Arrays.asList(((JiraTransition)
+      api.doGet("/rest/api/2/issue/" + issueKey + "/transitions", HTTP_OK,
+        JiraTransition.class)).transitions);
   }
 
   /**
    * @param issueKey Jira Issue key
-   * @param comment  Comment  to be added
-   * @throws RestClientException
+   * @param comment  String to be added
+   * @throws IOException
    */
-  public void addComment(String issueKey, Comment comment) throws RestClientException, URISyntaxException {
-    log.debug("Trying to add comment for issue " + issueKey);
-    Issue issue = getIssue(issueKey);
-    URI issueUri;
-    issueUri = new URI(issue.getSelf().toString() + "/comment/");
-    IssueRestClient issueClient = client.getIssueClient();
-    Promise<Void> promise = issueClient.addComment(issueUri, comment);
-    promise.claim();
-    log.debug("Comment added to issue " + issueKey);
+  public void addComment(String issueKey, String comment) throws IOException {
+
+    if (issueExists(issueKey)) {
+      log.debug("Trying to add comment for issue {}", issueKey);
+      JiraRestApi api = new JiraRestApi<JiraEmpty>(url, user, pass);
+      api.doPost("/rest/api/2/issue/" + issueKey + "/comment",
+        gson.toJson(new JiraComment(comment)), HTTP_CREATED, JiraEmpty.class);
+      log.debug("Comment added to issue {}", issueKey);
+    } else {
+       log.error("Issue {} does not exist or no access permission", issueKey);
+    }
   }
 
   /**
    * @param issueKey   Jira Issue key
-   * @param transition Transition to perform
+   * @param transition JiraTransition.Item to perform
    * @return true if successful
    */
-  public boolean doTransition(String issueKey, String transition) throws RestClientException, InvalidTransitionException {
-    Transition t = getTransitionByName(getTransitions(issueKey), transition);
+  public boolean doTransition(String issueKey, String transition) throws IOException, InvalidTransitionException {
+    log.debug("Making transition to {} for {}", transition, issueKey);
+    JiraTransition.Item t = getTransitionByName(issueKey, transition);
     if (t == null) {
       throw new InvalidTransitionException("Action " + transition
         + " not executable on issue " + issueKey);
     }
-    TransitionInput input;
-    input = new TransitionInput(t.getId());
-    log.debug("Setting transition input to: " + input.toString());
-    client.getIssueClient().transition(getIssue(issueKey), input).claim();
+    log.debug("Transition issue {} to '{}' ({})", issueKey, transition, t.getId());
+    JiraRestApi api = new JiraRestApi<JiraEmpty>(url, user, pass);
+    api.doPost("/rest/api/2/issue/" + issueKey + "/transitions",
+      gson.toJson(new JiraTransition(t)), HTTP_NO_CONTENT, JiraEmpty.class);
     return true;
   }
 
   /**
    * @return Serverinformation of jira
    */
-  public ServerInfo sysInfo() throws RestClientException {
-    return client.getMetadataClient().getServerInfo().claim();
+  public JiraServerInfo sysInfo() throws IOException {
+    JiraRestApi api = new JiraRestApi<JiraServerInfo>(url, user, pass);
+    return (JiraServerInfo) api.doGet("/rest/api/2/serverInfo", HTTP_OK, JiraServerInfo.class);
   }
 
-  private Transition getTransitionByName(Iterable<Transition> transitions, String transition) {
-    Transition ret = null;
-    for (Transition t : transitions) {
+  /**
+   * @return List of all projects we have access to in jira
+   */
+  public List<JiraProject> getProjects() throws IOException {
+    JiraRestApi api = new JiraRestApi<List<JiraProject>>(url, user, pass);
+    return Arrays.asList((JiraProject[])
+      api.doGet("/rest/api/2/project", HTTP_OK, JiraProject[].class));
+  }
+
+  private JiraTransition.Item getTransitionByName(String issueKey, String transition)
+    throws IOException {
+    for (JiraTransition.Item t : getTransitions(issueKey)) {
       if (transition.equals(t.getName())) {
-        ret = t;
-        break;
+        return t;
       }
     }
-    return ret;
+    return null;
   }
 }
