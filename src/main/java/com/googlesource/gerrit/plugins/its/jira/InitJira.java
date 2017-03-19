@@ -14,10 +14,6 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.Arrays;
-
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.pgm.init.api.AllProjectsConfig;
 import com.google.gerrit.pgm.init.api.AllProjectsNameOnInitProvider;
@@ -31,6 +27,9 @@ import com.googlesource.gerrit.plugins.its.base.its.InitIts;
 import com.googlesource.gerrit.plugins.its.base.validation.ItsAssociationPolicy;
 
 import org.eclipse.jgit.errors.ConfigInvalidException;
+
+import java.io.IOException;
+import java.util.Arrays;
 
 /** Initialize the GitRepositoryManager configuration section. */
 @Singleton
@@ -125,7 +124,7 @@ class InitJira extends InitIts {
       new JiraClient(jiraUrl, jiraUsername, jiraPassword).sysInfo().getVersion();
       ui.message("[OK]\n");
       return true;
-    } catch (URISyntaxException e) {
+    } catch (IOException e) {
       ui.message("*FAILED* (%s)\n", e.toString());
       return false;
     }
