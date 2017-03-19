@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "a2fd36d6_7ca95122",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-19T13:52:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f9f537e_c71216d0",
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab76d77f_0e3a6fe7",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
         "patchSetId": 1
@@ -84,6 +102,30 @@
     },
     {
       "key": {
+        "uuid": "43e51020_21065ecc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-19T13:52:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3974a143_b4f36521",
+      "range": {
+        "startLine": 68,
+        "startChar": 37,
+        "endLine": 68,
+        "endChar": 55
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef6abb49_bd6c8760",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
         "patchSetId": 1
@@ -119,6 +161,30 @@
       "side": 1,
       "message": "That pollutes the Gerrit errorlog without providing decent information. This is not an actual plugin exception. Just a configuration issue on Jira side or the user who made a typo in the issue id in the commit message. Exception should be used for debugging code errors in the plugin, not regular user errors or Jira server permission issues.",
       "parentUuid": "ef6abb49_bd6c8760",
+      "range": {
+        "startLine": 100,
+        "startChar": 7,
+        "endLine": 100,
+        "endChar": 14
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b106afe1_f74c168d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-19T13:52:58Z",
+      "side": 1,
+      "message": "Note that it throws a JiraRestException if there is a communication issue with Jira or anything not content related. It only does not throw an exception if the issueKey either does not exist, or if there is no access. Either of them are user related errors.",
+      "parentUuid": "405aa28c_b53d711a",
       "range": {
         "startLine": 100,
         "startChar": 7,
@@ -225,6 +291,30 @@
     },
     {
       "key": {
+        "uuid": "ddb424e7_329414c8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-19T13:52:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53b1fc62_c1a63852",
+      "range": {
+        "startLine": 145,
+        "startChar": 8,
+        "endLine": 145,
+        "endChar": 14
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9957befa_809c07ae",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
         "patchSetId": 1
@@ -260,6 +350,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "9957befa_809c07ae",
+      "range": {
+        "startLine": 148,
+        "startChar": 11,
+        "endLine": 148,
+        "endChar": 14
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57c3a34a_b6e30e05",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-19T13:52:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7967c37e_e24ba394",
       "range": {
         "startLine": 148,
         "startChar": 11,
@@ -319,6 +433,30 @@
     },
     {
       "key": {
+        "uuid": "0ce5c402_20edbfc3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-19T13:52:58Z",
+      "side": 1,
+      "message": "Any idea that explains how to deal with lists in the generics would be welcome....",
+      "parentUuid": "c1bc1e2b_6965e19b",
+      "range": {
+        "startLine": 154,
+        "startChar": 36,
+        "endLine": 154,
+        "endChar": 53
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39d0981d_fcd291cc",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
         "patchSetId": 1
@@ -354,6 +492,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "39d0981d_fcd291cc",
+      "range": {
+        "startLine": 157,
+        "startChar": 6,
+        "endLine": 157,
+        "endChar": 28
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23f8850b_857c3763",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-19T13:52:58Z",
+      "side": 1,
+      "message": "I do not see what we can inject here.\ngerrit/gerrit-openid/src/main/java/com/google/gerrit/httpd/auth/openid/OpenIdServiceImpl.java uses its own client from OpenID.\n\n\nThen there is gerrit/gerrit-pgm/src/main/java/com/google/gerrit/pgm/util/ProxyUtil.java which sets the proxy globally for the JRE based on environment settings, which seem to be used by this class as well:\ngerrit/gerrit-pgm/src/main/java/com/google/gerrit/pgm/init/LibraryDownloader.java\n\n\nSo, I it seems to me that the ProxySelector implementation similar to the LibraryDownloader would do the job here.\n\n\nI may be overlooking something, so if you have other suggestions, those would be welcome.",
+      "parentUuid": "0aa2a4c8_25b3d564",
       "range": {
         "startLine": 157,
         "startChar": 6,
@@ -413,6 +575,30 @@
     },
     {
       "key": {
+        "uuid": "3bcc95de_d8c95646",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-19T13:52:58Z",
+      "side": 1,
+      "message": "I do not see autoclosable documented on this class, only disconnect(). Nevertheless, implementation is indeed a bit broken, needs fixing. Reworked quite a bit and removed all code duplication.\n\nhttp://docs.oracle.com/javase/8/docs/api/index.html?java/net/HttpURLConnection.html",
+      "parentUuid": "76348046_2e3b032a",
+      "range": {
+        "startLine": 173,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 24
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59b63a36_4f928ebd",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
         "patchSetId": 1
@@ -448,6 +634,30 @@
       "side": 1,
       "message": "Indeed, but that return data is not needed as all is IssueKey driven and that would result in a lot of different types to return back and more dead code.",
       "parentUuid": "59b63a36_4f928ebd",
+      "range": {
+        "startLine": 185,
+        "startChar": 10,
+        "endLine": 185,
+        "endChar": 14
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78c8101c_ab249d0c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-19T13:52:58Z",
+      "side": 1,
+      "message": "reworked this method to make things more generic.\nNevertheless, the return data is still not used.",
+      "parentUuid": "6867c026_0766668e",
       "range": {
         "startLine": 185,
         "startChar": 10,
@@ -630,6 +840,30 @@
       "side": 1,
       "message": "Ugly indeed... Wanted to stay close with iriginal code which did the same thing. Will rework",
       "parentUuid": "759a8751_4a1befe4",
+      "range": {
+        "startLine": 28,
+        "startChar": 39,
+        "endLine": 28,
+        "endChar": 59
+      },
+      "revId": "5e62eae48be6082d6b79e1d1762d93b2b5ee98f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c06735d_813b46d9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestException.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1010522
+      },
+      "writtenOn": "2017-03-19T13:52:58Z",
+      "side": 1,
+      "message": "I ditched the whole class eventually. its-base expects everywhere IOException, and given most calls generate that exception, I now used that one everywhere. Cleans up quite a bit of try-catches.",
+      "parentUuid": "4c58c86e_ab437947",
       "range": {
         "startLine": 28,
         "startChar": 39,
