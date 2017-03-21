@@ -1,4 +1,4 @@
-// Copyright (C) 2013 The Android Open Source Project
+// Copyright (C) 2017 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,28 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.googlesource.gerrit.plugins.its.jira;
+package com.googlesource.gerrit.plugins.its.jira.restapi;
 
-public class JiraSession {
+public class JiraTransition {
 
-  private final String username;
-  private final String token;
+  // 'Get Transactions' require a list of items
+  public Item[] transitions;
 
-  public JiraSession(final String username, final String loginToken) {
-    super();
-    this.username = username;
-    this.token = loginToken;
+  // 'Do Transaction' require a single item
+  Item transition;
+
+  public JiraTransition(Item transition) {
+    this.transition = transition;
   }
 
-  public String getUsername() {
-    return username;
-  }
+  public static class Item {
+    String name;
+    String id;
 
-  public String getToken() {
-    return token;
-  }
+    public String getName() {
+      return name;
+    }
 
-  public String toString() {
-    return "username="+username+", token="+token;
+    public String getId() {
+      return id;
+    }
   }
 }

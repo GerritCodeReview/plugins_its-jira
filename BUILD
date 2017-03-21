@@ -14,10 +14,6 @@ gerrit_plugin(
     ],
     deps = [
         "//plugins/its-base",
-        "@atlassian_httpclient_apache_httpcomponents//jar",
-        "@atlassian_util_concurrent//jar",
-        "@jira_rest_java_client_api//jar",
-        "@jira_rest_java_client_core//jar",
     ],
 )
 
