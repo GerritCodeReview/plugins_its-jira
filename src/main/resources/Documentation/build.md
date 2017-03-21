@@ -7,17 +7,6 @@ Clone (or link) both this plugin and also
 [plugins/its-base](https://gerrit-review.googlesource.com/#/admin/projects/plugins/its-base)
 to the `plugins` directory of Gerrit's source tree.
 
-Put the external dependency Bazel build file into the Gerrit /plugins directory,
-replacing the existing empty one.
-
-```
-  cd gerrit/plugins
-  rm external_plugin_deps.bzl
-  cd @PLUGIN@
-  cp external_plugin_deps.bzl ../
-  cd ../../
-```
-
 Then issue
 
 ```
