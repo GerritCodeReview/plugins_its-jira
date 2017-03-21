@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "61539b90_731f1dba",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-03-21T16:02:38Z",
+      "side": 1,
+      "message": "Oh nope, i was only following how it was done here https://gerrit-review.googlesource.com/#/c/100412/6/BUCK",
+      "parentUuid": "2d17db64_b1d46645",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "ffaa58fb76db05f0cd54050ec1a11be282cfa33c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e37f0ff9_5ef47a7c",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 1
