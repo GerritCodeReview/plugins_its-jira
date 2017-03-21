@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d17db64_b1d46645",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-21T15:53:27Z",
+      "side": 1,
+      "message": "Nope, have you tested locally? It doesn\u0027t require it on this branch because it is JDK 8",
+      "parentUuid": "1d28cb70_895048ac",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "ffaa58fb76db05f0cd54050ec1a11be282cfa33c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e37f0ff9_5ef47a7c",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-03-21T15:51:33Z",
       "side": 1,
       "message": "Should get rid of this file as not needed any more.\n\nAlso update the docs on the removal of this file please.",
+      "revId": "ffaa58fb76db05f0cd54050ec1a11be282cfa33c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "214b23ae_7a08219f",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-21T15:53:27Z",
+      "side": 1,
+      "message": "Yes, let me get rid of it.",
+      "parentUuid": "e37f0ff9_5ef47a7c",
       "revId": "ffaa58fb76db05f0cd54050ec1a11be282cfa33c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
