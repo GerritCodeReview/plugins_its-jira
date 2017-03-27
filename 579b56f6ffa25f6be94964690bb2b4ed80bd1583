@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "220f6497_1b8fc51b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-03-27T09:44:06Z",
+      "side": 1,
+      "message": "optional: The Java style guide says every JavaDoc should start with a summary [0]. Since this is a refactoring change, it might be a good occasion to fix this here as well?\n\n[0] https://google.github.io/styleguide/javaguide.html#s7.2-summary-fragment",
+      "range": {
+        "startLine": 41,
+        "startChar": 3,
+        "endLine": 41,
+        "endChar": 5
+      },
+      "revId": "579b56f6ffa25f6be94964690bb2b4ed80bd1583",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
