@@ -138,7 +138,13 @@ public class JiraRestApi<T> {
       return true;
     }
     if ((failCodes == null) || (!ArrayUtils.contains(failCodes, responseCode))) {
-      throw new IOException("Request failed");
+      throw new IOException(
+          "Request failed: "
+              + conn.getURL()
+              + " - "
+              + conn.getResponseCode()
+              + " - "
+              + conn.getResponseMessage());
     }
     return false;
   }
