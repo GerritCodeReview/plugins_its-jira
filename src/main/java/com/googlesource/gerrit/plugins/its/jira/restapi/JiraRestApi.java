@@ -30,6 +30,7 @@ import org.eclipse.jgit.util.HttpSupport;
 public class JiraRestApi<T> {
   private static final String BASE_PREFIX = "/rest/api/2";
   private final URL baseUrl;
+  private final String jiraApiPath;
   private final String auth;
   private final Gson gson;
 
@@ -49,6 +50,11 @@ public class JiraRestApi<T> {
     String auth = user + ":" + pass;
     this.auth = new String(Base64.getEncoder().encodeToString(auth.getBytes()));
     this.baseUrl = url;
+    String jiraPath = baseUrl.getPath();
+    if (jiraPath.endsWith("/")) {
+      jiraPath = jiraPath.substring(0, jiraPath.length() - 1);
+    }
+    this.jiraApiPath = jiraPath + BASE_PREFIX;
     this.gson = new Gson();
     this.classOfT = classOfT;
     this.classPrefix = classPrefix;
@@ -94,7 +100,7 @@ public class JiraRestApi<T> {
 
   private HttpURLConnection prepHttpConnection(String spec, boolean isPostRequest)
       throws IOException {
-    URL url = new URL(baseUrl, BASE_PREFIX + classPrefix + spec);
+    URL url = new URL(baseUrl, jiraApiPath + classPrefix + spec);
     ProxySelector proxySelector = ProxySelector.getDefault();
     Proxy proxy = HttpSupport.proxyFor(proxySelector, url);
     HttpURLConnection conn = (HttpURLConnection) url.openConnection(proxy);
