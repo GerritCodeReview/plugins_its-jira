@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1849c24f_a66a33d3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-07-03T02:12:25Z",
+      "side": 1,
+      "message": "nit: long line, please wrap at 100 columns",
+      "revId": "6626f9d1d9f80f78061457d79be1e4136662df99",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
