@@ -94,7 +94,7 @@ public class JiraRestApi<T> {
 
   private HttpURLConnection prepHttpConnection(String spec, boolean isPostRequest)
       throws IOException {
-    URL url = new URL(baseUrl, BASE_PREFIX + classPrefix + spec);
+    URL url = new URL(baseUrl + BASE_PREFIX + classPrefix + spec);
     ProxySelector proxySelector = ProxySelector.getDefault();
     Proxy proxy = HttpSupport.proxyFor(proxySelector, url);
     HttpURLConnection conn = (HttpURLConnection) url.openConnection(proxy);
