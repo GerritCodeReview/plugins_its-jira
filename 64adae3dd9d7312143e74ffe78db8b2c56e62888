@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c21d359d_fab60a43",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-09-27T15:10:48Z",
+      "side": 1,
+      "message": "I believe it would be enough just removing the heading \u0027/\u0027 in BASE_PREFIX correct? the URL composition would do the rest.",
+      "range": {
+        "startLine": 97,
+        "startChar": 30,
+        "endLine": 97,
+        "endChar": 32
+      },
+      "revId": "64adae3dd9d7312143e74ffe78db8b2c56e62888",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
