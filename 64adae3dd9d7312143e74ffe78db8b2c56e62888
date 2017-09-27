@@ -22,6 +22,30 @@
       "revId": "64adae3dd9d7312143e74ffe78db8b2c56e62888",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f89187b6_d62b112c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1047632
+      },
+      "writtenOn": "2017-09-27T16:00:58Z",
+      "side": 1,
+      "message": "But that would not handle the case where baseUrl is configured to e.g. \"http://jira.example.com\"? Please have a look at change 112231, for what I think is a robust solution.",
+      "parentUuid": "c21d359d_fab60a43",
+      "range": {
+        "startLine": 97,
+        "startChar": 30,
+        "endLine": 97,
+        "endChar": 32
+      },
+      "revId": "64adae3dd9d7312143e74ffe78db8b2c56e62888",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
