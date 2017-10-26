@@ -85,6 +85,24 @@
       "revId": "171612455f02a9938852e113f6fb4cc1840edeae",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d377078a_5e7d86c3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1047632
+      },
+      "writtenOn": "2017-10-26T20:42:49Z",
+      "side": 1,
+      "message": "It was not removed - just moved to a dedicated change (Idf2b414dd3cd8845a848f23b020ea89860728d65) as you requested in your review of this change in July :-)",
+      "parentUuid": "e5ef99ac_a1e30acf",
+      "revId": "171612455f02a9938852e113f6fb4cc1840edeae",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
