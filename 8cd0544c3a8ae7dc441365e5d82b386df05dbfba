@@ -22,6 +22,30 @@
       "revId": "8cd0544c3a8ae7dc441365e5d82b386df05dbfba",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "807bc676_3f526a58",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1047632
+      },
+      "writtenOn": "2017-10-26T20:42:49Z",
+      "side": 1,
+      "message": "You are right that it would be a more elegant solution. It however requires a trailing slash in the configured baseUrl, as \"http://devsrv.example.com/issues\" results in the following API URL: http://devsrv.example.com/rest/api/2, whereas \"http://devsrv.example.com/issues/\" results in http://devsrv.example.com/issues/rest/api/2.\n\nCombined with the improved error logging from Idf2b414dd3cd8845a848f23b020ea89860728d65, it might be acceptable, but I still prefer the proposed solution that handle both cases (with and without trailing slash). What do you think?",
+      "parentUuid": "ffdcd12a_73d8f59f",
+      "range": {
+        "startLine": 31,
+        "startChar": 45,
+        "endLine": 31,
+        "endChar": 46
+      },
+      "revId": "8cd0544c3a8ae7dc441365e5d82b386df05dbfba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
