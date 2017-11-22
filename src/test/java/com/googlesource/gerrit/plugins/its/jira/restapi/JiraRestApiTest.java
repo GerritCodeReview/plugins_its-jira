@@ -32,10 +32,10 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class JiraRestApiTest {
   private static final String ISSUE_CLASS_PREFIX = "/issue/";
   private static final String JSON_PAYLOAD = "{}";
+  private static final String USERNAME = "user";
+  private static final String PASSWORD = "pass";
 
   private JiraURL url;
-  private String user = "user";
-  private String password = "pass";
   private JiraRestApi restApi;
 
   private void setURL(String jiraUrl) throws MalformedURLException {
@@ -45,7 +45,7 @@ public class JiraRestApiTest {
   @Test
   public void testJiraServerInfoForNonRootJiraUrl() throws Exception {
     setURL("http://jira.mycompany.com/myroot/");
-    restApi = new JiraRestApi(url, user, password, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    restApi = new JiraRestApi(url, USERNAME, PASSWORD, JiraIssue.class, ISSUE_CLASS_PREFIX);
     String jiraApiUrl = restApi.getBaseUrl().toString();
     assertThat(jiraApiUrl).startsWith(url.toString());
   }
@@ -53,15 +53,15 @@ public class JiraRestApiTest {
   @Test
   public void testJiraServerInfoForNonRootJiraUrlNotEndingWithSlash() throws Exception {
     setURL("http://jira.mycompany.com/myroot");
-    restApi = new JiraRestApi(url, user, password, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    restApi = new JiraRestApi(url, USERNAME, PASSWORD, JiraIssue.class, ISSUE_CLASS_PREFIX);
     String jiraApiUrl = restApi.getBaseUrl().toString();
     assertThat(jiraApiUrl).startsWith(url.toString());
   }
 
   @Test
   public void testJiraServerInfoForRootJiraUrl() throws Exception {
-    setURL("http://jira.mycompany.com");
-    restApi = new JiraRestApi(url, user, password, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    setURL("http://jira.mycompany.com/myroot");
+    restApi = new JiraRestApi(url, USERNAME, PASSWORD, JiraIssue.class, ISSUE_CLASS_PREFIX);
     String jiraApiUrl = restApi.getBaseUrl().toString();
     assertThat(jiraApiUrl).startsWith(url.toString());
   }
@@ -78,7 +78,7 @@ public class JiraRestApiTest {
     when(connection.getOutputStream()).thenReturn(connectionOutputStream);
     when(connection.getResponseCode()).thenReturn(HTTP_NO_CONTENT);
 
-    restApi = new JiraRestApi(url, user, password, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    restApi = new JiraRestApi(url, USERNAME, PASSWORD, JiraIssue.class, ISSUE_CLASS_PREFIX);
     boolean pass = restApi.doPut(ISSUE_CLASS_PREFIX, JSON_PAYLOAD, HTTP_NO_CONTENT);
 
     verify(connection).setRequestMethod("PUT");
