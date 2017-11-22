@@ -15,17 +15,14 @@
 package com.googlesource.gerrit.plugins.its.jira;
 
 import static com.google.common.truth.Truth.assertThat;
-import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.ERROR_MSG;
-import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.GERRIT_CONFIG_PASSWORD;
-import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.GERRIT_CONFIG_URL;
-import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.GERRIT_CONFIG_USERNAME;
-import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.PLUGIN;
-import static java.lang.String.format;
 import static org.mockito.Mockito.when;
 
-import com.google.common.collect.ImmutableSet;
-import java.net.URL;
+import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.server.config.PluginConfig;
+import com.google.gerrit.server.config.PluginConfigFactory;
+import com.google.gerrit.server.project.NoSuchProjectException;
 import org.eclipse.jgit.lib.Config;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -35,47 +32,24 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class JiraConfigTest {
-
-  private static final String PLUGIN_NAME = "its-jira";
-  private static final String URL = "http://jira_example.com/";
-  private static final String USER = "user";
-  private static final String PASS = "pass";
-
   @Rule public ExpectedException thrown = ExpectedException.none();
   @Mock private Config cfg;
+  @Mock private PluginConfigFactory cfgFactory;
 
+  private String pluginName = "its-jira";
   private JiraConfig jiraConfig;
 
-  @Test
-  public void gerritConfigContainsPluginSection() throws Exception {
-    when(cfg.getSections()).thenReturn(ImmutableSet.of(PLUGIN_NAME));
-    when(cfg.getString(PLUGIN_NAME, null, GERRIT_CONFIG_URL)).thenReturn(URL);
-    when(cfg.getString(PLUGIN_NAME, null, GERRIT_CONFIG_USERNAME)).thenReturn(USER);
-    when(cfg.getString(PLUGIN_NAME, null, GERRIT_CONFIG_PASSWORD)).thenReturn(PASS);
-    jiraConfig = new JiraConfig(cfg, PLUGIN_NAME);
-    URL url = new URL(URL);
-    assertThat(jiraConfig.getUsername()).isEqualTo(USER);
-    assertThat(jiraConfig.getPassword()).isEqualTo(PASS);
-    assertThat(jiraConfig.getJiraUrl()).isEqualTo(url);
+  @Before
+  public void createJiraConfig() {
+    jiraConfig = new JiraConfig(cfg, pluginName, cfgFactory);
   }
 
   @Test
-  public void gerritConfigWithoutPluginSection() throws Exception {
-    when(cfg.getSections()).thenReturn(ImmutableSet.of());
-    when(cfg.getString(PLUGIN, PLUGIN_NAME, GERRIT_CONFIG_URL)).thenReturn(URL);
-    when(cfg.getString(PLUGIN, PLUGIN_NAME, GERRIT_CONFIG_USERNAME)).thenReturn(USER);
-    when(cfg.getString(PLUGIN, PLUGIN_NAME, GERRIT_CONFIG_PASSWORD)).thenReturn(PASS);
-    jiraConfig = new JiraConfig(cfg, PLUGIN_NAME);
-    URL url = new URL(URL);
-    assertThat(jiraConfig.getUsername()).isEqualTo(USER);
-    assertThat(jiraConfig.getPassword()).isEqualTo(PASS);
-    assertThat(jiraConfig.getJiraUrl()).isEqualTo(url);
-  }
-
-  @Test
-  public void gerritConfigContainsNullValues() throws Exception {
-    thrown.expect(RuntimeException.class);
-    thrown.expectMessage(format(ERROR_MSG, PLUGIN_NAME));
-    jiraConfig = new JiraConfig(cfg, PLUGIN_NAME);
+  public void testGetPluginConfigFor() throws NoSuchProjectException {
+    Project.NameKey project = new Project.NameKey("$project");
+    PluginConfig pluginCfg = new PluginConfig(pluginName, new Config());
+    when(cfgFactory.getFromProjectConfigWithInheritance(project, pluginName)).thenReturn(pluginCfg);
+    jiraConfig.getPluginConfigFor(project);
+    assertThat(pluginCfg).isNotNull();
   }
 }
