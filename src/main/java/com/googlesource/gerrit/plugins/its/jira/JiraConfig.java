@@ -14,73 +14,142 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
-import static java.lang.String.format;
-
+import com.google.common.annotations.VisibleForTesting;
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Strings;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.server.GerritPersonIdent;
 import com.google.gerrit.server.config.GerritServerConfig;
+import com.google.gerrit.server.config.PluginConfig;
+import com.google.gerrit.server.config.PluginConfigFactory;
+import com.google.gerrit.server.extensions.events.GitReferenceUpdated;
+import com.google.gerrit.server.git.GitRepositoryManager;
+import com.google.gerrit.server.git.meta.MetaDataUpdate;
+import com.google.gerrit.server.project.CommentLinkInfoImpl;
+import com.google.gerrit.server.project.NoSuchProjectException;
+import com.google.gerrit.server.project.ProjectCache;
+import com.google.gerrit.server.project.ProjectConfig;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraURL;
-import java.net.MalformedURLException;
+import java.io.IOException;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Config;
+import org.eclipse.jgit.lib.PersonIdent;
+import org.eclipse.jgit.lib.Repository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/** The JIRA plugin configuration as read from Gerrit config. */
+/** The JIRA plugin configuration as read from project config. */
 @Singleton
 public class JiraConfig {
-  static final String ERROR_MSG = "Unable to load plugin %s because of invalid configuration: %s";
-  static final String GERRIT_CONFIG_URL = "url";
-  static final String GERRIT_CONFIG_USERNAME = "username";
-  static final String GERRIT_CONFIG_PASSWORD = "password";
+  static final String PROJECT_CONFIG_URL_KEY = "instanceUrl";
+  static final String PROJECT_CONFIG_USERNAME_KEY = "jiraUsername";
+  static final String PROJECT_CONFIG_PASS_KEY = "password";
 
-  private final JiraURL jiraUrl;
-  private final String jiraUsername;
-  private final String jiraPassword;
+  private static final Logger log = LoggerFactory.getLogger(JiraConfig.class);
+  private static final String COMMENTLINK = "commentlink";
+  private static final String GERRIT_CONFIG_URL = "url";
+  private static final String GERRIT_CONFIG_USERNAME = "username";
+  private static final String GERRIT_CONFIG_PASSWORD = "password";
+
+  private final String pluginName;
+  private final PluginConfigFactory cfgFactory;
+  private final Config gerritConfig;
+  private final JiraItsServerInfo defaultJiraServerInfo;
+  private final GitRepositoryManager repoManager;
+  private final ProjectCache projectCache;
+  private final PersonIdent serverUser;
 
   /**
-   * Builds an JiraConfig.
+   * Builds a JiraConfig.
    *
+   * @param cfgFactory the plugin config factory
    * @param config the gerrit server config
    * @param pluginName the name of this very plugin
    */
   @Inject
-  JiraConfig(@GerritServerConfig Config config, @PluginName String pluginName) {
-    try {
-      jiraUrl = new JiraURL(config.getString(pluginName, null, GERRIT_CONFIG_URL)).adjustUrlPath();
-    } catch (MalformedURLException e) {
-      throw new RuntimeException(format(ERROR_MSG, pluginName, e.getLocalizedMessage()));
+  JiraConfig(
+      @GerritServerConfig Config config,
+      @PluginName String pluginName,
+      PluginConfigFactory cfgFactory,
+      @GerritPersonIdent PersonIdent serverUser,
+      ProjectCache projectCache,
+      GitRepositoryManager repoManager) {
+    this.gerritConfig = config;
+    this.pluginName = pluginName;
+    this.cfgFactory = cfgFactory;
+    this.serverUser = serverUser;
+    this.projectCache = projectCache;
+    this.repoManager = repoManager;
+    this.defaultJiraServerInfo = buildDefaultServerInfo(gerritConfig, pluginName);
+  }
+
+  private static JiraItsServerInfo buildDefaultServerInfo(Config gerritConfig, String pluginName) {
+    return JiraItsServerInfo.builder()
+        .url(gerritConfig.getString(pluginName, null, GERRIT_CONFIG_URL))
+        .username(gerritConfig.getString(pluginName, null, GERRIT_CONFIG_USERNAME))
+        .password(gerritConfig.getString(pluginName, null, GERRIT_CONFIG_PASSWORD))
+        .build();
+  }
+
+  JiraItsServerInfo getDefaultServerInfo() {
+    return defaultJiraServerInfo;
+  }
+
+  String getCommentLinkFromGerritConfig(String key) {
+    return gerritConfig.getString(COMMENTLINK, pluginName, key);
+  }
+
+  JiraItsServerInfo getServerInfoFor(String projectName) {
+    PluginConfig pluginConfig = getPluginConfigFor(projectName);
+    return JiraItsServerInfo.builder()
+        .url(pluginConfig.getString(PROJECT_CONFIG_URL_KEY, null))
+        .username(pluginConfig.getString(PROJECT_CONFIG_USERNAME_KEY, null))
+        .password(pluginConfig.getString(PROJECT_CONFIG_PASS_KEY, null))
+        .build();
+  }
+
+  void addCommentLinksSection(Project.NameKey projectName, JiraItsServerInfo jiraItsServerInfo) {
+    try (Repository git = repoManager.openRepository(projectName);
+        MetaDataUpdate md = new MetaDataUpdate(GitReferenceUpdated.DISABLED, projectName, git)) {
+      ProjectConfig config = ProjectConfig.read(md);
+      String link =
+          CharMatcher.is('/').trimFrom(jiraItsServerInfo.getUrl().toString()) + JiraURL.URL_SUFFIX;
+      if (!commentLinksExist(config, link)) {
+        String match = getCommentLinkFromGerritConfig("match");
+        CommentLinkInfoImpl commentlinkSection =
+            new CommentLinkInfoImpl(pluginName, match, link, null, true);
+        config.addCommentLinkSection(commentlinkSection);
+        md.getCommitBuilder().setAuthor(serverUser);
+        md.getCommitBuilder().setCommitter(serverUser);
+        projectCache.evict(config.getProject());
+        config.commit(md);
+      }
+    } catch (ConfigInvalidException | IOException e) {
+      throw new RuntimeException(e);
     }
+  }
 
-    jiraUsername = config.getString(pluginName, null, GERRIT_CONFIG_USERNAME);
-    jiraPassword = config.getString(pluginName, null, GERRIT_CONFIG_PASSWORD);
-    if (jiraUrl == null || jiraUsername == null || jiraPassword == null) {
-      throw new RuntimeException(format(ERROR_MSG, pluginName, "missing username/password"));
+  private boolean commentLinksExist(ProjectConfig config, String link) {
+    return config.getCommentLinkSections().stream().map(c -> c.link).anyMatch(link::equals);
+  }
+
+  @VisibleForTesting
+  PluginConfig getPluginConfigFor(String projectName) {
+    if (projectName != null && !Strings.isNullOrEmpty(projectName)) {
+      try {
+        return cfgFactory.getFromProjectConfigWithInheritance(
+            new Project.NameKey(projectName), pluginName);
+      } catch (NoSuchProjectException e) {
+        log.warn(
+            "Unable to get project configuration for {}: project '{}' not found ",
+            pluginName,
+            projectName,
+            e);
+      }
     }
-  }
-
-  /**
-   * The Jira url to connect to.
-   *
-   * @return the jira url
-   */
-  public JiraURL getJiraUrl() {
-    return jiraUrl;
-  }
-
-  /**
-   * The username to connect to a Jira server.
-   *
-   * @return the username
-   */
-  public String getUsername() {
-    return jiraUsername;
-  }
-
-  /**
-   * The password to connect to a Jira server.
-   *
-   * @return the password
-   */
-  public String getPassword() {
-    return jiraPassword;
+    return new PluginConfig(pluginName, new Config());
   }
 }
