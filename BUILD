@@ -20,6 +20,7 @@ gerrit_plugin(
     resources = glob(["src/main/resources/**/*"]),
     deps = [
         "//plugins/its-base",
+        "@jasypt//jar",
     ],
 )
 
@@ -44,5 +45,6 @@ java_library(
         "//plugins/its-base",
         "@mockito//jar",
         "@wiremock//jar",
+        "@jasypt//jar",
     ],
 )
