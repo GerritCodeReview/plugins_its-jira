@@ -97,6 +97,12 @@ Example:
 
 Jira credentials and connectivity details are asked and verified during the Gerrit init.
 
+This plugin also offers an option to configure specific JIRA instances and can be
+configured using ITS-JIRA plugin's
+display section in Gerrit UI. It provides options to input an url, username and password.
+The credentials mentioned on project level will take precedence over
+the global credentials mentioned in gerrit.config.
+
 Gerrit init integration
 -----------------------
 
@@ -133,6 +139,17 @@ Gerrit init example:
            suggested
            optional
     Issue-id enforced in commit message [MANDATORY/?]: suggested
+
+The connectivity of its-jira plugin with Jira server happens on-request i.e.
+when an action is requested, a connection is established based on any of the two
+configuration's availability i.e. global config extracted from gerrit.config or
+project level config from project.config.
+
+The way a Jira issue and its corresponding gerrit change are
+annotated can be configured by specifying rules in a separate config file. Global rules,
+applied by all configured ITS plugins, can be defined in the file
+`review_site/etc/its/actions.config`. Rules specific to @PLUGIN@ are defined in
+the file `review_site/etc/its/actions-@PLUGIN@.config`.
 
 **Sample actions-@Plugin@.config:**
 

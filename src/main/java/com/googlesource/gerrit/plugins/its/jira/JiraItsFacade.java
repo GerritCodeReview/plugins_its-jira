@@ -1,4 +1,4 @@
-// Copyright (C) 2013 The Android Open Source Project
+// Copyright (C) 2013-2018 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,16 +15,18 @@
 package com.googlesource.gerrit.plugins.its.jira;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
-import com.googlesource.gerrit.plugins.its.jira.restapi.JiraProject;
-import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
+import com.googlesource.gerrit.plugins.its.base.its.ItsServerInfo;
 import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/** Implementation of ItsFacade. */
+@Singleton
 public class JiraItsFacade implements ItsFacade {
 
   private static final int MAX_ATTEMPTS = 3;
@@ -36,64 +38,55 @@ public class JiraItsFacade implements ItsFacade {
   @Inject
   public JiraItsFacade(JiraClient jiraClient) {
     this.jiraClient = jiraClient;
-    try {
-      JiraServerInfo info = this.jiraClient.sysInfo();
-      log.info(
-          "Connected to JIRA at {}, reported version is {}", info.getBaseUri(), info.getVersion());
-      for (JiraProject p : this.jiraClient.getProjects()) {
-        log.info("Found project: {} (key: {})", p.getName(), p.getKey());
-      }
-    } catch (Exception ex) {
-      log.warn("Jira is currently not available", ex);
-    }
   }
 
   @Override
-  public String healthCheck(Check check) throws IOException {
+  public String healthCheck(ItsServerInfo server, Check check) throws IOException {
 
     return execute(
         () -> {
-          if (check.equals(Check.ACCESS)) {
-            return jiraClient.healthCheckAccess();
-          }
-          return jiraClient.healthCheckSysinfo();
+          if (check.equals(Check.ACCESS))
+            return jiraClient.healthCheckAccess(getJiraServerInstance(server));
+          return jiraClient.healthCheckSysinfo(getJiraServerInstance(server));
         });
   }
 
   @Override
-  public void addComment(String issueKey, String comment) throws IOException {
-
+  public void addComment(ItsServerInfo server, String issueKey, String comment) throws IOException {
     execute(
         () -> {
           log.debug("Adding comment {} to issue {}", comment, issueKey);
-          jiraClient.addComment(issueKey, comment);
+          jiraClient.addComment(getJiraServerInstance(server), issueKey, comment);
           log.debug("Added comment {} to issue {}", comment, issueKey);
           return issueKey;
         });
   }
 
   @Override
-  public void addRelatedLink(String issueKey, URL relatedUrl, String description)
+  public void addRelatedLink(
+      ItsServerInfo server, String issueKey, URL relatedUrl, String description)
       throws IOException {
     addComment(
-        issueKey, "Related URL: " + createLinkForWebui(relatedUrl.toExternalForm(), description));
+        server,
+        issueKey,
+        "Related URL: " + createLinkForWebui(relatedUrl.toExternalForm(), description));
   }
 
   @Override
-  public void performAction(String issueKey, String actionName) throws IOException {
-
+  public void performAction(ItsServerInfo server, String issueKey, String actionName)
+      throws IOException {
     execute(
         () -> {
           log.debug("Performing action {} on issue {}", actionName, issueKey);
-          doPerformAction(issueKey, actionName);
+          doPerformAction(getJiraServerInstance(server), issueKey, actionName);
           return issueKey;
         });
   }
 
-  private void doPerformAction(String issueKey, String actionName)
+  private void doPerformAction(ItsServerInfo server, String issueKey, String actionName)
       throws IOException, InvalidTransitionException {
     log.debug("Trying to perform action: {} on issue {}", actionName, issueKey);
-    boolean ret = jiraClient.doTransition(issueKey, actionName);
+    boolean ret = jiraClient.doTransition(getJiraServerInstance(server), issueKey, actionName);
     if (ret) {
       log.debug("Action {} successful on Issue {}", actionName, issueKey);
     } else {
@@ -102,8 +95,12 @@ public class JiraItsFacade implements ItsFacade {
   }
 
   @Override
-  public boolean exists(String issueKey) throws IOException {
-    return execute(() -> jiraClient.issueExists(issueKey));
+  public boolean exists(ItsServerInfo server, String issueKey) throws IOException {
+    return execute(() -> jiraClient.issueExists(getJiraServerInstance(server), issueKey));
+  }
+
+  private JiraItsServerInfo getJiraServerInstance(ItsServerInfo server) {
+    return (JiraItsServerInfo) server;
   }
 
   private <P> P execute(Callable<P> function) throws IOException {
@@ -130,5 +127,33 @@ public class JiraItsFacade implements ItsFacade {
   @Override
   public String createLinkForWebui(String url, String text) {
     return "[" + text + "|" + url + "]";
+  }
+
+  @Override
+  public String healthCheck(Check check) throws IOException {
+    //not implemented, not required while implementing multi-server functionality.
+    return null;
+  }
+
+  @Override
+  public void addRelatedLink(String issueId, URL relatedUrl, String description)
+      throws IOException {
+    //not implemented, not required while implementing multi-server functionality.
+  }
+
+  @Override
+  public void addComment(String issueId, String comment) throws IOException {
+    //not implemented, not required while implementing multi-server functionality.
+  }
+
+  @Override
+  public void performAction(String issueId, String actionName) throws IOException {
+    //not implemented, not required while implementing multi-server functionality.
+  }
+
+  @Override
+  public boolean exists(String issueId) throws IOException {
+    //not implemented, not required while implementing multi-server functionality.
+    return false;
   }
 }
