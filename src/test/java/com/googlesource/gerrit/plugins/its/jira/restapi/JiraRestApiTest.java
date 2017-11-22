@@ -17,7 +17,7 @@ package com.googlesource.gerrit.plugins.its.jira.restapi;
 import static com.google.common.truth.Truth.assertThat;
 import static org.mockito.Mockito.when;
 
-import com.googlesource.gerrit.plugins.its.jira.JiraConfig;
+import com.googlesource.gerrit.plugins.its.jira.JiraItsServerInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -28,15 +28,15 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class JiraRestApiTest {
   private static final String ISSUE_CLASS_PREFIX = "/issue/";
 
-  @Mock private JiraConfig jiraConfig;
+  @Mock private JiraItsServerInfo jiraItsServerInfo;
 
   private String url;
   private JiraRestApi restApi;
 
   private void setUpCommonMocks() {
-    when(jiraConfig.getJiraUrl()).thenReturn(url);
-    when(jiraConfig.getUsername()).thenReturn("user");
-    when(jiraConfig.getPassword()).thenReturn("pass");
+    when(jiraItsServerInfo.getUrl()).thenReturn(url);
+    when(jiraItsServerInfo.getUsername()).thenReturn("user");
+    when(jiraItsServerInfo.getPassword()).thenReturn("pass");
   }
 
   @Test
@@ -45,9 +45,9 @@ public class JiraRestApiTest {
     setUpCommonMocks();
     restApi =
         new JiraRestApi(
-            jiraConfig.getJiraUrl(),
-            jiraConfig.getUsername(),
-            jiraConfig.getPassword(),
+            jiraItsServerInfo.getUrl(),
+            jiraItsServerInfo.getUsername(),
+            jiraItsServerInfo.getPassword(),
             JiraIssue.class,
             ISSUE_CLASS_PREFIX);
     String jiraApiUrl = restApi.getBaseUrl().toString();
@@ -60,9 +60,9 @@ public class JiraRestApiTest {
     setUpCommonMocks();
     restApi =
         new JiraRestApi(
-            jiraConfig.getJiraUrl(),
-            jiraConfig.getUsername(),
-            jiraConfig.getPassword(),
+            jiraItsServerInfo.getUrl(),
+            jiraItsServerInfo.getUsername(),
+            jiraItsServerInfo.getPassword(),
             JiraIssue.class,
             ISSUE_CLASS_PREFIX);
     String jiraApiUrl = restApi.getBaseUrl().toString();
@@ -75,9 +75,9 @@ public class JiraRestApiTest {
     setUpCommonMocks();
     restApi =
         new JiraRestApi(
-            jiraConfig.getJiraUrl(),
-            jiraConfig.getUsername(),
-            jiraConfig.getPassword(),
+            jiraItsServerInfo.getUrl(),
+            jiraItsServerInfo.getUsername(),
+            jiraItsServerInfo.getPassword(),
             JiraIssue.class,
             ISSUE_CLASS_PREFIX);
     String jiraApiUrl = restApi.getBaseUrl().toString();
