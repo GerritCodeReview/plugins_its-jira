@@ -14,74 +14,89 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
-import static java.lang.String.format;
-
+import com.google.common.base.Strings;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.config.GerritServerConfig;
+import com.google.gerrit.server.config.PluginConfig;
+import com.google.gerrit.server.config.PluginConfigFactory;
+import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import java.net.MalformedURLException;
-import java.net.URL;
 import org.eclipse.jgit.lib.Config;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/** The JIRA plugin configuration as read from Gerrit config. */
-@Singleton
+/** The JIRA plugin configuration as read from project config. */
 public class JiraConfig {
-  static final String ERROR_MSG = "Unable to load plugin %s. Cause: Wrong configuration ";
-  static final String GERRIT_CONFIG_URL = "url";
-  static final String GERRIT_CONFIG_USERNAME = "username";
-  static final String GERRIT_CONFIG_PASSWORD = "password";
-  static final String PLUGIN = "plugin";
+  public static final String PROJECT_CONFIG_URL_KEY = "instanceUrl";
+  public static final String PROJECT_CONFIG_USERNAME_KEY = "jiraUsername";
+  public static final String PROJECT_CONFIG_PASS_KEY = "password";
+  public static final String GERRIT_CONFIG_USERNAME = "username";
+  public static final String GERRIT_CONFIG_PASSWORD = "password";
+  public static final String GERRIT_CONFIG_URL = "url";
+  private static final String PLUGIN = "plugin";
+  private static final String COMMENTLINK = "commentlink";
 
-  private final String jiraUrl;
-  private final String jiraUsername;
-  private final String jiraPassword;
-  private final boolean isSection;
+  public String pluginName;
+  private PluginConfigFactory cfgFactory;
+  private Config gerritConfig;
+  private boolean isSection;
+  private Logger log = LoggerFactory.getLogger(JiraConfig.class);
 
   /**
-   * Builds an JiraConfig.
+   * Builds a JiraConfig.
    *
+   * @param cfgFactory the plugin config factory
    * @param config the gerrit server config
    * @param pluginName the name of this very plugin
    */
   @Inject
-  JiraConfig(@GerritServerConfig Config config, @PluginName String pluginName) {
-    isSection = config.getSections().contains(pluginName);
-    jiraUrl = getConfigString(GERRIT_CONFIG_URL, config, pluginName);
-    jiraUsername = getConfigString(GERRIT_CONFIG_USERNAME, config, pluginName);
-    jiraPassword = getConfigString(GERRIT_CONFIG_PASSWORD, config, pluginName);
-    if (jiraUrl == null || jiraUsername == null || jiraPassword == null) {
-      throw new RuntimeException(format(ERROR_MSG, pluginName));
+  JiraConfig(
+      @GerritServerConfig Config config,
+      @PluginName String pluginName,
+      PluginConfigFactory cfgFactory) {
+    this.gerritConfig = config;
+    this.pluginName = pluginName;
+    this.cfgFactory = cfgFactory;
+  }
+
+  PluginConfig getPluginConfigFor(Project.NameKey projectName) {
+    if (projectName != null && !Strings.isNullOrEmpty(projectName.get())) {
+      try {
+        return cfgFactory.getFromProjectConfigWithInheritance(projectName, pluginName);
+      } catch (NoSuchProjectException e) {
+        log.warn("{} not found, using global settings for {}", projectName, pluginName, e);
+      }
     }
+    return new PluginConfig(pluginName, new Config());
   }
 
   /**
-   * The Jira url to connect to.
+   * Get config value from project configuration.
    *
-   * @return the jira url
-   * @throws MalformedURLException
+   * @return config value from project config if it exists
    */
-  public URL getJiraUrl() throws MalformedURLException {
-    URL serverUrl = new URL(jiraUrl + (jiraUrl.endsWith("/") ? "" : "/"));
-    return serverUrl;
+  String getFromProjectConfig(PluginConfig pluginConfig, String key) {
+    return pluginConfig.getString(key, null);
   }
 
   /**
-   * The username to connect to a Jira server.
+   * Get config value from Gerrit configuration.
    *
-   * @return the username
+   * @return config value from Gerrit config if it exists
    */
-  public String getUsername() {
-    return jiraUsername;
+  String getFromGerritConfig(String key) {
+    isSection = gerritConfig.getSections().contains(pluginName);
+    return getConfigString(key);
   }
 
   /**
-   * The password to connect to a Jira server.
+   * Get commentLink value from Gerrit configuration.
    *
-   * @return the password
+   * @return commentLink value from Gerrit config if it exists
    */
-  public String getPassword() {
-    return jiraPassword;
+  String getCommentLinkFromGerritConfig(String key) {
+    return gerritConfig.getString(COMMENTLINK, pluginName, key);
   }
 
   /**
@@ -89,14 +104,12 @@ public class JiraConfig {
    * return the config value. Provides support for both formats.
    *
    * @param key the key for the value stored in config file
-   * @param config the config file
-   * @param pluginName name of the plugin used to get the config value
    * @return the value related to the key passed.
    */
-  private String getConfigString(String key, Config config, String pluginName) {
+  private String getConfigString(String key) {
     if (isSection) {
-      return config.getString(pluginName, null, key);
+      return gerritConfig.getString(pluginName, null, key);
     }
-    return config.getString(PLUGIN, pluginName, key);
+    return gerritConfig.getString(PLUGIN, pluginName, key);
   }
 }
