@@ -27,17 +27,16 @@ import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
 import static java.net.HttpURLConnection.HTTP_OK;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import com.googlesource.gerrit.plugins.its.jira.JiraConfig;
+import com.googlesource.gerrit.plugins.its.jira.Encrypt;
+import com.googlesource.gerrit.plugins.its.jira.JiraItsServerInfo;
 import java.io.IOException;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -54,16 +53,19 @@ public class JiraRestApiTest {
 
   private String url;
 
-  @Mock private JiraConfig jiraConfig;
+  private JiraItsServerInfo server;
 
   private JiraRestApi restApi;
 
   @Before
   public void setUp() throws Exception {
     url = "http://localhost:" + wireMockRule.port();
-    when(jiraConfig.getUrl()).thenReturn(url);
-    when(jiraConfig.getUsername()).thenReturn("user");
-    when(jiraConfig.getPassword()).thenReturn("pass");
+    server =
+        JiraItsServerInfo.buider()
+            .url(url)
+            .username("user")
+            .password(Encrypt.decrypt("pass"))
+            .build();
   }
 
   @Test
@@ -71,7 +73,7 @@ public class JiraRestApiTest {
     wireMockRule.givenThat(
         get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE))
             .willReturn(aResponse().withStatus(HTTP_OK)));
-    restApi = new JiraRestApi(jiraConfig, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    restApi = new JiraRestApi(server, JiraIssue.class, ISSUE_CLASS_PREFIX);
     restApi.doGet(JIRA_ISSUE, HTTP_OK);
     assertThat(restApi.getResponseCode()).isEqualTo(HTTP_OK);
   }
@@ -81,7 +83,7 @@ public class JiraRestApiTest {
     wireMockRule.givenThat(
         get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE))
             .willReturn(aResponse().withStatus(HTTP_OK).withBody(ISSUE_RESPONSE_BODY)));
-    restApi = new JiraRestApi(jiraConfig, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    restApi = new JiraRestApi(server, JiraIssue.class, ISSUE_CLASS_PREFIX);
     assertThat(restApi.doGet(JIRA_ISSUE, HTTP_OK)).isInstanceOf(JiraIssue.class);
   }
 
@@ -90,7 +92,7 @@ public class JiraRestApiTest {
     wireMockRule.givenThat(
         get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE))
             .willReturn(aResponse().withStatus(HTTP_OK).withBody(ISSUE_RESPONSE_BODY)));
-    restApi = new JiraRestApi(jiraConfig, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    restApi = new JiraRestApi(server, JiraIssue.class, ISSUE_CLASS_PREFIX);
     assertThat(restApi.doGet(JIRA_ISSUE, HTTP_OK, new int[] {HTTP_FORBIDDEN, HTTP_NOT_FOUND}))
         .isInstanceOf(JiraIssue.class);
   }
@@ -111,7 +113,7 @@ public class JiraRestApiTest {
             + HTTP_FORBIDDEN
             + " - "
             + "Forbidden");
-    restApi = new JiraRestApi(jiraConfig, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    restApi = new JiraRestApi(server, JiraIssue.class, ISSUE_CLASS_PREFIX);
     restApi.doGet(JIRA_ISSUE, HTTP_OK);
   }
 
@@ -120,7 +122,7 @@ public class JiraRestApiTest {
     wireMockRule.givenThat(
         get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE))
             .willReturn(aResponse().withStatus(HTTP_FORBIDDEN)));
-    restApi = new JiraRestApi(jiraConfig, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    restApi = new JiraRestApi(server, JiraIssue.class, ISSUE_CLASS_PREFIX);
     assertThat(restApi.doGet(JIRA_ISSUE, HTTP_OK, new int[] {HTTP_FORBIDDEN, HTTP_NOT_FOUND}))
         .isNull();
   }
@@ -131,7 +133,7 @@ public class JiraRestApiTest {
         post(urlEqualTo(BASE_PREFIX + COMMENT_CLASS_PREFIX + JIRA_ISSUE))
             .withRequestBody(equalToJson(COMMENT_REQUEST_BODY))
             .willReturn(aResponse().withStatus(HTTP_CREATED)));
-    restApi = new JiraRestApi(jiraConfig, JiraComment.class, COMMENT_CLASS_PREFIX);
+    restApi = new JiraRestApi(server, JiraComment.class, COMMENT_CLASS_PREFIX);
     assertThat(restApi.doPost(JIRA_ISSUE, COMMENT_REQUEST_BODY, HTTP_CREATED)).isTrue();
   }
 
@@ -140,7 +142,7 @@ public class JiraRestApiTest {
     wireMockRule.givenThat(
         post(urlEqualTo(BASE_PREFIX + COMMENT_CLASS_PREFIX + JIRA_ISSUE))
             .willReturn(aResponse().withStatus(HTTP_CREATED)));
-    restApi = new JiraRestApi(jiraConfig, JiraComment.class, COMMENT_CLASS_PREFIX);
+    restApi = new JiraRestApi(server, JiraComment.class, COMMENT_CLASS_PREFIX);
     assertThat(restApi.doPost(JIRA_ISSUE, COMMENT_REQUEST_BODY, HTTP_CREATED)).isTrue();
   }
 
