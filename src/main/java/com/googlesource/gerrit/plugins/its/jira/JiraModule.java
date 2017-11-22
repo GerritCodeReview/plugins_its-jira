@@ -14,14 +14,20 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
+import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.PROJECT_CONFIG_PASS_KEY;
+import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.PROJECT_CONFIG_URL_KEY;
+import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.PROJECT_CONFIG_USERNAME_KEY;
+
+import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.config.FactoryModule;
-import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
+import com.google.gerrit.server.config.ProjectConfigEntry;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.its.base.ItsHookModule;
+import com.googlesource.gerrit.plugins.its.base.its.ItsConfig;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
-import org.eclipse.jgit.lib.Config;
+import com.googlesource.gerrit.plugins.its.base.its.ItsServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,26 +36,29 @@ public class JiraModule extends FactoryModule {
   private static final Logger LOG = LoggerFactory.getLogger(JiraModule.class);
 
   private final String pluginName;
-  private final Config gerritConfig;
   private final PluginConfigFactory pluginCfgFactory;
 
   @Inject
-  public JiraModule(
-      @PluginName String pluginName,
-      @GerritServerConfig Config config,
-      PluginConfigFactory pluginCfgFactory) {
+  public JiraModule(@PluginName String pluginName, PluginConfigFactory pluginCfgFactory) {
     this.pluginName = pluginName;
-    this.gerritConfig = config;
     this.pluginCfgFactory = pluginCfgFactory;
   }
 
   @Override
   protected void configure() {
-    if (gerritConfig.getString(pluginName, null, "url") != null) {
-      LOG.info("JIRA is configured as ITS");
-      bind(ItsFacade.class).to(JiraItsFacade.class).asEagerSingleton();
-
-      install(new ItsHookModule(pluginName, pluginCfgFactory));
-    }
+    LOG.info("JIRA is configured as ITS");
+    bind(ItsFacade.class).to(JiraItsFacade.class).asEagerSingleton();
+    bind(ItsServer.class).to(JiraItsServer.class).asEagerSingleton();
+    bind(ProjectConfigEntry.class)
+        .annotatedWith(Exports.named(PROJECT_CONFIG_URL_KEY))
+        .toInstance(new JiraUrlProjectConfigEntry("Server URL", ""));
+    bind(ProjectConfigEntry.class)
+        .annotatedWith(Exports.named(PROJECT_CONFIG_USERNAME_KEY))
+        .toInstance(new ProjectConfigEntry("JIRA username", ""));
+    bind(ProjectConfigEntry.class)
+        .annotatedWith(Exports.named(PROJECT_CONFIG_PASS_KEY))
+        .toInstance(new JiraPasswordProjectConfigEntry());
+    bind(ItsConfig.class);
+    install(new ItsHookModule(pluginName, pluginCfgFactory));
   }
 }
