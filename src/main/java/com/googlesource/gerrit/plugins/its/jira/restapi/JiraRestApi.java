@@ -19,7 +19,7 @@ import static java.net.HttpURLConnection.HTTP_OK;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
-import com.googlesource.gerrit.plugins.its.jira.JiraConfig;
+import com.googlesource.gerrit.plugins.its.jira.JiraItsServerInfo;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -38,7 +38,7 @@ import org.slf4j.LoggerFactory;
 public class JiraRestApi<T> {
 
   public interface Factory {
-    JiraRestApi<?> create(Class<?> classOfT, String classPrefix);
+    JiraRestApi<?> create(JiraItsServerInfo serverInfo, Class<?> classOfT, String classPrefix);
   }
 
   private static final Logger log = LoggerFactory.getLogger(JiraRestApi.class);
@@ -55,15 +55,17 @@ public class JiraRestApi<T> {
   /**
    * Create a new Jira REST API client
    *
-   * @param jiraConfig contains the configuration of jira server
-   * @param classOfT class type of the object requested
-   * @param classPrefix prefix for the rest api request
+   * @param classOfT The type of the answer
+   * @param classPrefix the endpoint prefix
+   * @throws MalformedURLException
    */
   @Inject
-  JiraRestApi(JiraConfig jiraConfig, @Assisted Class<T> classOfT, @Assisted String classPrefix) {
-    this.auth = encode(jiraConfig.getUsername(), jiraConfig.getPassword());
-    this.baseUrl = createBaseUrl(jiraConfig.getJiraUrl(), classPrefix);
+  JiraRestApi(
+      @Assisted JiraItsServerInfo server, @Assisted Class<T> classOfT, @Assisted String classPrefix)
+      throws MalformedURLException {
     this.classOfT = classOfT;
+    this.auth = encode(server.getUsername(), server.getPassword());
+    this.baseUrl = createBaseUrl(server.getUrl(), classPrefix);
   }
 
   /**
