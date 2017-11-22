@@ -22,13 +22,14 @@ import java.net.MalformedURLException;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.Objects;
 import org.eclipse.jgit.util.HttpSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class JiraURL {
+  /** Suffix to create a comment link based on this URL */
+  public static final String URL_SUFFIX = "/browse/$1";
 
   private static final Logger log = LoggerFactory.getLogger(JiraURL.class);
 
@@ -43,7 +44,7 @@ public class JiraURL {
   }
 
   public JiraURL resolveUrl(String... paths) {
-    String relativePath = String.join("", Arrays.asList(paths));
+    String relativePath = String.join("", paths);
     try {
       return new JiraURL(new URL(url, relativePath));
     } catch (MalformedURLException e) {

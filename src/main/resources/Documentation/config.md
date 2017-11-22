@@ -134,6 +134,17 @@ Gerrit init example:
            optional
     Issue-id enforced in commit message [MANDATORY/?]: suggested
 
+The connectivity of its-jira plugin with Jira server happens on-request. When an
+action is requested, a connection is established based on any of the two
+configuration's availability, i.e., global config extracted from gerrit.config or
+project level config from project.config.
+
+The way a Jira issue and its corresponding gerrit change are annotated can be
+configured by specifying rules in a separate config file. Global rules, applied
+by all configured ITS plugins, can be defined in the file
+`review_site/etc/its/actions.config`. Rules specific to @PLUGIN@ are defined in
+the file `review_site/etc/its/actions-@PLUGIN@.config`.
+
 **Sample actions-@Plugin@.config:**
 
     [rule "open"]
@@ -168,3 +179,64 @@ instead of velocity comments:
         event-type = patchset-created
         action = add-soy-comment Change ${its.formatLink($changeUrl)} is created.
         action = In Progress
+
+Multiple Jira servers integration
+---------------------------------
+
+```
+Please note that this feature is considered EXPERIMENTAL and should be used with
+caution, as it could expose sensitive information.
+```
+
+In corporate environments, it is not unusual to have multiple Jira servers
+and it is a common requirement to integrate Gerrit projects with those.
+
+This plugin offers the possibility of configuring integrations with multiple Jira
+servers at the Gerrit project level, i.e., a Gerrit project can be associated with
+a particular Jira instance. This is done by specifying the Jira server URL,
+username and password in the project configuration using the GUI controls
+this plugin adds to the project's General page. In this case, the *commentlink*
+section is automatically added by the plugin. It is also possible to add the
+configuration entries by manually editing the *project.config* file in the
+*refs/meta/config* branch.
+
+A typical Jira server configuration in the *project.config* file will look like:
+
+    [plugin "its-jira"]
+         enabled = true
+         instanceUrl = http://jiraserver:8075/
+         jiraUsername = *user*
+         password = *pass*
+
+    [commentlink "its-jira"]
+         match = ([A-Z]+-[0-9]+)
+         link = http://jiraserver:8075/browse/$1
+
+A different project could define its own Jira server in its *project.config*
+file:
+
+    [plugin "its-jira"]
+         enabled = true
+         instanceUrl = http://other_jiraserver:7171/
+         jiraUsername = *another_user*
+         password = *another_pass*
+
+    [commentlink "its-jira"]
+         match = (JIRA-ISSUE:[0-9]+)
+         link = http://other_jiraserver:7171/browse/$1
+
+In case its-jira plugin is enabled for a project but no Jira server is configured
+for the project, i.e., it is not specified in the *project.config* file, the
+default configuration will be the one defined in *gerrit.config*.
+
+If no Jira server information is defined in *gerrit.config* either, an error is
+logged and the Jira integration is disabled for the project.
+
+The credentials mentioned at the project level, i.e., in the *project.config* file,
+will take precedence over the global credentials mentioned in *secure.config*.
+It is important to notice that __the credentials at the project level are stored as
+clear text and will be visible to anyone having access to the
+*refs/meta/config branch* line product owners and site administrators__. This is a
+limitation and the reason why this feature is marked as experimental, i.e., not
+production ready. Additional work is needed in order to offer a secure level of
+encryption for this information.
