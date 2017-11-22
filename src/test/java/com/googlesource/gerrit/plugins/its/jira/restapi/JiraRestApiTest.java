@@ -15,14 +15,20 @@
 package com.googlesource.gerrit.plugins.its.jira.restapi;
 
 import static com.google.common.truth.Truth.assertThat;
+//<<<<<<< HEAD
 import static java.net.HttpURLConnection.HTTP_NO_CONTENT;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-import com.google.common.base.CharMatcher;
+//import com.google.common.base.CharMatcher;
 import java.io.ByteArrayOutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
+//import java.net.MalformedURLException;
+//=======
+//import static com.googlesource.gerrit.plugins.its.jira.UrlHelper.adjustUrlPath;
+//
+//import java.net.URL;
+//>>>>>>> e21d533... Support multiple Jira instances
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -31,37 +37,45 @@ import org.mockito.junit.MockitoJUnitRunner;
 @SuppressWarnings({"unchecked", "rawtypes"})
 public class JiraRestApiTest {
   private static final String ISSUE_CLASS_PREFIX = "/issue/";
+//<<<<<<< HEAD
   private static final String JSON_PAYLOAD = "{}";
 
   private JiraURL url;
-  private String user = "user";
-  private String password = "pass";
   private JiraRestApi restApi;
 
-  private void setURL(String jiraUrl) throws MalformedURLException {
-    url = new JiraURL(CharMatcher.is('/').trimFrom(jiraUrl) + "/");
-  }
+//  private void setURL(String jiraUrl) throws MalformedURLException {
+//    url = new JiraURL(CharMatcher.is('/').trimFrom(jiraUrl) + "/");
+//  }
 
+//=======
+  private static final String USERNAME = "user";
+  private static final String PASSWORD = "pass";
+//
+//  private URL url;
+//  private JiraRestApi restApi;
+//
+//>>>>>>> e21d533... Support multiple Jira instances
   @Test
   public void testJiraServerInfoForNonRootJiraUrl() throws Exception {
-    setURL("http://jira.mycompany.com/myroot/");
-    restApi = new JiraRestApi(url, user, password, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    url = new JiraURL("http://jira.mycompany.com/myroot/");
+
+    restApi = new JiraRestApi(url, USERNAME, PASSWORD, JiraIssue.class, ISSUE_CLASS_PREFIX);
     String jiraApiUrl = restApi.getBaseUrl().toString();
     assertThat(jiraApiUrl).startsWith(url.toString());
   }
 
   @Test
   public void testJiraServerInfoForNonRootJiraUrlNotEndingWithSlash() throws Exception {
-    setURL("http://jira.mycompany.com/myroot");
-    restApi = new JiraRestApi(url, user, password, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    url = new JiraURL("http://jira.mycompany.com/myroot");
+    restApi = new JiraRestApi(url, USERNAME, PASSWORD, JiraIssue.class, ISSUE_CLASS_PREFIX);
     String jiraApiUrl = restApi.getBaseUrl().toString();
     assertThat(jiraApiUrl).startsWith(url.toString());
   }
 
   @Test
   public void testJiraServerInfoForRootJiraUrl() throws Exception {
-    setURL("http://jira.mycompany.com");
-    restApi = new JiraRestApi(url, user, password, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    url = new JiraURL("http://jira.mycompany.com");
+    restApi = new JiraRestApi(url, USERNAME, PASSWORD, JiraIssue.class, ISSUE_CLASS_PREFIX);
     String jiraApiUrl = restApi.getBaseUrl().toString();
     assertThat(jiraApiUrl).startsWith(url.toString());
   }
@@ -78,7 +92,7 @@ public class JiraRestApiTest {
     when(connection.getOutputStream()).thenReturn(connectionOutputStream);
     when(connection.getResponseCode()).thenReturn(HTTP_NO_CONTENT);
 
-    restApi = new JiraRestApi(url, user, password, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    restApi = new JiraRestApi(url, USERNAME, PASSWORD, JiraIssue.class, ISSUE_CLASS_PREFIX);
     boolean pass = restApi.doPut(ISSUE_CLASS_PREFIX, JSON_PAYLOAD, HTTP_NO_CONTENT);
 
     verify(connection).setRequestMethod("PUT");
