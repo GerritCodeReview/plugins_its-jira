@@ -17,11 +17,12 @@ package com.googlesource.gerrit.plugins.its.jira.restapi;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
-import com.googlesource.gerrit.plugins.its.jira.JiraConfig;
+import com.googlesource.gerrit.plugins.its.jira.JiraItsServerInfo;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.net.URL;
@@ -32,10 +33,10 @@ import org.eclipse.jgit.util.HttpSupport;
 /** Jira Rest Client. */
 public class JiraRestApi<T> {
   public interface Factory {
-    JiraRestApi<?> create(Class<?> classOfT, String classPrefix);
+    JiraRestApi<?> create(JiraItsServerInfo serverInfo, Class<?> classOfT, String classPrefix);
   }
 
-  public static final String BASE_PREFIX = "/rest/api/2";
+  public static final String BASE_PREFIX = "rest/api/2";
 
   private final URL baseUrl;
   private final String auth;
@@ -46,13 +47,22 @@ public class JiraRestApi<T> {
   private T data;
   private int responseCode;
 
+  /**
+   * Create a new Jira REST API client
+   *
+   * @param classOfT The type of the answer
+   * @param classPrefix the endpoint prefix
+   * @throws MalformedURLException 
+   */
   @Inject
-  JiraRestApi(JiraConfig jiraConfig, @Assisted Class<T> classOfT, @Assisted String classPrefix)
-      throws IOException {
-    this.auth = encode(jiraConfig.getUsername(), jiraConfig.getPassword());
-    this.baseUrl = new URL(jiraConfig.getJiraUrl(), BASE_PREFIX + classPrefix);
+  JiraRestApi(
+      @Assisted JiraItsServerInfo server,
+      @Assisted Class<T> classOfT,
+      @Assisted String classPrefix) throws MalformedURLException {
     this.classOfT = classOfT;
     this.classPrefix = classPrefix;
+    this.auth = encode(server.getUsername(), server.getPassword());
+    this.baseUrl =  new URL(server.getUrl(), BASE_PREFIX + classPrefix);
   }
 
   /**
@@ -65,11 +75,12 @@ public class JiraRestApi<T> {
    * @throws IOException
    */
   @SuppressWarnings("unchecked")
-  public JiraRestApi(URL url, String user, String pass) throws IOException {
+  public JiraRestApi(String url, String user, String pass) throws IOException {
     this.auth = encode(user, pass);
     this.classOfT = (Class<T>) JiraServerInfo.class;
     this.classPrefix = "/serverInfo";
-    this.baseUrl = new URL(url, BASE_PREFIX + classPrefix);
+    url=url+(url.endsWith("/")?"":"/");
+    this.baseUrl = new URL(url+ BASE_PREFIX + classPrefix);
   }
 
   private String encode(String user, String pass) {
