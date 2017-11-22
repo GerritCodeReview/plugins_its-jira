@@ -62,6 +62,7 @@ public class JiraClientTest {
   @Mock private JiraRestApi<JiraProject[]> jiraProjects;
   @Mock private JiraRestApi<JiraServerInfo> jiraServerInfo;
   @Mock private JiraRestApi<JiraTransition> jiraTransition;
+  @Mock private JiraItsServerInfo server;
 
   private JiraClient jiraClient;
 
@@ -71,58 +72,58 @@ public class JiraClientTest {
   }
 
   @Test
-  public void testIssueExists() throws IOException {
-    when(restApiProvider.getIssue()).thenReturn(jiraIssue);
+  public void testIssueExits() throws IOException {
+    when(restApiProvider.getIssue(server)).thenReturn(jiraIssue);
     when(jiraIssue.getResponseCode()).thenReturn(HTTP_OK);
-    assertThat(jiraClient.issueExists(JIRA_ISSUE)).isTrue();
+    assertThat(jiraClient.issueExists(server, JIRA_ISSUE)).isTrue();
   }
 
   @Test
   public void testIssueNotFound() throws IOException {
-    when(restApiProvider.getIssue()).thenReturn(jiraIssue);
+    when(restApiProvider.getIssue(server)).thenReturn(jiraIssue);
     when(jiraIssue.getResponseCode()).thenReturn(HTTP_NOT_FOUND);
-    assertThat(jiraClient.issueExists(JIRA_ISSUE)).isFalse();
+    assertThat(jiraClient.issueExists(server, JIRA_ISSUE)).isFalse();
   }
 
   @Test
-  public void testIssueExistsForbidden() throws IOException {
-    when(restApiProvider.getIssue()).thenReturn(jiraIssue);
+  public void testIssueExitsForbidden() throws IOException {
+    when(restApiProvider.getIssue(server)).thenReturn(jiraIssue);
     when(jiraIssue.getResponseCode()).thenReturn(HTTP_FORBIDDEN);
-    assertThat(jiraClient.issueExists(JIRA_ISSUE)).isFalse();
+    assertThat(jiraClient.issueExists(server, JIRA_ISSUE)).isFalse();
   }
 
   @Test
-  public void testIssueExistsUnexpectedError() throws IOException {
-    when(restApiProvider.getIssue()).thenReturn(jiraIssue);
+  public void testIssueExitsUnexpectedError() throws IOException {
+    when(restApiProvider.getIssue(server)).thenReturn(jiraIssue);
     when(jiraIssue.getResponseCode()).thenReturn(HTTP_INTERNAL_ERROR);
     thrown.expect(IOException.class);
     thrown.expectMessage("Unexpected HTTP code received:" + HTTP_INTERNAL_ERROR);
-    jiraClient.issueExists(JIRA_ISSUE);
+    jiraClient.issueExists(server, JIRA_ISSUE);
   }
 
   @Test
   public void testGetTransitions() throws IOException {
     Item[] items = new Item[3];
     JiraTransition transition = mock(JiraTransition.class);
-    when(restApiProvider.get(JiraTransition.class, "/issue")).thenReturn(jiraTransition);
+    when(restApiProvider.get(server, JiraTransition.class, "/issue")).thenReturn(jiraTransition);
     when(jiraTransition.doGet("/" + JIRA_ISSUE + "/transitions", HTTP_OK)).thenReturn(transition);
     when(transition.getTransitions()).thenReturn(items);
-    assertThat(jiraClient.getTransitions(JIRA_ISSUE).size()).isEqualTo(3);
+    assertThat(jiraClient.getTransitions(server, JIRA_ISSUE).size()).isEqualTo(3);
   }
 
   @Test
   public void addCommentSucceeds() throws IOException {
-    when(restApiProvider.getIssue()).thenReturn(jiraIssue);
+    when(restApiProvider.getIssue(server)).thenReturn(jiraIssue);
     when(jiraIssue.getResponseCode()).thenReturn(HTTP_OK);
-    jiraClient.addComment(JIRA_ISSUE, COMMENT);
+    jiraClient.addComment(server, JIRA_ISSUE, COMMENT);
     verify(jiraIssue).doPost(COMMENT_SPEC, COMMENT_BODY, HTTP_CREATED);
   }
 
   @Test
   public void addCommentFails() throws IOException {
-    when(restApiProvider.getIssue()).thenReturn(jiraIssue);
+    when(restApiProvider.getIssue(server)).thenReturn(jiraIssue);
     when(jiraIssue.getResponseCode()).thenReturn(HTTP_NOT_FOUND);
-    jiraClient.addComment(JIRA_ISSUE, COMMENT);
+    jiraClient.addComment(server, JIRA_ISSUE, COMMENT);
     verify(jiraIssue, never()).doPost(COMMENT_SPEC, COMMENT_BODY, HTTP_CREATED);
   }
 
@@ -131,12 +132,12 @@ public class JiraClientTest {
     JiraTransition.Item item = new JiraTransition.Item(TRANSITION, "1");
     Item[] items = {item};
     JiraTransition transition = mock(JiraTransition.class);
-    when(restApiProvider.get(JiraTransition.class, "/issue")).thenReturn(jiraTransition);
+    when(restApiProvider.get(server, JiraTransition.class, "/issue")).thenReturn(jiraTransition);
     when(jiraTransition.doGet("/" + JIRA_ISSUE + "/transitions", HTTP_OK)).thenReturn(transition);
     when(transition.getTransitions()).thenReturn(items);
-    when(restApiProvider.getIssue()).thenReturn(jiraIssue);
+    when(restApiProvider.getIssue(server)).thenReturn(jiraIssue);
     when(jiraIssue.doPost(TRANSITION_SPEC, TRANSITION_BODY, HTTP_NO_CONTENT)).thenReturn(true);
-    assertThat(jiraClient.doTransition(JIRA_ISSUE, TRANSITION)).isTrue();
+    assertThat(jiraClient.doTransition(server, JIRA_ISSUE, TRANSITION)).isTrue();
   }
 
   @Test
@@ -144,25 +145,25 @@ public class JiraClientTest {
     JiraTransition.Item item = new JiraTransition.Item("badTransition", "1");
     Item[] items = {item};
     JiraTransition transition = mock(JiraTransition.class);
-    when(restApiProvider.get(JiraTransition.class, "/issue")).thenReturn(jiraTransition);
+    when(restApiProvider.get(server, JiraTransition.class, "/issue")).thenReturn(jiraTransition);
     when(jiraTransition.doGet("/" + JIRA_ISSUE + "/transitions", HTTP_OK)).thenReturn(transition);
     when(transition.getTransitions()).thenReturn(items);
     thrown.expect(InvalidTransitionException.class);
     thrown.expectMessage("Action " + TRANSITION + " not executable on issue " + JIRA_ISSUE);
-    jiraClient.doTransition(JIRA_ISSUE, TRANSITION);
+    jiraClient.doTransition(server, JIRA_ISSUE, TRANSITION);
   }
 
   @Test
   public void testSysInfo() throws IOException {
-    when(restApiProvider.getServerInfo()).thenReturn(jiraServerInfo);
-    jiraClient.sysInfo();
+    when(restApiProvider.getServerInfo(server)).thenReturn(jiraServerInfo);
+    jiraClient.sysInfo(server);
     verify(jiraServerInfo).doGet("", HTTP_OK);
   }
 
   @Test
   public void testGetProjects() throws IOException {
-    when(restApiProvider.getProjects()).thenReturn(jiraProjects);
-    jiraClient.getProjects();
+    when(restApiProvider.getProjects(server)).thenReturn(jiraProjects);
+    jiraClient.getProjects(server);
     verify(jiraProjects).doGet("", HTTP_OK);
   }
 
@@ -170,9 +171,9 @@ public class JiraClientTest {
   public void testHealthCheckAccess() throws IOException {
     JiraServerInfo info = mock(JiraServerInfo.class);
     when(jiraServerInfo.doGet("", HTTP_OK)).thenReturn(info);
-    when(restApiProvider.getServerInfo()).thenReturn(jiraServerInfo);
+    when(restApiProvider.getServerInfo(server)).thenReturn(jiraServerInfo);
     String expected = "{\"status\"=\"ok\"}";
-    assertThat(jiraClient.healthCheckAccess()).isEqualTo(expected);
+    assertThat(jiraClient.healthCheckAccess(server)).isEqualTo(expected);
   }
 
   @Test
@@ -185,11 +186,11 @@ public class JiraClientTest {
     when(info.getBuildNumber()).thenReturn(jiraBuild);
     when(info.getVersion()).thenReturn(jiraVersion);
     when(jiraServerInfo.doGet("", HTTP_OK)).thenReturn(info);
-    when(restApiProvider.getServerInfo()).thenReturn(jiraServerInfo);
+    when(restApiProvider.getServerInfo(server)).thenReturn(jiraServerInfo);
     String expected =
         format(
             "{\"status\"=\"ok\",\"system\"=\"Jira\",\"version\"=\"%s\",\"url\"=\"%s\",\"build\"=\"%s\"}",
             jiraVersion, jiraUrl, jiraBuild);
-    assertThat(jiraClient.healthCheckSysinfo()).isEqualTo(expected);
+    assertThat(jiraClient.healthCheckSysinfo(server)).isEqualTo(expected);
   }
 }

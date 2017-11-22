@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.its.jira.restapi;
 
 import static org.mockito.Mockito.verify;
 
+import com.googlesource.gerrit.plugins.its.jira.JiraItsServerInfo;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,6 +27,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class JiraRestApiProviderTest {
 
   @Mock private JiraRestApi.Factory jiraRestApiFactory;
+  @Mock private JiraItsServerInfo server;
 
   private JiraRestApiProvider jiraRestApiProvider;
 
@@ -36,19 +38,19 @@ public class JiraRestApiProviderTest {
 
   @Test
   public void testGetIssue() {
-    jiraRestApiProvider.getIssue();
-    verify(jiraRestApiFactory).create(JiraIssue.class, "/issue");
+    jiraRestApiProvider.getIssue(server);
+    verify(jiraRestApiFactory).create(server, JiraIssue.class, "/issue");
   }
 
   @Test
   public void testGetServerInfo() {
-    jiraRestApiProvider.getServerInfo();
-    verify(jiraRestApiFactory).create(JiraServerInfo.class, "/serverInfo");
+    jiraRestApiProvider.getServerInfo(server);
+    verify(jiraRestApiFactory).create(server, JiraServerInfo.class, "/serverInfo");
   }
 
   @Test
   public void testGetProjects() {
-    jiraRestApiProvider.getProjects();
-    verify(jiraRestApiFactory).create(JiraProject[].class, "/project");
+    jiraRestApiProvider.getProjects(server);
+    verify(jiraRestApiFactory).create(server, JiraProject[].class, "/project");
   }
 }

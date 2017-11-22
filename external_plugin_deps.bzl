@@ -29,3 +29,8 @@ def external_plugin_deps():
     sha1 = "25f45d45091627a3bae5510495c99a561b2633c4",
   )
 
+  maven_jar(
+    name = "jasypt",
+    artifact = 'org.jasypt:jasypt:1.9.2',
+    sha1 = '91eee489a389faba9fc57bfee75c87c615c19cd7',
+  )
