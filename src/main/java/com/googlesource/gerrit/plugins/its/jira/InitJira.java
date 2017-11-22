@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
+import com.google.common.base.CharMatcher;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.pgm.init.api.AllProjectsConfig;
 import com.google.gerrit.pgm.init.api.AllProjectsNameOnInitProvider;
@@ -123,6 +124,7 @@ class InitJira extends InitIts {
   private boolean isJiraConnectSuccessful() {
     ui.message("Checking Jira connectivity ... ");
     try {
+      jiraUrl = CharMatcher.is('/').trimFrom(jiraUrl) + "/";
       new JiraRestApi<>(jiraUrl, jiraUsername, jiraPassword).ping();
       ui.message("[OK]\n");
       return true;
