@@ -21,7 +21,6 @@ import static java.net.HttpURLConnection.HTTP_NO_CONTENT;
 import static java.net.HttpURLConnection.HTTP_OK;
 
 import com.google.gson.Gson;
-
 import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraComment;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraIssue;
@@ -30,14 +29,12 @@ import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApi;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApiProvider;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraTransition;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Arrays;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class JiraClient {
   private static final Logger log = LoggerFactory.getLogger(JiraClient.class);
@@ -50,8 +47,7 @@ public class JiraClient {
    * @param user username of the jira user
    * @param pass password of the jira user
    */
-  public JiraClient(String url, String user, String pass)
-      throws MalformedURLException {
+  public JiraClient(String url, String user, String pass) throws MalformedURLException {
     this.apiBuilder = new JiraRestApiProvider(url, user, pass);
     this.gson = new Gson();
   }
@@ -63,8 +59,7 @@ public class JiraClient {
   public boolean issueExists(String issueKey) throws IOException {
     JiraRestApi<JiraIssue> api = apiBuilder.getIssue();
 
-    api.doGet("/" + issueKey, HTTP_OK,
-        new int[] {HTTP_NOT_FOUND, HTTP_FORBIDDEN});
+    api.doGet("/" + issueKey, HTTP_OK, new int[] {HTTP_NOT_FOUND, HTTP_FORBIDDEN});
     Integer code = api.getResponseCode();
     switch (code) {
       case HTTP_OK:
@@ -77,8 +72,7 @@ public class JiraClient {
         return false;
       default:
         // Cannot happen due to passCodes filter
-        throw new IOException(
-            "Unexpected HTTP code received:" + code.toString());
+        throw new IOException("Unexpected HTTP code received:" + code.toString());
     }
   }
 
@@ -87,13 +81,10 @@ public class JiraClient {
    * @return Iterable of available transitions
    * @throws IOException
    */
-  public List<JiraTransition.Item> getTransitions(String issueKey)
-      throws IOException {
+  public List<JiraTransition.Item> getTransitions(String issueKey) throws IOException {
 
-    JiraRestApi<JiraTransition> api =
-        apiBuilder.get(JiraTransition.class, "/issue");
-    return Arrays.asList(
-        api.doGet("/" + issueKey + "/transitions", HTTP_OK).transitions);
+    JiraRestApi<JiraTransition> api = apiBuilder.get(JiraTransition.class, "/issue");
+    return Arrays.asList(api.doGet("/" + issueKey + "/transitions", HTTP_OK).transitions);
   }
 
   /**
@@ -105,8 +96,9 @@ public class JiraClient {
 
     if (issueExists(issueKey)) {
       log.debug("Trying to add comment for issue {}", issueKey);
-      apiBuilder.getIssue().doPost("/" + issueKey + "/comment",
-          gson.toJson(new JiraComment(comment)), HTTP_CREATED);
+      apiBuilder
+          .getIssue()
+          .doPost("/" + issueKey + "/comment", gson.toJson(new JiraComment(comment)), HTTP_CREATED);
       log.debug("Comment added to issue {}", issueKey);
     } else {
       log.error("Issue {} does not exist or no access permission", issueKey);
@@ -126,28 +118,25 @@ public class JiraClient {
       throw new InvalidTransitionException(
           "Action " + transition + " not executable on issue " + issueKey);
     }
-    log.debug("Transition issue {} to '{}' ({})", issueKey, transition,
-        t.getId());
-    return apiBuilder.getIssue().doPost("/" + issueKey + "/transitions",
-        gson.toJson(new JiraTransition(t)), HTTP_NO_CONTENT);
+    log.debug("Transition issue {} to '{}' ({})", issueKey, transition, t.getId());
+    return apiBuilder
+        .getIssue()
+        .doPost(
+            "/" + issueKey + "/transitions", gson.toJson(new JiraTransition(t)), HTTP_NO_CONTENT);
   }
 
-  /**
-   * @return Serverinformation of jira
-   */
+  /** @return Serverinformation of jira */
   public JiraServerInfo sysInfo() throws IOException {
     return apiBuilder.getServerInfo().doGet("", HTTP_OK);
   }
 
-  /**
-   * @return List of all projects we have access to in jira
-   */
+  /** @return List of all projects we have access to in jira */
   public JiraProject[] getProjects() throws IOException {
     return apiBuilder.getProjects().doGet("", HTTP_OK);
   }
 
-  private JiraTransition.Item getTransitionByName(String issueKey,
-      String transition) throws IOException {
+  private JiraTransition.Item getTransitionByName(String issueKey, String transition)
+      throws IOException {
     for (JiraTransition.Item t : getTransitions(issueKey)) {
       if (transition.equals(t.getName())) {
         return t;

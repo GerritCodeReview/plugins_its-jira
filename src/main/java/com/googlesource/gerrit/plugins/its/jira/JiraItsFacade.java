@@ -17,20 +17,17 @@ package com.googlesource.gerrit.plugins.its.jira;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.inject.Inject;
-
 import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraProject;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
-
-import org.eclipse.jgit.lib.Config;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.Callable;
+import org.eclipse.jgit.lib.Config;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class JiraItsFacade implements ItsFacade {
 
@@ -48,14 +45,13 @@ public class JiraItsFacade implements ItsFacade {
   private JiraClient client;
 
   @Inject
-  public JiraItsFacade(@PluginName String pluginName,
-      @GerritServerConfig Config cfg) {
+  public JiraItsFacade(@PluginName String pluginName, @GerritServerConfig Config cfg) {
     this.pluginName = pluginName;
     try {
       this.gerritConfig = cfg;
       JiraServerInfo info = client().sysInfo();
-      log.info("Connected to JIRA at {}, reported version is {}",
-          info.getBaseUri(), info.getVersion());
+      log.info(
+          "Connected to JIRA at {}, reported version is {}", info.getBaseUri(), info.getVersion());
       for (JiraProject p : client().getProjects()) {
         log.info("Found project: {} (key: {})", p.getName(), p.getKey());
       }
@@ -67,55 +63,55 @@ public class JiraItsFacade implements ItsFacade {
   @Override
   public String healthCheck(final Check check) throws IOException {
 
-    return execute(new Callable<String>() {
-      @Override
-      public String call() throws Exception {
-        if (check.equals(Check.ACCESS)) return healthCheckAccess();
-        return healthCheckSysinfo();
-      }
-    });
+    return execute(
+        new Callable<String>() {
+          @Override
+          public String call() throws Exception {
+            if (check.equals(Check.ACCESS)) return healthCheckAccess();
+            return healthCheckSysinfo();
+          }
+        });
   }
 
   @Override
-  public void addComment(final String issueKey, final String comment)
+  public void addComment(final String issueKey, final String comment) throws IOException {
+
+    execute(
+        new Callable<String>() {
+          @Override
+          public String call() throws Exception {
+            log.debug("Adding comment {} to issue {}", comment, issueKey);
+            client().addComment(issueKey, comment);
+            log.debug("Added comment {} to issue {}", comment, issueKey);
+            return issueKey;
+          }
+        });
+  }
+
+  @Override
+  public void addRelatedLink(final String issueKey, final URL relatedUrl, String description)
       throws IOException {
-
-    execute(new Callable<String>() {
-      @Override
-      public String call() throws Exception {
-        log.debug("Adding comment {} to issue {}", comment, issueKey);
-        client().addComment(issueKey, comment);
-        log.debug("Added comment {} to issue {}", comment, issueKey);
-        return issueKey;
-      }
-    });
+    addComment(
+        issueKey, "Related URL: " + createLinkForWebui(relatedUrl.toExternalForm(), description));
   }
 
   @Override
-  public void addRelatedLink(final String issueKey, final URL relatedUrl,
-      String description) throws IOException {
-    addComment(issueKey, "Related URL: "
-        + createLinkForWebui(relatedUrl.toExternalForm(), description));
-  }
+  public void performAction(final String issueKey, final String actionName) throws IOException {
 
-  @Override
-  public void performAction(final String issueKey, final String actionName)
-      throws IOException {
-
-    execute(new Callable<String>() {
-      @Override
-      public String call() throws Exception {
-        log.debug("Performing action {} on issue {}", actionName, issueKey);
-        doPerformAction(issueKey, actionName);
-        return issueKey;
-      }
-    });
+    execute(
+        new Callable<String>() {
+          @Override
+          public String call() throws Exception {
+            log.debug("Performing action {} on issue {}", actionName, issueKey);
+            doPerformAction(issueKey, actionName);
+            return issueKey;
+          }
+        });
   }
 
   private void doPerformAction(final String issueKey, final String actionName)
       throws IOException, InvalidTransitionException {
-    log.debug(
-        "Trying to perform action: " + actionName + " on issue " + issueKey);
+    log.debug("Trying to perform action: " + actionName + " on issue " + issueKey);
     boolean ret = client().doTransition(issueKey, actionName);
     if (ret) {
       log.debug("Action " + actionName + " successful on Issue " + issueKey);
@@ -126,12 +122,13 @@ public class JiraItsFacade implements ItsFacade {
 
   @Override
   public boolean exists(final String issueKey) throws IOException {
-    return execute(new Callable<Boolean>() {
-      @Override
-      public Boolean call() throws Exception {
-        return client().issueExists(issueKey);
-      }
-    });
+    return execute(
+        new Callable<Boolean>() {
+          @Override
+          public Boolean call() throws Exception {
+            return client().issueExists(issueKey);
+          }
+        });
   }
 
   private JiraClient client() throws MalformedURLException {
@@ -150,8 +147,7 @@ public class JiraItsFacade implements ItsFacade {
         return function.call();
       } catch (Exception ex) {
         if (isRecoverable(ex) && ++attempt < MAX_ATTEMPTS) {
-          log.debug("Call failed - retrying, attempt {} of {}", attempt,
-              MAX_ATTEMPTS);
+          log.debug("Call failed - retrying, attempt {} of {}", attempt, MAX_ATTEMPTS);
           continue;
         }
         if (ex instanceof IOException) throw ((IOException) ex);
@@ -184,8 +180,7 @@ public class JiraItsFacade implements ItsFacade {
 
   private String healthCheckAccess() throws IOException {
     client().sysInfo();
-    final String result =
-        "{\"status\"=\"ok\",\"username\"=\"" + getUsername() + "\"}";
+    final String result = "{\"status\"=\"ok\",\"username\"=\"" + getUsername() + "\"}";
     log.debug("Healtheck on access result: {}", result);
     return result;
   }
@@ -194,8 +189,12 @@ public class JiraItsFacade implements ItsFacade {
     JiraServerInfo info = client().sysInfo();
     final String result =
         "{\"status\"=\"ok\",\"system\"=\"Jira\",\"version\"=\""
-            + info.getVersion() + "\",\"url\"=\"" + getUrl() + "\",\"build\"=\""
-            + info.getBuildNumber() + "\"}";
+            + info.getVersion()
+            + "\",\"url\"=\""
+            + getUrl()
+            + "\",\"build\"=\""
+            + info.getBuildNumber()
+            + "\"}";
     log.debug("Healtheck on sysinfo result: {}", result);
     return result;
   }

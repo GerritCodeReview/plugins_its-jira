@@ -8,8 +8,7 @@ public class JiraRestApiProvider {
   private final String user;
   private final String pass;
 
-  public JiraRestApiProvider(String url, String user, String pass)
-      throws MalformedURLException {
+  public JiraRestApiProvider(String url, String user, String pass) throws MalformedURLException {
     this.url = new URL(url);
     this.user = user;
     this.pass = pass;
