@@ -110,8 +110,7 @@ public class JiraClient {
    * @param transition JiraTransition.Item to perform
    * @return true if successful
    */
-  public boolean doTransition(String issueKey, String transition)
-      throws IOException, InvalidTransitionException {
+  public boolean doTransition(String issueKey, String transition) throws IOException {
     log.debug("Making transition to {} for {}", transition, issueKey);
     JiraTransition.Item t = getTransitionByName(issueKey, transition);
     if (t == null) {

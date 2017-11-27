@@ -17,7 +17,6 @@ package com.googlesource.gerrit.plugins.its.jira;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.inject.Inject;
-import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraProject;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
@@ -109,8 +108,7 @@ public class JiraItsFacade implements ItsFacade {
         });
   }
 
-  private void doPerformAction(final String issueKey, final String actionName)
-      throws IOException, InvalidTransitionException {
+  private void doPerformAction(final String issueKey, final String actionName) throws IOException {
     log.debug("Trying to perform action: {} on issue {}", actionName, issueKey);
     boolean ret = client().doTransition(issueKey, actionName);
     if (ret) {
