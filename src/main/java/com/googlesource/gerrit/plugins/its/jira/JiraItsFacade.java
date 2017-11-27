@@ -179,7 +179,7 @@ public class JiraItsFacade implements ItsFacade {
   private String healthCheckAccess() throws IOException {
     client().sysInfo();
     final String result = "{\"status\"=\"ok\",\"username\"=\"" + getUsername() + "\"}";
-    log.debug("Healtheck on access result: {}", result);
+    log.debug("Health check on access result: {}", result);
     return result;
   }
 
@@ -193,7 +193,7 @@ public class JiraItsFacade implements ItsFacade {
             + "\",\"build\"=\""
             + info.getBuildNumber()
             + "\"}";
-    log.debug("Healtheck on sysinfo result: {}", result);
+    log.debug("Health check on sysinfo result: {}", result);
     return result;
   }
 }
