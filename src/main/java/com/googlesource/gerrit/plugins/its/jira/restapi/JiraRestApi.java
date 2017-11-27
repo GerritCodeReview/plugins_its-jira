@@ -61,7 +61,7 @@ public class JiraRestApi<T> {
    * Do a simple GET request. Object of type 'T' is returned containing the parsed JSON data
    *
    * @param passCode HTTP response code required to mark this GET as success
-   * @param failCodes HTTP response codes allowed and not fail on unexcepted response
+   * @param failCodes HTTP response codes allowed and not fail on unexpected response
    * @throws IOException generated if unexpected failCode is returned
    */
   public T doGet(String spec, int passCode, int[] failCodes) throws IOException {
