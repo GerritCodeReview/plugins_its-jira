@@ -64,12 +64,9 @@ public class JiraItsFacade implements ItsFacade {
   public String healthCheck(final Check check) throws IOException {
 
     return execute(
-        new Callable<String>() {
-          @Override
-          public String call() throws Exception {
-            if (check.equals(Check.ACCESS)) return healthCheckAccess();
-            return healthCheckSysinfo();
-          }
+        () -> {
+          if (check.equals(Check.ACCESS)) return healthCheckAccess();
+          return healthCheckSysinfo();
         });
   }
 
@@ -77,14 +74,11 @@ public class JiraItsFacade implements ItsFacade {
   public void addComment(final String issueKey, final String comment) throws IOException {
 
     execute(
-        new Callable<String>() {
-          @Override
-          public String call() throws Exception {
-            log.debug("Adding comment {} to issue {}", comment, issueKey);
-            client().addComment(issueKey, comment);
-            log.debug("Added comment {} to issue {}", comment, issueKey);
-            return issueKey;
-          }
+        () -> {
+          log.debug("Adding comment {} to issue {}", comment, issueKey);
+          client().addComment(issueKey, comment);
+          log.debug("Added comment {} to issue {}", comment, issueKey);
+          return issueKey;
         });
   }
 
@@ -99,13 +93,10 @@ public class JiraItsFacade implements ItsFacade {
   public void performAction(final String issueKey, final String actionName) throws IOException {
 
     execute(
-        new Callable<String>() {
-          @Override
-          public String call() throws Exception {
-            log.debug("Performing action {} on issue {}", actionName, issueKey);
-            doPerformAction(issueKey, actionName);
-            return issueKey;
-          }
+        () -> {
+          log.debug("Performing action {} on issue {}", actionName, issueKey);
+          doPerformAction(issueKey, actionName);
+          return issueKey;
         });
   }
 
@@ -122,13 +113,7 @@ public class JiraItsFacade implements ItsFacade {
 
   @Override
   public boolean exists(final String issueKey) throws IOException {
-    return execute(
-        new Callable<Boolean>() {
-          @Override
-          public Boolean call() throws Exception {
-            return client().issueExists(issueKey);
-          }
-        });
+    return execute(() -> client().issueExists(issueKey));
   }
 
   private JiraClient client() throws MalformedURLException {
