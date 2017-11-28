@@ -34,6 +34,24 @@
       "revId": "ca8e042f9aaadeaadbf3dc649eab244da01c9150",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3dd0fb1e_e06be5e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2017-11-28T11:27:11Z",
+      "side": 1,
+      "message": "That\u0027s a good point. InvalidTransitionException is defined in its-base, so we need to make the change there.",
+      "parentUuid": "16812297_3eddedd2",
+      "revId": "ca8e042f9aaadeaadbf3dc649eab244da01c9150",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
