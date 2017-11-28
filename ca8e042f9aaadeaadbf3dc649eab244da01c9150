@@ -16,6 +16,24 @@
       "revId": "ca8e042f9aaadeaadbf3dc649eab244da01c9150",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16812297_3eddedd2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-11-28T11:12:30Z",
+      "side": 1,
+      "message": "Hmm, actually, why is InvalidTransitionException subclassing IOException?  This is not an IO failure, is it?\n\nMaybe a better fix would be to make InvalidTransitionError subclass a more appropriate base exception type?",
+      "parentUuid": "3d57249c_f0244427",
+      "revId": "ca8e042f9aaadeaadbf3dc649eab244da01c9150",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
