@@ -111,10 +111,10 @@ public class JiraItsFacade implements ItsFacade {
 
   private void doPerformAction(final String issueKey, final String actionName)
       throws IOException, InvalidTransitionException {
-    log.debug("Trying to perform action: " + actionName + " on issue " + issueKey);
+    log.debug("Trying to perform action: {} on issue {}", actionName, issueKey);
     boolean ret = client().doTransition(issueKey, actionName);
     if (ret) {
-      log.debug("Action " + actionName + " successful on Issue " + issueKey);
+      log.debug("Action {} successful on Issue {}", actionName, issueKey);
     } else {
       log.debug("Action {} on Issue {} not possible", actionName, issueKey);
     }
