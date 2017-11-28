@@ -47,7 +47,7 @@ public class JiraRestApi<T> {
    */
   JiraRestApi(URL url, String user, String pass, Class<T> classOfT, String classPrefix) {
     String auth = user + ":" + pass;
-    this.auth = new String(Base64.getEncoder().encodeToString(auth.getBytes()));
+    this.auth = Base64.getEncoder().encodeToString(auth.getBytes());
     this.baseUrl = url;
     this.gson = new Gson();
     this.classOfT = classOfT;
