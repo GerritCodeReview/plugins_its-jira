@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d57249c_f0244427",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-11-28T08:08:10Z",
+      "side": 1,
+      "message": "I agree with Sonar from a pure syntax point of view. However, here telling the caller that a more specific exception can be thrown can be a value from a readability standpoint. What do you think?",
+      "revId": "ca8e042f9aaadeaadbf3dc649eab244da01c9150",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
