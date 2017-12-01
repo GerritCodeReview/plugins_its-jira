@@ -65,10 +65,10 @@ public class JiraClient {
       case HTTP_OK:
         return true;
       case HTTP_NOT_FOUND:
-        log.error("Issue " + issueKey + " not found ");
+        log.error("Issue {} not found", issueKey);
         return false;
       case HTTP_FORBIDDEN:
-        log.error("No permission to read Issue " + issueKey);
+        log.error("No permission to read Issue {}", issueKey);
         return false;
       default:
         // Cannot happen due to passCodes filter
