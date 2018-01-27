@@ -14,8 +14,6 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
-import com.google.gerrit.extensions.annotations.PluginName;
-import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
@@ -25,30 +23,23 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.Callable;
-import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class JiraItsFacade implements ItsFacade {
 
-  private static final String GERRIT_CONFIG_USERNAME = "username";
-  private static final String GERRIT_CONFIG_PASSWORD = "password";
-  private static final String GERRIT_CONFIG_URL = "url";
-
   private static final int MAX_ATTEMPTS = 3;
 
   private Logger log = LoggerFactory.getLogger(JiraItsFacade.class);
 
-  private final String pluginName;
-  private Config gerritConfig;
+  private final JiraConfig jiraConfig;
 
   private JiraClient client;
 
   @Inject
-  public JiraItsFacade(@PluginName String pluginName, @GerritServerConfig Config cfg) {
-    this.pluginName = pluginName;
+  public JiraItsFacade(JiraConfig jiraConfig) {
+    this.jiraConfig = jiraConfig;
     try {
-      this.gerritConfig = cfg;
       JiraServerInfo info = client().sysInfo();
       log.info(
           "Connected to JIRA at {}, reported version is {}", info.getBaseUri(), info.getVersion());
@@ -120,9 +111,11 @@ public class JiraItsFacade implements ItsFacade {
 
   private JiraClient client() throws MalformedURLException {
     if (client == null) {
-      log.debug("Connecting to jira at {}", getUrl());
-      client = new JiraClient(getUrl(), getUsername(), getPassword());
-      log.debug("Authenticating as User {}", getUsername());
+      log.debug("Connecting to jira at {}", jiraConfig.getJiraUrl());
+      client =
+          new JiraClient(
+              jiraConfig.getJiraUrl(), jiraConfig.getUsername(), jiraConfig.getPassword());
+      log.debug("Authenticating as User {}", jiraConfig.getUsername());
     }
     return client;
   }
@@ -146,18 +139,6 @@ public class JiraItsFacade implements ItsFacade {
   private boolean isRecoverable(Exception ex) {
     String className = ex.getClass().getName();
     return className.startsWith("java.net");
-  }
-
-  private String getPassword() {
-    return gerritConfig.getString(pluginName, null, GERRIT_CONFIG_PASSWORD);
-  }
-
-  private String getUsername() {
-    return gerritConfig.getString(pluginName, null, GERRIT_CONFIG_USERNAME);
-  }
-
-  private String getUrl() {
-    return gerritConfig.getString(pluginName, null, GERRIT_CONFIG_URL);
   }
 
   @Override

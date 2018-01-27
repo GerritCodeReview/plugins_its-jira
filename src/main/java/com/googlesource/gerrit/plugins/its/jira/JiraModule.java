@@ -47,7 +47,7 @@ public class JiraModule extends AbstractModule {
   protected void configure() {
     if (gerritConfig.getString(pluginName, null, "url") != null) {
       LOG.info("JIRA is configured as ITS");
-      bind(ItsFacade.class).toInstance(new JiraItsFacade(pluginName, gerritConfig));
+      bind(ItsFacade.class).to(JiraItsFacade.class).asEagerSingleton();
 
       install(new ItsHookModule(pluginName, pluginCfgFactory));
     }
