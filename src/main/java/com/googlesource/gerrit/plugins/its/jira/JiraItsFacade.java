@@ -61,7 +61,7 @@ public class JiraItsFacade implements ItsFacade {
   }
 
   @Override
-  public String healthCheck(final Check check) throws IOException {
+  public String healthCheck(Check check) throws IOException {
 
     return execute(
         () -> {
@@ -71,7 +71,7 @@ public class JiraItsFacade implements ItsFacade {
   }
 
   @Override
-  public void addComment(final String issueKey, final String comment) throws IOException {
+  public void addComment(String issueKey, String comment) throws IOException {
 
     execute(
         () -> {
@@ -83,14 +83,14 @@ public class JiraItsFacade implements ItsFacade {
   }
 
   @Override
-  public void addRelatedLink(final String issueKey, final URL relatedUrl, String description)
+  public void addRelatedLink(String issueKey, URL relatedUrl, String description)
       throws IOException {
     addComment(
         issueKey, "Related URL: " + createLinkForWebui(relatedUrl.toExternalForm(), description));
   }
 
   @Override
-  public void performAction(final String issueKey, final String actionName) throws IOException {
+  public void performAction(String issueKey, String actionName) throws IOException {
 
     execute(
         () -> {
@@ -100,7 +100,7 @@ public class JiraItsFacade implements ItsFacade {
         });
   }
 
-  private void doPerformAction(final String issueKey, final String actionName)
+  private void doPerformAction(String issueKey, String actionName)
       throws IOException, InvalidTransitionException {
     log.debug("Trying to perform action: {} on issue {}", actionName, issueKey);
     boolean ret = client().doTransition(issueKey, actionName);
@@ -112,7 +112,7 @@ public class JiraItsFacade implements ItsFacade {
   }
 
   @Override
-  public boolean exists(final String issueKey) throws IOException {
+  public boolean exists(String issueKey) throws IOException {
     return execute(() -> client().issueExists(issueKey));
   }
 
@@ -165,14 +165,14 @@ public class JiraItsFacade implements ItsFacade {
 
   private String healthCheckAccess() throws IOException {
     client().sysInfo();
-    final String result = "{\"status\"=\"ok\",\"username\"=\"" + getUsername() + "\"}";
+    String result = "{\"status\"=\"ok\",\"username\"=\"" + getUsername() + "\"}";
     log.debug("Health check on access result: {}", result);
     return result;
   }
 
   private String healthCheckSysinfo() throws IOException {
     JiraServerInfo info = client().sysInfo();
-    final String result =
+    String result =
         "{\"status\"=\"ok\",\"system\"=\"Jira\",\"version\"=\""
             + info.getVersion()
             + "\",\"url\"=\""
