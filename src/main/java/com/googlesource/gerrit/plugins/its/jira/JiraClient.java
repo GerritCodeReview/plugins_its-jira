@@ -21,6 +21,7 @@ import static java.net.HttpURLConnection.HTTP_NO_CONTENT;
 import static java.net.HttpURLConnection.HTTP_OK;
 
 import com.google.gson.Gson;
+import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraComment;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraIssue;
@@ -42,12 +43,19 @@ public class JiraClient {
   private final JiraRestApiProvider apiBuilder;
   private final Gson gson;
 
+  @Inject
+  public JiraClient(JiraConfig jiraConfig) throws MalformedURLException {
+    this(jiraConfig.getUrl(), jiraConfig.getUsername(), jiraConfig.getPassword());
+  }
+
   /**
+   * This constructor is kept to allow testing connectivity from the init class
+   *
    * @param url jira url
    * @param user username of the jira user
    * @param pass password of the jira user
    */
-  public JiraClient(String url, String user, String pass) throws MalformedURLException {
+  JiraClient(String url, String user, String pass) throws MalformedURLException {
     this.apiBuilder = new JiraRestApiProvider(url, user, pass);
     this.gson = new Gson();
   }
