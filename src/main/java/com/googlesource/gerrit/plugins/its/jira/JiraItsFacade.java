@@ -176,7 +176,7 @@ public class JiraItsFacade implements ItsFacade {
         "{\"status\"=\"ok\",\"system\"=\"Jira\",\"version\"=\""
             + info.getVersion()
             + "\",\"url\"=\""
-            + getUrl()
+            + info.getBaseUri()
             + "\",\"build\"=\""
             + info.getBuildNumber()
             + "\"}";
