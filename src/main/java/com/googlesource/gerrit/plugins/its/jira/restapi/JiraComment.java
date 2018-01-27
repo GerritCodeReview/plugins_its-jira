@@ -16,9 +16,13 @@ package com.googlesource.gerrit.plugins.its.jira.restapi;
 
 public class JiraComment {
 
-  final String body;
+  private final String body;
 
   public JiraComment(String body) {
     this.body = body;
+  }
+
+  public String getBody() {
+    return body;
   }
 }

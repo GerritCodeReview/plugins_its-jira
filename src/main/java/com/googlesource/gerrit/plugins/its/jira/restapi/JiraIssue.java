@@ -15,6 +15,19 @@
 package com.googlesource.gerrit.plugins.its.jira.restapi;
 
 public class JiraIssue {
-  String id;
-  String key;
+  private final String id;
+  private final String key;
+
+  public JiraIssue(String id, String key) {
+    this.id = id;
+    this.key = key;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public String getKey() {
+    return key;
+  }
 }
