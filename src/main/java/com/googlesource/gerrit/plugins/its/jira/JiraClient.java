@@ -144,4 +144,25 @@ public class JiraClient {
     }
     return null;
   }
+
+  public String healthCheckAccess() throws IOException {
+    sysInfo();
+    String result = "{\"status\"=\"ok\"}";
+    log.debug("Health check on access result: {}", result);
+    return result;
+  }
+
+  public String healthCheckSysinfo() throws IOException {
+    JiraServerInfo info = sysInfo();
+    String result =
+        "{\"status\"=\"ok\",\"system\"=\"Jira\",\"version\"=\""
+            + info.getVersion()
+            + "\",\"url\"=\""
+            + info.getBaseUri()
+            + "\",\"build\"=\""
+            + info.getBuildNumber()
+            + "\"}";
+    log.debug("Health check on sysinfo result: {}", result);
+    return result;
+  }
 }
