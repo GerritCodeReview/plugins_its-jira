@@ -20,7 +20,6 @@ import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraProject;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import org.slf4j.Logger;
@@ -32,18 +31,16 @@ public class JiraItsFacade implements ItsFacade {
 
   private Logger log = LoggerFactory.getLogger(JiraItsFacade.class);
 
-  private final JiraConfig jiraConfig;
-
-  private JiraClient client;
+  private final JiraClient jiraClient;
 
   @Inject
-  public JiraItsFacade(JiraConfig jiraConfig) {
-    this.jiraConfig = jiraConfig;
+  public JiraItsFacade(JiraClient jiraClient) {
+    this.jiraClient = jiraClient;
     try {
-      JiraServerInfo info = client().sysInfo();
+      JiraServerInfo info = this.jiraClient.sysInfo();
       log.info(
           "Connected to JIRA at {}, reported version is {}", info.getBaseUri(), info.getVersion());
-      for (JiraProject p : client().getProjects()) {
+      for (JiraProject p : this.jiraClient.getProjects()) {
         log.info("Found project: {} (key: {})", p.getName(), p.getKey());
       }
     } catch (Exception ex) {
@@ -57,9 +54,9 @@ public class JiraItsFacade implements ItsFacade {
     return execute(
         () -> {
           if (check.equals(Check.ACCESS)) {
-            return client().healthCheckAccess();
+            return jiraClient.healthCheckAccess();
           }
-          return client().healthCheckSysinfo();
+          return jiraClient.healthCheckSysinfo();
         });
   }
 
@@ -69,7 +66,7 @@ public class JiraItsFacade implements ItsFacade {
     execute(
         () -> {
           log.debug("Adding comment {} to issue {}", comment, issueKey);
-          client().addComment(issueKey, comment);
+          jiraClient.addComment(issueKey, comment);
           log.debug("Added comment {} to issue {}", comment, issueKey);
           return issueKey;
         });
@@ -96,7 +93,7 @@ public class JiraItsFacade implements ItsFacade {
   private void doPerformAction(String issueKey, String actionName)
       throws IOException, InvalidTransitionException {
     log.debug("Trying to perform action: {} on issue {}", actionName, issueKey);
-    boolean ret = client().doTransition(issueKey, actionName);
+    boolean ret = jiraClient.doTransition(issueKey, actionName);
     if (ret) {
       log.debug("Action {} successful on Issue {}", actionName, issueKey);
     } else {
@@ -106,17 +103,7 @@ public class JiraItsFacade implements ItsFacade {
 
   @Override
   public boolean exists(String issueKey) throws IOException {
-    return execute(() -> client().issueExists(issueKey));
-  }
-
-  private JiraClient client() throws MalformedURLException {
-    if (client == null) {
-      log.debug("Connecting to jira at {}", jiraConfig.getUrl());
-      client =
-          new JiraClient(jiraConfig.getUrl(), jiraConfig.getUsername(), jiraConfig.getPassword());
-      log.debug("Authenticating as User {}", jiraConfig.getUsername());
-    }
-    return client;
+    return execute(() -> jiraClient.issueExists(issueKey));
   }
 
   private <P> P execute(Callable<P> function) throws IOException {

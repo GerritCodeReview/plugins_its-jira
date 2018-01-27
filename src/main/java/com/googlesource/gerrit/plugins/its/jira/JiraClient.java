@@ -20,7 +20,11 @@ import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
 import static java.net.HttpURLConnection.HTTP_NO_CONTENT;
 import static java.net.HttpURLConnection.HTTP_OK;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.gson.Gson;
+import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraComment;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraIssue;
@@ -29,12 +33,11 @@ import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApi;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApiProvider;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraTransition;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Arrays;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class JiraClient {
   private static final Logger log = LoggerFactory.getLogger(JiraClient.class);
@@ -42,7 +45,13 @@ public class JiraClient {
   private final JiraRestApiProvider apiBuilder;
   private final Gson gson;
 
+  @Inject
+  public JiraClient(JiraConfig jiraConfig) throws MalformedURLException {
+    this(jiraConfig.getUrl(), jiraConfig.getUsername(), jiraConfig.getPassword());
+  }
+
   /**
+   * This constructor is kept to allow testing connectivity from the init class
    * @param url jira url
    * @param user username of the jira user
    * @param pass password of the jira user
