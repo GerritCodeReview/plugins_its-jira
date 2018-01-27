@@ -84,7 +84,7 @@ public class JiraClient {
   public List<JiraTransition.Item> getTransitions(String issueKey) throws IOException {
 
     JiraRestApi<JiraTransition> api = apiBuilder.get(JiraTransition.class, "/issue");
-    return Arrays.asList(api.doGet("/" + issueKey + "/transitions", HTTP_OK).transitions);
+    return Arrays.asList(api.doGet("/" + issueKey + "/transitions", HTTP_OK).getTransitions());
   }
 
   /**

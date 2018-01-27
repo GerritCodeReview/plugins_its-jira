@@ -17,18 +17,35 @@ package com.googlesource.gerrit.plugins.its.jira.restapi;
 public class JiraTransition {
 
   // 'Get Transactions' require a list of items
-  public Item[] transitions;
+  private Item[] transitions;
 
   // 'Do Transaction' require a single item
-  Item transition;
+  private Item transition;
+
+  public JiraTransition(Item[] transitions) {
+    this.transitions = transitions;
+  }
 
   public JiraTransition(Item transition) {
     this.transition = transition;
   }
 
+  public Item[] getTransitions() {
+    return transitions;
+  }
+
+  public Item getTransition() {
+    return transition;
+  }
+
   public static class Item {
-    String name;
-    String id;
+    private final String name;
+    private final String id;
+
+    public Item(String name, String id) {
+      this.name = name;
+      this.id = id;
+    }
 
     public String getName() {
       return name;
