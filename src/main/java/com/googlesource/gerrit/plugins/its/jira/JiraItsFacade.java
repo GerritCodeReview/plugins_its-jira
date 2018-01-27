@@ -65,8 +65,10 @@ public class JiraItsFacade implements ItsFacade {
 
     return execute(
         () -> {
-          if (check.equals(Check.ACCESS)) return healthCheckAccess();
-          return healthCheckSysinfo();
+          if (check.equals(Check.ACCESS)) {
+            return client().healthCheckAccess();
+          }
+          return client().healthCheckSysinfo();
         });
   }
 
@@ -161,26 +163,5 @@ public class JiraItsFacade implements ItsFacade {
   @Override
   public String createLinkForWebui(String url, String text) {
     return "[" + text + "|" + url + "]";
-  }
-
-  private String healthCheckAccess() throws IOException {
-    client().sysInfo();
-    String result = "{\"status\"=\"ok\",\"username\"=\"" + getUsername() + "\"}";
-    log.debug("Health check on access result: {}", result);
-    return result;
-  }
-
-  private String healthCheckSysinfo() throws IOException {
-    JiraServerInfo info = client().sysInfo();
-    String result =
-        "{\"status\"=\"ok\",\"system\"=\"Jira\",\"version\"=\""
-            + info.getVersion()
-            + "\",\"url\"=\""
-            + info.getBaseUri()
-            + "\",\"build\"=\""
-            + info.getBuildNumber()
-            + "\"}";
-    log.debug("Health check on sysinfo result: {}", result);
-    return result;
   }
 }
