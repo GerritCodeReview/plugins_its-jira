@@ -22,6 +22,7 @@ import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.GERRIT_CONFIG_
 import static java.lang.String.format;
 import static org.mockito.Mockito.when;
 
+import java.net.URL;
 import org.eclipse.jgit.lib.Config;
 import org.junit.Rule;
 import org.junit.Test;
@@ -34,7 +35,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class JiraConfigTest {
 
   private static final String PASS = "pass";
-  private static final String URL = "http://jira_example.com";
+  private static final String URL = "http://jira_example.com/";
   private static final String USER = "user";
   private static final String PLUGIN_NAME = "its-jira";
 
@@ -49,9 +50,10 @@ public class JiraConfigTest {
     when(cfg.getString(PLUGIN_NAME, null, GERRIT_CONFIG_USERNAME)).thenReturn(USER);
     when(cfg.getString(PLUGIN_NAME, null, GERRIT_CONFIG_PASSWORD)).thenReturn(PASS);
     jiraConfig = new JiraConfig(cfg, PLUGIN_NAME);
+    URL url = new URL(URL);
     assertThat(jiraConfig.getUsername()).isEqualTo(USER);
     assertThat(jiraConfig.getPassword()).isEqualTo(PASS);
-    assertThat(jiraConfig.getJiraUrl()).isEqualTo(URL);
+    assertThat(jiraConfig.getJiraUrl()).isEqualTo(url);
   }
 
   @Test

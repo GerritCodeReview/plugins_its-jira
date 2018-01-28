@@ -20,6 +20,8 @@ import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import java.net.MalformedURLException;
+import java.net.URL;
 import org.eclipse.jgit.lib.Config;
 
 /** The JIRA plugin configuration as read from Gerrit config. */
@@ -30,7 +32,7 @@ public class JiraConfig {
   static final String GERRIT_CONFIG_USERNAME = "username";
   static final String GERRIT_CONFIG_PASSWORD = "password";
 
-  private final String jiraUrl;
+  private final URL jiraUrl;
   private final String jiraUsername;
   private final String jiraPassword;
 
@@ -39,15 +41,18 @@ public class JiraConfig {
    *
    * @param config the gerrit server config
    * @param pluginName the name of this very plugin
+   * @throws MalformedURLException
    */
   @Inject
-  JiraConfig(@GerritServerConfig Config config, @PluginName String pluginName) {
-    jiraUrl = config.getString(pluginName, null, GERRIT_CONFIG_URL);
+  JiraConfig(@GerritServerConfig Config config, @PluginName String pluginName)
+      throws MalformedURLException {
+    String url = config.getString(pluginName, null, GERRIT_CONFIG_URL);
     jiraUsername = config.getString(pluginName, null, GERRIT_CONFIG_USERNAME);
     jiraPassword = config.getString(pluginName, null, GERRIT_CONFIG_PASSWORD);
-    if (jiraUrl == null || jiraUsername == null || jiraPassword == null) {
+    if (url == null || jiraUsername == null || jiraPassword == null) {
       throw new RuntimeException(format(ERROR_MSG, pluginName));
     }
+    jiraUrl = new URL(url + (url.endsWith("/") ? "" : "/"));
   }
 
   /**
@@ -55,7 +60,7 @@ public class JiraConfig {
    *
    * @return the jira url
    */
-  public String getJiraUrl() {
+  public URL getJiraUrl() {
     return jiraUrl;
   }
 
