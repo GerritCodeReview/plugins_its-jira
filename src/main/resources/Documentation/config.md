@@ -134,3 +134,31 @@ Gerrit init example:
            optional
     Issue-id enforced in commit message [MANDATORY/?]: suggested
 
+**Sample actions-@Plugin@.config:**
+
+	[rule "open"]
+	    event-type = patchset-created
+	    action = add-velocity-comment inline Change ${its.formatLink($changeUrl)} is created.
+	    action = In Progress
+	[rule "resolve"]
+	    event-type = comment-added
+	    approval-Code-Review = 2
+	    action = add-velocity-comment inline Change ${its.formatLink($changeUrl)} is verified.
+	    action = In Review
+	[rule "merged"]
+	    event-type = change-merged
+	    action = add-velocity-comment inline Change ${its.formatLink($changeUrl)} is merged.
+	    action = Done
+	[rule "abandoned"]
+	    event-type = change-abandoned'
+	    action = add-velocity-comment inline Change ${its.formatLink($changeUrl)} is abandoned.
+	    action = To Do
+
+The first rule triggers an action which adds a comment and a hyperlink to the change created
+in gerrit. The comment will appear in an Jira issue's `Comment` section whenever a patchset-created event
+is triggered. The second action item in the first rule transitions the state of the issue
+in Jira to `In Progress`. The title of th action `In Progress` should match the workflow actions
+used by the JIRA server as different versions of JIRA can have different workflow actions.
+
+**Note:** The newer versions of Gerrit i.e. newer than 2.15 will not support velocity comment,
+so change the `action-@Plugin@.config` accordingly.
