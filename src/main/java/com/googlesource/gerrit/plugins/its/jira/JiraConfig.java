@@ -31,10 +31,12 @@ public class JiraConfig {
   static final String GERRIT_CONFIG_URL = "url";
   static final String GERRIT_CONFIG_USERNAME = "username";
   static final String GERRIT_CONFIG_PASSWORD = "password";
+  static final String PLUGIN = "plugin";
 
   private final String jiraUrl;
   private final String jiraUsername;
   private final String jiraPassword;
+  private final boolean isSection;
 
   /**
    * Builds an JiraConfig.
@@ -44,9 +46,10 @@ public class JiraConfig {
    */
   @Inject
   JiraConfig(@GerritServerConfig Config config, @PluginName String pluginName) {
-    jiraUrl = config.getString(pluginName, null, GERRIT_CONFIG_URL);
-    jiraUsername = config.getString(pluginName, null, GERRIT_CONFIG_USERNAME);
-    jiraPassword = config.getString(pluginName, null, GERRIT_CONFIG_PASSWORD);
+    isSection = config.getSections().contains(pluginName);
+    jiraUrl = getConfigString(GERRIT_CONFIG_URL, config, pluginName);
+    jiraUsername = getConfigString(GERRIT_CONFIG_USERNAME, config, pluginName);
+    jiraPassword = getConfigString(GERRIT_CONFIG_PASSWORD, config, pluginName);
     if (jiraUrl == null || jiraUsername == null || jiraPassword == null) {
       throw new RuntimeException(format(ERROR_MSG, pluginName));
     }
@@ -79,5 +82,21 @@ public class JiraConfig {
    */
   public String getPassword() {
     return jiraPassword;
+  }
+
+  /**
+   * Checks if the plugin name is used to create a 'section' or 'subsection' in the config and
+   * return the config value. Provides support for both formats.
+   *
+   * @param key the key for the value stored in config file
+   * @param config the config file
+   * @param pluginName name of the plugin used to get the config value
+   * @return the value related to the key passed.
+   */
+  private String getConfigString(String key, Config config, String pluginName) {
+    if (isSection) {
+      return config.getString(pluginName, null, key);
+    }
+    return config.getString(PLUGIN, pluginName, key);
   }
 }
