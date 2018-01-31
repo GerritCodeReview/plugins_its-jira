@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7d26a8dd_38f41be2",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-01-31T22:30:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ab96078_d1a2771f",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 88
+      },
+      "revId": "d4020d16f8f7be152f3d57e88dd422cac694bd29",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e031ad9f_5d632c9f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
         "patchSetId": 5
@@ -60,6 +84,30 @@
       "writtenOn": "2018-01-31T13:54:11Z",
       "side": 1,
       "message": "Optional: Call it getJiraUrl() to easy differentate with Gerrit own Url.",
+      "range": {
+        "startLine": 58,
+        "startChar": 16,
+        "endLine": 58,
+        "endChar": 22
+      },
+      "revId": "d4020d16f8f7be152f3d57e88dd422cac694bd29",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f69b501e_f0776b86",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-01-31T22:30:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e031ad9f_5d632c9f",
       "range": {
         "startLine": 58,
         "startChar": 16,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "09367d2b_1dfcb81c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraModule.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-01-31T22:30:30Z",
+      "side": 1,
+      "message": "Right. Done.",
+      "parentUuid": "9af8ceb5_a5cc2859",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 29
+      },
+      "revId": "d4020d16f8f7be152f3d57e88dd422cac694bd29",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "608fdbb4_8800b78c",
         "filename": "src/main/resources/Documentation/build.md",
         "patchSetId": 5
@@ -106,6 +178,30 @@
       "writtenOn": "2018-01-31T13:54:11Z",
       "side": 1,
       "message": "Not needed?",
+      "range": {
+        "startLine": 10,
+        "startChar": 61,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "d4020d16f8f7be152f3d57e88dd422cac694bd29",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e652c85_f35c8d4d",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-01-31T22:30:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "608fdbb4_8800b78c",
       "range": {
         "startLine": 10,
         "startChar": 61,
