@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7e8a6930_71f300fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-01-31T22:29:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a826c94_a4cb84a1",
+      "range": {
+        "startLine": 10,
+        "startChar": 43,
+        "endLine": 10,
+        "endChar": 48
+      },
+      "revId": "f83c78c3dbb4de2a4adaee98f5f10e2130d2ad6e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba9e0942_942a0dd2",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3869b973_9b6a141b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-01-31T22:29:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba9e0942_942a0dd2",
+      "range": {
+        "startLine": 160,
+        "startChar": 39,
+        "endLine": 160,
+        "endChar": 41
+      },
+      "revId": "f83c78c3dbb4de2a4adaee98f5f10e2130d2ad6e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b362291_461f6249",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2018-01-31T13:39:21Z",
       "side": 1,
       "message": "Can you provide an example, as to what it should be changed after upgrading Gerrit to 2.16/3.0?",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 52
+      },
+      "revId": "f83c78c3dbb4de2a4adaee98f5f10e2130d2ad6e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "147eb2b3_b92dabef",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-01-31T22:29:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b362291_461f6249",
       "range": {
         "startLine": 163,
         "startChar": 0,
