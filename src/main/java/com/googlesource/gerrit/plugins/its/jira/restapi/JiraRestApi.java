@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.net.URL;
@@ -28,13 +29,12 @@ import org.eclipse.jgit.util.HttpSupport;
 
 /** Jira Rest Client. */
 public class JiraRestApi<T> {
-  private static final String BASE_PREFIX = "/rest/api/2";
+  private static final String BASE_PREFIX = "rest/api/2";
   private final URL baseUrl;
   private final String auth;
   private final Gson gson;
 
   private final Class<T> classOfT;
-  private final String classPrefix;
   private T data;
   private int responseCode;
 
@@ -45,12 +45,12 @@ public class JiraRestApi<T> {
    * @param user username of the jira user
    * @param pass password of the jira user
    */
-  JiraRestApi(URL url, String user, String pass, Class<T> classOfT, String classPrefix) {
+  JiraRestApi(URL url, String user, String pass, Class<T> classOfT, String classPrefix)
+      throws MalformedURLException {
     this.auth = Base64.getEncoder().encodeToString((user + ":" + pass).getBytes());
-    this.baseUrl = url;
+    this.baseUrl = new URL(url, BASE_PREFIX + classPrefix);
     this.gson = new Gson();
     this.classOfT = classOfT;
-    this.classPrefix = classPrefix;
   }
 
   public int getResponseCode() {
@@ -80,6 +80,10 @@ public class JiraRestApi<T> {
     return doGet(spec, passCode, null);
   }
 
+  URL getBaseUrl() {
+    return baseUrl;
+  }
+
   /** Do a simple POST request. */
   public boolean doPost(String spec, String jsonInput, int passCode) throws IOException {
     HttpURLConnection conn = prepHttpConnection(spec, true);
@@ -93,7 +97,7 @@ public class JiraRestApi<T> {
 
   private HttpURLConnection prepHttpConnection(String spec, boolean isPostRequest)
       throws IOException {
-    URL url = new URL(baseUrl, BASE_PREFIX + classPrefix + spec);
+    URL url = new URL(baseUrl, spec);
     ProxySelector proxySelector = ProxySelector.getDefault();
     Proxy proxy = HttpSupport.proxyFor(proxySelector, url);
     HttpURLConnection conn = (HttpURLConnection) url.openConnection(proxy);
