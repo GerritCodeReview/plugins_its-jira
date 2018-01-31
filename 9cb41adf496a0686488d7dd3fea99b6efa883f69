@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a2f25bb4_ebf69397",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-01-31T22:30:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5efcab1_8e6fc900",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "9cb41adf496a0686488d7dd3fea99b6efa883f69",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "054275e4_eebe3d70",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-31T13:44:34Z",
       "side": 1,
       "message": "Optional: \"Jira URL instead of Gerrit URL\".",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 3
+      },
+      "revId": "9cb41adf496a0686488d7dd3fea99b6efa883f69",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f48f52_121d89f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-01-31T22:30:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "054275e4_eebe3d70",
       "range": {
         "startLine": 10,
         "startChar": 0,
