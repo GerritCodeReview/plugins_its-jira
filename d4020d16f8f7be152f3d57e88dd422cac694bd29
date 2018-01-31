@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3ab96078_d1a2771f",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-01-31T20:17:09Z",
+      "side": 1,
+      "message": "oups... This is what happen when you fork things...",
+      "parentUuid": "8208bad5_f9d7b671",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 88
+      },
+      "revId": "d4020d16f8f7be152f3d57e88dd422cac694bd29",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e031ad9f_5d632c9f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
         "patchSetId": 5
