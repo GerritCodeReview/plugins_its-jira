@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8208bad5_f9d7b671",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-01-31T13:54:11Z",
+      "side": 1,
+      "message": "May be avoid committing Ericsson internal URL?",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 88
+      },
+      "revId": "d4020d16f8f7be152f3d57e88dd422cac694bd29",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e031ad9f_5d632c9f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-01-31T13:54:11Z",
+      "side": 1,
+      "message": "Optional: Call it getJiraUrl() to easy differentate with Gerrit own Url.",
+      "range": {
+        "startLine": 58,
+        "startChar": 16,
+        "endLine": 58,
+        "endChar": 22
+      },
+      "revId": "d4020d16f8f7be152f3d57e88dd422cac694bd29",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9af8ceb5_a5cc2859",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraModule.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-01-31T13:54:11Z",
+      "side": 1,
+      "message": "Strictly speaking, this line is not necessary, becaus of Just in time injection, right?",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 29
+      },
+      "revId": "d4020d16f8f7be152f3d57e88dd422cac694bd29",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "608fdbb4_8800b78c",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-01-31T13:54:11Z",
+      "side": 1,
+      "message": "Not needed?",
+      "range": {
+        "startLine": 10,
+        "startChar": 61,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "d4020d16f8f7be152f3d57e88dd422cac694bd29",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d5bfeab_a2c8c172",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraConfigTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-01-31T13:54:11Z",
+      "side": 1,
+      "message": "Shouldn\u0027t the code be formatted with Google-Java-Format?",
+      "revId": "d4020d16f8f7be152f3d57e88dd422cac694bd29",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
