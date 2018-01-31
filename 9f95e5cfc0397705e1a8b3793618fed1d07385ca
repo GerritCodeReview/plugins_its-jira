@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4e850e0_c555f629",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-01-31T22:35:20Z",
+      "side": 1,
+      "message": "Inconsistent white spaces. In above section tabs are used, here, spaces are used.",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 12
+      },
+      "revId": "9f95e5cfc0397705e1a8b3793618fed1d07385ca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
