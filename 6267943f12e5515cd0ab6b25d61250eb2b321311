@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c893ebc_5eccbab5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T05:14:22Z",
+      "side": 1,
+      "message": "Nit: Don\u0027t use reference in subject: May be rephrase it, e.g.:\n Fix not found Jira issue bug\nor similar.",
+      "revId": "6267943f12e5515cd0ab6b25d61250eb2b321311",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6184044_698f3659",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T05:14:22Z",
+      "side": 1,
+      "message": "This should be referenced in the footer of this commit message, as:\n\n  Bug: Issue 8263",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 60
+      },
+      "revId": "6267943f12e5515cd0ab6b25d61250eb2b321311",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e962bf8_6dcb69c9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T05:14:22Z",
+      "side": 1,
+      "message": "Can be inlined.",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 40
+      },
+      "revId": "6267943f12e5515cd0ab6b25d61250eb2b321311",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
