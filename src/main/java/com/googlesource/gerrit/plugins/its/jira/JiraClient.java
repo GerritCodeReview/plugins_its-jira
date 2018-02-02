@@ -45,7 +45,7 @@ public class JiraClient {
 
   @Inject
   public JiraClient(JiraConfig jiraConfig) throws MalformedURLException {
-    this(jiraConfig.getUrl(), jiraConfig.getUsername(), jiraConfig.getPassword());
+    this(jiraConfig.getJiraUrl(), jiraConfig.getUsername(), jiraConfig.getPassword());
   }
 
   /**
