@@ -20,6 +20,8 @@ import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import java.net.MalformedURLException;
+import java.net.URL;
 import org.eclipse.jgit.lib.Config;
 
 /** The JIRA plugin configuration as read from Gerrit config. */
@@ -54,9 +56,11 @@ public class JiraConfig {
    * The Jira url to connect to.
    *
    * @return the jira url
+   * @throws MalformedURLException
    */
-  public String getJiraUrl() {
-    return jiraUrl;
+  public URL getJiraUrl() throws MalformedURLException {
+    URL serverUrl = new URL(jiraUrl + (jiraUrl.endsWith("/") ? "" : "/"));
+    return serverUrl;
   }
 
   /**

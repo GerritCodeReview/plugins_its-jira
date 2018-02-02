@@ -24,7 +24,10 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.its.base.its.InitIts;
 import com.googlesource.gerrit.plugins.its.base.validation.ItsAssociationPolicy;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApi;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 
@@ -34,6 +37,7 @@ class InitJira extends InitIts {
   private final String pluginName;
   private final Section.Factory sections;
   private final InitFlags flags;
+
   private Section jira;
   private String jiraUrl;
   private String jiraUsername;
@@ -56,10 +60,8 @@ class InitJira extends InitIts {
   @Override
   public void run() throws IOException, ConfigInvalidException {
     super.run();
-
     ui.message("\n");
     ui.header("Jira connectivity");
-
     if (!pluginName.equalsIgnoreCase("jira")
         && !flags.cfg.getSections().contains(pluginName)
         && flags.cfg.getSections().contains("jira")) {
@@ -76,7 +78,6 @@ class InitJira extends InitIts {
               n,
               Arrays.asList(flags.cfg.getStringList(COMMENT_LINK_SECTION, "jira", n)));
         }
-
         if (ui.yesno(false, "Remove configuration for 'hooks-jira' plugin?")) {
           flags.cfg.unsetSection("jira", null);
           flags.cfg.unsetSection(COMMENT_LINK_SECTION, "jira");
@@ -92,21 +93,16 @@ class InitJira extends InitIts {
   private void init() {
     this.jira = sections.get(pluginName, null);
     Section jiraComment = sections.get(COMMENT_LINK_SECTION, pluginName);
-
     do {
       enterJiraConnectivity();
     } while (jiraUrl != null && (isConnectivityRequested(jiraUrl) && !isJiraConnectSuccessful()));
-
     if (jiraUrl == null) {
       return;
     }
-
     ui.header("Jira issue-tracking association");
     jiraComment.string("Jira issue-Id regex", "match", "([A-Z]+-[0-9]+)");
     jiraComment.set("html", String.format("<a href=\"%s/browse/$1\">$1</a>", jiraUrl));
-
     Section pluginConfig = sections.get("plugin", pluginName);
-
     pluginConfig.select(
         "Issue-id enforced in commit message", "association", ItsAssociationPolicy.SUGGESTED);
   }
@@ -122,9 +118,13 @@ class InitJira extends InitIts {
   private boolean isJiraConnectSuccessful() {
     ui.message("Checking Jira connectivity ... ");
     try {
-      new JiraClient(jiraUrl, jiraUsername, jiraPassword).sysInfo().getVersion();
+      URL serverUrl = new URL(jiraUrl);
+      new JiraRestApi<>(serverUrl, jiraUsername, jiraPassword).ping();
       ui.message("[OK]\n");
       return true;
+    } catch (MalformedURLException e) {
+      ui.message("*Invalid URL* (%s)\n", e.toString());
+      return false;
     } catch (IOException e) {
       ui.message("*FAILED* (%s)\n", e.toString());
       return false;
