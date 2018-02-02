@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.its.jira;
 
 import static java.lang.String.format;
 
+import com.google.common.base.CharMatcher;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.inject.Inject;
@@ -56,7 +57,7 @@ public class JiraConfig {
    * @return the jira url
    */
   public String getJiraUrl() {
-    return jiraUrl;
+    return CharMatcher.is('/').trimFrom(jiraUrl) + "/";
   }
 
   /**
