@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be68b8f3_4d8c1fd9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-02-02T20:14:42Z",
+      "side": 0,
+      "message": "all theses empty lines removed are unrelated formatting changes, put them back",
+      "revId": "2e0a83888a933e00054fc38c526a97a2f75ecc7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
