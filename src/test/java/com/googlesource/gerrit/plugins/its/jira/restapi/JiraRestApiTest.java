@@ -16,38 +16,48 @@ package com.googlesource.gerrit.plugins.its.jira.restapi;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import com.google.common.base.CharMatcher;
+import java.net.MalformedURLException;
 import java.net.URL;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
+@SuppressWarnings({"unchecked", "rawtypes"})
 public class JiraRestApiTest {
+  private static final String ISSUE_CLASS_PREFIX = "/issue/";
+
+  private URL url;
+  private String user = "user";
+  private String password = "pass";
+  private JiraRestApi restApi;
+
+  private void setURL(String jiraUrl) throws MalformedURLException {
+    url = new URL(CharMatcher.is('/').trimFrom(jiraUrl) + "/");
+  }
 
   @Test
   public void testJiraServerInfoForNonRootJiraUrl() throws Exception {
-    URL nonRootJiraUrl = new URL("http://jira.mycompany.com/myroot/");
-    JiraRestApi<JiraServerInfo> serverInfo =
-        new JiraRestApiProvider(nonRootJiraUrl, "", "").getServerInfo();
-
-    String jiraApiUrl = serverInfo.getBaseUrl().toString();
-    assertThat(jiraApiUrl).startsWith(nonRootJiraUrl.toString());
+    setURL("http://jira.mycompany.com/myroot/");
+    restApi = new JiraRestApi(url, user, password, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    String jiraApiUrl = restApi.getBaseUrl().toString();
+    assertThat(jiraApiUrl).startsWith(url.toString());
   }
 
   @Test
   public void testJiraServerInfoForNonRootJiraUrlNotEndingWithSlash() throws Exception {
-    URL nonRootJiraUrl = new URL("http://jira.mycompany.com/myroot/");
-    JiraRestApi<JiraServerInfo> serverInfo =
-        new JiraRestApiProvider(nonRootJiraUrl, "", "").getServerInfo();
-
-    String jiraApiUrl = serverInfo.getBaseUrl().toString();
-    assertThat(jiraApiUrl).startsWith(nonRootJiraUrl.toString());
+    setURL("http://jira.mycompany.com/myroot");
+    restApi = new JiraRestApi(url, user, password, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    String jiraApiUrl = restApi.getBaseUrl().toString();
+    assertThat(jiraApiUrl).startsWith(url.toString());
   }
 
   @Test
   public void testJiraServerInfoForRootJiraUrl() throws Exception {
-    URL rootJiraUrl = new URL("http://jira.mycompany.com");
-    JiraRestApi<JiraServerInfo> serverInfo =
-        new JiraRestApiProvider(rootJiraUrl, "", "").getServerInfo();
-
-    String jiraApiUrl = serverInfo.getBaseUrl().toString();
-    assertThat(jiraApiUrl).startsWith(rootJiraUrl.toString());
+    setURL("http://jira.mycompany.com");
+    restApi = new JiraRestApi(url, user, password, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    String jiraApiUrl = restApi.getBaseUrl().toString();
+    assertThat(jiraApiUrl).startsWith(url.toString());
   }
 }

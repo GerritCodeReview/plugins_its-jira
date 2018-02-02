@@ -15,8 +15,10 @@
 package com.googlesource.gerrit.plugins.its.jira.restapi;
 
 import static com.googlesource.gerrit.plugins.its.jira.UrlHelper.*;
+import static java.net.HttpURLConnection.HTTP_OK;
 
 import com.google.gson.Gson;
+import com.google.inject.Inject;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -30,7 +32,9 @@ import org.eclipse.jgit.util.HttpSupport;
 
 /** Jira Rest Client. */
 public class JiraRestApi<T> {
+
   private static final String BASE_PREFIX = "rest/api/2";
+
   private final URL baseUrl;
   private final String auth;
   private final Gson gson;
@@ -45,12 +49,19 @@ public class JiraRestApi<T> {
    * @param url jira url
    * @param user username of the jira user
    * @param pass password of the jira user
+   * @param classOfT class type of the object requested
+   * @param classPrefix prefix for the rest api request
    */
-  JiraRestApi(URL url, String user, String pass, Class<T> classOfT, String classPrefix) {
-    this.auth = Base64.getEncoder().encodeToString((user + ":" + pass).getBytes());
+  @Inject
+  public JiraRestApi(URL url, String user, String pass, Class<T> classOfT, String classPrefix) {
+    this.auth = encode(user, pass);
     this.baseUrl = resolveUrl(url, BASE_PREFIX, classPrefix, "/");
     this.gson = new Gson();
     this.classOfT = classOfT;
+  }
+
+  private static String encode(String user, String pass) {
+    return Base64.getEncoder().encodeToString((user + ":" + pass).getBytes());
   }
 
   public int getResponseCode() {
