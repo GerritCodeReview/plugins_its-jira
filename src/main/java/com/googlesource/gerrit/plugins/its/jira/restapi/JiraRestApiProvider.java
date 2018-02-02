@@ -14,23 +14,26 @@
 
 package com.googlesource.gerrit.plugins.its.jira.restapi;
 
+import com.google.inject.Inject;
+import com.googlesource.gerrit.plugins.its.jira.JiraConfig;
 import java.net.MalformedURLException;
-import java.net.URL;
 
 public class JiraRestApiProvider {
-  private final URL url;
-  private final String user;
-  private final String pass;
+  private JiraConfig jiraConfig;
 
-  public JiraRestApiProvider(String url, String user, String pass) throws MalformedURLException {
-    this.url = new URL(url + (url.endsWith("/") ? "" : "/"));
-    this.user = user;
-    this.pass = pass;
+  @Inject
+  public JiraRestApiProvider(JiraConfig jiraConfig) {
+    this.jiraConfig = jiraConfig;
   }
 
   public <T> JiraRestApi<T> get(Class<T> classOfT, String classPrefix)
       throws MalformedURLException {
-    return new JiraRestApi<>(url, user, pass, classOfT, classPrefix);
+    return new JiraRestApi<>(
+        jiraConfig.getJiraUrl(),
+        jiraConfig.getUsername(),
+        jiraConfig.getPassword(),
+        classOfT,
+        classPrefix);
   }
 
   public JiraRestApi<JiraIssue> getIssue() throws MalformedURLException {

@@ -14,7 +14,10 @@
 
 package com.googlesource.gerrit.plugins.its.jira.restapi;
 
+import static java.net.HttpURLConnection.HTTP_OK;
+
 import com.google.gson.Gson;
+import com.google.inject.Inject;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -29,10 +32,12 @@ import org.eclipse.jgit.util.HttpSupport;
 
 /** Jira Rest Client. */
 public class JiraRestApi<T> {
+
   private static final String BASE_PREFIX = "rest/api/2";
+
   private final URL baseUrl;
   private final String auth;
-  private final Gson gson;
+  private final Gson gson = new Gson();
 
   private final Class<T> classOfT;
   private T data;
@@ -44,13 +49,25 @@ public class JiraRestApi<T> {
    * @param url jira url
    * @param user username of the jira user
    * @param pass password of the jira user
+   * @param classOfT class type of the object requested
+   * @param classPrefix prefix for the rest api request
+   * @throws MalformedURLException
    */
-  JiraRestApi(URL url, String user, String pass, Class<T> classOfT, String classPrefix)
+  @Inject
+  public JiraRestApi(URL url, String user, String pass, Class<T> classOfT, String classPrefix)
       throws MalformedURLException {
-    this.auth = Base64.getEncoder().encodeToString((user + ":" + pass).getBytes());
+    this.auth = encode(user, pass);
     this.baseUrl = new URL(url, BASE_PREFIX + classPrefix + "/");
-    this.gson = new Gson();
     this.classOfT = classOfT;
+  }
+
+  private static String encode(String user, String pass) {
+    return Base64.getEncoder().encodeToString((user + ":" + pass).getBytes());
+  }
+
+  public void ping() throws IOException {
+    if (baseUrl.toString().endsWith("/serverInfo/"))
+      ((JiraServerInfo) doGet("", HTTP_OK)).getVersion();
   }
 
   public int getResponseCode() {
