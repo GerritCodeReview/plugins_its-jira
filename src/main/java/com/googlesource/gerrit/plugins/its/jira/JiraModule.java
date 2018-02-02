@@ -15,17 +15,18 @@
 package com.googlesource.gerrit.plugins.its.jira;
 
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.config.FactoryModule;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
-import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.its.base.ItsHookModule;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApi;
 import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class JiraModule extends AbstractModule {
+public class JiraModule extends FactoryModule {
 
   private static final Logger LOG = LoggerFactory.getLogger(JiraModule.class);
 
@@ -50,6 +51,7 @@ public class JiraModule extends AbstractModule {
       bind(ItsFacade.class).to(JiraItsFacade.class).asEagerSingleton();
 
       install(new ItsHookModule(pluginName, pluginCfgFactory));
+      factory(JiraRestApi.Factory.class);
     }
   }
 }
