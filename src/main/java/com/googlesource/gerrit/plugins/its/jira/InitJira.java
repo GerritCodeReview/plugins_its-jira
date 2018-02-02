@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
+import com.google.common.base.CharMatcher;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.pgm.init.api.AllProjectsConfig;
 import com.google.gerrit.pgm.init.api.AllProjectsNameOnInitProvider;
@@ -24,6 +25,7 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.its.base.its.InitIts;
 import com.googlesource.gerrit.plugins.its.base.validation.ItsAssociationPolicy;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApi;
 import java.io.IOException;
 import java.util.Arrays;
 import org.eclipse.jgit.errors.ConfigInvalidException;
@@ -122,7 +124,8 @@ class InitJira extends InitIts {
   private boolean isJiraConnectSuccessful() {
     ui.message("Checking Jira connectivity ... ");
     try {
-      new JiraClient(jiraUrl, jiraUsername, jiraPassword).sysInfo().getVersion();
+      jiraUrl=CharMatcher.is('/').trimFrom(jiraUrl) + "/";
+      new JiraRestApi<>(jiraUrl, jiraUsername, jiraPassword).ping();
       ui.message("[OK]\n");
       return true;
     } catch (IOException e) {
