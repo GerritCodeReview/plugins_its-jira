@@ -24,6 +24,8 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.its.base.its.InitIts;
 import com.googlesource.gerrit.plugins.its.base.validation.ItsAssociationPolicy;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApi;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
 import java.io.IOException;
 import java.util.Arrays;
 import org.eclipse.jgit.errors.ConfigInvalidException;
@@ -122,7 +124,8 @@ class InitJira extends InitIts {
   private boolean isJiraConnectSuccessful() {
     ui.message("Checking Jira connectivity ... ");
     try {
-      new JiraClient(jiraUrl, jiraUsername, jiraPassword).sysInfo().getVersion();
+      Class<JiraServerInfo> classPrefix = JiraServerInfo.class;
+      new JiraRestApi<>(jiraUrl, jiraUsername, jiraPassword, classPrefix, "/serverInfo/").ping();
       ui.message("[OK]\n");
       return true;
     } catch (IOException e) {
