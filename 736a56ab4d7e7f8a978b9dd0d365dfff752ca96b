@@ -19,6 +19,184 @@
     },
     {
       "key": {
+        "uuid": "cf00baaa_7b63c96b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T22:08:00Z",
+      "side": 1,
+      "message": "Shorter:\n\n  return new URL(CharMatcher.is(\u0027/\u0027).trimFrom(jiraUrl) + \"/\");\n\nBut why the URL has to be constructed in accessor method and why you havn\u0027t done it in the ctor above? E.g.: you change the type of jiraUrl to be URL jiraUrl, and in ctor you say:\n\n  jiraUrl \u003d new URL(CharMatcher.is(\u0027/\u0027).trimFrom(url) + \"/\")\n\nand in this method:\n\n  public URL getJiraUrl() {\n    return jiraUrl;\n  }\n\nThe advantage is: you would do the URL construction only once.",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 21
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf4932c7_c4f73abb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T22:08:00Z",
+      "side": 1,
+      "message": "This can be simplified, since Dave exposed FactoryModule in the extension API in this change: [1]. Just change the base class from: AbstractModule to FactoryModule, and now you can just say:\n\n  factory(JiraRestApi.Factory.class);\n  \n* [1] https://gerrit-review.googlesource.com/#/c/gerrit/+/70406/",
+      "range": {
+        "startLine": 55,
+        "startChar": 6,
+        "endLine": 55,
+        "endChar": 75
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cd2ff52_52676dff",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T22:08:00Z",
+      "side": 1,
+      "message": "This is not needed and not used. Remove.",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 35
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b3cd643_9f13c15f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T22:08:00Z",
+      "side": 1,
+      "message": "You have duplicated the ctor with existing Javadoc, but missed to add Javadoc to ctor here, with @Inject annotation.",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 36
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89b47ba4_523f7e5b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T22:08:00Z",
+      "side": 1,
+      "message": "Not used.",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30b20c4c_b1910cc2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T22:08:00Z",
+      "side": 1,
+      "message": "Inline below.",
+      "range": {
+        "startLine": 72,
+        "startChar": 23,
+        "endLine": 72,
+        "endChar": 36
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f35d51b5_1559ca0f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T22:08:00Z",
+      "side": 1,
+      "message": "private static.",
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fce7309f_bc13905c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T22:08:00Z",
+      "side": 1,
+      "message": "Preserve the base version.",
+      "range": {
+        "startLine": 128,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 35
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dca078e3_8cacca73",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiProvider.java",
         "patchSetId": 1
@@ -59,6 +237,98 @@
         "startChar": 0,
         "endLine": 13,
         "endChar": 33
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9c10696_3c224b57",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T22:08:00Z",
+      "side": 1,
+      "message": "private?",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 8
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfe98748_686f5dd5",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T22:08:00Z",
+      "side": 1,
+      "message": "You construct URL instance on the caller sites, then you check for trailing slash, construct a string, and then construct again URL. Just pass the string parameter into this method, and mutate the string. We usually use this idiom to ensure, that trailing slash is present:\n\n  private void setUpCommonMocks(String serverUrl) throws MalformedURLException {\n    url \u003d new URL(CharMatcher.is(\u0027/\u0027).trimFrom(serverUrl) + \"/\");",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 29
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c69db395_60246ee5",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T22:08:00Z",
+      "side": 1,
+      "message": "Remove this line, here and in below methods.",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 34
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18556fde_4d86bc2e",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-02T22:08:00Z",
+      "side": 1,
+      "message": "Here and in below methods:\n\n  setUpCommonMocks(nonRootJiraUrl);",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 23
       },
       "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
