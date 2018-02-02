@@ -14,7 +14,12 @@
 
 package com.googlesource.gerrit.plugins.its.jira.restapi;
 
+import static java.net.HttpURLConnection.HTTP_OK;
+
 import com.google.gson.Gson;
+import com.google.inject.Inject;
+import com.google.inject.assistedinject.Assisted;
+import com.googlesource.gerrit.plugins.its.jira.JiraConfig;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -26,13 +31,22 @@ import java.net.URL;
 import java.util.Base64;
 import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.jgit.util.HttpSupport;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** Jira Rest Client. */
 public class JiraRestApi<T> {
+
+  public interface Factory {
+    JiraRestApi<?> create(Class<?> classOfT, String classPrefix);
+  }
+
+  private static final Logger log = LoggerFactory.getLogger(JiraRestApi.class);
   private static final String BASE_PREFIX = "rest/api/2";
+
   private final URL baseUrl;
   private final String auth;
-  private final Gson gson;
+  private final Gson gson = new Gson();
 
   private final Class<T> classOfT;
   private T data;
@@ -41,16 +55,49 @@ public class JiraRestApi<T> {
   /**
    * Create a new Jira REST API client
    *
+   * @param jiraConfig contains the configuration of jira server
+   * @param classOfT class type of the object requested
+   * @param classPrefix prefix for the rest api request
+   */
+  @Inject
+  JiraRestApi(JiraConfig jiraConfig, @Assisted Class<T> classOfT, @Assisted String classPrefix) {
+    this.auth = encode(jiraConfig.getUsername(), jiraConfig.getPassword());
+    this.baseUrl = createBaseUrl(jiraConfig.getJiraUrl(), classPrefix);
+    this.classOfT = classOfT;
+  }
+
+  /**
+   * Create a new Jira REST API client that serves only to validate connectivity during the site
+   * init step
+   *
    * @param url jira url
    * @param user username of the jira user
    * @param pass password of the jira user
+   * @throws IOException
    */
-  JiraRestApi(URL url, String user, String pass, Class<T> classOfT, String classPrefix)
-      throws MalformedURLException {
-    this.auth = Base64.getEncoder().encodeToString((user + ":" + pass).getBytes());
-    this.baseUrl = new URL(url, BASE_PREFIX + classPrefix + "/");
-    this.gson = new Gson();
-    this.classOfT = classOfT;
+  @SuppressWarnings("unchecked")
+  public JiraRestApi(String url, String user, String pass) throws IOException {
+    this.auth = encode(user, pass);
+    this.classOfT = (Class<T>) JiraServerInfo.class;
+    this.baseUrl = createBaseUrl(url, "/serverInfo/");
+  }
+
+  private URL createBaseUrl(String url, String classPrefix) {
+    try {
+      return new URL(url + BASE_PREFIX + classPrefix + "/");
+    } catch (MalformedURLException e) {
+      log.error("Jira url is invalid - url received:{}", url);
+      return null;
+    }
+  }
+
+  private static String encode(String user, String pass) {
+    return Base64.getEncoder().encodeToString((user + ":" + pass).getBytes());
+  }
+
+  public void ping() throws IOException {
+    if (baseUrl != null && baseUrl.toString().endsWith("/serverInfo/"))
+      ((JiraServerInfo) doGet("", HTTP_OK)).getVersion();
   }
 
   public int getResponseCode() {
@@ -87,6 +134,7 @@ public class JiraRestApi<T> {
   /** Do a simple POST request. */
   public boolean doPost(String spec, String jsonInput, int passCode) throws IOException {
     HttpURLConnection conn = prepHttpConnection(spec, true);
+    if (conn == null) return false;
     try {
       writePostData(jsonInput, conn);
       return validateResponse(conn, passCode, null);
@@ -97,6 +145,7 @@ public class JiraRestApi<T> {
 
   private HttpURLConnection prepHttpConnection(String spec, boolean isPostRequest)
       throws IOException {
+    if (baseUrl == null) return null;
     URL url = new URL(baseUrl, spec);
     ProxySelector proxySelector = ProxySelector.getDefault();
     Proxy proxy = HttpSupport.proxyFor(proxySelector, url);

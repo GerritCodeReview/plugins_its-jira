@@ -34,7 +34,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class JiraConfigTest {
 
   private static final String PASS = "pass";
-  private static final String URL = "http://jira_example.com";
+  private static final String URL = "http://jira_example.com/";
   private static final String USER = "user";
   private static final String PLUGIN_NAME = "its-jira";
 
