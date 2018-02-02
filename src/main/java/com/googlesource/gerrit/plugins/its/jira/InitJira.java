@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
+import com.google.common.base.Strings;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.pgm.init.api.AllProjectsConfig;
 import com.google.gerrit.pgm.init.api.AllProjectsNameOnInitProvider;
@@ -24,6 +25,8 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.its.base.its.InitIts;
 import com.googlesource.gerrit.plugins.its.base.validation.ItsAssociationPolicy;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfoRestApi;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -97,7 +100,8 @@ class InitJira extends InitIts {
 
     do {
       enterJiraConnectivity();
-    } while (jiraUrl != null && (isConnectivityRequested(jiraUrl) && !isJiraConnectSuccessful()));
+    } while (jiraUrl != null
+        && (isConnectivityRequested(jiraUrl.toString()) && !isJiraConnectSuccessful()));
 
     if (jiraUrl == null) {
       return;
@@ -125,8 +129,13 @@ class InitJira extends InitIts {
   private boolean isJiraConnectSuccessful() {
     ui.message("Checking Jira connectivity ... ");
     try {
-      new JiraClient(jiraUrl, jiraUsername, jiraPassword).sysInfo().getVersion();
-      ui.message("[OK]\n");
+      JiraServerInfo serverInfo =
+          new JiraServerInfoRestApi(jiraUrl, jiraUsername, jiraPassword).get();
+      if (Strings.isNullOrEmpty(serverInfo.getVersion())) {
+        ui.message("*ERROR* Jira returned an empty version number");
+        return false;
+      }
+      ui.message("[OK] - Jira Ver {}\n", serverInfo.getVersion());
       return true;
     } catch (IOException e) {
       ui.message("*FAILED* (%s)\n", e.toString());
