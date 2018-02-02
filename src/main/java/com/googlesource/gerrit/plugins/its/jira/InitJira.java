@@ -24,7 +24,10 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.its.base.its.InitIts;
 import com.googlesource.gerrit.plugins.its.base.validation.ItsAssociationPolicy;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApi;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 
@@ -122,9 +125,13 @@ class InitJira extends InitIts {
   private boolean isJiraConnectSuccessful() {
     ui.message("Checking Jira connectivity ... ");
     try {
-      new JiraClient(jiraUrl, jiraUsername, jiraPassword).sysInfo().getVersion();
+      URL serverUrl = new URL(jiraUrl);
+      new JiraRestApi<>(serverUrl, jiraUsername, jiraPassword).ping();
       ui.message("[OK]\n");
       return true;
+    } catch (MalformedURLException e) {
+      ui.message("*Invalid URL* (%s)\n", e.toString());
+      return false;
     } catch (IOException e) {
       ui.message("*FAILED* (%s)\n", e.toString());
       return false;
