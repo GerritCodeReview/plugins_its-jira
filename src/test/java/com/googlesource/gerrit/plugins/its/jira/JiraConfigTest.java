@@ -34,7 +34,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class JiraConfigTest {
 
   private static final String PASS = "pass";
-  private static final String URL = "http://jira_example.com";
+  private static final String URL = "http://jira_example.com/";
   private static final String USER = "user";
   private static final String PLUGIN_NAME = "its-jira";
 
@@ -51,7 +51,7 @@ public class JiraConfigTest {
     jiraConfig = new JiraConfig(cfg, PLUGIN_NAME);
     assertThat(jiraConfig.getUsername()).isEqualTo(USER);
     assertThat(jiraConfig.getPassword()).isEqualTo(PASS);
-    assertThat(jiraConfig.getJiraUrl()).isEqualTo(URL);
+    assertThat(jiraConfig.getJiraUrl().toString()).isEqualTo(URL);
   }
 
   @Test
