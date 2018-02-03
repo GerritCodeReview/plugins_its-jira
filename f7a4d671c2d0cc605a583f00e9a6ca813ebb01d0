@@ -22,6 +22,425 @@
       "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8dece6a_65b641d7",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraClientTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "I like the idea of unit-testing the components like JiraClient. However, be careful of not \"leaking\" the implementation details into the tests otherwise they\u0027ll become a \"check that the code does what it does\" instead of testing what it should do :-)\n\nSee the comments below on this aspect of testing.",
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df91d48a_68e4013a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraClientTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "Test is leaking an internal implementation detail.",
+      "range": {
+        "startLine": 99,
+        "startChar": 25,
+        "endLine": 99,
+        "endChar": 79
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50b0c3e0_e1f56d92",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraClientTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "Testing is leaking a bug inside the code: the leading \u0027/\u0027 was breaking the URL composition.",
+      "range": {
+        "startLine": 108,
+        "startChar": 30,
+        "endLine": 108,
+        "endChar": 36
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a25f48ff_eef7ae60",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraClientTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "We shouldn\u0027t assert the implementation on how the JSON is composed. Leaking the implementation details.",
+      "range": {
+        "startLine": 126,
+        "startChar": 52,
+        "endLine": 126,
+        "endChar": 64
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fc524eb_b71adf8c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraClientTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "Test is leaking a buggy implementation detail: leading \u0027/\u0027 was incorrect.",
+      "range": {
+        "startLine": 135,
+        "startChar": 30,
+        "endLine": 135,
+        "endChar": 33
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07e1e944_bf5288b1",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraClientTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "You should assert a bit more: for instance you can check that you actually get a list of projects.",
+      "range": {
+        "startLine": 166,
+        "startChar": 24,
+        "endLine": 166,
+        "endChar": 44
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81e549bc_4ca7b076",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraClientTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "Leaking implementation details: we should not assume the exact formatting of the JSON.",
+      "range": {
+        "startLine": 175,
+        "startChar": 47,
+        "endLine": 175,
+        "endChar": 66
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3631f07b_63dc2047",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraClientTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "Leaking implementation details: we should not assume the exact JSON formatting.",
+      "range": {
+        "startLine": 193,
+        "startChar": 48,
+        "endLine": 193,
+        "endChar": 67
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c23247e4_23547f68",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiProviderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "This is a pure implementation test leaking 100% of the implementation.",
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff69e2f9_67c50283",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "This seems more a functional test, good :-)",
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ecc4c0b_6a21a208",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "Functional test name should explain the headline of what the test is about, not simply testMethodName.\n\nThis test should be named more like \"testGetResponseOnIssueShouldReturnHttpOk\"",
+      "range": {
+        "startLine": 100,
+        "startChar": 14,
+        "endLine": 100,
+        "endChar": 29
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f65a1e4a_d878133b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "DRY out into a common setup",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 61
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7319fd3f_a39f86e1",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "public T doGet(String spec, int passCode) cannot return a type different than T and it is checked at compile time.\nWhat\u0027s the point of this test? Checking that the Java compiler works?",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 3
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1e1603c_fd81f619",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 122,
+        "startChar": 1,
+        "endLine": 132,
+        "endChar": 3
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13243c25_5077ae51",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "Test is leaking implementation details.",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 27
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a434895_40ff381b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "Not true: returns null if the failure is within the list of the ones expected.",
+      "range": {
+        "startLine": 157,
+        "startChar": 30,
+        "endLine": 157,
+        "endChar": 44
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a805220d_10b31b59",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "PostCommentsOnIssueSucceeds",
+      "range": {
+        "startLine": 169,
+        "startChar": 20,
+        "endLine": 169,
+        "endChar": 32
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54c3e206_7e12fd11",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "What\u0027s the purpose of this test?",
+      "range": {
+        "startLine": 181,
+        "startChar": 23,
+        "endLine": 181,
+        "endChar": 32
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97fe0277_4e14cae4",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:04:23Z",
+      "side": 1,
+      "message": "I believe you\u0027re getting the Server information.",
+      "range": {
+        "startLine": 192,
+        "startChar": 14,
+        "endLine": 192,
+        "endChar": 35
+      },
+      "revId": "f7a4d671c2d0cc605a583f00e9a6ca813ebb01d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
