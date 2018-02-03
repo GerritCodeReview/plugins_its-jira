@@ -48,7 +48,7 @@ public class JiraRestApi<T> {
   JiraRestApi(URL url, String user, String pass, Class<T> classOfT, String classPrefix)
       throws MalformedURLException {
     this.auth = Base64.getEncoder().encodeToString((user + ":" + pass).getBytes());
-    this.baseUrl = new URL(url, BASE_PREFIX + classPrefix);
+    this.baseUrl = new URL(url, BASE_PREFIX + classPrefix + "/");
     this.gson = new Gson();
     this.classOfT = classOfT;
   }
