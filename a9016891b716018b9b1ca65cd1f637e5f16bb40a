@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c62fed45_6356da33",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:15:38Z",
+      "side": 1,
+      "message": "We do have already this functionality in Gerrit for secure.config.\nCan we reuse it instead of using passwords in project.config and reinventing the encryption?",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd881c2c_96f3484c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:15:38Z",
+      "side": 1,
+      "message": "To be put into secure.config.\nproject.config is stored in the Git repository refs/meta/config and it should never contain credentials but only meta-data and configuration.",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 18
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd91ff27_a78dcebb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-03T01:15:38Z",
+      "side": 1,
+      "message": "Change is against its-base/master. At the moment its-jira/master is compatible with Gerrit 2.14, 2.15 and master. Relying on the its-base change would force us to create two additional branches for its-jira (stable-2.14 and stable-2.15).\n\nIt can be done, but you guys won\u0027t be able to have an active development on its-jira for Gerrit v2.14 :-(",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 73
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
