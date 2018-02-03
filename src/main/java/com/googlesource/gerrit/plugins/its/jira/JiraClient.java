@@ -67,7 +67,7 @@ public class JiraClient {
   public boolean issueExists(String issueKey) throws IOException {
     JiraRestApi<JiraIssue> api = apiBuilder.getIssue();
 
-    api.doGet("/" + issueKey, HTTP_OK, new int[] {HTTP_NOT_FOUND, HTTP_FORBIDDEN});
+    api.doGet(issueKey, HTTP_OK, null /*new int[] {HTTP_NOT_FOUND, HTTP_FORBIDDEN}*/);
     Integer code = api.getResponseCode();
     switch (code) {
       case HTTP_OK:
@@ -92,7 +92,7 @@ public class JiraClient {
   public List<JiraTransition.Item> getTransitions(String issueKey) throws IOException {
 
     JiraRestApi<JiraTransition> api = apiBuilder.get(JiraTransition.class, "/issue");
-    return Arrays.asList(api.doGet("/" + issueKey + "/transitions", HTTP_OK).getTransitions());
+    return Arrays.asList(api.doGet(issueKey + "/transitions", HTTP_OK).getTransitions());
   }
 
   /**
@@ -106,7 +106,7 @@ public class JiraClient {
       log.debug("Trying to add comment for issue {}", issueKey);
       apiBuilder
           .getIssue()
-          .doPost("/" + issueKey + "/comment", gson.toJson(new JiraComment(comment)), HTTP_CREATED);
+          .doPost(issueKey + "/comment", gson.toJson(new JiraComment(comment)), HTTP_CREATED);
       log.debug("Comment added to issue {}", issueKey);
     } else {
       log.error("Issue {} does not exist or no access permission", issueKey);
@@ -129,8 +129,7 @@ public class JiraClient {
     log.debug("Transition issue {} to '{}' ({})", issueKey, transition, t.getId());
     return apiBuilder
         .getIssue()
-        .doPost(
-            "/" + issueKey + "/transitions", gson.toJson(new JiraTransition(t)), HTTP_NO_CONTENT);
+        .doPost(issueKey + "/transitions", gson.toJson(new JiraTransition(t)), HTTP_NO_CONTENT);
   }
 
   /** @return Serverinformation of jira */
