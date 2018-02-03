@@ -12,7 +12,7 @@ public class JiraRestApiTest {
     JiraRestApi<JiraServerInfo> serverInfo =
         new JiraRestApiProvider(nonRootJiraUrl, "", "").getServerInfo();
 
-    String jiraApiUrl = serverInfo.getBaseUrl();
+    String jiraApiUrl = serverInfo.getBaseUrl().toString();
     assertThat(jiraApiUrl).startsWith(nonRootJiraUrl);
   }
 
@@ -22,7 +22,7 @@ public class JiraRestApiTest {
     JiraRestApi<JiraServerInfo> serverInfo =
         new JiraRestApiProvider(nonRootJiraUrl, "", "").getServerInfo();
 
-    String jiraApiUrl = serverInfo.getBaseUrl();
+    String jiraApiUrl = serverInfo.getBaseUrl().toString();
     assertThat(jiraApiUrl).startsWith(nonRootJiraUrl);
   }
 
@@ -32,7 +32,7 @@ public class JiraRestApiTest {
     JiraRestApi<JiraServerInfo> serverInfo =
         new JiraRestApiProvider(rootJiraUrl, "", "").getServerInfo();
 
-    String jiraApiUrl = serverInfo.getBaseUrl();
+    String jiraApiUrl = serverInfo.getBaseUrl().toString();
     assertThat(jiraApiUrl).startsWith(rootJiraUrl);
   }
 }

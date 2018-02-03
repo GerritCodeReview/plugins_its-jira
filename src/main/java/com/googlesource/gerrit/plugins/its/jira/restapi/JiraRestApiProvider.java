@@ -14,19 +14,20 @@ public class JiraRestApiProvider {
     this.pass = pass;
   }
 
-  public <T> JiraRestApi<T> get(Class<T> classOfT, String classPrefix) {
+  public <T> JiraRestApi<T> get(Class<T> classOfT, String classPrefix)
+      throws MalformedURLException {
     return new JiraRestApi<>(url, user, pass, classOfT, classPrefix);
   }
 
-  public JiraRestApi<JiraIssue> getIssue() {
+  public JiraRestApi<JiraIssue> getIssue() throws MalformedURLException {
     return get(JiraIssue.class, "/issue");
   }
 
-  public JiraRestApi<JiraServerInfo> getServerInfo() {
+  public JiraRestApi<JiraServerInfo> getServerInfo() throws MalformedURLException {
     return get(JiraServerInfo.class, "/serverInfo");
   }
 
-  public JiraRestApi<JiraProject[]> getProjects() {
+  public JiraRestApi<JiraProject[]> getProjects() throws MalformedURLException {
     return get(JiraProject[].class, "/project");
   }
 }
