@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c79d2ff8_49ab6a4b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-06T20:40:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ce01bb7_f55eb0b5",
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf00baaa_7b63c96b",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2018-02-02T22:08:00Z",
       "side": 1,
       "message": "Shorter:\n\n  return new URL(CharMatcher.is(\u0027/\u0027).trimFrom(jiraUrl) + \"/\");\n\nBut why the URL has to be constructed in accessor method and why you havn\u0027t done it in the ctor above? E.g.: you change the type of jiraUrl to be URL jiraUrl, and in ctor you say:\n\n  jiraUrl \u003d new URL(CharMatcher.is(\u0027/\u0027).trimFrom(url) + \"/\")\n\nand in this method:\n\n  public URL getJiraUrl() {\n    return jiraUrl;\n  }\n\nThe advantage is: you would do the URL construction only once.",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 21
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2ea2066_7e296987",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-06T20:40:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf00baaa_7b63c96b",
       "range": {
         "startLine": 62,
         "startChar": 4,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "8092de21_928d17c3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-06T20:40:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf4932c7_c4f73abb",
+      "range": {
+        "startLine": 55,
+        "startChar": 6,
+        "endLine": 55,
+        "endChar": 75
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cd2ff52_52676dff",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2018-02-02T22:08:00Z",
       "side": 1,
       "message": "This is not needed and not used. Remove.",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 35
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a37d1df6_9ab84ba9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-06T20:40:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cd2ff52_52676dff",
       "range": {
         "startLine": 46,
         "startChar": 2,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "b398163c_9fee3b6e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-06T20:40:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b3cd643_9f13c15f",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 36
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89b47ba4_523f7e5b",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 1
@@ -122,6 +236,30 @@
       "writtenOn": "2018-02-02T22:08:00Z",
       "side": 1,
       "message": "Not used.",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5d4ab4a_d3e79e55",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-06T20:40:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89b47ba4_523f7e5b",
       "range": {
         "startLine": 56,
         "startChar": 4,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "595a64e0_3485060e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-06T20:40:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30b20c4c_b1910cc2",
+      "range": {
+        "startLine": 72,
+        "startChar": 23,
+        "endLine": 72,
+        "endChar": 36
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f35d51b5_1559ca0f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 1
@@ -174,6 +336,24 @@
     },
     {
       "key": {
+        "uuid": "d363d821_1a363018",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-06T20:40:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f35d51b5_1559ca0f",
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fce7309f_bc13905c",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 1
@@ -185,6 +365,30 @@
       "writtenOn": "2018-02-02T22:08:00Z",
       "side": 1,
       "message": "Preserve the base version.",
+      "range": {
+        "startLine": 128,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 35
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a406d386_8daef96f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-06T20:40:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fce7309f_bc13905c",
       "range": {
         "startLine": 128,
         "startChar": 4,
@@ -267,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "6e21e3de_2a48fa90",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-06T20:40:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9c10696_3c224b57",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 8
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfe98748_686f5dd5",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
         "patchSetId": 1
@@ -278,6 +506,30 @@
       "writtenOn": "2018-02-02T22:08:00Z",
       "side": 1,
       "message": "You construct URL instance on the caller sites, then you check for trailing slash, construct a string, and then construct again URL. Just pass the string parameter into this method, and mutate the string. We usually use this idiom to ensure, that trailing slash is present:\n\n  private void setUpCommonMocks(String serverUrl) throws MalformedURLException {\n    url \u003d new URL(CharMatcher.is(\u0027/\u0027).trimFrom(serverUrl) + \"/\");",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 29
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f8c0b86_ec9c5021",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-06T20:40:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfe98748_686f5dd5",
       "range": {
         "startLine": 25,
         "startChar": 4,
@@ -324,6 +576,30 @@
       "writtenOn": "2018-02-02T22:08:00Z",
       "side": 1,
       "message": "Here and in below methods:\n\n  setUpCommonMocks(nonRootJiraUrl);",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 23
+      },
+      "revId": "736a56ab4d7e7f8a978b9dd0d365dfff752ca96b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d730dd84_ecb4c117",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-06T20:40:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18556fde_4d86bc2e",
       "range": {
         "startLine": 36,
         "startChar": 4,
