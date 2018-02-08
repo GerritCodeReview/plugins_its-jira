@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dbeceb14_413c27b2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-08T17:36:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4450890b_8d06df64",
+      "range": {
+        "startLine": 49,
+        "startChar": 6,
+        "endLine": 49,
+        "endChar": 34
+      },
+      "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "622c0c17_96e0ae16",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "287f9370_cdce750b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-08T17:36:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "622c0c17_96e0ae16",
+      "range": {
+        "startLine": 51,
+        "startChar": 14,
+        "endLine": 51,
+        "endChar": 62
+      },
+      "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "aa1970a1_bb7b7e99",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-08T17:36:09Z",
+      "side": 1,
+      "message": "If we use the main one during init, it does not work as the injection stack is not available at that time. \n\nLooking forward to your suggestions.",
+      "parentUuid": "6a061a5d_6faa054f",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 55
+      },
+      "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "33a1482c_b14137a4",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 2
@@ -114,6 +186,30 @@
       "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2987bdb_bdb2c800",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-08T17:36:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33a1482c_b14137a4",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 19
+      },
+      "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "1cda11b7_a0d55a33",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraConfigTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-08T17:36:09Z",
+      "side": 1,
+      "message": "Creating a new URL here results in compilation errors due to the unhandled exception. \n\nActually, we do not really need to create URL in the test, have a look at the latest patchset.",
+      "parentUuid": "d471d536_473451e2",
+      "range": {
+        "startLine": 38,
+        "startChar": 36,
+        "endLine": 38,
+        "endChar": 62
+      },
+      "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "61fe6d8b_30f34e9f",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraConfigTest.java",
         "patchSetId": 2
@@ -174,6 +294,30 @@
       "writtenOn": "2018-02-07T22:18:07Z",
       "side": 1,
       "message": "What\u0027s the value of this local variable?",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 27
+      },
+      "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbbc96f5_6fced93b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraConfigTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-08T17:36:09Z",
+      "side": 1,
+      "message": "Not needed anymore.",
+      "parentUuid": "61fe6d8b_30f34e9f",
       "range": {
         "startLine": 52,
         "startChar": 4,
