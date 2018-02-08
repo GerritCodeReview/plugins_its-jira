@@ -16,6 +16,24 @@
       "revId": "987566dc34f39957818d7e6a851f708d5c627d6a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e126df3_0bdab1d0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraConfigTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-08T18:17:14Z",
+      "side": 1,
+      "message": "Unrelated change, removed.",
+      "parentUuid": "a2e8fbf8_570b88e2",
+      "revId": "987566dc34f39957818d7e6a851f708d5c627d6a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
