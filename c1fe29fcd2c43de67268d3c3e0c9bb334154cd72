@@ -213,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "4d1870d0_1ea96afb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-08T17:46:29Z",
+      "side": 1,
+      "message": "I apologize for the previous comment.\nAs this ping method is used during the init process, the JiraRestApi instance will have the baseUrl requesting /serverInfo always. So, in an indirect way, this is doing exactly the same as before i.e. requesting server info \"sysInfo()\". We can add a call to get the version of the server in order to comply with the conventional way of testing JIRA connection as mentioned on the JIRA website.",
+      "parentUuid": "f2987bdb_bdb2c800",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 19
+      },
+      "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ca3ce93_8d6c7ee3",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiProvider.java",
         "patchSetId": 2
