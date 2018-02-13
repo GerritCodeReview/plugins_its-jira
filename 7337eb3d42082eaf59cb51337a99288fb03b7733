@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99103249_57ed0985",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-13T15:25:25Z",
+      "side": 1,
+      "message": "Fi xthe documentation then and make it to actually reflect the current implementation?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 14
+      },
+      "revId": "7337eb3d42082eaf59cb51337a99288fb03b7733",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bed94201_33d8f903",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-02-13T15:25:25Z",
+      "side": 1,
+      "message": "Is this really required, once the documentation is fixed?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "7337eb3d42082eaf59cb51337a99288fb03b7733",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
