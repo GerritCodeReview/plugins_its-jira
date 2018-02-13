@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c93da1a4_3a5e3d96",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-13T18:44:37Z",
+      "side": 1,
+      "message": "You are right, it can be fixed the other way around. But if we do this change, it will make its-jira configuration inconsistent with other its-plugins. As the recommended way to configure plugins is using the plugin name as subsection. In my opinion, we should add support for this format in the plugin. Please provide your suggestions :)",
+      "parentUuid": "99103249_57ed0985",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 14
+      },
+      "revId": "7337eb3d42082eaf59cb51337a99288fb03b7733",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bed94201_33d8f903",
         "filename": "/COMMIT_MSG",
         "patchSetId": 11
