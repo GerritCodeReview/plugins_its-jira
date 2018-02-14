@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7c8a1616_b74b5f83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-14T16:26:55Z",
+      "side": 1,
+      "message": "In order to use the secure.config per project, we will eventually need to put the secure.config under refs/meta/config, which is contrary to the initial motive of moving it to secure.config.",
+      "parentUuid": "c62fed45_6356da33",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd881c2c_96f3484c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d2791873_e1fd9e8a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-14T16:26:55Z",
+      "side": 1,
+      "message": "As mentioned in the above comment, secure.config will need to be put in refs/meta/config to make it work on the project level, which defeats the purpose of putting the password in secure.config which will eventually end up in refs/meta/config.\n\nThe way it is implemented now, it does not store the plaintext password in the project.config but stores the encrypted form of the password. So, in light of this, IMO this current solution will work better than having the plain password in secure.config. Please provide your opinion aspect. :)",
+      "parentUuid": "bd881c2c_96f3484c",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 18
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd91ff27_a78dcebb",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
@@ -59,6 +107,30 @@
       "writtenOn": "2018-02-03T01:15:38Z",
       "side": 1,
       "message": "Change is against its-base/master. At the moment its-jira/master is compatible with Gerrit 2.14, 2.15 and master. Relying on the its-base change would force us to create two additional branches for its-jira (stable-2.14 and stable-2.15).\n\nIt can be done, but you guys won\u0027t be able to have an active development on its-jira for Gerrit v2.14 :-(",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 73
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15946e83_82ce013a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-14T16:26:55Z",
+      "side": 1,
+      "message": "I completely understand your point. I think, if the added value of this feature is good enough, we might as well create different branches just like we have for other plugins. As this is the most demanded and most awaited feature in its-jira, it might be worth having to create branches and include this feature.\n\nForgive me If I my understanding is not correct, usually the stable branches are not changed much right except the bug fixes or other minor changes to keep that version working. If this is true, then we will not have much of a problem with different branches.\n\nWaiting for a positive response. :)",
+      "parentUuid": "bd91ff27_a78dcebb",
       "range": {
         "startLine": 48,
         "startChar": 4,
