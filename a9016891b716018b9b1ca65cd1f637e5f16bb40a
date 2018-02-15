@@ -236,6 +236,30 @@
       "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d91799ab_21ede53a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-15T23:04:20Z",
+      "side": 1,
+      "message": "\u003e \u003e True, we need to keep on innovating on its-jira and, why not, having the \"innovation\" compatible with multiple versions of Gerrit. You guys need this in Gerrit v2.14 correct?\n\u003e \n\u003e Having this change only on master is not an issue. Don\u0027t worry for us, we need to have a fork of its-jira anyway for the standalone build, we will just add this change on top of it :)\n\nGood, so I\u0027d create a stable-branch and we can carry on with this change on master.\n\n\u003e \n\u003e \u003e Why don\u0027t we have ITS-Jira version itself (stable-its-jira-1.0) and then cross-compile for multiple Gerrit versions?\n\u003e \n\u003e This will make this plugin build even more complex to understand, my vote goes for keeping things simple. Because its* plugins reject new features on stable branches, you need to wait to upgrade gerrit and plugins to get new features.\n\nSounds good: let\u0027s keep it simple then.\n\n\u003e \n\u003e \u003e Then this change could stay on master and have a stable-its-jira-1.0 with less risky and backward-incompatible changes and fixes.\n\u003e \n\u003e You maintain that plugin so the decision is yours but as I mentioned before, we need to fork its-jira anyway to include a standalone build so we will not use this branch.\n\nActually, looking at gerrit-analytics for the its-jira plugin, you guys are the #2 contributors of this plugin (see https://gerrit-analytics.gerritforge.com/kibana/goto/c1ed9e2eb32f6cbfcee670339aea1005).\n\nI am more than happy to add Hector as maintainer as well from Ericsson. Having more maintainers allows the project to evolve more quickly.",
+      "parentUuid": "a55e02e4_26010f7f",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 73
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
