@@ -212,6 +212,30 @@
       "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a55e02e4_26010f7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-02-15T15:16:13Z",
+      "side": 1,
+      "message": "\u003e True, we need to keep on innovating on its-jira and, why not, having the \"innovation\" compatible with multiple versions of Gerrit. You guys need this in Gerrit v2.14 correct?\n\nHaving this change only on master is not an issue. Don\u0027t worry for us, we need to have a fork of its-jira anyway for the standalone build, we will just add this change on top of it :)\n\n\u003e Why don\u0027t we have ITS-Jira version itself (stable-its-jira-1.0) and then cross-compile for multiple Gerrit versions?\n\nThis will make this plugin build even more complex to understand, my vote goes for keeping things simple. Because its* plugins reject new features on stable branches, you need to wait to upgrade gerrit and plugins to get new features.\n\n\u003e Then this change could stay on master and have a stable-its-jira-1.0 with less risky and backward-incompatible changes and fixes.\n\nYou maintain that plugin so the decision is yours but as I mentioned before, we need to fork its-jira anyway to include a standalone build so we will not use this branch.",
+      "parentUuid": "8fb27810_256a5ebc",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 73
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
