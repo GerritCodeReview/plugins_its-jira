@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "b4e5a311_37078fc4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-02-16T01:05:31Z",
+      "side": 1,
+      "message": "I think there is a confusion about this change. This change is not required for any other change to work properly.\n\nThe current implementation also works for us as well. There is no issue with the config. This change was proposed to just align the way of configuration with the documentation.\nhttps://gerrit-review.googlesource.com/Documentation/dev-plugins.html#simple-configuration\n\n This is not causing any hindrance whatsoever. If it creates more confusion, we can just leave it.",
+      "parentUuid": "69eba870_9b87fec1",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 14
+      },
+      "revId": "7337eb3d42082eaf59cb51337a99288fb03b7733",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bed94201_33d8f903",
         "filename": "/COMMIT_MSG",
         "patchSetId": 11
