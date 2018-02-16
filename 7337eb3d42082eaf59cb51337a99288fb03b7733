@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "8de7c63a_3473a466",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-02-16T08:13:01Z",
+      "side": 1,
+      "message": "Yes, the change is supposed to fix something that is not broken anyway. The dev-plugins.html is not related to the its-jira plugin and defines a \"best practice\" for new plugins.\n\nCan you then abandon it?",
+      "parentUuid": "b4e5a311_37078fc4",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 14
+      },
+      "revId": "7337eb3d42082eaf59cb51337a99288fb03b7733",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bed94201_33d8f903",
         "filename": "/COMMIT_MSG",
         "patchSetId": 11
