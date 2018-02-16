@@ -260,6 +260,30 @@
       "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e9443e3_d1ce8384",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-02-16T02:44:22Z",
+      "side": 1,
+      "message": "\u003e I am more than happy to add Hector as maintainer as well from\n \u003e Ericsson. Having more maintainers allows the project to evolve more\n \u003e quickly.\n\nThank you Luca",
+      "parentUuid": "d91799ab_21ede53a",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 73
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
