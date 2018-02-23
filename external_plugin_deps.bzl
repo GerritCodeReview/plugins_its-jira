@@ -1,6 +1,9 @@
 load("//tools/bzl:maven_jar.bzl", "maven_jar")
 
 def external_plugin_deps():
+  its_jira()
+
+def its_jira():
   maven_jar(
     name = "mockito",
     artifact = "org.mockito:mockito-core:2.13.0",
@@ -22,4 +25,3 @@ def external_plugin_deps():
     artifact = "org.objenesis:objenesis:2.6",
     sha1 = "639033469776fd37c08358c6b92a4761feb2af4b",
   )
-
