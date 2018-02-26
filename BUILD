@@ -43,5 +43,6 @@ java_library(
         ":its-jira__plugin",
         "//plugins/its-base",
         "@mockito//jar",
+        "@wiremock//jar",
     ],
 )
