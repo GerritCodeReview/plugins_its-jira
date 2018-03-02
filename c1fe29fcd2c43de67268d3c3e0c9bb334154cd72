@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "22e880f6_cb20be0f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-02T12:15:53Z",
+      "side": 1,
+      "message": "Still unresolved.",
+      "parentUuid": "b7b1ea1d_fed070ad",
+      "range": {
+        "startLine": 59,
+        "startChar": 6,
+        "endLine": 59,
+        "endChar": 34
+      },
+      "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6a061a5d_6faa054f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 2
@@ -154,6 +178,30 @@
       "side": 1,
       "message": "If we use the main one during init, it does not work as the injection stack is not available at that time. \n\nLooking forward to your suggestions.",
       "parentUuid": "6a061a5d_6faa054f",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 55
+      },
+      "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59df8ae5_93dea89b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-02T12:15:53Z",
+      "side": 1,
+      "message": "That is bad design anyway, because then in the methods you would always need to think about if you were injected or not :-(\nThe additional constructor is used during init to simply check connectivity and compatibility with Jira. However, you do not leverage the version API and thus gives the impression that it is working whilst you don\u0027t really know if it is working or not :-(\n\nThe URL could point to www.google.com and the pint() during init would say \"All fine\".\n\nI will have to give a -2 for this reason: the rest of the changes are fine (see related comments) but this ping() implementation has to change because it represents a functional regression.",
+      "parentUuid": "aa1970a1_bb7b7e99",
       "range": {
         "startLine": 75,
         "startChar": 2,
@@ -237,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "b2571ae9_91ab9ddc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-02T12:15:53Z",
+      "side": 1,
+      "message": "Yes, getting the version of the server would do the job. However, it doesn\u0027t seem you are doing it :-(",
+      "parentUuid": "4d1870d0_1ea96afb",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 19
+      },
+      "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6ca3ce93_8d6c7ee3",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiProvider.java",
         "patchSetId": 2
@@ -304,6 +376,30 @@
       "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75cf8a63_281dd38d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraConfigTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-02T12:15:53Z",
+      "side": 1,
+      "message": "Yes, much better :-)",
+      "parentUuid": "1cda11b7_a0d55a33",
+      "range": {
+        "startLine": 38,
+        "startChar": 36,
+        "endLine": 38,
+        "endChar": 62
+      },
+      "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
