@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "dc7af729_125c2004",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-02T20:11:06Z",
+      "side": 1,
+      "message": "We are partially doing the same as you suggested. We let the user enter the password and then store in the project.config. The same can be stored in secure.config but as there is only one secure.config file, I am not sure how it would work for multiple users to access multiple instances using that one file and we need to think of a way to access the correct username-password pair if we are going to store all the passwords in one secure.config file. This makes it more complex.",
+      "parentUuid": "c95d1c4d_12a7f603",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd881c2c_96f3484c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
