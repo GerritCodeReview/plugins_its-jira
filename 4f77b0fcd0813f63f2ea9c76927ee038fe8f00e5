@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c03a41aa_2a511dd1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-02T21:41:42Z",
+      "side": 1,
+      "message": "This is not a refactoring but rather a functional change, isn\u0027t it?\nAdditionally the method is not telling the truth: you are not returning jiraUrl (as the method says) but you are rather doing a sort of normalisation.\n\nYou are basically \"sanitising\" the URL and making sure that ends with a \u0027/\u0027. If this is a bug you\u0027ve found, just move to a different change with the proper description associated to it.",
+      "range": {
+        "startLine": 60,
+        "startChar": 11,
+        "endLine": 60,
+        "endChar": 55
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1466053c_60590f3c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-02T21:41:42Z",
+      "side": 1,
+      "message": "If you pass this as parameter from the init(), you don\u0027t need two different constructors.",
+      "range": {
+        "startLine": 81,
+        "startChar": 20,
+        "endLine": 81,
+        "endChar": 51
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ab34471_d6c5d27e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-02T21:41:42Z",
+      "side": 1,
+      "message": "If you pass this as parameter from the init(), you don\u0027t need two different constructors.",
+      "range": {
+        "startLine": 82,
+        "startChar": 38,
+        "endLine": 82,
+        "endChar": 52
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd855c8e_480ca2b1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-02T21:41:42Z",
+      "side": 1,
+      "message": "How can conn be null?",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 35
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5232b2cb_294a8bd3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-02T21:41:42Z",
+      "side": 1,
+      "message": "How can baseUrl be null?",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 37
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73714d95_3b2a58bd",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraConfigTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-02T21:41:42Z",
+      "side": 1,
+      "message": "Why does this make any difference?\nIs JiraConfig doing adjustments and parsing of the URL? If yes, what is different from before? Can we add a test of what are the consequences of the functional change?\n\nP.S. When you refactor you shouldn\u0027t change the behaviour and keep the tests as stable as possible.",
+      "range": {
+        "startLine": 37,
+        "startChar": 60,
+        "endLine": 37,
+        "endChar": 61
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d659874d_12dafa3d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-02T21:41:42Z",
+      "side": 1,
+      "message": "You are leaking implementation details in the test. Test should be written *before* implementing the code and thus should not have any knowledge of the code used by the implementation.\n\nJust use a ServerURL as it is supposed to be by the contract with the API and NOT in the way that API manages it internally.",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 56
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
