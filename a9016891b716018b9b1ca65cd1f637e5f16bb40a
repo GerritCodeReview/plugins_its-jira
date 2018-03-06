@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "d9e61a2b_905bc720",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-03-06T15:27:21Z",
+      "side": 1,
+      "message": "\u003e Additionally, the encryption is already implemented in the Secure\n \u003e Store plugin, why are you reinventing the wheel? With regarding to\n \u003e complexity, it actually isn\u0027t that complex after all. You do not\n \u003e have to implement the encryption but just use a Secure Store and\n \u003e Gerrit will do the rest.\n\nMaybe I am missing something here but AFAIK, secure.config is supported only for gerrit.config and \u003cplugin\u003e.config which are global config. This is not supported at the project level.",
+      "parentUuid": "c89885e7_8b5129a2",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd881c2c_96f3484c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
