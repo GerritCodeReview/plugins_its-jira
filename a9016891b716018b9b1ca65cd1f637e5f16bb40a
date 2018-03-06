@@ -217,6 +217,30 @@
     },
     {
       "key": {
+        "uuid": "629c5f08_662ed8cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-03-06T17:48:05Z",
+      "side": 1,
+      "message": "\u003e If secure store is not installed, it means that ALL passwords are\n \u003e in clear text. Having the Jira password encrypted and all the\n \u003e others, including your DB credentials, in clear text is not such as\n \u003e high security after all :-(\n\nThere is a difference having a file on the server side that is not encrypted from one that belongs to the git repository which can easily be fetched.\n\nYou are asking us to add a feature in the core to support secure store at the project level, use that new core feature in this plugin knowing that it\u0027s possible to have a Gerrit installation without secure store plugin resulting in putting the password in clear text to every one that can clone the project.\n\n \u003e Additionally, you could provide a bundled secure store in the Jira\n \u003e plugin, isn\u0027t it?\n\nThis would make things more complex. Already that the its* plugin family is not as easy to compile as the others, it would make it even worse. I am not convinced that is the best way forward.",
+      "parentUuid": "18d462d7_8a9147f0",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd881c2c_96f3484c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
