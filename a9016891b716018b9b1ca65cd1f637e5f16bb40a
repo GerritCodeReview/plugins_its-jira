@@ -193,6 +193,30 @@
     },
     {
       "key": {
+        "uuid": "18d462d7_8a9147f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-06T16:42:05Z",
+      "side": 1,
+      "message": "If secure store is not installed, it means that ALL passwords are in clear text. Having the Jira password encrypted and all the others, including your DB credentials, in clear text is not such as high security after all :-(\n\nAdditionally, you could provide a bundled secure store in the Jira plugin, isn\u0027t it?",
+      "parentUuid": "bb1ce931_8ff422ab",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd881c2c_96f3484c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
