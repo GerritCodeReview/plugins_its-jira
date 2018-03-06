@@ -241,6 +241,30 @@
     },
     {
       "key": {
+        "uuid": "9c621fed_28c293cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-06T22:05:01Z",
+      "side": 1,
+      "message": "\u003e There is a difference having a file on the server side that is not encrypted from one that belongs to the git repository which can easily be fetched.\n\nrefs/meta/config can be protected by ACLs and thus cannot be easily fetched.\n\n\u003e You are asking us to add a feature in the core to support secure store at the project level,\n\nI am not asking you to do it, but I am discussing if that makes sense or not.\nAll the its-* settings will be possible at global and project level, so I am just saying that the same would make sense for the password.\n\n\u003e use that new core feature in this plugin knowing that it\u0027s possible to have a Gerrit installation without secure store plugin resulting in putting the password in clear text to every one that can clone the project.\n\nNot really, only for the ones who decide to have password in clear text and give the ACLs to get refs/meta/config, that is not everyone ;-)\n\n\u003e This would make things more complex. Already that the its* plugin family is not as easy to compile as the others, it would make it even worse. I am not convinced that is the best way forward.\n\nWhy using an extension mechanism would make the build complex? I am a bit lost on this. SecureStore is an existing interface.",
+      "parentUuid": "629c5f08_662ed8cc",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd881c2c_96f3484c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
