@@ -289,6 +289,30 @@
     },
     {
       "key": {
+        "uuid": "a14e48aa_54756c3f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-06T23:26:37Z",
+      "side": 1,
+      "message": "\u003e I know that but still, I think that putting by default(if secureStore plugin not installed) an unencrypted password in refs/meta/config is not a good idea. I am not sure everyone will realize that by configuring a jira password at the project level, they also need to restrict visibility of refs/meta/config the only the ones who should know the password.\n\nAs long as it is clear in the UX and documented, I do not see a problem with it.\nAlternatively, you could define a refs/meta/secure so that you can allow still visibility to refs/meta/config and still hide the refs/meta/secure.\n\n\u003e For example, anyone can see the refs/meta/config on gerrit-review.\n\nThis is because we have decided to do so :-)\nShowing the ACLs is a security issue by default.\n\n\u003e For us, only gerrit admins have access to servers so we do not need to use secureStore plugin.\n\nThe majority of the security breaches are made by people with admin permissions :-)\nThat is why typically you want to have a secureStore.\n\n\u003e Our passwords are store into an encrypted ansible vault and are extracted at deployment time, I am not sure how I could adapt our ansible deployment to work with secureStore.\n\nThere is as well the option to use GitCrypt that does the same with Git repositories.\nA Git repository is at the end of the day a filesystem with versioning.\n\n\u003e You wrote: \"Additionally, you could provide a bundled secure store in the Jira plugin, isn\u0027t it?\"\n\nThat means having one more class: I do not see any complication or change in the build process to have one extra class. And that was if you would like to have it in your fork :-) I am not buying the idea of \"big-fat\" plugins, I prefer simpler and more focussed one.",
+      "parentUuid": "c8d683ce_ff59d594",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd881c2c_96f3484c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
