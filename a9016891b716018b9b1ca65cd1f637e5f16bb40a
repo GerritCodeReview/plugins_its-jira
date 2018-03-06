@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "c89885e7_8b5129a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-06T12:55:21Z",
+      "side": 1,
+      "message": "My experience is that password management is a business critical point and is typically managed according to the Company\u0027s Security Standards. Having a centralized place where policies are defined and enforced is a plus of Gerrit overall.\n\nAdditionally, the encryption is already implemented in the Secure Store plugin, why are you reinventing the wheel? With regarding to complexity, it actually isn\u0027t that complex after all. You do not have to implement the encryption but just use a Secure Store and Gerrit will do the rest.\n\nLast but not least, you could have as well a secure.config inside the refs/meta/config managed as Secure Store: that would solve the multi-master issues.",
+      "parentUuid": "dc7af729_125c2004",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd881c2c_96f3484c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
