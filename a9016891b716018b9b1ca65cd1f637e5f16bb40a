@@ -265,6 +265,30 @@
     },
     {
       "key": {
+        "uuid": "c8d683ce_ff59d594",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-03-06T23:18:54Z",
+      "side": 1,
+      "message": "\u003e \u003e There is a difference having a file on the server side that is\n \u003e not encrypted from one that belongs to the git repository which can\n \u003e easily be fetched.\n \u003e \n \u003e refs/meta/config can be protected by ACLs and thus cannot be easily\n \u003e fetched.\n\nI know that but still, I think that putting by default(if secureStore plugin not installed) an unencrypted password in refs/meta/config is not a good idea. I am not sure everyone will realize that by configuring a jira password at the project level, they also need to restrict visibility of refs/meta/config the only the ones who should know the password.\n\nFor example, anyone can see the refs/meta/config on gerrit-review.\n\n \u003e Not really, only for the ones who decide to have password in clear\n \u003e text and give the ACLs to get refs/meta/config, that is not\n \u003e everyone ;-)\n\nFor us, only gerrit admins have access to servers so we do not need to use secureStore plugin. Our passwords are store into an encrypted ansible vault and are extracted at deployment time, I am not sure how I could adapt our ansible deployment to work with secureStore.\n\n \u003e \n \u003e \u003e This would make things more complex. Already that the its* plugin\n \u003e family is not as easy to compile as the others, it would make it\n \u003e even worse. I am not convinced that is the best way forward.\n \u003e \n \u003e Why using an extension mechanism would make the build complex? I am\n \u003e a bit lost on this. SecureStore is an existing interface.\n\nYou wrote: \"Additionally, you could provide a bundled secure store in the Jira plugin, isn\u0027t it?\"\n\nThat\u0027s why I said it would make the build more complex, I never said that using a core extension would make the build more complex.",
+      "parentUuid": "9c621fed_28c293cd",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd881c2c_96f3484c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
