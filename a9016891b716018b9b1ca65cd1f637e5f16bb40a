@@ -313,6 +313,30 @@
     },
     {
       "key": {
+        "uuid": "262cad8b_c1bfbc70",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-03-06T23:56:34Z",
+      "side": 1,
+      "message": "\u003e \u003e I know that but still, I think that putting by default(if\n \u003e secureStore plugin not installed) an unencrypted password in\n \u003e refs/meta/config is not a good idea. I am not sure everyone will\n \u003e realize that by configuring a jira password at the project level,\n \u003e they also need to restrict visibility of refs/meta/config the only\n \u003e the ones who should know the password.\n \u003e \n \u003e As long as it is clear in the UX and documented, I do not see a\n \u003e problem with it.\n \u003e Alternatively, you could define a refs/meta/secure so that you can\n \u003e allow still visibility to refs/meta/config and still hide the\n \u003e refs/meta/secure.\n\ngood point but I still believe it\u0027s less complicated to encrypt the password. \n\n \u003e \u003e You wrote: \"Additionally, you could provide a bundled secure\n \u003e store in the Jira plugin, isn\u0027t it?\"\n \u003e \n \u003e That means having one more class: I do not see any complication or\n \u003e change in the build process to have one extra class. \n\nI understand you suggestion now, sorry for the delay :) You mean provide an implementation of secure store in its-jira, not bundling a secureStore plugin.\n\n \u003e And that was if you would like to have it in your fork :-)\n\nThe only reason that we have a fork of its-jira is because standalone build is not supported. I do not believe in building a project that requires to compile against the source code of dependencies :)\n\n \u003e I am not buying the idea of \"big-fat\" plugins, I prefer simpler and more focussed one.\n\nI understand you point of view but would providing a default implementation to encrypt a password would make this plugin such a \"big-fat\" one, I am not sure.",
+      "parentUuid": "a14e48aa_54756c3f",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd881c2c_96f3484c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
