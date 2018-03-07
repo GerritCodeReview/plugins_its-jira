@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7776aa15_5b49d2c6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-07T17:28:42Z",
+      "side": 1,
+      "message": "This sanitization of URL is required here to make sure there is always a trailing \"/\". It is not a functional change as earlier it was not required because we were not passing \"string\" to this method but a URL itself.\n\n But, in order to centralise the conversion of string to URL, we needed to pass it as a string instead of URL.",
+      "range": {
+        "startLine": 68,
+        "startChar": 5,
+        "endLine": 68,
+        "endChar": 52
+      },
+      "revId": "c9e3d76c11842be2b9586377655a5a3c7b9b9efa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
