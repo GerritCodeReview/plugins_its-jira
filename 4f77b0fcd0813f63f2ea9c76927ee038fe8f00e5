@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0422f556_a9380e16",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-07T17:12:45Z",
+      "side": 1,
+      "message": "You are right, this one is not required here now. In the last patchset, this method was returning URL which is why this check was needed to add the trailing \"/\" always. Will remove it.",
+      "parentUuid": "c03a41aa_2a511dd1",
+      "range": {
+        "startLine": 60,
+        "startChar": 11,
+        "endLine": 60,
+        "endChar": 55
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1466053c_60590f3c",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 9
@@ -45,6 +69,30 @@
       "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2c9cccb_62c5703e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-07T17:12:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1466053c_60590f3c",
+      "range": {
+        "startLine": 81,
+        "startChar": 20,
+        "endLine": 81,
+        "endChar": 51
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c0ea1ce0_3fafd4d8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-07T17:12:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ab34471_d6c5d27e",
+      "range": {
+        "startLine": 82,
+        "startChar": 38,
+        "endLine": 82,
+        "endChar": 52
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd855c8e_480ca2b1",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2018-03-02T21:41:42Z",
       "side": 1,
       "message": "How can conn be null?",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 35
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9be1519c_3e876423",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-07T17:12:45Z",
+      "side": 1,
+      "message": "It is null, in case baseUrl was not valid.",
+      "parentUuid": "cd855c8e_480ca2b1",
       "range": {
         "startLine": 137,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "68428756_e2d55522",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-07T17:12:45Z",
+      "side": 1,
+      "message": "In case baseUrl was malformed, the function will return null.",
+      "parentUuid": "5232b2cb_294a8bd3",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 37
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "73714d95_3b2a58bd",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraConfigTest.java",
         "patchSetId": 9
@@ -128,6 +248,30 @@
       "writtenOn": "2018-03-02T21:41:42Z",
       "side": 1,
       "message": "Why does this make any difference?\nIs JiraConfig doing adjustments and parsing of the URL? If yes, what is different from before? Can we add a test of what are the consequences of the functional change?\n\nP.S. When you refactor you shouldn\u0027t change the behaviour and keep the tests as stable as possible.",
+      "range": {
+        "startLine": 37,
+        "startChar": 60,
+        "endLine": 37,
+        "endChar": 61
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96fe1d90_d3430d0a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraConfigTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-07T17:12:45Z",
+      "side": 1,
+      "message": "Sorry, same as in JiraConfig, this was a leftover from the previous refactoring patchset.",
+      "parentUuid": "73714d95_3b2a58bd",
       "range": {
         "startLine": 37,
         "startChar": 60,
@@ -160,6 +304,30 @@
       "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d795a6b1_d62f1cb2",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-07T17:12:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d659874d_12dafa3d",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 56
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
