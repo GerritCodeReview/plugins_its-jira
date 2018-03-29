@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e81fdc9b_9629db0b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-29T07:38:16Z",
+      "side": 1,
+      "message": "Why do we mask the error and just return an invalid JiraRestApi?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 18
+      },
+      "revId": "1816502c142bd1485191ec0b4f32a9ad4508ed6f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "baae2374_f288c6f5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-29T07:38:16Z",
+      "side": 1,
+      "message": "code smell: because we allow to create an invalid JiraRestApi, we then have to deal with all the null checks. Much better to just throw an exception when the error occurs rather than having to deal with a zoombie later on :-)",
+      "range": {
+        "startLine": 81,
+        "startChar": 8,
+        "endLine": 81,
+        "endChar": 23
+      },
+      "revId": "1816502c142bd1485191ec0b4f32a9ad4508ed6f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8693164_fc5cef96",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-29T07:38:16Z",
+      "side": 1,
+      "message": "Code smell, see the same comment about this null checks above",
+      "range": {
+        "startLine": 130,
+        "startChar": 8,
+        "endLine": 130,
+        "endChar": 23
+      },
+      "revId": "1816502c142bd1485191ec0b4f32a9ad4508ed6f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abd0806a_bdef8d3b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-29T07:38:16Z",
+      "side": 1,
+      "message": "Why do we even use mocks here?\nWe are going to then pass the fields of JiraItsServerInfo later on. KISS please :-)",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 61
+      },
+      "revId": "1816502c142bd1485191ec0b4f32a9ad4508ed6f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
