@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "8fd31c88_396e79c6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-29T14:16:23Z",
+      "side": 1,
+      "message": "I believe there was a misunderstanding: I did not mean to ignore the exception but rather raise it when you actually use the URL.\n\nActually, the way it was before it was *a lot better* because the JiraRestApi needed to get a URL already, so we did not have to deal with this case.\n\nWhy not changing the JiraConfig.getJiraUrl() returning a URL type?\n\nDefinitely, do not swallow the error and keep the JiraRestApi with a null URL, which is very bad :-(",
+      "parentUuid": "5349b06b_a88bb29e",
+      "range": {
+        "startLine": 59,
+        "startChar": 6,
+        "endLine": 59,
+        "endChar": 34
+      },
+      "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a061a5d_6faa054f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 2
