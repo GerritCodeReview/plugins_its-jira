@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "b1bbf4e4_905e98f3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-29T15:32:22Z",
+      "side": 1,
+      "message": "Oh alright. The reason why jiraConfig.JiraUrl() is not URL type is because, at the time of init, we do not have access to JiraConfig because dependencies are injected later. So, if we pass a URL to the constructor here, we will have to deal with MalformedURLException at two different places whereas doing it here, centralizes it. If you suggest to have a URL formed both in JiraConfig and InitJira, I will do that. Please suggest which one you think is better.",
+      "parentUuid": "8fd31c88_396e79c6",
+      "range": {
+        "startLine": 59,
+        "startChar": 6,
+        "endLine": 59,
+        "endChar": 34
+      },
+      "revId": "c1fe29fcd2c43de67268d3c3e0c9bb334154cd72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a061a5d_6faa054f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 2
