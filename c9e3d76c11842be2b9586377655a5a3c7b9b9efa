@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "f832e167_a1f485fd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-29T14:02:21Z",
+      "side": 1,
+      "message": "If you see the previous patchset, we were failing the constructor but you suggested to not do so. :/ I will put it back again.",
+      "parentUuid": "0ed04ff8_bf6e4ef3",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 73,
+        "endChar": 5
+      },
+      "revId": "c9e3d76c11842be2b9586377655a5a3c7b9b9efa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "552c76ef_15a87d5a",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
         "patchSetId": 10
