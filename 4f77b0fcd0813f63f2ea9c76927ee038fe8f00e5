@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "cdb59ab3_43758533",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-29T18:07:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f3fcb06_9869331f",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 35
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5232b2cb_294a8bd3",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 9
@@ -282,6 +306,30 @@
       "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f28c268a_13d3ff26",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-29T18:07:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e2f6453_eb26e76f",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 37
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
