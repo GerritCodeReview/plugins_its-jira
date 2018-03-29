@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "24d82715_ccdc4818",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-29T09:42:31Z",
+      "side": 1,
+      "message": "Inline with L127, avoiding the extra variable name used only once",
+      "range": {
+        "startLine": 128,
+        "startChar": 61,
+        "endLine": 128,
+        "endChar": 72
+      },
+      "revId": "c9e3d76c11842be2b9586377655a5a3c7b9b9efa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7776aa15_5b49d2c6",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 10
@@ -19,6 +42,46 @@
         "endLine": 68,
         "endChar": 52
       },
+      "revId": "c9e3d76c11842be2b9586377655a5a3c7b9b9efa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ed04ff8_bf6e4ef3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-29T09:42:31Z",
+      "side": 1,
+      "message": "Why don\u0027t we just raise the exception? What\u0027s the point of having a JiraRestApi with a null url?",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 73,
+        "endChar": 5
+      },
+      "revId": "c9e3d76c11842be2b9586377655a5a3c7b9b9efa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "552c76ef_15a87d5a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-29T09:42:31Z",
+      "side": 1,
+      "message": "What\u0027s the point of having a mock if then you just read its POJO fields in the tests?",
       "revId": "c9e3d76c11842be2b9586377655a5a3c7b9b9efa",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true

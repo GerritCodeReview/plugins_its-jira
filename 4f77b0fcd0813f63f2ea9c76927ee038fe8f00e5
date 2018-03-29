@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "2f3fcb06_9869331f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-29T09:42:31Z",
+      "side": 1,
+      "message": "See my comment on PS10: just fail the constructor then :-) and you don\u0027t have to pollute the code all over with null checks.",
+      "parentUuid": "9be1519c_3e876423",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 35
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5232b2cb_294a8bd3",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 9
@@ -225,6 +249,30 @@
       "side": 1,
       "message": "In case baseUrl was malformed, the function will return null.",
       "parentUuid": "5232b2cb_294a8bd3",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 37
+      },
+      "revId": "4f77b0fcd0813f63f2ea9c76927ee038fe8f00e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e2f6453_eb26e76f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-03-29T09:42:31Z",
+      "side": 1,
+      "message": "See my comment above.",
+      "parentUuid": "68428756_e2d55522",
       "range": {
         "startLine": 148,
         "startChar": 4,
