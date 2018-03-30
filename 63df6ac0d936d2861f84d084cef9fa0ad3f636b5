@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "decc64b8_6350b3f6",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-30T00:35:24Z",
+      "side": 1,
+      "message": "Yeah, it is not an ideal solution but @GerritConfig needs the values to be constant and getting the dynamic port does not work in that case, which is why I kept it like this. Please suggest if you have any other alternate for this.",
+      "parentUuid": "7a5a0d98_4c4b9bcf",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 40
+      },
+      "revId": "63df6ac0d936d2861f84d084cef9fa0ad3f636b5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a54f637_9471f7f5",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3ccd52cd_db1986d3",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-30T00:35:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a54f637_9471f7f5",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 35
+      },
+      "revId": "63df6ac0d936d2861f84d084cef9fa0ad3f636b5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50b98595_74388062",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
         "patchSetId": 7
@@ -68,6 +116,30 @@
       "revId": "63df6ac0d936d2861f84d084cef9fa0ad3f636b5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02d73d02_4e601f16",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-03-30T00:35:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50b98595_74388062",
+      "range": {
+        "startLine": 105,
+        "startChar": 15,
+        "endLine": 105,
+        "endChar": 40
+      },
+      "revId": "63df6ac0d936d2861f84d084cef9fa0ad3f636b5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
