@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "2748c1c2_8f82cb63",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-04-03T18:29:20Z",
+      "side": 1,
+      "message": "I think this is a limitation of Java, I got this from stackoverflow:\n\nAnnotations are designed for compile-time or deployment-time processing. At this point you do not have any runtime variables. Therefore it is not possible to use variables in association with annotations.",
+      "parentUuid": "9d481b10_cf58549a",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 40
+      },
+      "revId": "63df6ac0d936d2861f84d084cef9fa0ad3f636b5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a54f637_9471f7f5",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
         "patchSetId": 7
