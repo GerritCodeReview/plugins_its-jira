@@ -97,6 +97,53 @@
     },
     {
       "key": {
+        "uuid": "3b149ffc_0e4423a0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-04-03T22:42:27Z",
+      "side": 1,
+      "message": "Oh yes: however this raises another problem. All the integration tests written in this way are destinated to be flaky :-(\n\nWe should think about how to change the integration test framework to allow a variable part of the Gerrit config under test.\n\nFor now, it is out of scope: let\u0027s go with a hardcoded port value :-(",
+      "parentUuid": "2748c1c2_8f82cb63",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 40
+      },
+      "revId": "63df6ac0d936d2861f84d084cef9fa0ad3f636b5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a97e878_878ee438",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-04-03T22:42:27Z",
+      "side": 1,
+      "message": "Ah, this one matches the other 19888 above ... well, that isn\u0027t nice at all :-O\nIf we cannot make the port dynamic (fair enough, needs to be resolved at compile time), can we just at least use the same constant, please?\n\nIn the same way, you use COMMENT_SECTION above, you should be able to use PORT, isn\u0027t it? Just make it a string and the compiler will just concatenate the literals.",
+      "range": {
+        "startLine": 93,
+        "startChar": 42,
+        "endLine": 93,
+        "endChar": 47
+      },
+      "revId": "63df6ac0d936d2861f84d084cef9fa0ad3f636b5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a54f637_9471f7f5",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
         "patchSetId": 7
