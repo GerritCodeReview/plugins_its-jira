@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "93220fba_ad19b64c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-04-03T22:50:41Z",
+      "side": 1,
+      "message": "I could not agree more, I have this on my TODO list as I am not a fan of harcoding the port either.",
+      "parentUuid": "3b149ffc_0e4423a0",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 40
+      },
+      "revId": "63df6ac0d936d2861f84d084cef9fa0ad3f636b5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a97e878_878ee438",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
         "patchSetId": 7
