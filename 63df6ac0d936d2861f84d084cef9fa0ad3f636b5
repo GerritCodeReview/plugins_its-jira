@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9d481b10_cf58549a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-04-03T14:54:33Z",
+      "side": 1,
+      "message": "I still don\u0027t get why this needs to be constant. If you have a static block that checks for a free port and use it as static field throughout the tests, where is the problem?",
+      "parentUuid": "decc64b8_6350b3f6",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 40
+      },
+      "revId": "63df6ac0d936d2861f84d084cef9fa0ad3f636b5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a54f637_9471f7f5",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
         "patchSetId": 7
