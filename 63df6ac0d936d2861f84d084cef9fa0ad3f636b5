@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "96e2cc8e_7c3b3cce",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-04-04T18:21:11Z",
+      "side": 1,
+      "message": "Hi Luca,\n\nI think you confused the patchsets, patchset 8 is the latest one and I had already substituted the hardcoded value with the String variable \"URL\" declared above.",
+      "parentUuid": "6a97e878_878ee438",
+      "range": {
+        "startLine": 93,
+        "startChar": 42,
+        "endLine": 93,
+        "endChar": 47
+      },
+      "revId": "63df6ac0d936d2861f84d084cef9fa0ad3f636b5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a54f637_9471f7f5",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
         "patchSetId": 7
