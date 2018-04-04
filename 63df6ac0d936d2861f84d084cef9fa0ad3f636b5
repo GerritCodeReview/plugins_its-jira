@@ -192,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "debb211d_ff29a4e8",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-04-04T20:54:05Z",
+      "side": 1,
+      "message": "Yes, I was commenting on PS7. Haven\u0027t noticed your PS8, it is fixed there indeed.",
+      "parentUuid": "96e2cc8e_7c3b3cce",
+      "range": {
+        "startLine": 93,
+        "startChar": 42,
+        "endLine": 93,
+        "endChar": 47
+      },
+      "revId": "63df6ac0d936d2861f84d084cef9fa0ad3f636b5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a54f637_9471f7f5",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
         "patchSetId": 7
@@ -274,6 +298,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "50b98595_74388062",
+      "range": {
+        "startLine": 105,
+        "startChar": 15,
+        "endLine": 105,
+        "endChar": 40
+      },
+      "revId": "63df6ac0d936d2861f84d084cef9fa0ad3f636b5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d7faa0_72d2e99a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-04-04T20:54:05Z",
+      "side": 1,
+      "message": "Not really: you keep on testing 3 things.",
+      "parentUuid": "02d73d02_4e601f16",
       "range": {
         "startLine": 105,
         "startChar": 15,
