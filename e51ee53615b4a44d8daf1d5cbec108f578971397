@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a5d27ad7_74a7435d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-04-05T14:48:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae0867b7_4637cd29",
+      "range": {
+        "startLine": 97,
+        "startChar": 59,
+        "endLine": 97,
+        "endChar": 64
+      },
+      "revId": "e51ee53615b4a44d8daf1d5cbec108f578971397",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34bbb719_986f3a29",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "e51ee53615b4a44d8daf1d5cbec108f578971397",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8850e92a_0994e0c0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-04-05T14:48:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34bbb719_986f3a29",
+      "range": {
+        "startLine": 98,
+        "startChar": 59,
+        "endLine": 98,
+        "endChar": 64
+      },
+      "revId": "e51ee53615b4a44d8daf1d5cbec108f578971397",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7c6c053d_aa9fd4d8",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-04-05T14:48:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "997be09c_3fd27e57",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 95
+      },
+      "revId": "e51ee53615b4a44d8daf1d5cbec108f578971397",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93a55c34_201d2860",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
         "patchSetId": 8
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "0c3d1966_da3cabdd",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-04-05T14:48:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93a55c34_201d2860",
+      "range": {
+        "startLine": 127,
+        "startChar": 59,
+        "endLine": 127,
+        "endChar": 64
+      },
+      "revId": "e51ee53615b4a44d8daf1d5cbec108f578971397",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "494c9f87_0a1c11c2",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
         "patchSetId": 8
@@ -114,6 +210,30 @@
       "revId": "e51ee53615b4a44d8daf1d5cbec108f578971397",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "250f30a4_a5708467",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-04-05T14:48:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "494c9f87_0a1c11c2",
+      "range": {
+        "startLine": 147,
+        "startChar": 59,
+        "endLine": 147,
+        "endChar": 64
+      },
+      "revId": "e51ee53615b4a44d8daf1d5cbec108f578971397",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
