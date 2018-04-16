@@ -14,12 +14,13 @@
 
 package com.googlesource.gerrit.plugins.its.jira.restapi;
 
+import static com.googlesource.gerrit.plugins.its.jira.UrlHelper.*;
+
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.net.URL;
@@ -45,10 +46,9 @@ public class JiraRestApi<T> {
    * @param user username of the jira user
    * @param pass password of the jira user
    */
-  JiraRestApi(URL url, String user, String pass, Class<T> classOfT, String classPrefix)
-      throws MalformedURLException {
+  JiraRestApi(URL url, String user, String pass, Class<T> classOfT, String classPrefix) {
     this.auth = Base64.getEncoder().encodeToString((user + ":" + pass).getBytes());
-    this.baseUrl = new URL(url, BASE_PREFIX + classPrefix + "/");
+    this.baseUrl = resolveUrl(url, BASE_PREFIX, classPrefix, "/");
     this.gson = new Gson();
     this.classOfT = classOfT;
   }
