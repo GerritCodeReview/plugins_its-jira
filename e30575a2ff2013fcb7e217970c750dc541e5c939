@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2e8a11d9_a9fe7e73",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiProvider.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-04-16T13:14:42Z",
+      "side": 1,
+      "message": "I think I am missing something here. Please help me understand. When I compare the base and latest patchset 12, I do not see a difference in the way exceptions are thrown. It is exactly same as in the base patchset.",
+      "parentUuid": "59a906b3_80b6e512",
+      "range": {
+        "startLine": 30,
+        "startChar": 13,
+        "endLine": 30,
+        "endChar": 34
+      },
+      "revId": "e30575a2ff2013fcb7e217970c750dc541e5c939",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1c2a9b2c_a224b65e",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiProvider.java",
         "patchSetId": 12
