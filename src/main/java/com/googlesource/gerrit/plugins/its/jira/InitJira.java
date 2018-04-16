@@ -25,6 +25,8 @@ import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.its.base.its.InitIts;
 import com.googlesource.gerrit.plugins.its.base.validation.ItsAssociationPolicy;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 
@@ -35,7 +37,7 @@ class InitJira extends InitIts {
   private final Section.Factory sections;
   private final InitFlags flags;
   private Section jira;
-  private String jiraUrl;
+  private URL jiraUrl;
   private String jiraUsername;
   private String jiraPassword;
 
@@ -89,7 +91,7 @@ class InitJira extends InitIts {
     }
   }
 
-  private void init() {
+  private void init() throws MalformedURLException {
     this.jira = sections.get(pluginName, null);
     Section jiraComment = sections.get(COMMENT_LINK_SECTION, pluginName);
 
@@ -111,9 +113,10 @@ class InitJira extends InitIts {
         "Issue-id enforced in commit message", "association", ItsAssociationPolicy.SUGGESTED);
   }
 
-  public void enterJiraConnectivity() {
-    jiraUrl = jira.string("Jira URL (empty to skip)", "url", null);
-    if (jiraUrl != null) {
+  public void enterJiraConnectivity() throws MalformedURLException {
+    String jiraUrlString = jira.string("Jira URL (empty to skip)", "url", null);
+    if (jiraUrlString != null) {
+      jiraUrl = new URL(jiraUrlString);
       jiraUsername = jira.string("Jira username", "username", "");
       jiraPassword = jira.password("username", "password");
     }
