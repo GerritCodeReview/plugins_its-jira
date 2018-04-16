@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "d2eb5d1f_bd20b981",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-04-16T13:14:42Z",
+      "side": 1,
+      "message": "Hi Luca,\n\nI have changed the implementation to match the way it was before, i.e. in the base patchset. If you compare the patchset 12 and base, you will see that I have addressed the comments.",
+      "parentUuid": "4191d835_10282b62",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 73,
+        "endChar": 5
+      },
+      "revId": "c9e3d76c11842be2b9586377655a5a3c7b9b9efa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "552c76ef_15a87d5a",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
         "patchSetId": 10
