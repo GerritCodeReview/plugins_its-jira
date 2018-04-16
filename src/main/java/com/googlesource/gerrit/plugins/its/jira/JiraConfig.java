@@ -14,23 +14,26 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
+import static com.googlesource.gerrit.plugins.its.jira.UrlHelper.*;
 import static java.lang.String.format;
 
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import java.net.MalformedURLException;
+import java.net.URL;
 import org.eclipse.jgit.lib.Config;
 
 /** The JIRA plugin configuration as read from Gerrit config. */
 @Singleton
 public class JiraConfig {
-  static final String ERROR_MSG = "Unable to load plugin %s. Cause: Wrong configuration ";
+  static final String ERROR_MSG = "Unable to load plugin %s because of invalid configuration: %s";
   static final String GERRIT_CONFIG_URL = "url";
   static final String GERRIT_CONFIG_USERNAME = "username";
   static final String GERRIT_CONFIG_PASSWORD = "password";
 
-  private final String jiraUrl;
+  private final URL jiraUrl;
   private final String jiraUsername;
   private final String jiraPassword;
 
@@ -42,11 +45,16 @@ public class JiraConfig {
    */
   @Inject
   JiraConfig(@GerritServerConfig Config config, @PluginName String pluginName) {
-    jiraUrl = config.getString(pluginName, null, GERRIT_CONFIG_URL);
+    try {
+      jiraUrl = adjustUrlPath(new URL(config.getString(pluginName, null, GERRIT_CONFIG_URL)));
+    } catch (MalformedURLException e) {
+      throw new RuntimeException(format(ERROR_MSG, pluginName, e.getLocalizedMessage()));
+    }
+
     jiraUsername = config.getString(pluginName, null, GERRIT_CONFIG_USERNAME);
     jiraPassword = config.getString(pluginName, null, GERRIT_CONFIG_PASSWORD);
     if (jiraUrl == null || jiraUsername == null || jiraPassword == null) {
-      throw new RuntimeException(format(ERROR_MSG, pluginName));
+      throw new RuntimeException(format(ERROR_MSG, pluginName, "missing username/password"));
     }
   }
 
@@ -55,7 +63,7 @@ public class JiraConfig {
    *
    * @return the jira url
    */
-  public String getJiraUrl() {
+  public URL getJiraUrl() {
     return jiraUrl;
   }
 

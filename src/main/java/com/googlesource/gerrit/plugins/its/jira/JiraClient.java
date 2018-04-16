@@ -31,7 +31,7 @@ import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApiProvider;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraTransition;
 import java.io.IOException;
-import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import org.slf4j.Logger;
@@ -44,7 +44,7 @@ public class JiraClient {
   private final Gson gson;
 
   @Inject
-  public JiraClient(JiraConfig jiraConfig) throws MalformedURLException {
+  public JiraClient(JiraConfig jiraConfig) {
     this(jiraConfig.getJiraUrl(), jiraConfig.getUsername(), jiraConfig.getPassword());
   }
 
@@ -55,7 +55,7 @@ public class JiraClient {
    * @param user username of the jira user
    * @param pass password of the jira user
    */
-  JiraClient(String url, String user, String pass) throws MalformedURLException {
+  JiraClient(URL url, String user, String pass) {
     this.apiBuilder = new JiraRestApiProvider(url, user, pass);
     this.gson = new Gson();
   }
