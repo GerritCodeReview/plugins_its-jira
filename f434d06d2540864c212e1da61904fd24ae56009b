@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a216816_6df9429b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-04-17T19:34:11Z",
+      "side": 1,
+      "message": "I think the conversion of URL to string here should be done in this change instead of the change:\nhttps://gerrit-review.googlesource.com/c/plugins/its-jira/+/156990",
+      "range": {
+        "startLine": 100,
+        "startChar": 57,
+        "endLine": 100,
+        "endChar": 64
+      },
+      "revId": "f434d06d2540864c212e1da61904fd24ae56009b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
