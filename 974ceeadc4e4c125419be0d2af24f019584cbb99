@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4c580b0_c593fd3f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-04-17T06:33:54Z",
+      "side": 1,
+      "message": "Good catch :-) I did not realize that the method was inherited from its-base and thus it was working fine for me on my local box :-)\n\nBut of course, we can\u0027t affort changing its-base in this commit.",
+      "range": {
+        "startLine": 104,
+        "startChar": 43,
+        "endLine": 104,
+        "endChar": 54
+      },
+      "revId": "974ceeadc4e4c125419be0d2af24f019584cbb99",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
