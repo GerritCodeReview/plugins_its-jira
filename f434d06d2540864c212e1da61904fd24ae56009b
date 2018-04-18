@@ -22,6 +22,30 @@
       "revId": "f434d06d2540864c212e1da61904fd24ae56009b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe4ae634_9f282df5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-04-18T14:33:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a216816_6df9429b",
+      "range": {
+        "startLine": 100,
+        "startChar": 57,
+        "endLine": 100,
+        "endChar": 64
+      },
+      "revId": "f434d06d2540864c212e1da61904fd24ae56009b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
