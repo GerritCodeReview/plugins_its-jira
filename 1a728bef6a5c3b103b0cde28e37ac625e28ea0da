@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea34ef0e_dded94b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-05-02T21:30:40Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 38,
+        "startChar": 55,
+        "endLine": 38,
+        "endChar": 64
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c4bbc90_339b0f8d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServer.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-05-02T21:30:40Z",
+      "side": 1,
+      "message": "import static JiraConfig.*\nand this part of the code will become a bit more readable :-)",
+      "range": {
+        "startLine": 121,
+        "startChar": 50,
+        "endLine": 121,
+        "endChar": 61
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62b4d9e4_db61d236",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServer.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-05-02T21:30:40Z",
+      "side": 1,
+      "message": "Can we say something more specific here? Maybe repeating the URL that isn\u0027t right?\nAdditionally, you\u0027re swallowing the exception and its stack trace :-(",
+      "range": {
+        "startLine": 129,
+        "startChar": 40,
+        "endLine": 129,
+        "endChar": 49
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b411583_3769f517",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServer.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-05-02T21:30:40Z",
+      "side": 1,
+      "message": "projectUrl \u003d null but username\u003d\"user\" and password\u003d\"pass\". We still say \"missing username/password\" which is a lie",
+      "range": {
+        "startLine": 140,
+        "startChar": 66,
+        "endLine": 140,
+        "endChar": 91
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c703fcc8_9b750743",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServer.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-05-02T21:30:40Z",
+      "side": 1,
+      "message": "Same as before: let\u0027s be more specific and NOT swallow the exception.",
+      "range": {
+        "startLine": 143,
+        "startChar": 40,
+        "endLine": 143,
+        "endChar": 49
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea6ecb24_8dc5d470",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-05-02T21:30:40Z",
+      "side": 1,
+      "message": "do we need to adjust the URL here?",
+      "range": {
+        "startLine": 37,
+        "startChar": 10,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "481ffad4_fdfaf3f6",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-05-02T21:30:40Z",
+      "side": 1,
+      "message": "Same as before.",
+      "range": {
+        "startLine": 46,
+        "startChar": 10,
+        "endLine": 46,
+        "endChar": 23
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0c494c9_c81d8974",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-05-02T21:30:40Z",
+      "side": 1,
+      "message": "Same as before.",
+      "range": {
+        "startLine": 54,
+        "startChar": 10,
+        "endLine": 54,
+        "endChar": 23
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
