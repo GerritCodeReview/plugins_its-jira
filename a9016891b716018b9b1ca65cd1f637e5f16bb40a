@@ -337,6 +337,30 @@
     },
     {
       "key": {
+        "uuid": "fc2452b8_73d1be2f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-05-02T23:28:44Z",
+      "side": 1,
+      "message": "Saša proposed something during the hackathon to solve the need for some plugins to encrypt/decrypt values. I think this solve both your concerns and mine.\n\nThe idea is to add the functionality in the core to encrypt/decrypt and the seed for encryption/decryption will be store in the secure.config. That way, even with the source code you will not be able to decrypt a value unless you also have access to seed which will be secured and installation specific.\n\nIt will also address the concern of each plugin having to duplicate an encryption mechanism.\n\nWDYT?",
+      "parentUuid": "262cad8b_c1bfbc70",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd881c2c_96f3484c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
