@@ -361,6 +361,30 @@
     },
     {
       "key": {
+        "uuid": "b9fbb091_d9071f3c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-05-03T07:30:28Z",
+      "side": 1,
+      "message": "I think this is a good idea ;-)\n\nThis way we don\u0027t have to keep all the project-level secrets (passwords, oauth tokens, etc...)\nin the global secure.config file and plugin developers would have a simple way to encrypt/decrypt such secrets. Afterwards they can be stored in a standard place like project.config.\n\nWho implements the encrypt/decrypt util in Gerrit core?",
+      "parentUuid": "fc2452b8_73d1be2f",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd881c2c_96f3484c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
