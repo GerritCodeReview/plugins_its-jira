@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "a5bb81ae_dde7d04f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServer.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-05-04T03:04:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c4bbc90_339b0f8d",
+      "range": {
+        "startLine": 121,
+        "startChar": 50,
+        "endLine": 121,
+        "endChar": 61
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62b4d9e4_db61d236",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServer.java",
         "patchSetId": 20
@@ -68,6 +92,30 @@
       "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80d4e932_1cdaa4da",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServer.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-05-04T03:04:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62b4d9e4_db61d236",
+      "range": {
+        "startLine": 129,
+        "startChar": 40,
+        "endLine": 129,
+        "endChar": 49
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "77e36d75_4bc9f2bd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServer.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-05-04T03:04:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b411583_3769f517",
+      "range": {
+        "startLine": 140,
+        "startChar": 66,
+        "endLine": 140,
+        "endChar": 91
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c703fcc8_9b750743",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServer.java",
         "patchSetId": 20
@@ -114,6 +186,30 @@
       "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0b22567_5bcc5a12",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServer.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-05-04T03:04:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c703fcc8_9b750743",
+      "range": {
+        "startLine": 143,
+        "startChar": 40,
+        "endLine": 143,
+        "endChar": 49
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "a5e91746_501c6918",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-05-04T03:04:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea6ecb24_8dc5d470",
+      "range": {
+        "startLine": 37,
+        "startChar": 10,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "481ffad4_fdfaf3f6",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
         "patchSetId": 20
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "6daca469_d7033aa2",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-05-04T03:04:42Z",
+      "side": 1,
+      "message": "Here, it is required to adjust it to put a \u0027/\u0027 at the end.",
+      "parentUuid": "481ffad4_fdfaf3f6",
+      "range": {
+        "startLine": 46,
+        "startChar": 10,
+        "endLine": 46,
+        "endChar": 23
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0c494c9_c81d8974",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
         "patchSetId": 20
@@ -183,6 +327,30 @@
       "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3bdbb19_503c95ab",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1055597
+      },
+      "writtenOn": "2018-05-04T03:04:42Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "f0c494c9_c81d8974",
+      "range": {
+        "startLine": 54,
+        "startChar": 10,
+        "endLine": 54,
+        "endChar": 23
+      },
+      "revId": "1a728bef6a5c3b103b0cde28e37ac625e28ea0da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
