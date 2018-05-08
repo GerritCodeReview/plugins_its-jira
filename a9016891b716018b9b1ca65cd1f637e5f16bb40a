@@ -385,6 +385,30 @@
     },
     {
       "key": {
+        "uuid": "726dfd1f_4abc27d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-05-08T03:08:33Z",
+      "side": 1,
+      "message": "\u003e Who implements the encrypt/decrypt util in Gerrit core?\n\nInderjot, Hector or me will do it.",
+      "parentUuid": "b9fbb091_d9071f3c",
+      "range": {
+        "startLine": 20,
+        "startChar": 36,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "a9016891b716018b9b1ca65cd1f637e5f16bb40a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd881c2c_96f3484c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
