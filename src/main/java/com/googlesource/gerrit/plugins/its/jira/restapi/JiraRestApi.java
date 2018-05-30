@@ -75,7 +75,7 @@ public class JiraRestApi<T> {
    * @throws IOException generated if unexpected failCode is returned
    */
   public T doGet(String spec, int passCode, int[] failCodes) throws IOException {
-    HttpURLConnection conn = prepHttpConnection(spec, false);
+    HttpURLConnection conn = prepHttpConnection(spec, "GET",false);
     try {
       if (validateResponse(conn, passCode, failCodes)) {
         readIncomingData(conn);
@@ -96,16 +96,25 @@ public class JiraRestApi<T> {
 
   /** Do a simple POST request. */
   public boolean doPost(String spec, String jsonInput, int passCode) throws IOException {
-    HttpURLConnection conn = prepHttpConnection(spec, true);
+    return sendPayload("POST", spec, jsonInput, passCode);
+  }
+
+  /** Do a simple PUT request. */
+  public boolean doPut(String spec, String jsonInput, int passCode) throws IOException {
+    return sendPayload("PUT", spec, jsonInput, passCode);
+  }
+
+  private boolean sendPayload(String method, String spec, String jsonInput, int passCode) throws IOException{
+    HttpURLConnection conn = prepHttpConnection(spec, method, true);
     try {
-      writePostData(jsonInput, conn);
+      writeBodyData(jsonInput, conn);
       return validateResponse(conn, passCode, null);
     } finally {
       conn.disconnect();
     }
   }
 
-  private HttpURLConnection prepHttpConnection(String spec, boolean isPostRequest)
+  private HttpURLConnection prepHttpConnection(String spec, String method, boolean withPayload)
       throws IOException {
     URL url = new URL(baseUrl, spec);
     ProxySelector proxySelector = ProxySelector.getDefault();
@@ -113,20 +122,19 @@ public class JiraRestApi<T> {
     HttpURLConnection conn = (HttpURLConnection) url.openConnection(proxy);
     conn.setRequestProperty("Authorization", "Basic " + auth);
     conn.setRequestProperty("Content-Type", "application/json");
-    if (isPostRequest) {
-      conn.setRequestMethod("POST");
+
+    conn.setRequestMethod(method.toUpperCase());
+    if (withPayload) {
       conn.setDoOutput(true);
-    } else {
-      conn.setRequestMethod("GET");
     }
     return conn;
   }
 
-  /** Write the Read the returned data from the HTTP connection. */
-  private void writePostData(String postData, HttpURLConnection conn) throws IOException {
-    if (postData != null) {
+  /** Write the data to the HTTP connection. */
+  private void writeBodyData(String data, HttpURLConnection conn) throws IOException {
+    if (data != null) {
       try (OutputStream os = conn.getOutputStream()) {
-        os.write(postData.getBytes());
+        os.write(data.getBytes());
         os.flush();
       }
     }

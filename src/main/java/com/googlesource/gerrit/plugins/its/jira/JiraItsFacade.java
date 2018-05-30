@@ -19,11 +19,12 @@ import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraProject;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.Callable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class JiraItsFacade implements ItsFacade {
 
@@ -77,6 +78,16 @@ public class JiraItsFacade implements ItsFacade {
       throws IOException {
     addComment(
         issueKey, "Related URL: " + createLinkForWebui(relatedUrl.toExternalForm(), description));
+  }
+
+  @Override
+  public void addValueToField(String issueKey, String fieldId, String value) throws IOException {
+    execute(
+        () -> {
+          log.debug("Adding value {} to field {} on issue {}", value, fieldId, issueKey);
+          jiraClient.addValueToField(issueKey, fieldId, value);
+          return issueKey;
+        });
   }
 
   @Override
