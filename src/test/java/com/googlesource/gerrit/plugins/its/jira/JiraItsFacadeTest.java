@@ -36,6 +36,8 @@ public class JiraItsFacadeTest {
   private static final String ACTION = "action";
   private static final String COMMENT = "comment";
   private static final String ISSUE_KEY = "issueKey";
+  private static final String FIELD_ID = "fieldId";
+  private static final String VALUE = "value";
 
   @Mock private JiraClient jiraClient;
 
@@ -79,6 +81,13 @@ public class JiraItsFacadeTest {
     jiraFacade = new JiraItsFacade(jiraClient);
     jiraFacade.addRelatedLink(ISSUE_KEY, new URL("http://jira.com"), "description");
     verify(jiraClient).addComment(ISSUE_KEY, "Related URL: [description|http://jira.com]");
+  }
+
+  @Test
+  public void addValueToField() throws IOException {
+    jiraFacade = new JiraItsFacade(jiraClient);
+    jiraFacade.addValueToField(ISSUE_KEY, VALUE, FIELD_ID);
+    verify(jiraClient).addValueToField(ISSUE_KEY, VALUE, FIELD_ID);
   }
 
   @Test
