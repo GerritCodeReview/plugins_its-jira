@@ -14,27 +14,18 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
-import static java.net.HttpURLConnection.HTTP_CREATED;
-import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
-import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
-import static java.net.HttpURLConnection.HTTP_NO_CONTENT;
-import static java.net.HttpURLConnection.HTTP_OK;
-
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
-import com.googlesource.gerrit.plugins.its.jira.restapi.JiraComment;
-import com.googlesource.gerrit.plugins.its.jira.restapi.JiraIssue;
-import com.googlesource.gerrit.plugins.its.jira.restapi.JiraProject;
-import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApi;
-import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApiProvider;
-import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
-import com.googlesource.gerrit.plugins.its.jira.restapi.JiraTransition;
+import com.googlesource.gerrit.plugins.its.jira.restapi.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import static java.net.HttpURLConnection.*;
 
 public class JiraClient {
   private static final Logger log = LoggerFactory.getLogger(JiraClient.class);
@@ -99,6 +90,18 @@ public class JiraClient {
     } else {
       log.error("Issue {} does not exist or no access permission", issueKey);
     }
+  }
+
+  public void addValueToField(String issueKey, String value, String fieldId) throws IOException {
+    if (!issueExists(issueKey)) {
+      log.error("Issue {} does not exist or no access permission", issueKey);
+      return;
+    }
+
+    log.debug("Trying to add value {} to field {} for issue {}", value, fieldId, issueKey);
+    JiraIssueEdition edition = JiraIssueEdition.builder().appendUpdate(fieldId, "add", value).build();
+    apiBuilder.getIssue().doPut(issueKey, gson.toJson(edition), HTTP_NO_CONTENT);
+    log.debug("Value {} added to field {} for issue {}", value, fieldId, issueKey);
   }
 
   /**
