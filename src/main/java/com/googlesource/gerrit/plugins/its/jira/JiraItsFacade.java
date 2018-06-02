@@ -19,11 +19,12 @@ import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraProject;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.Callable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class JiraItsFacade implements ItsFacade {
 
@@ -99,6 +100,16 @@ public class JiraItsFacade implements ItsFacade {
     } else {
       log.debug("Action {} on Issue {} not possible", actionName, issueKey);
     }
+  }
+
+  @Override
+  public void createVersion(String projectKey, String version) throws IOException {
+    execute(
+        () -> {
+          log.debug("Creating version {} on project {}", version, projectKey);
+          jiraClient.createVersion(projectKey, version);
+          return projectKey;
+        });
   }
 
   @Override

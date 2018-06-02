@@ -45,4 +45,8 @@ public class JiraRestApiProvider {
   public JiraRestApi<JiraProject[]> getProjects() {
     return get(JiraProject[].class, "/project");
   }
+
+  public JiraRestApi<JiraVersion> getVersions(){
+    return get(JiraVersion.class, "/version");
+  }
 }
