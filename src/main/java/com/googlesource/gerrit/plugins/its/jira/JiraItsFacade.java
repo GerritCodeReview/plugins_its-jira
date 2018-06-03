@@ -112,6 +112,16 @@ public class JiraItsFacade implements ItsFacade {
   }
 
   @Override
+  public void markVersionAsReleased(String projectKey, String version) throws IOException {
+    execute(
+        () -> {
+          log.debug("Mark version {} as released on project {}", version, projectKey);
+          jiraClient.markVersionAsReleased(projectKey, version);
+          return projectKey;
+        });
+  }
+
+  @Override
   public boolean exists(String issueKey) throws IOException {
     return execute(() -> jiraClient.issueExists(issueKey));
   }
