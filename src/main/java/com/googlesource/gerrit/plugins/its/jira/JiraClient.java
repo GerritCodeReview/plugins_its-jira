@@ -14,11 +14,7 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
-import static java.net.HttpURLConnection.HTTP_CREATED;
-import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
-import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
-import static java.net.HttpURLConnection.HTTP_NO_CONTENT;
-import static java.net.HttpURLConnection.HTTP_OK;
+import static java.net.HttpURLConnection.*;
 
 import com.google.gson.Gson;
 import com.google.inject.Inject;
@@ -30,9 +26,11 @@ import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApi;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApiProvider;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraTransition;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraVersion;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -99,6 +97,23 @@ public class JiraClient {
     } else {
       log.error("Issue {} does not exist or no access permission", issueKey);
     }
+  }
+
+  public boolean projectExists(String projectKey) throws IOException {
+    JiraProject[] projects = getProjects();
+    return Stream.of(projects).map(JiraProject::getKey).anyMatch(projectKey::equals);
+  }
+
+  public void createVersion(String projectKey, String version) throws IOException {
+    if (!projectExists(projectKey)) {
+      log.error("Project {} does not exist or no access permission", projectKey);
+      return;
+    }
+
+    log.debug("Trying to create version {} on project {}", version, projectKey);
+    JiraVersion jiraVersion = JiraVersion.builder().project(projectKey).name(version).build();
+    apiBuilder.getVersions().doPost("", gson.toJson(jiraVersion), HTTP_CREATED);
+    log.debug("Version {} created on project {}", version, projectKey);
   }
 
   /**
