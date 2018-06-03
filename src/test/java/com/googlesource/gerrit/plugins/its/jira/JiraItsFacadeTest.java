@@ -36,6 +36,7 @@ public class JiraItsFacadeTest {
   private static final String ACTION = "action";
   private static final String COMMENT = "comment";
   private static final String ISSUE_KEY = "issueKey";
+  private static final String PROJECT_KEY = "projectKey";
 
   @Mock private JiraClient jiraClient;
 
@@ -86,6 +87,13 @@ public class JiraItsFacadeTest {
     jiraFacade = new JiraItsFacade(jiraClient);
     jiraFacade.performAction(ISSUE_KEY, ACTION);
     verify(jiraClient).doTransition(ISSUE_KEY, ACTION);
+  }
+
+  @Test
+  public void createVersion() throws IOException {
+    jiraFacade = new JiraItsFacade(jiraClient);
+    jiraFacade.createVersion(PROJECT_KEY, "1.0");
+    verify(jiraClient).createVersion(PROJECT_KEY, "1.0");
   }
 
   @Test
