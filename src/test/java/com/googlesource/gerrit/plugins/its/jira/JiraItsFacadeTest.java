@@ -97,6 +97,13 @@ public class JiraItsFacadeTest {
   }
 
   @Test
+  public void markVersionAsReleased() throws IOException {
+    jiraFacade = new JiraItsFacade(jiraClient);
+    jiraFacade.markVersionAsReleased(PROJECT_KEY, "1.0");
+    verify(jiraClient).markVersionAsReleased(PROJECT_KEY, "1.0");
+  }
+
+  @Test
   public void exists() throws IOException {
     jiraFacade = new JiraItsFacade(jiraClient);
     jiraFacade.exists(ISSUE_KEY);
