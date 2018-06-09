@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab87202d_d4aeb0ac",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-06-09T20:02:19Z",
+      "side": 1,
+      "message": "Can url be NULL and JiraRestApi still work fine?",
+      "range": {
+        "startLine": 52,
+        "startChar": 19,
+        "endLine": 52,
+        "endChar": 36
+      },
+      "revId": "5debd086b926acff9e73c2eff3131174190bbec8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb9bc047_4ce57e41",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-06-09T20:02:19Z",
+      "side": 1,
+      "message": "Is this related to the PUT use-case?",
+      "range": {
+        "startLine": 115,
+        "startChar": 4,
+        "endLine": 115,
+        "endChar": 40
+      },
+      "revId": "5debd086b926acff9e73c2eff3131174190bbec8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6954b6b3_30990edd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraURL.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-06-09T20:02:19Z",
+      "side": 1,
+      "message": "This is good, abstracting the details or the URL normalisation and proxy management into a separate class (SRP is good). However, can you put into a different change? Is this related to the implementation of the PUT?",
+      "revId": "5debd086b926acff9e73c2eff3131174190bbec8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
