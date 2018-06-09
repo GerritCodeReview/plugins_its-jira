@@ -27,9 +27,9 @@ import com.googlesource.gerrit.plugins.its.base.its.InitIts;
 import com.googlesource.gerrit.plugins.its.base.validation.ItsAssociationPolicy;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfoRestApi;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraURL;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Arrays;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 
@@ -40,7 +40,7 @@ class InitJira extends InitIts {
   private final Section.Factory sections;
   private final InitFlags flags;
   private Section jira;
-  private URL jiraUrl;
+  private JiraURL jiraUrl;
   private String jiraUsername;
   private String jiraPassword;
 
@@ -120,7 +120,7 @@ class InitJira extends InitIts {
   public void enterJiraConnectivity() throws MalformedURLException {
     String jiraUrlString = jira.string("Jira URL (empty to skip)", "url", null);
     if (jiraUrlString != null) {
-      jiraUrl = new URL(jiraUrlString);
+      jiraUrl = new JiraURL(jiraUrlString);
       jiraUsername = jira.string("Jira username", "username", "");
       jiraPassword = jira.password("username", "password");
     }
