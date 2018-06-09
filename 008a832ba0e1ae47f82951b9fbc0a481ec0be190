@@ -22,6 +22,30 @@
       "revId": "008a832ba0e1ae47f82951b9fbc0a481ec0be190",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57f0253b_faf43cf5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1057319
+      },
+      "writtenOn": "2018-06-09T13:59:05Z",
+      "side": 1,
+      "message": "This is not for advertising purpose and not needed either :)\nIt is useful when somebody of my team tells me that he had an issue with Vet.\nPeople could use vet for contributions now that its old limitation is gone.\n\nI removed it, and will add an option to Vet to disable it.",
+      "parentUuid": "4c1e1112_e9c9619b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 32
+      },
+      "revId": "008a832ba0e1ae47f82951b9fbc0a481ec0be190",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
