@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4d8e3d7a_9c770088",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-06-09T21:46:27Z",
+      "side": 1,
+      "message": "True, possibly maybe a follow-up change where we fix this :-)",
+      "parentUuid": "e12ed4e1_469e416f",
+      "range": {
+        "startLine": 52,
+        "startChar": 19,
+        "endLine": 52,
+        "endChar": 36
+      },
+      "revId": "5debd086b926acff9e73c2eff3131174190bbec8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb9bc047_4ce57e41",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 3
@@ -125,6 +149,24 @@
       "side": 1,
       "message": "java.net.URL can\u0027t be mocked by Mockito because it is a final class.\n\nThis abstraction is needed for the added unit test you asked.",
       "parentUuid": "6954b6b3_30990edd",
+      "revId": "5debd086b926acff9e73c2eff3131174190bbec8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "410f46cf_8534e02b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraURL.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-06-09T21:46:27Z",
+      "side": 1,
+      "message": "Looks good then :-)",
+      "parentUuid": "97a03232_f5ed60d6",
       "revId": "5debd086b926acff9e73c2eff3131174190bbec8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
