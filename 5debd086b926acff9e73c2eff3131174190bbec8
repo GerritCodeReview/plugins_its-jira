@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e12ed4e1_469e416f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1057319
+      },
+      "writtenOn": "2018-06-09T20:20:56Z",
+      "side": 1,
+      "message": "To answer your question, I don\u0027t know :)\n\nJiraURL.resolveUrl was extracted from UrlHelper.resolveUrl.\nUrlHelper.resolveUrl was handling the null case:\n\n  public class UrlHelper {\n    public static URL resolveUrl(URL url, String... paths) {\n      if (url \u003d\u003d null) {\n        return url;\n      }\n\n      //...\n  }\n\nTherefore I chose to play it safe by preserving the null case handling.",
+      "parentUuid": "ab87202d_d4aeb0ac",
+      "range": {
+        "startLine": 52,
+        "startChar": 19,
+        "endLine": 52,
+        "endChar": 36
+      },
+      "revId": "5debd086b926acff9e73c2eff3131174190bbec8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb9bc047_4ce57e41",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c86b1f26_ce1f71cf",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1057319
+      },
+      "writtenOn": "2018-06-09T20:20:56Z",
+      "side": 1,
+      "message": "Yes to make the unit test work as said above",
+      "parentUuid": "cb9bc047_4ce57e41",
+      "range": {
+        "startLine": 115,
+        "startChar": 4,
+        "endLine": 115,
+        "endChar": 40
+      },
+      "revId": "5debd086b926acff9e73c2eff3131174190bbec8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6954b6b3_30990edd",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraURL.java",
         "patchSetId": 3
@@ -62,6 +110,24 @@
       "revId": "5debd086b926acff9e73c2eff3131174190bbec8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97a03232_f5ed60d6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraURL.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1057319
+      },
+      "writtenOn": "2018-06-09T20:20:56Z",
+      "side": 1,
+      "message": "java.net.URL can\u0027t be mocked by Mockito because it is a final class.\n\nThis abstraction is needed for the added unit test you asked.",
+      "parentUuid": "6954b6b3_30990edd",
+      "revId": "5debd086b926acff9e73c2eff3131174190bbec8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
