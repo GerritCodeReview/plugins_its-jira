@@ -20,8 +20,8 @@ import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.GERRIT_CONFIG_
 import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.GERRIT_CONFIG_USERNAME;
 import static org.mockito.Mockito.when;
 
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraURL;
 import java.net.MalformedURLException;
-import java.net.URL;
 import org.eclipse.jgit.lib.Config;
 import org.junit.Rule;
 import org.junit.Test;
@@ -34,7 +34,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class JiraConfigTest {
 
   private static final String PASS = "pass";
-  private static final URL TEST_URL = newUrl("http://jira_example.com/");
+  private static final JiraURL TEST_URL = newUrl("http://jira_example.com/");
   private static final String USER = "user";
   private static final String PLUGIN_NAME = "its-jira";
 
@@ -60,9 +60,9 @@ public class JiraConfigTest {
     jiraConfig = new JiraConfig(cfg, PLUGIN_NAME);
   }
 
-  private static URL newUrl(String url) {
+  private static JiraURL newUrl(String url) {
     try {
-      return new URL(url);
+      return new JiraURL(url);
     } catch (MalformedURLException e) {
       throw new RuntimeException(e);
     }
