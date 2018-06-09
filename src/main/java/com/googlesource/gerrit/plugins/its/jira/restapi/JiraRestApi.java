@@ -14,27 +14,22 @@
 
 package com.googlesource.gerrit.plugins.its.jira.restapi;
 
-import static com.googlesource.gerrit.plugins.its.jira.UrlHelper.*;
-
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.Proxy;
 import java.net.ProxySelector;
-import java.net.URL;
 import java.util.Base64;
 import org.apache.commons.lang.ArrayUtils;
-import org.eclipse.jgit.util.HttpSupport;
 
 /** Jira Rest Client. */
 public class JiraRestApi<T> {
 
   private static final String BASE_PREFIX = "rest/api/2";
 
-  private final URL baseUrl;
+  private final JiraURL baseUrl;
   private final String auth;
   private final Gson gson;
 
@@ -52,9 +47,9 @@ public class JiraRestApi<T> {
    * @param classPrefix prefix for the rest api request
    */
   @Inject
-  public JiraRestApi(URL url, String user, String pass, Class<T> classOfT, String classPrefix) {
+  public JiraRestApi(JiraURL url, String user, String pass, Class<T> classOfT, String classPrefix) {
     this.auth = encode(user, pass);
-    this.baseUrl = resolveUrl(url, BASE_PREFIX, classPrefix, "/");
+    this.baseUrl = url == null ? url : url.resolveUrl(BASE_PREFIX, classPrefix, "/");
     this.gson = new Gson();
     this.classOfT = classOfT;
   }
@@ -75,7 +70,7 @@ public class JiraRestApi<T> {
    * @throws IOException generated if unexpected failCode is returned
    */
   public T doGet(String spec, int passCode, int[] failCodes) throws IOException {
-    HttpURLConnection conn = prepHttpConnection(spec, false);
+    HttpURLConnection conn = prepHttpConnection(spec, "GET", false);
     try {
       if (validateResponse(conn, passCode, failCodes)) {
         readIncomingData(conn);
@@ -90,43 +85,51 @@ public class JiraRestApi<T> {
     return doGet(spec, passCode, null);
   }
 
-  URL getBaseUrl() {
+  JiraURL getBaseUrl() {
     return baseUrl;
   }
 
   /** Do a simple POST request. */
   public boolean doPost(String spec, String jsonInput, int passCode) throws IOException {
-    HttpURLConnection conn = prepHttpConnection(spec, true);
+    return sendPayload("POST", spec, jsonInput, passCode);
+  }
+
+  /** Do a simple PUT request. */
+  public boolean doPut(String spec, String jsonInput, int passCode) throws IOException {
+    return sendPayload("PUT", spec, jsonInput, passCode);
+  }
+
+  private boolean sendPayload(String method, String spec, String jsonInput, int passCode)
+      throws IOException {
+    HttpURLConnection conn = prepHttpConnection(spec, method, true);
     try {
-      writePostData(jsonInput, conn);
+      writeBodyData(jsonInput, conn);
       return validateResponse(conn, passCode, null);
     } finally {
       conn.disconnect();
     }
   }
 
-  private HttpURLConnection prepHttpConnection(String spec, boolean isPostRequest)
+  private HttpURLConnection prepHttpConnection(String spec, String method, boolean withPayload)
       throws IOException {
-    URL url = new URL(baseUrl, spec);
+    JiraURL url = baseUrl.withSpec(spec);
     ProxySelector proxySelector = ProxySelector.getDefault();
-    Proxy proxy = HttpSupport.proxyFor(proxySelector, url);
-    HttpURLConnection conn = (HttpURLConnection) url.openConnection(proxy);
+    HttpURLConnection conn = url.openConnection(proxySelector);
     conn.setRequestProperty("Authorization", "Basic " + auth);
     conn.setRequestProperty("Content-Type", "application/json");
-    if (isPostRequest) {
-      conn.setRequestMethod("POST");
+
+    conn.setRequestMethod(method.toUpperCase());
+    if (withPayload) {
       conn.setDoOutput(true);
-    } else {
-      conn.setRequestMethod("GET");
     }
     return conn;
   }
 
-  /** Write the Read the returned data from the HTTP connection. */
-  private void writePostData(String postData, HttpURLConnection conn) throws IOException {
-    if (postData != null) {
+  /** Write the data to the HTTP connection. */
+  private void writeBodyData(String data, HttpURLConnection conn) throws IOException {
+    if (data != null) {
       try (OutputStream os = conn.getOutputStream()) {
-        os.write(postData.getBytes());
+        os.write(data.getBytes());
         os.flush();
       }
     }

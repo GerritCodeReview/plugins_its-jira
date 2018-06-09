@@ -17,11 +17,10 @@ package com.googlesource.gerrit.plugins.its.jira.restapi;
 import static java.net.HttpURLConnection.HTTP_OK;
 
 import java.io.IOException;
-import java.net.URL;
 
 public class JiraServerInfoRestApi extends JiraRestApi<JiraServerInfo> {
 
-  public JiraServerInfoRestApi(URL url, String user, String pass) {
+  public JiraServerInfoRestApi(JiraURL url, String user, String pass) {
     super(url, user, pass, JiraServerInfo.class, "/serverInfo/");
   }
 
