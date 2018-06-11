@@ -21,6 +21,8 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.its.base.ItsHookModule;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
+import com.googlesource.gerrit.plugins.its.base.its.ItsFacadeFactory;
+import com.googlesource.gerrit.plugins.its.base.its.SingleItsServer;
 import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,6 +50,7 @@ public class JiraModule extends AbstractModule {
     if (gerritConfig.getString(pluginName, null, "url") != null) {
       LOG.info("JIRA is configured as ITS");
       bind(ItsFacade.class).to(JiraItsFacade.class).asEagerSingleton();
+      bind(ItsFacadeFactory.class).to(SingleItsServer.class);
 
       install(new ItsHookModule(pluginName, pluginCfgFactory));
     }
