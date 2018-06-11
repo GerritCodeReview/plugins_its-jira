@@ -88,9 +88,8 @@ public class JiraITTest extends LightweightPluginDaemonTest {
   @Test
   @GerritConfig(name = COMMENT_SECTION + ".match", value = "([A-Z]+-[0-9]+)")
   @GerritConfig(
-    name = COMMENT_SECTION + ".html",
-    value = "<a href=\"" + URL + "/browse/$1\">$1</a>"
-  )
+      name = COMMENT_SECTION + ".html",
+      value = "<a href=\"" + URL + "/browse/$1\">$1</a>")
   @GerritConfig(name = COMMENT_SECTION + ".association", value = "SUGGESTED")
   @GerritConfig(name = PLUGIN_NAME + ".url", value = URL)
   @GerritConfig(name = PLUGIN_NAME + ".username", value = "user")
@@ -108,9 +107,8 @@ public class JiraITTest extends LightweightPluginDaemonTest {
   @Test
   @GerritConfig(name = COMMENT_SECTION + ".match", value = "([A-Z]+-[0-9]+)")
   @GerritConfig(
-    name = COMMENT_SECTION + ".html",
-    value = "<a href=\"" + URL + "/browse/$1\">$1</a>"
-  )
+      name = COMMENT_SECTION + ".html",
+      value = "<a href=\"" + URL + "/browse/$1\">$1</a>")
   @GerritConfig(name = COMMENT_SECTION + ".association", value = "SUGGESTED")
   @GerritConfig(name = PLUGIN_NAME + ".url", value = URL)
   @GerritConfig(name = PLUGIN_NAME + ".username", value = "user")
@@ -131,9 +129,8 @@ public class JiraITTest extends LightweightPluginDaemonTest {
   @Test
   @GerritConfig(name = COMMENT_SECTION + ".match", value = "([A-Z]+-[0-9]+)")
   @GerritConfig(
-    name = COMMENT_SECTION + ".html",
-    value = "<a href=\"" + URL + "/browse/$1\">$1</a>"
-  )
+      name = COMMENT_SECTION + ".html",
+      value = "<a href=\"" + URL + "/browse/$1\">$1</a>")
   @GerritConfig(name = COMMENT_SECTION + ".association", value = "SUGGESTED")
   @GerritConfig(name = PLUGIN_NAME + ".url", value = URL)
   @GerritConfig(name = PLUGIN_NAME + ".username", value = "user")
@@ -154,9 +151,8 @@ public class JiraITTest extends LightweightPluginDaemonTest {
   @Test
   @GerritConfig(name = COMMENT_SECTION + ".match", value = "([A-Z]+-[0-9]+)")
   @GerritConfig(
-    name = COMMENT_SECTION + ".html",
-    value = "<a href=\"" + URL + "/browse/$1\">$1</a>"
-  )
+      name = COMMENT_SECTION + ".html",
+      value = "<a href=\"" + URL + "/browse/$1\">$1</a>")
   @GerritConfig(name = COMMENT_SECTION + ".association", value = "SUGGESTED")
   @GerritConfig(name = PLUGIN_NAME + ".url", value = URL)
   @GerritConfig(name = PLUGIN_NAME + ".username", value = "user")
@@ -179,9 +175,8 @@ public class JiraITTest extends LightweightPluginDaemonTest {
   @Test
   @GerritConfig(name = COMMENT_SECTION + ".match", value = "([A-Z]+-[0-9]+)")
   @GerritConfig(
-    name = COMMENT_SECTION + ".html",
-    value = "<a href=\"" + URL + "/browse/$1\">$1</a>"
-  )
+      name = COMMENT_SECTION + ".html",
+      value = "<a href=\"" + URL + "/browse/$1\">$1</a>")
   @GerritConfig(name = COMMENT_SECTION + ".association", value = "SUGGESTED")
   @GerritConfig(name = PLUGIN_NAME + ".url", value = URL)
   @GerritConfig(name = PLUGIN_NAME + ".username", value = "user")
@@ -199,9 +194,8 @@ public class JiraITTest extends LightweightPluginDaemonTest {
   @Test
   @GerritConfig(name = COMMENT_SECTION + ".match", value = "([A-Z]+-[0-9]+)")
   @GerritConfig(
-    name = COMMENT_SECTION + ".html",
-    value = "<a href=\"" + URL + "/browse/$1\">$1</a>"
-  )
+      name = COMMENT_SECTION + ".html",
+      value = "<a href=\"" + URL + "/browse/$1\">$1</a>")
   @GerritConfig(name = COMMENT_SECTION + ".association", value = "SUGGESTED")
   @GerritConfig(name = PLUGIN_NAME + ".url", value = URL)
   @GerritConfig(name = PLUGIN_NAME + ".username", value = "user")
