@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a550bd0a_274c0f8a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-06-20T07:38:34Z",
+      "side": 1,
+      "message": "Can you explain in the commit message *WHY* this change is needed? (rationale, use-case)",
+      "revId": "2ae51c0505a55606fb9bf20f08b55730f15efc97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de5d984f_1885fab3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-06-20T07:38:34Z",
+      "side": 1,
+      "message": "This can be removed: the target change is merged.",
+      "revId": "2ae51c0505a55606fb9bf20f08b55730f15efc97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "040c80ae_cddb6de9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-06-20T07:38:34Z",
+      "side": 1,
+      "message": "Can we get rid of this? It doesn\u0027t mean much to people not using VET.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "2ae51c0505a55606fb9bf20f08b55730f15efc97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcc39870_5ecc5f60",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-06-20T07:38:34Z",
+      "side": 1,
+      "message": "Actually the check above is for existence, not for permissions.",
+      "range": {
+        "startLine": 107,
+        "startChar": 44,
+        "endLine": 107,
+        "endChar": 64
+      },
+      "revId": "2ae51c0505a55606fb9bf20f08b55730f15efc97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1abae4bf_97b7136d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacade.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-06-20T07:38:34Z",
+      "side": 1,
+      "message": "return to who?",
+      "range": {
+        "startLine": 88,
+        "startChar": 10,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "2ae51c0505a55606fb9bf20f08b55730f15efc97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d43500f_fd6543ec",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraIssueEdition.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-06-20T07:38:34Z",
+      "side": 1,
+      "message": "Edition?",
+      "range": {
+        "startLine": 23,
+        "startChar": 22,
+        "endLine": 23,
+        "endChar": 29
+      },
+      "revId": "2ae51c0505a55606fb9bf20f08b55730f15efc97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3b36fd8_9ec722fc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraIssueEdition.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-06-20T07:38:34Z",
+      "side": 1,
+      "message": "Why do we have an hardcoded field here?",
+      "range": {
+        "startLine": 48,
+        "startChar": 11,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "2ae51c0505a55606fb9bf20f08b55730f15efc97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e67cb5c_1116201b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraIssueEditionTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-06-20T07:38:34Z",
+      "side": 1,
+      "message": "Very unreadable :-( Why don\u0027t you simply use a JSON string?\nRemember that tests are *never* tested and only the visual inspection can say if they make sense or not.\n\nIf tests are not readable, they are very likely to be incorrect because nobody understands them.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 17
+      },
+      "revId": "2ae51c0505a55606fb9bf20f08b55730f15efc97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
