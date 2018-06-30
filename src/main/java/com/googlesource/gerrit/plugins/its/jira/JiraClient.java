@@ -25,6 +25,7 @@ import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraComment;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraIssue;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraIssueUpdate;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraProject;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApi;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApiProvider;
@@ -107,6 +108,18 @@ public class JiraClient {
     JiraVersion jiraVersion = JiraVersion.builder().project(projectKey).name(version).build();
     apiBuilder.getVersions().doPost("", gson.toJson(jiraVersion), HTTP_CREATED);
     log.debug("Version {} created on project {}", version, projectKey);
+  }
+
+  public void addValueToField(String issueKey, String value, String fieldId) throws IOException {
+    if (!issueExists(issueKey)) {
+      log.error("Issue {} does not exist", issueKey);
+      return;
+    }
+
+    log.debug("Trying to add value {} to field {} for issue {}", value, fieldId, issueKey);
+    JiraIssueUpdate edition = JiraIssueUpdate.builder().appendUpdate(fieldId, "add", value).build();
+    apiBuilder.getIssue().doPut(issueKey, gson.toJson(edition), HTTP_NO_CONTENT);
+    log.debug("Value {} added to field {} for issue {}", value, fieldId, issueKey);
   }
 
   /**
