@@ -69,6 +69,17 @@ public class JiraItsFacade implements ItsFacade {
   }
 
   @Override
+  public void addValueToField(String issueKey, String value, String fieldId) throws IOException {
+    execute(
+        () -> {
+          log.debug("Adding value {} to field {} on issue {}", value, fieldId, issueKey);
+          jiraClient.addValueToField(itsServerInfo, issueKey, value, fieldId);
+          // No value to return
+          return null;
+        });
+  }
+
+  @Override
   public void performAction(String issueKey, String actionName) throws IOException {
     execute(
         () -> {
