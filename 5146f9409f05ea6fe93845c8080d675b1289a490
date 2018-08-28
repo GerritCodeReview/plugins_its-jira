@@ -182,6 +182,30 @@
     },
     {
       "key": {
+        "uuid": "107f1f74_8f3ff1db",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 25
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-08-28T19:20:50Z",
+      "side": 1,
+      "message": "Done here: https://gerrit-review.googlesource.com/c/plugins/its-jira/+/194411",
+      "parentUuid": "4883a7e6_daa8980e",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 0
+      },
+      "revId": "5146f9409f05ea6fe93845c8080d675b1289a490",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94de5fca_ab0324d0",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 25
