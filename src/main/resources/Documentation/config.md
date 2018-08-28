@@ -51,7 +51,7 @@ stable branches the following could be configured:
 ```
 
 Comment links
-----------------
+-------------
 
 Git commits are associated to Jira issues reusing the existing Gerrit
 [commitLink configuration][1] to extract the issue-id from the commit
@@ -155,14 +155,14 @@ Gerrit init example:
         action = To Do
 
 The first rule triggers an action which adds a comment and a hyperlink to the change created
-in gerrit. The comment will appear in an Jira issue's `Comment` section whenever a patchset-created event
-is triggered. The second action item in the first rule transitions the state of the issue
+in gerrit. The comment will appear in an Jira issue's `Comment` section whenever a patchset-created
+event is triggered. The second action item in the first rule transitions the state of the issue
 in Jira to `In Progress`. The title of the action `In Progress` should match the workflow actions
 used by the JIRA server as different versions of JIRA can have different workflow actions.
 
 **Note:** Velocity comments were deprecated in Gerrit 2.14 and will be removed in Gerrit 2.16/3.0;
-the `actions-@Plugin@.config` needs to be changed accordingly. For example, to use Soy comments instead
-of velocity comments:
+the `actions-@Plugin@.config` needs to be changed accordingly. For example, to use Soy comments
+instead of velocity comments:
 
     [rule "open"]
         event-type = patchset-created
