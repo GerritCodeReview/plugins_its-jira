@@ -1,0 +1,301 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "538ccc0c_f9cba263",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "PASSWORD, rather? Would be consistent also with below matching terms for GERRIT_CONFIG_*.",
+      "range": {
+        "startLine": 49,
+        "startChar": 37,
+        "endLine": 49,
+        "endChar": 41
+      },
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "164fd403_dbd451c2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "Would also comment about the other added parameters.",
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea48cd07_b16f50e3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "Already checked through isNullOrEmpty.",
+      "range": {
+        "startLine": 141,
+        "startChar": 8,
+        "endLine": 141,
+        "endChar": 31
+      },
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c1b7057_2576b923",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacade.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "Needed? Not done in changed JiraClient for example.",
+      "range": {
+        "startLine": 1,
+        "startChar": 21,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "551eae55_5f78aab3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacade.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "Needed? Not adding much value I think.",
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2566488_712194ca",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServer.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "Safe to propagate credentials further?",
+      "range": {
+        "startLine": 58,
+        "startChar": 70,
+        "endLine": 58,
+        "endChar": 98
+      },
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "042f4ac2_8457fa0a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServerInfo.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "License file header missing.",
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f85f71d9_b871bdbf",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraPasswordProjectConfigEntry.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "2018",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28ee308f_3e35363a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraPasswordProjectConfigEntry.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "Any link or pointer to the head of that issue, to add in this comment line? -Would also consider converting this TODO into an actual method javadoc piece, despite private.",
+      "range": {
+        "startLine": 44,
+        "startChar": 58,
+        "endLine": 44,
+        "endChar": 63
+      },
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48ebc6bb_9b329395",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraUrlProjectConfigEntry.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "2018",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "826fce51_e64f4156",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraUrlProjectConfigEntry.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "Blank line missing.",
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0ca883e_c9ac1bc0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraUrlProjectConfigEntry.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "isNullOrEmpty instead?",
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60d40d74_382f482b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraConfigTest.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "Committed merge marker comments above and throughout this file.",
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d9de274_2c2c86d2",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServerTest.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "Remove this file?",
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10b05379_8e39a70b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-29T17:01:13Z",
+      "side": 1,
+      "message": "Merge marker comments again in this file.",
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
