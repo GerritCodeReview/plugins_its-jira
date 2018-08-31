@@ -1,0 +1,209 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9ca4aa1_3131991d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-31T18:52:50Z",
+      "side": 1,
+      "message": "Extra empty javadoc line.",
+      "revId": "04315fe49228af0d020eac4e2215d479695b3932",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cadfef9_d4c80e56",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServer.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-31T18:52:50Z",
+      "side": 1,
+      "message": "Since adding a javadoc, would complete it through @param and @return.",
+      "revId": "04315fe49228af0d020eac4e2215d479695b3932",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1b784e2_f37b8f17",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraPasswordProjectConfigEntry.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-31T18:52:50Z",
+      "side": 1,
+      "message": "a string",
+      "range": {
+        "startLine": 44,
+        "startChar": 13,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "04315fe49228af0d020eac4e2215d479695b3932",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dd76ab8_c44593f4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraPasswordProjectConfigEntry.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-31T18:52:50Z",
+      "side": 1,
+      "message": "Usually these tags follow all of the method description text, which includes the below paragraphs.",
+      "revId": "04315fe49228af0d020eac4e2215d479695b3932",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af9dd523_a4dadc50",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraPasswordProjectConfigEntry.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-31T18:52:50Z",
+      "side": 1,
+      "message": "And since the above description intro is rather trivial (current line 44), would consider merging it with these lines 49-50, as well.",
+      "revId": "04315fe49228af0d020eac4e2215d479695b3932",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f6ed48b_83899f71",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraPasswordProjectConfigEntry.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-31T18:52:50Z",
+      "side": 1,
+      "message": "* [",
+      "range": {
+        "startLine": 56,
+        "startChar": 3,
+        "endLine": 56,
+        "endChar": 5
+      },
+      "revId": "04315fe49228af0d020eac4e2215d479695b3932",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "694aabd1_aba74ed9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraPasswordProjectConfigEntry.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-31T18:52:50Z",
+      "side": 1,
+      "message": "Extra empty javadoc line.",
+      "revId": "04315fe49228af0d020eac4e2215d479695b3932",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30de174c_13d09ab5",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 28
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-31T18:52:50Z",
+      "side": 1,
+      "message": "Would either separate here in two paragraphs or wrap/join the surrounding lines.",
+      "revId": "04315fe49228af0d020eac4e2215d479695b3932",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8f7bd23_8386b524",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 28
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-31T18:52:50Z",
+      "side": 1,
+      "message": "Extra heading character space(s) introduced in above lines.",
+      "revId": "04315fe49228af0d020eac4e2215d479695b3932",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdbf6bd7_e730140b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServerTest.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-31T18:52:50Z",
+      "side": 1,
+      "message": "Extra blank line.",
+      "revId": "04315fe49228af0d020eac4e2215d479695b3932",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4ca6df9_26d6ac12",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-31T18:52:50Z",
+      "side": 1,
+      "message": "Commented out merge lines still in.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 52
+      },
+      "revId": "04315fe49228af0d020eac4e2215d479695b3932",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

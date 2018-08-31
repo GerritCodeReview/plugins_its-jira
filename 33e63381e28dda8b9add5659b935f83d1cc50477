@@ -266,6 +266,30 @@
     },
     {
       "key": {
+        "uuid": "2d1087ec_ac8f29a9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServer.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-31T18:52:50Z",
+      "side": 1,
+      "message": "Is it safe enough to propagate these credential values up, thus potentially disclose them further (up or outside the intended disclosure space)? -Unless at least the password is encrypted here?",
+      "parentUuid": "295946ae_0b0b657d",
+      "range": {
+        "startLine": 58,
+        "startChar": 70,
+        "endLine": 58,
+        "endChar": 98
+      },
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "042f4ac2_8457fa0a",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServerInfo.java",
         "patchSetId": 27
