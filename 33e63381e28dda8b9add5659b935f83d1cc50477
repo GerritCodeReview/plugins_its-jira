@@ -325,6 +325,30 @@
     },
     {
       "key": {
+        "uuid": "9ba604c2_9d78fa29",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraPasswordProjectConfigEntry.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-08-31T12:58:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f85f71d9_b871bdbf",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28ee308f_3e35363a",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraPasswordProjectConfigEntry.java",
         "patchSetId": 27
@@ -421,6 +445,30 @@
     },
     {
       "key": {
+        "uuid": "af59364a_00881117",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraUrlProjectConfigEntry.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-08-31T12:58:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "969e0908_2a9e16a1",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "826fce51_e64f4156",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraUrlProjectConfigEntry.java",
         "patchSetId": 27
@@ -435,6 +483,24 @@
       "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2b68a30_4ef1e114",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraUrlProjectConfigEntry.java",
+        "patchSetId": 27
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-08-31T12:58:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "826fce51_e64f4156",
+      "revId": "33e63381e28dda8b9add5659b935f83d1cc50477",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
