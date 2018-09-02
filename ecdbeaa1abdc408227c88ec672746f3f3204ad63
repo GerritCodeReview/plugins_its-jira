@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fba52484_030bb5ff",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacadeTest.java",
+        "patchSetId": 29
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-09-02T18:09:01Z",
+      "side": 0,
+      "message": "Not sure if this blank line should be kept after adding above line 36.",
+      "revId": "ecdbeaa1abdc408227c88ec672746f3f3204ad63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
