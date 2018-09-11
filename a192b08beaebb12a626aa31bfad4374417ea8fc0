@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5620086_dff408a1",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-09-11T10:58:30Z",
+      "side": 1,
+      "message": "project",
+      "range": {
+        "startLine": 239,
+        "startChar": 31,
+        "endLine": 239,
+        "endChar": 38
+      },
+      "revId": "a192b08beaebb12a626aa31bfad4374417ea8fc0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7539ad9_7330d019",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2018-09-11T10:58:30Z",
+      "side": 1,
+      "message": "like",
+      "range": {
+        "startLine": 239,
+        "startChar": 26,
+        "endLine": 239,
+        "endChar": 30
+      },
+      "revId": "a192b08beaebb12a626aa31bfad4374417ea8fc0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
