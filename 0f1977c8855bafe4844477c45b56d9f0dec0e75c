@@ -219,6 +219,30 @@
     },
     {
       "key": {
+        "uuid": "7adb296c_2687a570",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 30
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-10-15T19:04:49Z",
+      "side": 1,
+      "message": "\u003e I\u0027m confused: which UI are you talking about? I cannot see any UI component in this change.\n\u003e I would rather prefer to have a consistent configuration rather than a hack on names to make a (not yet published) UI to have sorted fields on the screen.\n\nHector is likely referring to the UI section that gets automatically generated from this plugin implementation -through GWT. (Nothing special added herein, UI-wise.)\n\nHis goal with the current state of this change is, for that automatic UI generation to logically order the rendered list of configuration fields. This is so that the fields order or list makes sense to the user, so they don\u0027t get confused by possibly entering a username in the password field. Naturally in most UIs that I know of, username comes before password -as fields listed sequentially in a form, that is.\n\nI agree with the above opinion that fixing the UI generation part is out of the scope of this change. Doing so would also likely impact other UIs not expecting that as a change. My own perception of this is, that deviating from the global configuration convention is a lesser drawback than accepting a less intuitive UI. The current names chosen for these fields in the code look clean enough to me, but of course I\u0027m not the only reviewer here.",
+      "parentUuid": "22c2c532_4bc5db83",
+      "range": {
+        "startLine": 48,
+        "startChar": 53,
+        "endLine": 48,
+        "endChar": 65
+      },
+      "revId": "0f1977c8855bafe4844477c45b56d9f0dec0e75c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "508b6b9a_28ecae99",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
         "patchSetId": 30
