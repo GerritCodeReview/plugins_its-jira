@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
+import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -23,6 +24,8 @@ import com.googlesource.gerrit.plugins.its.base.ItsHookModule;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacadeFactory;
 import com.googlesource.gerrit.plugins.its.base.its.SingleItsServer;
+import com.googlesource.gerrit.plugins.its.base.workflow.SpecificAction;
+import com.googlesource.gerrit.plugins.its.jira.workflow.MarkPropertyAsReleasedVersion;
 import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,6 +54,9 @@ public class JiraModule extends AbstractModule {
       LOG.info("JIRA is configured as ITS");
       bind(ItsFacade.class).to(JiraItsFacade.class).asEagerSingleton();
       bind(ItsFacadeFactory.class).to(SingleItsServer.class);
+      bind(SpecificAction.class)
+          .annotatedWith(Exports.named(MarkPropertyAsReleasedVersion.ACTION_NAME))
+          .to(MarkPropertyAsReleasedVersion.class);
 
       install(new ItsHookModule(pluginName, pluginCfgFactory));
     }
