@@ -19,6 +19,7 @@ import java.util.Date;
 
 public class JiraVersion {
 
+  private final String id;
   private final String description;
   private final String name;
   private final boolean archived;
@@ -28,6 +29,7 @@ public class JiraVersion {
   private final Long projectId;
 
   private JiraVersion(
+      String id,
       String description,
       String name,
       boolean archived,
@@ -35,6 +37,7 @@ public class JiraVersion {
       Date releaseDate,
       String project,
       Long projectId) {
+    this.id = id;
     this.description = description;
     this.name = name;
     this.archived = archived;
@@ -46,6 +49,10 @@ public class JiraVersion {
     }
     this.project = project;
     this.projectId = projectId;
+  }
+
+  public String getId() {
+    return id;
   }
 
   public String getDescription() {
@@ -81,6 +88,7 @@ public class JiraVersion {
   }
 
   public static class Builder {
+    private String id;
     private String description;
     private String name;
     private boolean archived;
@@ -90,6 +98,11 @@ public class JiraVersion {
     private Long projectId;
 
     private Builder() {}
+
+    public Builder id(String id) {
+      this.id = id;
+      return this;
+    }
 
     public Builder description(String description) {
       this.description = description;
@@ -128,7 +141,7 @@ public class JiraVersion {
 
     public JiraVersion build() {
       return new JiraVersion(
-          description, name, archived, released, releaseDate, project, projectId);
+          id, description, name, archived, released, releaseDate, project, projectId);
     }
   }
 }
