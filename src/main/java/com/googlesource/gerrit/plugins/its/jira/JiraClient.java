@@ -30,6 +30,7 @@ import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApi;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApiProvider;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraTransition;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraVersion;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -99,6 +100,13 @@ public class JiraClient {
     } else {
       log.error("Issue {} does not exist or no access permission", issueKey);
     }
+  }
+
+  public void createVersion(String projectKey, String version) throws IOException {
+    log.debug("Trying to create version {} on project {}", version, projectKey);
+    JiraVersion jiraVersion = JiraVersion.builder().project(projectKey).name(version).build();
+    apiBuilder.getVersions().doPost("", gson.toJson(jiraVersion), HTTP_CREATED);
+    log.debug("Version {} created on project {}", version, projectKey);
   }
 
   /**

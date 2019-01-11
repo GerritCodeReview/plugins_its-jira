@@ -102,6 +102,16 @@ public class JiraItsFacade implements ItsFacade {
   }
 
   @Override
+  public void createVersion(String projectKey, String version) throws IOException {
+    execute(
+        () -> {
+          log.debug("Creating version {} on project {}", version, projectKey);
+          jiraClient.createVersion(projectKey, version);
+          return projectKey;
+        });
+  }
+
+  @Override
   public boolean exists(String issueKey) throws IOException {
     return execute(() -> jiraClient.issueExists(issueKey));
   }
