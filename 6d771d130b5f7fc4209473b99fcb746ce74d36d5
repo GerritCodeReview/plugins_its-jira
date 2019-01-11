@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b85cf217_4dc0deb1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1057319
+      },
+      "writtenOn": "2019-01-11T18:33:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77b6dbac_c2e22ee8",
+      "range": {
+        "startLine": 17,
+        "startChar": 41,
+        "endLine": 17,
+        "endChar": 42
+      },
+      "revId": "6d771d130b5f7fc4209473b99fcb746ce74d36d5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfdfbf51_272769e5",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
         "patchSetId": 9
@@ -45,6 +69,30 @@
       "revId": "6d771d130b5f7fc4209473b99fcb746ce74d36d5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a28f05a8_fdffb269",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1057319
+      },
+      "writtenOn": "2019-01-11T18:33:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfdfbf51_272769e5",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 30
+      },
+      "revId": "6d771d130b5f7fc4209473b99fcb746ce74d36d5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d8593a76_c7c5a14f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1057319
+      },
+      "writtenOn": "2019-01-11T18:33:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfa1fee3_c4e175b3",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 5
+      },
+      "revId": "6d771d130b5f7fc4209473b99fcb746ce74d36d5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b74559a_cebbd06f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiProvider.java",
         "patchSetId": 9
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "bea7efbd_ae309f5f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiProvider.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1057319
+      },
+      "writtenOn": "2019-01-11T18:33:25Z",
+      "side": 1,
+      "message": "It was missing the array type.\nThe version is queried by id.\nPTAL at https://docs.atlassian.com/software/jira/docs/api/REST/7.12.0/?_ga\u003d2.101372417.1671822102.1547229545-986596033.1524328634#api/2/version-getVersion",
+      "parentUuid": "9b74559a_cebbd06f",
+      "range": {
+        "startLine": 49,
+        "startChar": 44,
+        "endLine": 49,
+        "endChar": 45
+      },
+      "revId": "6d771d130b5f7fc4209473b99fcb746ce74d36d5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "814f899f_7387d82d",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraVersion.java",
         "patchSetId": 9
@@ -111,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "09a1e99d_c7ef1e08",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraVersion.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1057319
+      },
+      "writtenOn": "2019-01-11T18:33:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "814f899f_7387d82d",
+      "revId": "6d771d130b5f7fc4209473b99fcb746ce74d36d5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf175652_05aa3a3d",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacadeTest.java",
         "patchSetId": 9
@@ -125,6 +239,24 @@
       "revId": "6d771d130b5f7fc4209473b99fcb746ce74d36d5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70c13485_29072c6c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacadeTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1057319
+      },
+      "writtenOn": "2019-01-11T18:33:25Z",
+      "side": 1,
+      "message": "I don\u0027t understand.\ngetVersion is not part of the scope of this change.\nThe only operation needed is createVersion.",
+      "parentUuid": "cf175652_05aa3a3d",
+      "revId": "6d771d130b5f7fc4209473b99fcb746ce74d36d5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
