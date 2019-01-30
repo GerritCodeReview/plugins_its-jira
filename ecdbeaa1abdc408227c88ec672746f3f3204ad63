@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a5936565_6a729222",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-01-30T20:56:55Z",
+      "side": 0,
+      "message": "Correct, good catch; thanks. Rebasing this change then on a new change fixing this as such.",
+      "parentUuid": "35021195_a5b0a361",
+      "range": {
+        "startLine": 260,
+        "startChar": 16,
+        "endLine": 260,
+        "endChar": 19
+      },
+      "revId": "ecdbeaa1abdc408227c88ec672746f3f3204ad63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fba52484_030bb5ff",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacadeTest.java",
         "patchSetId": 29
