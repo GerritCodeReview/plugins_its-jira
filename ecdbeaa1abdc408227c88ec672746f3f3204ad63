@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "35021195_a5b0a361",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-01-30T17:35:16Z",
+      "side": 0,
+      "message": "This is related to a bug on its-jira on master due to the dismissal of ReviewDb, correct?",
+      "range": {
+        "startLine": 260,
+        "startChar": 16,
+        "endLine": 260,
+        "endChar": 19
+      },
+      "revId": "ecdbeaa1abdc408227c88ec672746f3f3204ad63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fba52484_030bb5ff",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacadeTest.java",
         "patchSetId": 29
