@@ -109,7 +109,7 @@ class InitJira extends InitIts {
 
     ui.header("Jira issue-tracking association");
     jiraComment.string("Jira issue-Id regex", "match", "([A-Z]+-[0-9]+)");
-    jiraComment.set("html", String.format("<a href=\"%s/browse/$1\">$1</a>", jiraUrl));
+    jiraComment.string("What html would you like to use?", "html", String.format("<a href=\"%s/browse/$1\">$1</a>", jiraUrl));
 
     Section pluginConfig = sections.get("plugin", pluginName);
 
