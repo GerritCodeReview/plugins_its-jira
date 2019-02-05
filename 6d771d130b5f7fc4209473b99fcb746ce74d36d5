@@ -257,6 +257,24 @@
       "revId": "6d771d130b5f7fc4209473b99fcb746ce74d36d5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72afa66a_889fb278",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacadeTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-02-05T23:20:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "70c13485_29072c6c",
+      "revId": "6d771d130b5f7fc4209473b99fcb746ce74d36d5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
