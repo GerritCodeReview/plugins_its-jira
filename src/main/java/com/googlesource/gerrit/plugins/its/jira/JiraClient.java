@@ -14,25 +14,24 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
-import static java.net.HttpURLConnection.HTTP_CREATED;
-import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
-import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
-import static java.net.HttpURLConnection.HTTP_NO_CONTENT;
-import static java.net.HttpURLConnection.HTTP_OK;
+import static java.net.HttpURLConnection.*;
 
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraComment;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraIssue;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraPageRequest;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraProject;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApi;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApiProvider;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraTransition;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraVersion;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraVersionsPage;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -107,6 +106,49 @@ public class JiraClient {
     JiraVersion jiraVersion = JiraVersion.builder().project(projectKey).name(version).build();
     apiBuilder.getVersions().doPost("", gson.toJson(jiraVersion), HTTP_CREATED);
     log.debug("Version {} created on project {}", version, projectKey);
+  }
+
+  public void markVersionAsReleased(String projectKey, String version) throws IOException {
+    if (!projectExists(projectKey)) {
+      log.error("Project {} does not exist or no access permission", projectKey);
+      return;
+    }
+
+    JiraVersion jiraVersion = findVersion(projectKey, version);
+    if (jiraVersion == null) {
+      log.error(
+          "Version {} of project {} does not exist or no access permission", version, projectKey);
+      return;
+    }
+
+    log.debug(
+        "Trying to mark version {} with id {} of project {} as released",
+        version,
+        jiraVersion.getId(),
+        projectKey);
+
+    JiraVersion markAsReleased =
+        JiraVersion.builder().released(true).releaseDate(new Date()).build();
+    apiBuilder.getVersions().doPut(jiraVersion.getId(), gson.toJson(markAsReleased), HTTP_OK);
+
+    log.debug("Version {} of project {} was marked as released", version, projectKey);
+  }
+
+  private JiraVersion findVersion(String projectKey, String version) throws IOException {
+    JiraRestApi<JiraVersionsPage> api = apiBuilder.getProjectVersions(projectKey);
+
+    JiraPageRequest pageRequest = JiraPageRequest.builder().orderBy("-sequence").build();
+    JiraVersion jiraVersion = null;
+    while (pageRequest != null) {
+      JiraVersionsPage versionsPage = api.doGet(pageRequest.toSpec(), HTTP_OK);
+      jiraVersion = versionsPage.findByName(version);
+      if (jiraVersion != null) {
+        break;
+      }
+      pageRequest = versionsPage.nextPageRequest(pageRequest);
+    }
+
+    return jiraVersion;
   }
 
   /**

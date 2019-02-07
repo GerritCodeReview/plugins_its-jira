@@ -168,3 +168,21 @@ instead of velocity comments:
         event-type = patchset-created
         action = add-soy-comment Change ${its.formatLink($changeUrl)} is created.
         action = In Progress
+
+Specific actions
+----------------
+
+### mark-property-as-released-version
+
+The `mark-property-as-released-version` action marks a version as released in
+JIRA.
+The version to mark as released is identified by an event property value.
+
+This is useful when you want to mark a version as released in JIRA when a
+tag is created in the Gerrit project.
+
+Example with the event property `ref`:
+
+```
+  action = mark-property-as-released-version ref
+```
