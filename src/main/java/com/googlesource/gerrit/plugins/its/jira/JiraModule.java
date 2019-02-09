@@ -14,9 +14,7 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
-import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.PROJECT_CONFIG_PASSWORD_KEY;
-import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.PROJECT_CONFIG_URL_KEY;
-import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.PROJECT_CONFIG_USERNAME_KEY;
+import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.*;
 
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
@@ -28,6 +26,8 @@ import com.googlesource.gerrit.plugins.its.base.ItsHookModule;
 import com.googlesource.gerrit.plugins.its.base.its.ItsConfig;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacadeFactory;
+import com.googlesource.gerrit.plugins.its.base.workflow.CustomAction;
+import com.googlesource.gerrit.plugins.its.jira.workflow.MarkPropertyAsReleasedVersion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,6 +58,10 @@ public class JiraModule extends AbstractModule {
         .annotatedWith(Exports.named(PROJECT_CONFIG_PASSWORD_KEY))
         .toInstance(new ProjectConfigEntry("JIRA password", ""));
     bind(ItsConfig.class);
+    bind(JiraItsServerInfoProvider.class);
+    bind(CustomAction.class)
+        .annotatedWith(Exports.named(MarkPropertyAsReleasedVersion.ACTION_NAME))
+        .to(MarkPropertyAsReleasedVersion.class);
     install(new ItsHookModule(pluginName, pluginCfgFactory));
     install(JiraItsServerCacheImpl.module());
     LOG.info("JIRA is configured as ITS");
