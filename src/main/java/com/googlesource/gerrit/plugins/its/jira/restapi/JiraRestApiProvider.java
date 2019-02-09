@@ -43,4 +43,9 @@ public class JiraRestApiProvider {
   public JiraRestApi<JiraVersion[]> getVersions(JiraItsServerInfo serverInfo) {
     return get(serverInfo, JiraVersion[].class, "/version");
   }
+
+  public JiraRestApi<JiraVersionsPage> getProjectVersions(
+      JiraItsServerInfo serverInfo, String projectKey) {
+    return get(serverInfo, JiraVersionsPage.class, "/project/" + projectKey + "/version");
+  }
 }
