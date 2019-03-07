@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85170fe8_853295cb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-03-07T22:17:55Z",
+      "side": 1,
+      "message": "Avoid wildcards imports.",
+      "range": {
+        "startLine": 17,
+        "startChar": 40,
+        "endLine": 17,
+        "endChar": 42
+      },
+      "revId": "8d4a55ec524c5d501712d2d53b827daf68919a6a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a29ec65_d408d103",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-03-07T22:17:55Z",
+      "side": 1,
+      "message": "This wouldn\u0027t work with the latest master, because of the multi-jira server support.\nYou need to rebase on top of Change-Id: I16e311e80b12 and adapt the methods signatures.",
+      "revId": "8d4a55ec524c5d501712d2d53b827daf68919a6a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
