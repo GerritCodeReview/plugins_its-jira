@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "939c1ebd_2ee1d2a7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsFacade.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-03-07T14:55:46Z",
+      "side": 1,
+      "message": "Still deserves a comment on why we are returning null.",
+      "range": {
+        "startLine": 88,
+        "startChar": 17,
+        "endLine": 88,
+        "endChar": 21
+      },
+      "revId": "dda60521d2700b8fcd5088a2b24adb6f1b8dda3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
