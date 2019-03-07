@@ -40,7 +40,7 @@ public class JiraRestApiProvider {
     return get(serverInfo, JiraProject[].class, "/project");
   }
 
-  public JiraRestApi<JiraVersion[]> getVersions() {
-    return get(JiraVersion[].class, "/version");
+  public JiraRestApi<JiraVersion[]> getVersions(JiraItsServerInfo serverInfo) {
+    return get(serverInfo, JiraVersion[].class, "/version");
   }
 }

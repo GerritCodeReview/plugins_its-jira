@@ -23,6 +23,7 @@ import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.gerrit.server.project.ProjectCache;
+import com.google.gerrit.server.project.ProjectConfig;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.PersonIdent;
 import org.junit.Before;
@@ -44,13 +45,21 @@ public class JiraConfigTest {
   @Mock private PersonIdent serverUser;
   @Mock private ProjectCache projectCache;
   @Mock private GitRepositoryManager repoManager;
+  @Mock private ProjectConfig.Factory projectConfigFactory;
 
   private JiraConfig jiraConfig;
 
   @Before
   public void createJiraConfig() {
     jiraConfig =
-        new JiraConfig(cfg, PLUGIN_NAME, cfgFactory, serverUser, projectCache, repoManager);
+        new JiraConfig(
+            cfg,
+            PLUGIN_NAME,
+            cfgFactory,
+            serverUser,
+            projectCache,
+            repoManager,
+            projectConfigFactory);
   }
 
   @Test

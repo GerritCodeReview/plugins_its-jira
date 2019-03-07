@@ -76,7 +76,7 @@ public class JiraItsFacadeTest {
   public void createVersion() throws IOException {
     jiraFacade = new JiraItsFacade(jiraClient);
     jiraFacade.createVersion(PROJECT_KEY, "1.0");
-    verify(jiraClient).createVersion(PROJECT_KEY, "1.0");
+    verify(jiraClient).createVersion(server, PROJECT_KEY, "1.0");
   }
 
   @Test

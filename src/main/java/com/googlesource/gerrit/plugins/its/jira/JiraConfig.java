@@ -60,6 +60,7 @@ public class JiraConfig {
   private final JiraItsServerInfo defaultJiraServerInfo;
   private final GitRepositoryManager repoManager;
   private final ProjectCache projectCache;
+  private final ProjectConfig.Factory projectConfigFactory;
   private final PersonIdent serverUser;
 
   @Inject
@@ -69,13 +70,15 @@ public class JiraConfig {
       PluginConfigFactory cfgFactory,
       @GerritPersonIdent PersonIdent serverUser,
       ProjectCache projectCache,
-      GitRepositoryManager repoManager) {
+      GitRepositoryManager repoManager,
+      ProjectConfig.Factory projectConfigFactory) {
     this.gerritConfig = config;
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
     this.serverUser = serverUser;
     this.projectCache = projectCache;
     this.repoManager = repoManager;
+    this.projectConfigFactory = projectConfigFactory;
     this.defaultJiraServerInfo = buildDefaultServerInfo(gerritConfig, pluginName);
   }
 
@@ -107,7 +110,7 @@ public class JiraConfig {
   void addCommentLinksSection(Project.NameKey projectName, JiraItsServerInfo jiraItsServerInfo) {
     try (Repository git = repoManager.openRepository(projectName);
         MetaDataUpdate md = new MetaDataUpdate(GitReferenceUpdated.DISABLED, projectName, git)) {
-      ProjectConfig config = ProjectConfig.read(md);
+      ProjectConfig config = projectConfigFactory.read(md);
       String link =
           CharMatcher.is('/').trimFrom(jiraItsServerInfo.getUrl().toString()) + JiraURL.URL_SUFFIX;
       if (!commentLinksExist(config, link)) {

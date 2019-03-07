@@ -102,10 +102,11 @@ public class JiraClient {
     }
   }
 
-  public void createVersion(String projectKey, String version) throws IOException {
+  public void createVersion(JiraItsServerInfo server, String projectKey, String version)
+      throws IOException {
     log.debug("Trying to create version {} on project {}", version, projectKey);
     JiraVersion jiraVersion = JiraVersion.builder().project(projectKey).name(version).build();
-    apiBuilder.getVersions().doPost("", gson.toJson(jiraVersion), HTTP_CREATED);
+    apiBuilder.getVersions(server).doPost("", gson.toJson(jiraVersion), HTTP_CREATED);
     log.debug("Version {} created on project {}", version, projectKey);
   }
 

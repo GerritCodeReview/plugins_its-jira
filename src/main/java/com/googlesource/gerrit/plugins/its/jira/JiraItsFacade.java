@@ -94,7 +94,7 @@ public class JiraItsFacade implements ItsFacade {
     execute(
         () -> {
           log.debug("Creating version {} on project {}", version, projectKey);
-          jiraClient.createVersion(projectKey, version);
+          jiraClient.createVersion(itsServerInfo, projectKey, version);
           return projectKey;
         });
   }
