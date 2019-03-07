@@ -14,36 +14,30 @@
 
 package com.googlesource.gerrit.plugins.its.jira.restapi;
 
-import com.google.inject.Inject;
-import com.googlesource.gerrit.plugins.its.jira.JiraConfig;
+import com.googlesource.gerrit.plugins.its.jira.JiraItsServerInfo;
 
 public class JiraRestApiProvider {
-  private JiraConfig jiraConfig;
 
-  @Inject
-  public JiraRestApiProvider(JiraConfig jiraConfig) {
-    this.jiraConfig = jiraConfig;
-  }
-
-  public <T> JiraRestApi<T> get(Class<T> classOfT, String classPrefix) {
+  public <T> JiraRestApi<T> get(
+      JiraItsServerInfo serverInfo, Class<T> classOfT, String classPrefix) {
     return new JiraRestApi<>(
-        jiraConfig.getJiraUrl(),
-        jiraConfig.getUsername(),
-        jiraConfig.getPassword(),
+        serverInfo.getUrl(),
+        serverInfo.getUsername(),
+        serverInfo.getPassword(),
         classOfT,
         classPrefix);
   }
 
-  public JiraRestApi<JiraIssue> getIssue() {
-    return get(JiraIssue.class, "/issue");
+  public JiraRestApi<JiraIssue> getIssue(JiraItsServerInfo serverInfo) {
+    return get(serverInfo, JiraIssue.class, "/issue");
   }
 
-  public JiraRestApi<JiraServerInfo> getServerInfo() {
-    return get(JiraServerInfo.class, "/serverInfo");
+  public JiraRestApi<JiraServerInfo> getServerInfo(JiraItsServerInfo server) {
+    return get(server, JiraServerInfo.class, "/serverInfo");
   }
 
-  public JiraRestApi<JiraProject[]> getProjects() {
-    return get(JiraProject[].class, "/project");
+  public JiraRestApi<JiraProject[]> getProjects(JiraItsServerInfo serverInfo) {
+    return get(serverInfo, JiraProject[].class, "/project");
   }
 
   public JiraRestApi<JiraVersion[]> getVersions() {

@@ -53,9 +53,8 @@ public class JiraClient {
    * @param issueKey Jira Issue key
    * @return true if issue exists
    */
-  public boolean issueExists(String issueKey) throws IOException {
-    JiraRestApi<JiraIssue> api = apiBuilder.getIssue();
-
+  public boolean issueExists(JiraItsServerInfo server, String issueKey) throws IOException {
+    JiraRestApi<JiraIssue> api = apiBuilder.getIssue(server);
     api.doGet(issueKey, HTTP_OK, new int[] {HTTP_NOT_FOUND, HTTP_FORBIDDEN});
     Integer code = api.getResponseCode();
     switch (code) {
@@ -78,9 +77,9 @@ public class JiraClient {
    * @return Iterable of available transitions
    * @throws IOException
    */
-  public List<JiraTransition.Item> getTransitions(String issueKey) throws IOException {
-
-    JiraRestApi<JiraTransition> api = apiBuilder.get(JiraTransition.class, "/issue");
+  public List<JiraTransition.Item> getTransitions(JiraItsServerInfo server, String issueKey)
+      throws IOException {
+    JiraRestApi<JiraTransition> api = apiBuilder.get(server, JiraTransition.class, "/issue");
     return Arrays.asList(api.doGet(issueKey + "/transitions", HTTP_OK).getTransitions());
   }
 
@@ -89,12 +88,13 @@ public class JiraClient {
    * @param comment String to be added
    * @throws IOException
    */
-  public void addComment(String issueKey, String comment) throws IOException {
+  public void addComment(JiraItsServerInfo server, String issueKey, String comment)
+      throws IOException {
 
-    if (issueExists(issueKey)) {
+    if (issueExists(server, issueKey)) {
       log.debug("Trying to add comment for issue {}", issueKey);
       apiBuilder
-          .getIssue()
+          .getIssue(server)
           .doPost(issueKey + "/comment", gson.toJson(new JiraComment(comment)), HTTP_CREATED);
       log.debug("Comment added to issue {}", issueKey);
     } else {
@@ -114,33 +114,33 @@ public class JiraClient {
    * @param transition JiraTransition.Item to perform
    * @return true if successful
    */
-  public boolean doTransition(String issueKey, String transition)
+  public boolean doTransition(JiraItsServerInfo server, String issueKey, String transition)
       throws IOException, InvalidTransitionException {
     log.debug("Making transition to {} for {}", transition, issueKey);
-    JiraTransition.Item t = getTransitionByName(issueKey, transition);
+    JiraTransition.Item t = getTransitionByName(server, issueKey, transition);
     if (t == null) {
       throw new InvalidTransitionException(
           "Action " + transition + " not executable on issue " + issueKey);
     }
     log.debug("Transition issue {} to '{}' ({})", issueKey, transition, t.getId());
     return apiBuilder
-        .getIssue()
+        .getIssue(server)
         .doPost(issueKey + "/transitions", gson.toJson(new JiraTransition(t)), HTTP_NO_CONTENT);
   }
 
   /** @return Serverinformation of jira */
-  public JiraServerInfo sysInfo() throws IOException {
-    return apiBuilder.getServerInfo().doGet("", HTTP_OK);
+  public JiraServerInfo sysInfo(JiraItsServerInfo server) throws IOException {
+    return apiBuilder.getServerInfo(server).doGet("", HTTP_OK);
   }
 
   /** @return List of all projects we have access to in jira */
-  public JiraProject[] getProjects() throws IOException {
-    return apiBuilder.getProjects().doGet("", HTTP_OK);
+  public JiraProject[] getProjects(JiraItsServerInfo server) throws IOException {
+    return apiBuilder.getProjects(server).doGet("", HTTP_OK);
   }
 
-  private JiraTransition.Item getTransitionByName(String issueKey, String transition)
-      throws IOException {
-    for (JiraTransition.Item t : getTransitions(issueKey)) {
+  private JiraTransition.Item getTransitionByName(
+      JiraItsServerInfo server, String issueKey, String transition) throws IOException {
+    for (JiraTransition.Item t : getTransitions(server, issueKey)) {
       if (transition.equals(t.getName())) {
         return t;
       }
@@ -148,15 +148,15 @@ public class JiraClient {
     return null;
   }
 
-  public String healthCheckAccess() throws IOException {
-    sysInfo();
+  public String healthCheckAccess(JiraItsServerInfo server) throws IOException {
+    sysInfo(server);
     String result = "{\"status\"=\"ok\"}";
     log.debug("Health check on access result: {}", result);
     return result;
   }
 
-  public String healthCheckSysinfo() throws IOException {
-    JiraServerInfo info = sysInfo();
+  public String healthCheckSysinfo(JiraItsServerInfo server) throws IOException {
+    JiraServerInfo info = sysInfo(server);
     String result =
         "{\"status\"=\"ok\",\"system\"=\"Jira\",\"version\"=\""
             + info.getVersion()

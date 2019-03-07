@@ -17,8 +17,6 @@ package com.googlesource.gerrit.plugins.its.jira;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
-import com.googlesource.gerrit.plugins.its.jira.restapi.JiraProject;
-import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfo;
 import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.Callable;
@@ -33,19 +31,11 @@ public class JiraItsFacade implements ItsFacade {
 
   private final JiraClient jiraClient;
 
+  private JiraItsServerInfo itsServerInfo;
+
   @Inject
   public JiraItsFacade(JiraClient jiraClient) {
     this.jiraClient = jiraClient;
-    try {
-      JiraServerInfo info = this.jiraClient.sysInfo();
-      log.info(
-          "Connected to JIRA at {}, reported version is {}", info.getBaseUri(), info.getVersion());
-      for (JiraProject p : this.jiraClient.getProjects()) {
-        log.info("Found project: {} (key: {})", p.getName(), p.getKey());
-      }
-    } catch (Exception ex) {
-      log.warn("Jira is currently not available", ex);
-    }
   }
 
   @Override
@@ -54,19 +44,18 @@ public class JiraItsFacade implements ItsFacade {
     return execute(
         () -> {
           if (check.equals(Check.ACCESS)) {
-            return jiraClient.healthCheckAccess();
+            return jiraClient.healthCheckAccess(getJiraServerInstance());
           }
-          return jiraClient.healthCheckSysinfo();
+          return jiraClient.healthCheckSysinfo(getJiraServerInstance());
         });
   }
 
   @Override
   public void addComment(String issueKey, String comment) throws IOException {
-
     execute(
         () -> {
           log.debug("Adding comment {} to issue {}", comment, issueKey);
-          jiraClient.addComment(issueKey, comment);
+          jiraClient.addComment(getJiraServerInstance(), issueKey, comment);
           log.debug("Added comment {} to issue {}", comment, issueKey);
           return issueKey;
         });
@@ -81,7 +70,6 @@ public class JiraItsFacade implements ItsFacade {
 
   @Override
   public void performAction(String issueKey, String actionName) throws IOException {
-
     execute(
         () -> {
           log.debug("Performing action {} on issue {}", actionName, issueKey);
@@ -93,7 +81,7 @@ public class JiraItsFacade implements ItsFacade {
   private void doPerformAction(String issueKey, String actionName)
       throws IOException, InvalidTransitionException {
     log.debug("Trying to perform action: {} on issue {}", actionName, issueKey);
-    boolean ret = jiraClient.doTransition(issueKey, actionName);
+    boolean ret = jiraClient.doTransition(getJiraServerInstance(), issueKey, actionName);
     if (ret) {
       log.debug("Action {} successful on Issue {}", actionName, issueKey);
     } else {
@@ -113,7 +101,15 @@ public class JiraItsFacade implements ItsFacade {
 
   @Override
   public boolean exists(String issueKey) throws IOException {
-    return execute(() -> jiraClient.issueExists(issueKey));
+    return execute(() -> jiraClient.issueExists(getJiraServerInstance(), issueKey));
+  }
+
+  private JiraItsServerInfo getJiraServerInstance() {
+    return itsServerInfo;
+  }
+
+  public void setJiraServerInstance(JiraItsServerInfo server) {
+    itsServerInfo = server;
   }
 
   private <P> P execute(Callable<P> function) throws IOException {
