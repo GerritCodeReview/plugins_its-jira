@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "09c8d392_2fe0b0be",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1057319
+      },
+      "writtenOn": "2019-03-12T22:27:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85170fe8_853295cb",
+      "range": {
+        "startLine": 17,
+        "startChar": 40,
+        "endLine": 17,
+        "endChar": 42
+      },
+      "revId": "8d4a55ec524c5d501712d2d53b827daf68919a6a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a29ec65_d408d103",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
         "patchSetId": 15
@@ -39,6 +63,24 @@
       "revId": "8d4a55ec524c5d501712d2d53b827daf68919a6a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a4612dd_3d1fe4cc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraClient.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1057319
+      },
+      "writtenOn": "2019-03-12T22:27:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a29ec65_d408d103",
+      "revId": "8d4a55ec524c5d501712d2d53b827daf68919a6a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
