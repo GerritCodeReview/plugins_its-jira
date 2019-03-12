@@ -24,16 +24,13 @@ import com.googlesource.gerrit.plugins.its.base.its.ItsFacadeFactory;
  * to its-base to perform the its-actions.
  */
 public class JiraItsServer implements ItsFacadeFactory {
-  private final JiraConfig jiraConfig;
+  private final JiraItsServerInfoProvider serverInfoProvider;
   private final JiraItsFacade itsFacade;
-  private final JiraItsServerCache serverCache;
 
   @Inject
-  public JiraItsServer(
-      JiraConfig jiraConfig, JiraItsFacade itsFacade, JiraItsServerCache serverCache) {
-    this.jiraConfig = jiraConfig;
+  public JiraItsServer(JiraItsServerInfoProvider serverInfoProvider, JiraItsFacade itsFacade) {
+    this.serverInfoProvider = serverInfoProvider;
     this.itsFacade = itsFacade;
-    this.serverCache = serverCache;
   }
 
   /**
@@ -48,25 +45,7 @@ public class JiraItsServer implements ItsFacadeFactory {
    */
   @Override
   public JiraItsFacade getFacade(Project.NameKey projectName) {
-    JiraItsServerInfo jiraItsServerInfo = serverCache.get(projectName.get());
-    if (jiraItsServerInfo.isValid()) {
-      jiraConfig.addCommentLinksSection(projectName, jiraItsServerInfo);
-    } else {
-      jiraItsServerInfo = jiraConfig.getDefaultServerInfo();
-    }
-
-    if (!jiraItsServerInfo.isValid()) {
-      throw new RuntimeException(
-          String.format(
-              "No valid Jira server configuration was found for project '%s' %n."
-                  + "Missing one or more configuration values: url: %s, username: %s, password: %s",
-              projectName.get(),
-              jiraItsServerInfo.getUrl(),
-              jiraItsServerInfo.getUsername(),
-              jiraItsServerInfo.getPassword()));
-    }
-
-    itsFacade.setJiraServerInstance(jiraItsServerInfo);
+    itsFacade.setJiraServerInstance(serverInfoProvider.get(projectName));
     return itsFacade;
   }
 }

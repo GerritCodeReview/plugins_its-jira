@@ -240,3 +240,21 @@ clear text and will be visible to anyone having access to the
 limitation and the reason why this feature is marked as experimental, i.e., not
 production ready. Additional work is needed in order to offer a secure level of
 encryption for this information.
+
+Specific actions
+----------------
+
+### mark-property-as-released-version
+
+The `mark-property-as-released-version` action marks a version as released in
+JIRA.
+The version to mark as released is identified by an event property value.
+
+This is useful when you want to mark a version as released in JIRA when a
+tag is created in the Gerrit project.
+
+Example with the event property `ref`:
+
+```
+  action = mark-property-as-released-version ref
+```

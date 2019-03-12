@@ -14,7 +14,6 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -30,43 +29,17 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class JiraItsServerTest {
   private static final Project.NameKey PROJECT_NAMEKEY = new Project.NameKey("project");
 
-  @Mock private JiraConfig jiraConfig;
+  @Mock private JiraItsServerInfoProvider jiraItsserverInfoProvider;
   @Mock private JiraItsFacade itsFacade;
-  @Mock private JiraItsServerCache serverCache;
   @Mock private JiraItsServerInfo jiraItsServerInfo;
 
   @Rule public ExpectedException expectedException = ExpectedException.none();
 
-  private JiraItsServer jiraItsServer;
-
   @Test
-  public void testValidServerInfoIsreturnedFromTheCache() throws Exception {
-    when(jiraItsServerInfo.isValid()).thenReturn(true);
-    when(serverCache.get(PROJECT_NAMEKEY.get())).thenReturn(jiraItsServerInfo);
-    jiraItsServer = new JiraItsServer(jiraConfig, itsFacade, serverCache);
+  public void testGetFacade() {
+    when(jiraItsserverInfoProvider.get(PROJECT_NAMEKEY)).thenReturn(jiraItsServerInfo);
+    JiraItsServer jiraItsServer = new JiraItsServer(jiraItsserverInfoProvider, itsFacade);
     jiraItsServer.getFacade(PROJECT_NAMEKEY);
-    verify(jiraConfig).addCommentLinksSection(PROJECT_NAMEKEY, jiraItsServerInfo);
     verify(itsFacade).setJiraServerInstance(jiraItsServerInfo);
-  }
-
-  @Test
-  public void testGetDefaultServerInfo() throws Exception {
-    when(jiraItsServerInfo.isValid()).thenReturn(false).thenReturn(true);
-    when(serverCache.get(PROJECT_NAMEKEY.get())).thenReturn(jiraItsServerInfo);
-    when(jiraConfig.getDefaultServerInfo()).thenReturn(jiraItsServerInfo);
-    jiraItsServer = new JiraItsServer(jiraConfig, itsFacade, serverCache);
-    jiraItsServer.getFacade(PROJECT_NAMEKEY);
-    verify(jiraConfig, never()).addCommentLinksSection(PROJECT_NAMEKEY, jiraItsServerInfo);
-    verify(itsFacade).setJiraServerInstance(jiraItsServerInfo);
-  }
-
-  @Test
-  public void testNoConfiguredServerInfo() throws Exception {
-    when(serverCache.get(PROJECT_NAMEKEY.get())).thenReturn(jiraItsServerInfo);
-    when(jiraItsServerInfo.isValid()).thenReturn(false).thenReturn(false);
-    when(jiraConfig.getDefaultServerInfo()).thenReturn(jiraItsServerInfo);
-    jiraItsServer = new JiraItsServer(jiraConfig, itsFacade, serverCache);
-    expectedException.expect(RuntimeException.class);
-    jiraItsServer.getFacade(PROJECT_NAMEKEY);
   }
 }
