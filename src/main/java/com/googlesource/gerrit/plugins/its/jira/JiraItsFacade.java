@@ -94,7 +94,7 @@ public class JiraItsFacade implements ItsFacade {
     return execute(() -> jiraClient.issueExists(getJiraServerInstance(), issueKey));
   }
 
-  private JiraItsServerInfo getJiraServerInstance() {
+  public JiraItsServerInfo getJiraServerInstance() {
     return itsServerInfo;
   }
 

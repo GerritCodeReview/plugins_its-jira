@@ -20,9 +20,9 @@ import static com.googlesource.gerrit.plugins.its.jira.JiraConfig.PROJECT_CONFIG
 
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.lifecycle.LifecycleModule;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.config.ProjectConfigEntry;
-import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.its.base.ItsHookModule;
 import com.googlesource.gerrit.plugins.its.base.its.ItsConfig;
@@ -31,7 +31,7 @@ import com.googlesource.gerrit.plugins.its.base.its.ItsFacadeFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class JiraModule extends AbstractModule {
+public class JiraModule extends LifecycleModule {
 
   private static final Logger LOG = LoggerFactory.getLogger(JiraModule.class);
 
@@ -60,6 +60,8 @@ public class JiraModule extends AbstractModule {
     bind(ItsConfig.class);
     install(new ItsHookModule(pluginName, pluginCfgFactory));
     install(JiraItsServerCacheImpl.module());
+    listener().to(JiraItsStartupHealthcheck.class);
+
     LOG.info("JIRA is configured as ITS");
   }
 }
