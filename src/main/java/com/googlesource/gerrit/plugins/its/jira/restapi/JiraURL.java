@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.its.jira.restapi;
 
 import static java.util.Objects.requireNonNull;
 
+import com.google.common.base.CharMatcher;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -36,7 +37,7 @@ public class JiraURL {
   private final URL url;
 
   public JiraURL(String spec) throws MalformedURLException {
-    this.url = new URL(spec);
+    this.url = new URL(CharMatcher.is('/').trimFrom(spec) + "/");
   }
 
   private JiraURL(URL url) {
