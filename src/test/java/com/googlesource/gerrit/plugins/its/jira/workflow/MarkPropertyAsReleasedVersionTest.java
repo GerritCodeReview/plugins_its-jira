@@ -48,7 +48,7 @@ public class MarkPropertyAsReleasedVersionTest {
     its = mock(ItsFacade.class);
     JiraItsServerInfoProvider serverInfoProvider = mock(JiraItsServerInfoProvider.class);
     serverInfo = mock(JiraItsServerInfo.class);
-    when(serverInfoProvider.get(new Project.NameKey(PROJECT_NAME))).thenReturn(serverInfo);
+    when(serverInfoProvider.get(Project.nameKey(PROJECT_NAME))).thenReturn(serverInfo);
     jiraClient = mock(JiraClient.class);
     parametersExtractor = mock(MarkPropertyAsReleasedVersionParametersExtractor.class);
     markPropertyAsReleasedVersion =
