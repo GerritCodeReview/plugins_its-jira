@@ -64,7 +64,7 @@ public class JiraConfigTest {
 
   @Test
   public void testGetPluginConfigFor() throws NoSuchProjectException {
-    Project.NameKey project = new Project.NameKey("$project");
+    Project.NameKey project = Project.nameKey("$project");
     PluginConfig pluginCfg = new PluginConfig(PLUGIN_NAME, new Config());
     when(cfgFactory.getFromProjectConfigWithInheritance(project, PLUGIN_NAME))
         .thenReturn(pluginCfg);

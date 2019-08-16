@@ -54,7 +54,7 @@ public class MarkPropertyAsReleasedVersion implements CustomAction {
     if (!parameters.isPresent()) {
       return;
     }
-    Project.NameKey projectName = new Project.NameKey(properties.get("project"));
+    Project.NameKey projectName = Project.nameKey(properties.get("project"));
     JiraItsServerInfo jiraItsServerInfo = serverInfoProvider.get(projectName);
     jiraClient.markVersionAsReleased(
         jiraItsServerInfo, itsProject, parameters.get().getPropertyValue());
