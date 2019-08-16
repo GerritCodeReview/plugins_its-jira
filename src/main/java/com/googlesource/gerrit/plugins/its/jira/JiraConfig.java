@@ -137,7 +137,7 @@ public class JiraConfig {
     if (!Strings.isNullOrEmpty(projectName)) {
       try {
         return cfgFactory.getFromProjectConfigWithInheritance(
-            new Project.NameKey(projectName), pluginName);
+            Project.nameKey(projectName), pluginName);
       } catch (NoSuchProjectException e) {
         log.warn(
             "Unable to get project configuration for {}: project '{}' not found ",
