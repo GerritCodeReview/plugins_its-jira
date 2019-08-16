@@ -257,7 +257,7 @@ public class JiraITTest extends LightweightPluginDaemonTest {
 
   private void createChangeWithIssue() throws Exception {
     pushFactory
-        .create(admin.getIdent(), testRepo, JIRA_ISSUE, "a.txt", "test")
+        .create(admin.newIdent(), testRepo, JIRA_ISSUE, "a.txt", "test")
         .to("refs/for/master");
   }
 

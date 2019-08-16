@@ -27,7 +27,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class JiraItsServerTest {
-  private static final Project.NameKey PROJECT_NAMEKEY = new Project.NameKey("project");
+  private static final Project.NameKey PROJECT_NAMEKEY = Project.nameKey("project");
 
   @Mock private JiraItsServerInfoProvider jiraItsserverInfoProvider;
   @Mock private JiraItsFacade itsFacade;
