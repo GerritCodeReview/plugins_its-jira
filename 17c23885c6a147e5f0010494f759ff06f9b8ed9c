@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1432e5f2_4f852bf7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-09-07T04:07:09Z",
+      "side": 1,
+      "message": "I would say something like \"adapt to autovalue factories\". \n\nThere is also a change to use newIdent instead of getIdent.",
+      "revId": "17c23885c6a147e5f0010494f759ff06f9b8ed9c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
