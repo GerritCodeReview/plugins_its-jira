@@ -109,7 +109,10 @@ class InitJira extends InitIts {
 
     ui.header("Jira issue-tracking association");
     jiraComment.string("Jira issue-Id regex", "match", "([A-Z]+-[0-9]+)");
-    jiraComment.string("What html would you like to use?", "html", String.format("<a href=\"%s/browse/$1\">$1</a>", jiraUrl));
+    jiraComment.string(
+        "What html would you like to use?",
+        "html",
+        String.format("<a href=\"%s/browse/$1\">$1</a>", jiraUrl));
 
     Section pluginConfig = sections.get("plugin", pluginName);
 
@@ -135,7 +138,7 @@ class InitJira extends InitIts {
         ui.message("*ERROR* Jira returned an empty version number");
         return false;
       }
-      ui.message("[OK] - Jira Ver {}\n", serverInfo.getVersion());
+      ui.message("[OK] - Jira Ver %s\n", serverInfo.getVersion());
       return true;
     } catch (IOException e) {
       ui.message("*FAILED* (%s)\n", e.toString());

@@ -21,7 +21,7 @@ import java.io.IOException;
 public class JiraServerInfoRestApi extends JiraRestApi<JiraServerInfo> {
 
   public JiraServerInfoRestApi(JiraURL url, String user, String pass) {
-    super(url, user, pass, JiraServerInfo.class, "/serverInfo/");
+    super(url, user, pass, JiraServerInfo.class, "/serverInfo");
   }
 
   public JiraServerInfo get() throws IOException {
