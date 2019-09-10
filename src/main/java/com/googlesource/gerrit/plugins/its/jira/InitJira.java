@@ -135,7 +135,7 @@ class InitJira extends InitIts {
         ui.message("*ERROR* Jira returned an empty version number");
         return false;
       }
-      ui.message("[OK] - Jira Ver {}\n", serverInfo.getVersion());
+      ui.message("[OK] - Jira Ver %s\n", serverInfo.getVersion());
       return true;
     } catch (IOException e) {
       ui.message("*FAILED* (%s)\n", e.toString());
