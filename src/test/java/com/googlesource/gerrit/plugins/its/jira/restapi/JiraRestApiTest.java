@@ -19,7 +19,6 @@ import static java.net.HttpURLConnection.HTTP_NO_CONTENT;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-import com.google.common.base.CharMatcher;
 import java.io.ByteArrayOutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -39,7 +38,7 @@ public class JiraRestApiTest {
   private JiraRestApi restApi;
 
   private void setURL(String jiraUrl) throws MalformedURLException {
-    url = new JiraURL(CharMatcher.is('/').trimFrom(jiraUrl) + "/");
+    url = new JiraURL(jiraUrl);
   }
 
   @Test
