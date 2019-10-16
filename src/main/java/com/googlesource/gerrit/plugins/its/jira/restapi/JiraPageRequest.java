@@ -47,9 +47,7 @@ public class JiraPageRequest {
       parameters.put("orderBy", orderBy);
     }
     String requestParameters =
-        parameters
-            .entrySet()
-            .stream()
+        parameters.entrySet().stream()
             .map(parameter -> parameter.getKey() + "=" + parameter.getValue())
             .collect(Collectors.joining("&"));
     return "?" + requestParameters;
