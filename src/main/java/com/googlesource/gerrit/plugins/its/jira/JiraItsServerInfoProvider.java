@@ -14,7 +14,7 @@
 // limitations under the License.
 package com.googlesource.gerrit.plugins.its.jira;
 
-import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.entities.Project;
 import com.google.inject.Inject;
 
 public class JiraItsServerInfoProvider {

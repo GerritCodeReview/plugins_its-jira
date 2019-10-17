@@ -17,7 +17,7 @@ package com.googlesource.gerrit.plugins.its.jira;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.entities.Project;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
