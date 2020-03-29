@@ -21,6 +21,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.ok;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import static com.google.gerrit.server.project.ProjectCache.illegalState;
 import static java.lang.String.format;
 import static java.net.HttpURLConnection.HTTP_CREATED;
 import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
@@ -79,7 +80,8 @@ public class JiraITTest extends LightweightPluginDaemonTest {
   @Before
   public void enablePluginInProjectConfig() throws Exception {
     projectCache
-        .checkedGet(project)
+        .get(project)
+        .orElseThrow(illegalState(project))
         .getConfig()
         .getPluginConfig(PLUGIN_NAME)
         .setString("enabled", "true");
