@@ -29,11 +29,11 @@ import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
 
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import com.google.gerrit.acceptance.config.GerritConfig;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.NoHttpd;
 import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.UseLocalDisk;
+import com.google.gerrit.acceptance.config.GerritConfig;
 import com.google.gerrit.testing.ConfigSuite;
 import java.io.IOException;
 import java.nio.file.Files;
