@@ -71,4 +71,5 @@ public class JiraConfigTest {
     jiraConfig.getPluginConfigFor(project.get());
     assertThat(pluginCfg).isNotNull();
   }
+
 }
