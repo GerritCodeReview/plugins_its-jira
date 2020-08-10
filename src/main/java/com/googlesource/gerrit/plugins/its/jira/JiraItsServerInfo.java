@@ -16,9 +16,12 @@
 package com.googlesource.gerrit.plugins.its.jira;
 
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraURL;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraVisibility;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraVisibilityType;
 import java.net.MalformedURLException;
 
 public class JiraItsServerInfo {
+
   public static class Builder {
     private JiraItsServerInfo instance = new JiraItsServerInfo();
 
@@ -43,6 +46,15 @@ public class JiraItsServerInfo {
       return this;
     }
 
+    public Builder visibility(JiraVisibilityType type, String value) {
+      try {
+        instance.visibility = new JiraVisibility(type, value);
+      } catch(IllegalArgumentException e) {
+        instance.visibility = null;
+      }
+      return this;
+    }
+
     public JiraItsServerInfo build() {
       return instance;
     }
@@ -51,6 +63,7 @@ public class JiraItsServerInfo {
   private JiraURL url;
   private String username;
   private String password;
+  private JiraVisibility visibility;
 
   public static Builder builder() {
     return new JiraItsServerInfo.Builder();
@@ -66,6 +79,10 @@ public class JiraItsServerInfo {
 
   public String getPassword() {
     return password;
+  }
+
+  public JiraVisibility getVisibility() {
+    return visibility;
   }
 
   public boolean isValid() {
