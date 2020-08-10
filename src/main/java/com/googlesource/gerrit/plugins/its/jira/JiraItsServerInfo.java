@@ -16,9 +16,14 @@
 package com.googlesource.gerrit.plugins.its.jira;
 
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraURL;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraVisibility;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.net.MalformedURLException;
 
 public class JiraItsServerInfo {
+  private static final Logger log = LoggerFactory.getLogger(JiraItsServerInfo.class);
+
   public static class Builder {
     private JiraItsServerInfo instance = new JiraItsServerInfo();
 
@@ -43,6 +48,21 @@ public class JiraItsServerInfo {
       return this;
     }
 
+    public Builder visibility(String type, String value) {
+      instance.visibility = null;
+      if (type != null && value != null) {
+        log.debug("Found both type and value for visibility: [{}] {}", type, value);
+        if (type.equals("role") || type.equals("group")) {
+          instance.visibility = new JiraVisibility(type, value);
+        } else {
+          log.error("visibilityType must be either 'role' or 'group'");
+        }
+      } else if (type != null || value != null) {
+        log.error("visibilityType and visibilityValue must be set together");
+      }
+      return this;
+    }
+
     public JiraItsServerInfo build() {
       return instance;
     }
@@ -51,6 +71,7 @@ public class JiraItsServerInfo {
   private JiraURL url;
   private String username;
   private String password;
+  private JiraVisibility visibility;
 
   public static Builder builder() {
     return new JiraItsServerInfo.Builder();
@@ -66,6 +87,10 @@ public class JiraItsServerInfo {
 
   public String getPassword() {
     return password;
+  }
+
+  public JiraVisibility getVisibility() {
+    return visibility;
   }
 
   public boolean isValid() {

@@ -14,17 +14,21 @@
 
 package com.googlesource.gerrit.plugins.its.jira.restapi;
 
-public class JiraComment {
+public class JiraVisibility {
 
-  private final String body;
-  private final JiraVisibility visibility;
+    private final String type;
+    private final String value;
 
-  public JiraComment(String body, JiraVisibility visibility) {
-    this.body = body;
-    this.visibility = visibility;
-  }
+    public JiraVisibility(String type, String value) {
+        this.type = type;
+        this.value = value;
+    }
 
-  public String getBody() {
-    return body;
-  }
+    public String getType() {
+        return type;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }
