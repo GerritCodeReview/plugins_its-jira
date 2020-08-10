@@ -258,3 +258,26 @@ Example with the event property `ref`:
 ```
   action = mark-property-as-released-version ref
 ```
+
+### add-comment
+
+The `add-comment`, `add-standard-comment` or `add-soy-comment` actions add comment for
+certain events. By default, these comments are visible to all on JIRA instance.
+
+It is possible to get better control over comments visibility by adding configuration
+entries in *gerrit.config* or *project.config* file in the *refs/meta/config* branch.
+
+A typical visibility configuration will look like:
+
+```
+  [plugin "its-jira"]
+    visibilityType = role
+    visibilityValue = Dev
+```
+
+This will publish comments visible only by users with *role* set as *Dev* in JIRA.
+
+`visibilityType` and `visibilityValue` must be set together.
+
+`visibilityType` could be set to **role** or **group**, and `visibilityValue` refers
+to JIRA *role* or *group*.
