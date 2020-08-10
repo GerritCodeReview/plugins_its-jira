@@ -1,4 +1,4 @@
-// Copyright (C) 2017 The Android Open Source Project
+// Copyright (C) 2020 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,17 +14,20 @@
 
 package com.googlesource.gerrit.plugins.its.jira.restapi;
 
-public class JiraComment {
+public enum JiraVisibilityType {
 
-  private final String body;
-  private final JiraVisibility visibility;
+  NOTSET(null),
+  
+  ROLE("role"),
+  GROUP("group");
 
-  public JiraComment(String body, JiraVisibility visibility) {
-    this.body = body;
-    this.visibility = visibility;
+  private String type;
+
+  JiraVisibilityType(String type) {
+    this.type = type;
   }
 
-  public String getBody() {
-    return body;
+  public String toString() {
+    return this.type;
   }
 }
