@@ -245,6 +245,30 @@
       "revId": "b9ee5188a675334d739e484e80eec05a25574860",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3684284a_24879f6d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraVisibility.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1110855
+      },
+      "writtenOn": "2020-08-11T10:01:15Z",
+      "side": 1,
+      "message": "It was not work, but I found a way using SerializedName annotation!",
+      "parentUuid": "c9d49b53_f1b30a50",
+      "range": {
+        "startLine": 19,
+        "startChar": 18,
+        "endLine": 19,
+        "endChar": 29
+      },
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
