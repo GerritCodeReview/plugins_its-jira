@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "67a46eab_200ec695",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1110855
+      },
+      "writtenOn": "2020-08-11T13:21:17Z",
+      "side": 1,
+      "message": "I try to write some tests but I have issue running them!\nWhen I run\n\n```\nbazel test plugins/its-jira:its_jira_tests\n```\n\nas stated in documentation, I get the following error:\n\n```\nno such package \u0027@wiremock//jar\u0027: The repository \u0027@wiremock\u0027 could not be resolved\n```\n\nAs I understand bazel, @wiremock is defined in `plugins/its-jira/external_plugin_deps.bzl` and should be downloaded from main maven repository, defined at Gerrit top level probject `tools/maven/BUILD`: https://oss.sonatype.org/ (either snapshot or staging repository)\n\nI was able to manually found it here:\n\nhttps://oss.sonatype.org/#nexus-search;gav~com.github.tomakehurst~wiremock-standalone~~~\n\nSo, I do not understand…\n\nDo you have any information or process that I miss?\n\nThank you.",
+      "parentUuid": "e59fdf3f_81031ffe",
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "991577c2_b847c491",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
         "patchSetId": 1
