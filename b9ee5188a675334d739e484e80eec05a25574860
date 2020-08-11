@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "9392d3d2_472ab746",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-08-11T14:28:28Z",
+      "side": 1,
+      "message": "\u003e I try to write some tests but I have issue running them!\n\u003e When I run\n\u003e \n\u003e ```\n\u003e bazel test plugins/its-jira:its_jira_tests\n\u003e ```\n\u003e \n\u003e as stated in documentation, I get the following error:\n\u003e \n\u003e ```\n\u003e no such package \u0027@wiremock//jar\u0027: The repository \u0027@wiremock\u0027 could not be resolved\n\u003e ```\n\nCreate a symlink froom the plugins/its-jira/external_plugin_deps.bzl into the Gerrit\u0027s source /plugins directory.\n\nLuca.",
+      "parentUuid": "67a46eab_200ec695",
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "991577c2_b847c491",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
         "patchSetId": 1
