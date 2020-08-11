@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "188bd2bf_8c48480a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1110855
+      },
+      "writtenOn": "2020-08-11T09:15:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "991577c2_b847c491",
+      "range": {
+        "startLine": 113,
+        "startChar": 33,
+        "endLine": 113,
+        "endChar": 81
+      },
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b258b18_cd01a7ef",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServerInfo.java",
         "patchSetId": 1
@@ -79,6 +103,30 @@
       "revId": "b9ee5188a675334d739e484e80eec05a25574860",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16049241_ae9de640",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServerInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1110855
+      },
+      "writtenOn": "2020-08-11T09:15:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b258b18_cd01a7ef",
+      "range": {
+        "startLine": 51,
+        "startChar": 30,
+        "endLine": 51,
+        "endChar": 41
+      },
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +153,30 @@
     },
     {
       "key": {
+        "uuid": "789a2929_f6e5a8a2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServerInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1110855
+      },
+      "writtenOn": "2020-08-11T09:15:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cebf9be8_a5a421af",
+      "range": {
+        "startLine": 56,
+        "startChar": 10,
+        "endLine": 56,
+        "endChar": 64
+      },
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f61cbd42_85aa2ab6",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraVisibility.java",
         "patchSetId": 1
@@ -116,6 +188,30 @@
       "writtenOn": "2020-08-11T07:18:40Z",
       "side": 1,
       "message": "This can be only \u0027role\u0027 or \u0027group\u0027: why not making it an Enum instead?",
+      "range": {
+        "startLine": 19,
+        "startChar": 18,
+        "endLine": 19,
+        "endChar": 29
+      },
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47105b92_17c7be69",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraVisibility.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1110855
+      },
+      "writtenOn": "2020-08-11T09:15:03Z",
+      "side": 1,
+      "message": "Here, in this class I keep a String, since it is automatically translated in json (through gson... method) and I want to keep a string value.\nBut constructor takes enum as parameter.",
+      "parentUuid": "f61cbd42_85aa2ab6",
       "range": {
         "startLine": 19,
         "startChar": 18,

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b80bf1b_dac1dc6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1110855
+      },
+      "writtenOn": "2020-08-11T09:15:03Z",
+      "side": 1,
+      "message": "I need to write validation test now!",
+      "revId": "63f2775c56739b2a2cddd9234a81ef1c76bf0a09",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
