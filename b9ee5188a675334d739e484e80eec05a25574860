@@ -16,6 +16,115 @@
       "revId": "b9ee5188a675334d739e484e80eec05a25574860",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e59fdf3f_81031ffe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-08-11T07:18:40Z",
+      "side": 1,
+      "message": "Thanks, Adrien, for your contribution. Could you add at least one validation test?",
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "991577c2_b847c491",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-08-11T07:18:40Z",
+      "side": 1,
+      "message": "If visibility type becomes an enum, this can be changed to getEnum() and the values consistency will be done by the PluginConfig class.",
+      "range": {
+        "startLine": 113,
+        "startChar": 33,
+        "endLine": 113,
+        "endChar": 81
+      },
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b258b18_cd01a7ef",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServerInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-08-11T07:18:40Z",
+      "side": 1,
+      "message": "If type becomes an Enum, then the checks at L55 aren\u0027t needed after all.",
+      "range": {
+        "startLine": 51,
+        "startChar": 30,
+        "endLine": 51,
+        "endChar": 41
+      },
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cebf9be8_a5a421af",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraItsServerInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-08-11T07:18:40Z",
+      "side": 1,
+      "message": "Why not simply pass the JiraVisibility as a parameter and delegate the constructor to do parameters validation? Here it looks like this visibility() method is the factory of JiraVisibility that is delegated to check the business logic of its values.",
+      "range": {
+        "startLine": 56,
+        "startChar": 10,
+        "endLine": 56,
+        "endChar": 64
+      },
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f61cbd42_85aa2ab6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraVisibility.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-08-11T07:18:40Z",
+      "side": 1,
+      "message": "This can be only \u0027role\u0027 or \u0027group\u0027: why not making it an Enum instead?",
+      "range": {
+        "startLine": 19,
+        "startChar": 18,
+        "endLine": 19,
+        "endChar": 29
+      },
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
