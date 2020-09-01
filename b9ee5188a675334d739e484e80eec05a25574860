@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "46459527_c55062e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-09-01T21:20:14Z",
+      "side": 1,
+      "message": "Interesting, let me re-run the tests locally and come back to you.",
+      "parentUuid": "998c2589_04f79014",
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "991577c2_b847c491",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
         "patchSetId": 1
