@@ -162,6 +162,24 @@
     },
     {
       "key": {
+        "uuid": "b7fb90dd_f6ecebe4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1110855
+      },
+      "writtenOn": "2020-09-02T15:27:22Z",
+      "side": 1,
+      "message": "I got a successful run with java 8…\nSo, I write a single small test!",
+      "parentUuid": "994e733c_0459b160",
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "991577c2_b847c491",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
         "patchSetId": 1
