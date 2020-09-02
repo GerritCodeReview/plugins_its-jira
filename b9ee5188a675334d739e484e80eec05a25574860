@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "7c737a6b_61149ad6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1110855
+      },
+      "writtenOn": "2020-09-02T08:34:13Z",
+      "side": 1,
+      "message": "Same issue:\n\n```\nbazelisk test plugins/its-jira:its_jira_tests\n\nFAILURES!!!\nTests run: 31,  Failures: 6\n\n...\n\nTarget //plugins/its-jira:its_jira_tests up-to-date:\n  bazel-bin/plugins/its-jira/its_jira_tests.jar\n  bazel-bin/plugins/its-jira/its_jira_tests\nINFO: Elapsed time: 173.969s, Critical Path: 149.97s\nINFO: 275 processes: 202 linux-sandbox, 73 worker.\nINFO: Build completed, 1 test FAILED, 279 total actions\n//plugins/its-jira:its_jira_tests                                        FAILED in 76.6s\n```\n\nIf this is relevant, my default JVM is `openjdk 11.0.8 2020-07-14`",
+      "parentUuid": "e693ddb9_06f7cd3a",
+      "revId": "b9ee5188a675334d739e484e80eec05a25574860",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "991577c2_b847c491",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
         "patchSetId": 1
