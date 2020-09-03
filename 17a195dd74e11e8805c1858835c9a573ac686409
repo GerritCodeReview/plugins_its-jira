@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "336c12dd_4e325978",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1110855
+      },
+      "writtenOn": "2020-09-03T07:22:23Z",
+      "side": 1,
+      "message": "Sorry, it was my IDE!",
+      "parentUuid": "9ef533aa_292c96d1",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 64
+      },
+      "revId": "17a195dd74e11e8805c1858835c9a573ac686409",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bce170bd_e3f707b2",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2020-09-02T21:53:29Z",
       "side": 1,
       "message": "This is good, however, you could have an invalid request body that isn\u0027t really including the visibility flag BUT would contain \u0027AllDev\u0027, and the test would still pass.\n\nDo you see any way we could be more specific on the request body asserted?",
+      "range": {
+        "startLine": 283,
+        "startChar": 10,
+        "endLine": 283,
+        "endChar": 47
+      },
+      "revId": "17a195dd74e11e8805c1858835c9a573ac686409",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45af0e5e_87a8b1f9",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1110855
+      },
+      "writtenOn": "2020-09-03T07:22:23Z",
+      "side": 1,
+      "message": "I\u0027ll try to be more specific now!",
+      "parentUuid": "bce170bd_e3f707b2",
       "range": {
         "startLine": 283,
         "startChar": 10,
