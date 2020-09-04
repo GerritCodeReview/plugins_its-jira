@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7ce7a65_d9cf2023",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-09-04T23:04:06Z",
+      "side": 1,
+      "message": "Need reformatting with google-java-format and then we\u0027re ready to go :-)",
+      "revId": "6f3b52df44ba6cab817418223881f0d5341995cd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

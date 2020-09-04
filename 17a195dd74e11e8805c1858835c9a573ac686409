@@ -93,6 +93,54 @@
       "revId": "17a195dd74e11e8805c1858835c9a573ac686409",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0b70080_959851ec",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-09-04T23:04:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45af0e5e_87a8b1f9",
+      "range": {
+        "startLine": 283,
+        "startChar": 10,
+        "endLine": 283,
+        "endChar": 47
+      },
+      "revId": "17a195dd74e11e8805c1858835c9a573ac686409",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02f97ba_7385c953",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-09-04T23:04:06Z",
+      "side": 1,
+      "message": "Thanks, that looks much better.",
+      "parentUuid": "45af0e5e_87a8b1f9",
+      "range": {
+        "startLine": 283,
+        "startChar": 10,
+        "endLine": 283,
+        "endChar": 47
+      },
+      "revId": "17a195dd74e11e8805c1858835c9a573ac686409",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
