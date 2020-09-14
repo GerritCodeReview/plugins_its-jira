@@ -26,6 +26,7 @@ import static java.lang.String.format;
 import static java.net.HttpURLConnection.HTTP_CREATED;
 import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
 import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
+import static org.mockito.Mockito.when;
 
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
@@ -34,12 +35,18 @@ import com.google.gerrit.acceptance.NoHttpd;
 import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.UseLocalDisk;
 import com.google.gerrit.acceptance.config.GerritConfig;
+import com.google.gerrit.server.config.AllProjectsName;
+import com.google.gerrit.server.config.AllUsersName;
+import com.google.gerrit.server.config.PluginConfig;
+import com.google.gerrit.server.config.PluginConfig.Update;
 import com.google.gerrit.testing.ConfigSuite;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
 import org.eclipse.jgit.util.FS;
 import org.junit.Before;
@@ -79,12 +86,17 @@ public class JiraITTest extends LightweightPluginDaemonTest {
 
   @Before
   public void enablePluginInProjectConfig() throws Exception {
-    projectCache
-        .get(project)
-        .orElseThrow(illegalState(project))
-        .getConfig()
-        .getPluginConfig(PLUGIN_NAME)
-        .setString("enabled", "true");
+//    projectCache
+//        .get(project)
+//        .orElseThrow(illegalState(project))
+//        .getPluginConfig(PLUGIN_NAME)
+//        .cfg()
+//        .setString("enabled", "true");
+//    
+
+    PluginConfig.Update pluginConfigUpdate = PluginConfig.Update.forTest(PLUGIN_NAME, new Config());
+    pluginConfigUpdate.setString("enabled", "true");
+    PluginConfig itsJiraConfig = pluginConfigUpdate.asPluginConfig();
   }
 
   @Test
