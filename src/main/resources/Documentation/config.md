@@ -149,20 +149,20 @@ the file `review_site/etc/its/actions-@PLUGIN@.config`.
 
     [rule "open"]
         event-type = patchset-created
-        action = add-velocity-comment inline Change ${its.formatLink($changeUrl)} is created.
+        action = add-standard-comment
         action = In Progress
     [rule "resolve"]
         event-type = comment-added
-        approval-Code-Review = 2
-        action = add-velocity-comment inline Change ${its.formatLink($changeUrl)} is verified.
+        approvalCodeReview = 2
+        action = add-standard-comment
         action = In Review
     [rule "merged"]
         event-type = change-merged
-        action = add-velocity-comment inline Change ${its.formatLink($changeUrl)} is merged.
+        action = add-standard-comment
         action = Done
     [rule "abandoned"]
-        event-type = change-abandoned'
-        action = add-velocity-comment inline Change ${its.formatLink($changeUrl)} is abandoned.
+        event-type = change-abandoned
+        action = add-standard-comment
         action = To Do
 
 The first rule triggers an action which adds a comment and a hyperlink to the change created
@@ -171,14 +171,6 @@ event is triggered. The second action item in the first rule transitions the sta
 in Jira to `In Progress`. The title of the action `In Progress` should match the workflow actions
 used by the JIRA server as different versions of JIRA can have different workflow actions.
 
-**Note:** Velocity comments were deprecated in Gerrit 2.14 and will be removed in Gerrit 2.16/3.0;
-the `actions-@Plugin@.config` needs to be changed accordingly. For example, to use Soy comments
-instead of velocity comments:
-
-    [rule "open"]
-        event-type = patchset-created
-        action = add-soy-comment Change ${its.formatLink($changeUrl)} is created.
-        action = In Progress
 
 Multiple Jira servers integration
 ---------------------------------
@@ -258,3 +250,26 @@ Example with the event property `ref`:
 ```
   action = mark-property-as-released-version ref
 ```
+
+### add-comment
+
+The `add-comment`, `add-standard-comment` or `add-soy-comment` actions add comment for
+certain events. By default, these comments are visible to all on JIRA instance.
+
+It is possible to get better control over comments visibility by adding configuration
+entries in *gerrit.config* or *project.config* file in the *refs/meta/config* branch.
+
+A typical visibility configuration will look like:
+
+```
+  [plugin "its-jira"]
+    visibilityType = role
+    visibilityValue = Dev
+```
+
+This will publish comments visible only by users with *role* set as *Dev* in JIRA.
+
+`visibilityType` and `visibilityValue` must be set together.
+
+`visibilityType` could be set to **role** or **group**, and `visibilityValue` refers
+to JIRA *role* or *group*.
