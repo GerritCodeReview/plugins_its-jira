@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "2a170d3e_c7370337",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-09-14T14:21:39Z",
+      "side": 1,
+      "message": "integration",
+      "range": {
+        "startLine": 10,
+        "startChar": 21,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f919e63_9dbe6001",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-09-14T14:21:39Z",
+      "side": 1,
+      "message": "requires",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "690db054_a29c3767",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
         "patchSetId": 2
@@ -13,6 +59,30 @@
       "writtenOn": "2020-09-14T11:31:52Z",
       "side": 1,
       "message": "We were mutating the ProjectCache directly in our tests, which it wasn\u0027t a good idea and also a bit hacky.\n\nHow would you suggest to do the same right now with the new project cache structure?",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 6
+      },
+      "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c89efe6_aadb773c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-09-14T14:21:39Z",
+      "side": 1,
+      "message": "You could check the open adaptation proposal I3b6435244 out. That plugin doesn\u0027t have much tests unfortunately yet.",
+      "parentUuid": "690db054_a29c3767",
       "range": {
         "startLine": 83,
         "startChar": 0,
