@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "690db054_a29c3767",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2020-09-14T11:31:52Z",
+      "side": 1,
+      "message": "We were mutating the ProjectCache directly in our tests, which it wasn\u0027t a good idea and also a bit hacky.\n\nHow would you suggest to do the same right now with the new project cache structure?",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 6
+      },
+      "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
