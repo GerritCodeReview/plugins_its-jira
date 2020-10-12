@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "2a170d3e_c7370337",
         "filename": "/COMMIT_MSG",
@@ -20,10 +21,10 @@
         "endChar": 33
       },
       "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": true
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1f919e63_9dbe6001",
         "filename": "/COMMIT_MSG",
@@ -43,10 +44,10 @@
         "endChar": 7
       },
       "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": true
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "690db054_a29c3767",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
@@ -66,10 +67,10 @@
         "endChar": 6
       },
       "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": true
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1c89efe6_aadb773c",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
@@ -90,8 +91,31 @@
         "endChar": 6
       },
       "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": true
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7be7d9f6_b3cc996d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-10-12T07:31:32Z",
+      "side": 1,
+      "message": "You can use ProjectOperations:\n\n    projectOperations\n        .project(project)\n        .forInvalidation()\n        .addProjectConfigUpdater(\n            cfg -\u003e\n                cfg.setString(...)\n        .invalidate();",
+      "parentUuid": "1c89efe6_aadb773c",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 6
+      },
+      "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
