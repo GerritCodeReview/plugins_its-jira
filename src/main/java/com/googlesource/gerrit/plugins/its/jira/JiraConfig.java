@@ -18,6 +18,7 @@ import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Strings;
 import com.google.gerrit.entities.Project;
+import com.google.gerrit.entities.StoredCommentLinkInfo;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.GerritPersonIdent;
 import com.google.gerrit.server.config.GerritServerConfig;
@@ -26,7 +27,6 @@ import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.extensions.events.GitReferenceUpdated;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.meta.MetaDataUpdate;
-import com.google.gerrit.server.project.CommentLinkInfoImpl;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.server.project.ProjectConfig;
@@ -115,8 +115,12 @@ public class JiraConfig {
           CharMatcher.is('/').trimFrom(jiraItsServerInfo.getUrl().toString()) + JiraURL.URL_SUFFIX;
       if (!commentLinksExist(config, link)) {
         String match = getCommentLinkFromGerritConfig("match");
-        CommentLinkInfoImpl commentlinkSection =
-            new CommentLinkInfoImpl(pluginName, match, link, null, true);
+        StoredCommentLinkInfo commentlinkSection =
+            StoredCommentLinkInfo.builder(pluginName)
+                .setMatch(match)
+                .setLink(link)
+                .setEnabled(true)
+                .build();
         config.addCommentLinkSection(commentlinkSection);
         md.getCommitBuilder().setAuthor(serverUser);
         md.getCommitBuilder().setCommitter(serverUser);
@@ -129,7 +133,7 @@ public class JiraConfig {
   }
 
   private boolean commentLinksExist(ProjectConfig config, String link) {
-    return config.getCommentLinkSections().stream().map(c -> c.link).anyMatch(link::equals);
+    return config.getCommentLinkSections().stream().map(c -> c.getLink()).anyMatch(link::equals);
   }
 
   @VisibleForTesting
@@ -146,6 +150,6 @@ public class JiraConfig {
             e);
       }
     }
-    return new PluginConfig(pluginName, new Config());
+    return PluginConfig.create(pluginName, new Config(), null);
   }
 }
