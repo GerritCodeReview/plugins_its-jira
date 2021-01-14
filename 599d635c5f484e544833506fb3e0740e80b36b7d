@@ -47,6 +47,23 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16c70142_f65c8393",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1005133
+      },
+      "writtenOn": "2021-01-14T08:07:27Z",
+      "side": 1,
+      "message": "@Luca what is the status of this patch?\nIf you can use somebody to take in the review comments, I would not mind to provide an update.  Just let me know.",
+      "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "690db054_a29c3767",
