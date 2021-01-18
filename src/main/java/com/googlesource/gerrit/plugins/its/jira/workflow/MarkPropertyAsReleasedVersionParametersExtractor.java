@@ -36,7 +36,8 @@ class MarkPropertyAsReleasedVersionParametersExtractor {
     String[] parameters = actionRequest.getParameters();
     if (parameters.length != 1) {
       log.error(
-          "Wrong number of received parameters. Received parameters are {}. Only one parameter is expected, the property id.",
+          "Wrong number of received parameters. Received parameters are {}. Only one parameter is"
+              + " expected, the property id.",
           Arrays.toString(parameters));
       return Optional.empty();
     }

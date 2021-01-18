@@ -25,6 +25,6 @@ def external_plugin_deps():
 
   maven_jar(
     name = "wiremock",
-    artifact = "com.github.tomakehurst:wiremock-standalone:2.12.0",
-    sha1 = "25f45d45091627a3bae5510495c99a561b2633c4",
+    artifact = "com.github.tomakehurst:wiremock-standalone:2.27.2",
+    sha1 = "327647a19b2319af2526b9c33a5733a2241723e0",
   )

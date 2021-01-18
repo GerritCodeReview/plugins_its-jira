@@ -21,7 +21,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.ok;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
-import static com.google.gerrit.server.project.ProjectCache.illegalState;
 import static java.lang.String.format;
 import static java.net.HttpURLConnection.HTTP_CREATED;
 import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
@@ -34,7 +33,9 @@ import com.google.gerrit.acceptance.NoHttpd;
 import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.UseLocalDisk;
 import com.google.gerrit.acceptance.config.GerritConfig;
+import com.google.gerrit.acceptance.testsuite.project.ProjectOperations;
 import com.google.gerrit.testing.ConfigSuite;
+import com.google.inject.Inject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -70,6 +71,7 @@ public class JiraITTest extends LightweightPluginDaemonTest {
   private Path its_dir;
 
   @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
+  @Inject private ProjectOperations projectOperations;
 
   @Override
   public void beforeTest(Description description) throws Exception {
@@ -79,12 +81,11 @@ public class JiraITTest extends LightweightPluginDaemonTest {
 
   @Before
   public void enablePluginInProjectConfig() throws Exception {
-    projectCache
-        .get(project)
-        .orElseThrow(illegalState(project))
-        .getConfig()
-        .getPluginConfig(PLUGIN_NAME)
-        .setString("enabled", "true");
+    projectOperations
+        .project(project)
+        .forInvalidation()
+        .addProjectConfigUpdater(cfg -> cfg.setBoolean("plugin", PLUGIN_NAME, "enabled", true))
+        .invalidate();
   }
 
   @Test
