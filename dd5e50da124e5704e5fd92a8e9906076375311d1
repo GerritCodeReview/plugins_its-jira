@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3a1996c_6427bfdb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1005133
+      },
+      "writtenOn": "2021-01-18T15:00:18Z",
+      "side": 1,
+      "message": "This is a follow up/improvement of https://gerrit-review.googlesource.com/c/plugins/its-jira/+/281516",
+      "revId": "dd5e50da124e5704e5fd92a8e9906076375311d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
