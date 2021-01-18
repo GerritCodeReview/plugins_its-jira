@@ -49,6 +49,54 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "689bca19_b70a4cdf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1005133
+      },
+      "writtenOn": "2021-01-18T14:56:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f919e63_9dbe6001",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6769cfd3_11cbdb19",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1005133
+      },
+      "writtenOn": "2021-01-18T14:56:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a170d3e_c7370337",
+      "range": {
+        "startLine": 10,
+        "startChar": 21,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "16c70142_f65c8393",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -78,6 +126,24 @@
       "side": 1,
       "message": "I am very busy next week with some top-priority reviews, I\u0027m afraid.\nIf you would like to take over, just create another change by cherry-picking mine and applying your amendments.\n\nI can then abandon this one.",
       "parentUuid": "16c70142_f65c8393",
+      "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cda3db92_efa2951c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1005133
+      },
+      "writtenOn": "2021-01-18T14:56:03Z",
+      "side": 1,
+      "message": "Uploaded https://gerrit-review.googlesource.com/c/plugins/its-jira/+/293988\n\nCan you abandon this review?",
+      "parentUuid": "f5508d37_b91793a1",
       "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -167,6 +233,30 @@
       "side": 1,
       "message": "Thanks Patrick. Taking a note also for the aforementioned (somewhat related) WIP change.",
       "parentUuid": "7be7d9f6_b3cc996d",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 6
+      },
+      "revId": "599d635c5f484e544833506fb3e0740e80b36b7d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9765876e_d626230a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1005133
+      },
+      "writtenOn": "2021-01-18T14:56:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efd99260_0b114f1c",
       "range": {
         "startLine": 83,
         "startChar": 0,
