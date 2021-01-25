@@ -22,6 +22,30 @@
       },
       "revId": "c47b8d8ac6f211075d0b5e6b2587c38642b273f9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f81dd49_8a50194c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-01-25T18:04:38Z",
+      "side": 1,
+      "message": "In Monorail it is marked as a desirable feature Priority-3\nhttps://bugs.chromium.org/p/gerrit/issues/detail?id\u003d11319\u0026q\u003dcomponent%3Aplugins%3Eits-jira",
+      "parentUuid": "b7560443_84b163e0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 7
+      },
+      "revId": "c47b8d8ac6f211075d0b5e6b2587c38642b273f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
