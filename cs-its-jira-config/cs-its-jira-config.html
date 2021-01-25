@@ -1,0 +1,82 @@
+<!--
+@license
+Copyright (C) 2021 The Android Open Source Project
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<dom-module id="cs-its-jira-config">
+  <template>
+    <style include="shared-styles"></style>
+    <style include="gr-form-styles"></style>
+    <fieldset class="gr-form-styles">
+      <h2 class="sectionTitle">its-jira plugin</h2>
+      <section>
+        <section>
+          <span class="title">Enable its-jira integration</span>
+          <span class="value">
+            <gr-select id="enabled"
+                       bind-value="{{_changedConfig.enabled.value}}"
+                       on-change="_handlePrefsChanged">
+              <select disabled$="[[readOnly]]">
+                <option value="true">true</option>
+                <option value="false">false</option>
+                <option value="enforced">enforced</option>
+              </select>
+            </gr-select>
+          </span>
+        </section>
+        <section>
+          <span class="title">Server URL</span>
+          <span class="value">
+            <iron-input bind-value="{{_changedConfig.instanceUrl.value}}">
+              <input id="instanceUrl"
+                     value="{{_changedConfig.instanceUrl.value::input}}"
+                     on-keypress="_handlePrefsChanged"
+                     on-change="_handlePrefsChanged"
+                     type="text">
+            </iron-input>
+          </span>
+        </section>
+        <section>
+          <span class="title">JIRA username</span>
+          <span class="value">
+            <iron-input bind-value="{{_changedConfig.username.value}}">
+              <input id="username"
+                     value="{{_changedConfig.username.value::input}}"
+                     on-keypress="_handlePrefsChanged"
+                     on-change="_handlePrefsChanged"
+                     type="text">
+            </iron-input>
+          </span>
+        </section>
+        <section>
+          <span class="title">JIRA password</span>
+          <span class="value">
+            <iron-input bind-value="{{_changedConfig.password.value}}">
+              <input id="password"
+                     value="{{_changedConfig.password.value::input}}"
+                     on-keypress="_handlePrefsChanged"
+                     on-change="_handlePrefsChanged"
+                     type="text">
+            </iron-input>
+          </span>
+        </section>
+        <gr-button
+            id="saveButton"
+            on-click="_handlePrefsSave"
+            disabled="[[!_prefsChanged]]">
+          Save Changes
+        </gr-button>
+      </section>
+    </fieldset>
+  </template>
+  <script src="cs-its-jira-config.js"></script>
+</dom-module>

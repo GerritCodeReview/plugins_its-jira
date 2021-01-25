@@ -5,6 +5,8 @@ load(
     "PLUGIN_DEPS",
     "PLUGIN_TEST_DEPS",
 )
+load("//tools/bzl:genrule2.bzl", "genrule2")
+load("//tools/bzl:js.bzl", "polygerrit_plugin")
 
 gerrit_plugin(
     name = "its-jira",
@@ -17,10 +19,34 @@ gerrit_plugin(
         "Implementation-Title: Jira ITS Plugin",
         "Implementation-URL: http://www.gerritforge.com",
     ],
+    resource_jars = [":cs-its-jira-static"],
     resources = glob(["src/main/resources/**/*"]),
     deps = [
         "//plugins/its-base",
     ],
+)
+
+genrule2(
+    name = "cs-its-jira-static",
+    srcs = [
+        ":cs-its-jira-config",
+    ],
+    outs = ["cs-its-jira-static.jar"],
+    cmd = " && ".join([
+        "mkdir $$TMP/static",
+        "cp -r $(locations :cs-its-jira-config) $$TMP/static",
+        "cd $$TMP",
+        "zip -Drq $$ROOT/$@ -g .",
+    ]),
+)
+
+polygerrit_plugin(
+    name = "cs-its-jira-config",
+    srcs = glob([
+        "cs-its-jira-config/*.html",
+        "cs-its-jira-config/*.js",
+    ]),
+    app = "plugin-config.html",
 )
 
 junit_tests(
