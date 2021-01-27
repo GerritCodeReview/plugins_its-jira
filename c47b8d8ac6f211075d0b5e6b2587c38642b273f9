@@ -70,6 +70,47 @@
       },
       "revId": "c47b8d8ac6f211075d0b5e6b2587c38642b273f9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e90eaa1a_e9c37b89",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-01-27T15:27:32Z",
+      "side": 1,
+      "message": "Marking this specific thread as resolved, per above.",
+      "parentUuid": "68aa272f_97d0712e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 7
+      },
+      "revId": "c47b8d8ac6f211075d0b5e6b2587c38642b273f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a46ba4c1_e57af474",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-01-27T15:27:32Z",
+      "side": 1,
+      "message": "Hector should be removed from this plugin\u0027s maintainers group I think, as he his no longer active.",
+      "revId": "c47b8d8ac6f211075d0b5e6b2587c38642b273f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
