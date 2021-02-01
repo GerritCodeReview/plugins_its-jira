@@ -115,6 +115,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6c3698b6_befe2931",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-02-01T12:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0baa35e_352f6bf8",
+      "revId": "c47b8d8ac6f211075d0b5e6b2587c38642b273f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a46ba4c1_e57af474",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -182,6 +200,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19294318_afe48fba",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-02-01T12:43:22Z",
+      "side": 1,
+      "message": "Done. Brought back to its original order with a text editor",
+      "parentUuid": "14733cd5_f7189290",
+      "revId": "c47b8d8ac6f211075d0b5e6b2587c38642b273f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe0cbe44_6f7dfe08",
@@ -195,6 +231,24 @@
       "writtenOn": "2021-01-29T21:56:05Z",
       "side": 1,
       "message": "Mention which example file was used to come up with this new one for this plugin, in the commit message?",
+      "revId": "c47b8d8ac6f211075d0b5e6b2587c38642b273f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f27a452e_f728e647",
+        "filename": "cs-its-jira-config/cs-its-jira-config.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-02-01T12:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe0cbe44_6f7dfe08",
       "revId": "c47b8d8ac6f211075d0b5e6b2587c38642b273f9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -216,6 +270,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "157c2e0f_c1d1efa5",
+        "filename": "cs-its-jira-config/cs-its-jira-config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-02-01T12:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4acf32be_545aed0e",
+      "revId": "c47b8d8ac6f211075d0b5e6b2587c38642b273f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69a4fa94_3fba177c",
@@ -229,6 +301,24 @@
       "writtenOn": "2021-01-29T21:56:05Z",
       "side": 1,
       "message": "(Same comment as for previous new files.)",
+      "revId": "c47b8d8ac6f211075d0b5e6b2587c38642b273f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2817a22_667bbb0b",
+        "filename": "plugin-config.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-02-01T12:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69a4fa94_3fba177c",
       "revId": "c47b8d8ac6f211075d0b5e6b2587c38642b273f9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
