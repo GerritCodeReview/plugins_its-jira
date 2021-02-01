@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c49d8f45_f3ccb67c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-01T16:12:48Z",
+      "side": 1,
+      "message": "Ready for plugin maintainers reviews I think; thanks.",
+      "revId": "e1eecaf2f6997734ca0a42e41f3f248e7c0a9466",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
