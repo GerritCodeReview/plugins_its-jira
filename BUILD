@@ -17,6 +17,7 @@ gerrit_plugin(
         "Implementation-Title: Jira ITS Plugin",
         "Implementation-URL: http://www.gerritforge.com",
     ],
+    resource_jars = [":cs-its-jira-static"],
     resources = glob(["src/main/resources/**/*"]),
     deps = [
         "//plugins/its-base",
