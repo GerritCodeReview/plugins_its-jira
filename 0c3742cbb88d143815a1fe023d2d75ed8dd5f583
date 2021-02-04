@@ -105,6 +105,24 @@
       "parentUuid": "9780af10_177d888c",
       "revId": "0c3742cbb88d143815a1fe023d2d75ed8dd5f583",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31212143_c9577dd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-02-04T17:30:21Z",
+      "side": 1,
+      "message": "\u003e I just did the experiment and before entering a username and a password in gerrit.config it didn\u0027t load its-jira. But after entering them it loaded its-jira and the configuration fields showed automatically.\n\nMy bad, I didn\u0027t check thoroughly and it actually works in v3.0.x, apologies for the confusion.",
+      "parentUuid": "cf33510f_13980759",
+      "revId": "0c3742cbb88d143815a1fe023d2d75ed8dd5f583",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
