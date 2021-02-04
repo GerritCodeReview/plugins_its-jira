@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b68d8c1_8f1541f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-02-04T18:22:58Z",
+      "side": 1,
+      "message": "Can you add a small description on why this is a noop merge?\n(pretty much the same discussion we had on the previous change)",
+      "revId": "408ddc09dfc0c03620f5a2d358e81512b2b36541",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
