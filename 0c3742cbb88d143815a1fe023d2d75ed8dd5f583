@@ -123,6 +123,46 @@
       "parentUuid": "cf33510f_13980759",
       "revId": "0c3742cbb88d143815a1fe023d2d75ed8dd5f583",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12261958_3ce95e8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-02-04T17:35:13Z",
+      "side": 1,
+      "message": "LGTM, just one nit.",
+      "revId": "0c3742cbb88d143815a1fe023d2d75ed8dd5f583",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63ca2aab_4b88aae5",
+        "filename": "cs-its-jira-config/cs-its-jira-config.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-02-04T17:35:13Z",
+      "side": 1,
+      "message": "password? It isn\u0027t nice to display the password in cleartext",
+      "range": {
+        "startLine": 68,
+        "startChar": 27,
+        "endLine": 68,
+        "endChar": 31
+      },
+      "revId": "0c3742cbb88d143815a1fe023d2d75ed8dd5f583",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
