@@ -1,9 +1,9 @@
 load("//tools/bzl:junit.bzl", "junit_tests")
 load(
     "//tools/bzl:plugin.bzl",
-    "gerrit_plugin",
     "PLUGIN_DEPS",
     "PLUGIN_TEST_DEPS",
+    "gerrit_plugin",
 )
 
 gerrit_plugin(
@@ -17,6 +17,7 @@ gerrit_plugin(
         "Implementation-Title: Jira ITS Plugin",
         "Implementation-URL: http://www.gerritforge.com",
     ],
+    resource_jars = [":cs-its-jira-static"],
     resources = glob(["src/main/resources/**/*"]),
     deps = [
         "//plugins/its-base",
