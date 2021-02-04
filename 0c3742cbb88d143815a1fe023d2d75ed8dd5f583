@@ -34,6 +34,41 @@
       "parentUuid": "b7aee47e_9164a197",
       "revId": "0c3742cbb88d143815a1fe023d2d75ed8dd5f583",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0273eb72_bb67cac3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-02-04T16:21:35Z",
+      "side": 1,
+      "message": "\u003e As far as I know, since v3.0, Polygerrit UI binds the configuration fields directly without any additional front-end required so this change will be deleted when merging in upstream branches. \n\nAh cool, I didn\u0027t realised that. Let me have a look, thanks.\n\n\u003e Therefore, this change targets v2.16. Can you correct me if I am wrong?\n\nThis change isn\u0027t technically needed on v2.16, because we have GWT UI still available and a Gerrit admin could just use that. However, it is a nice addition, thanks for that.",
+      "parentUuid": "437a00d1_885c07c2",
+      "revId": "0c3742cbb88d143815a1fe023d2d75ed8dd5f583",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "989f04c6_0af9ba36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-02-04T16:21:35Z",
+      "side": 1,
+      "message": "I tested E2E and it works for me.",
+      "revId": "0c3742cbb88d143815a1fe023d2d75ed8dd5f583",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
