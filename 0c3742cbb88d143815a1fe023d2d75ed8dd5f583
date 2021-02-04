@@ -69,6 +69,24 @@
       "message": "I tested E2E and it works for me.",
       "revId": "0c3742cbb88d143815a1fe023d2d75ed8dd5f583",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9780af10_177d888c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-02-04T16:32:30Z",
+      "side": 1,
+      "message": "\u003e \u003e As far as I know, since v3.0, Polygerrit UI binds the configuration fields directly without any additional front-end required so this change will be deleted when merging in upstream branches. \n\nI tested on v3.0 and it looks like it\u0027s not the case: the PolyGerrit UI won\u0027t show the its-jira fields: we\u0027ll need to port this change forward as well.\n\nThat doesn\u0027t change my positive appreciation for your initiative, which I support.\nIt\u0027s just a warning that this change is just the beginning of a series of UI changes we\u0027ll need in multiple stable branches.",
+      "parentUuid": "0273eb72_bb67cac3",
+      "revId": "0c3742cbb88d143815a1fe023d2d75ed8dd5f583",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
