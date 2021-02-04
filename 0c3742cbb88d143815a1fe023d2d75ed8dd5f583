@@ -87,6 +87,24 @@
       "parentUuid": "0273eb72_bb67cac3",
       "revId": "0c3742cbb88d143815a1fe023d2d75ed8dd5f583",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf33510f_13980759",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-02-04T17:23:31Z",
+      "side": 1,
+      "message": "Did you enter a username and a password in the gerrit.config? I think it is because of a multi-site configuration by the plugin. I just did the experiment and before entering a username and a password in gerrit.config it didn\u0027t load its-jira. But after entering them it loaded its-jira and the configuration fields showed automatically.",
+      "parentUuid": "9780af10_177d888c",
+      "revId": "0c3742cbb88d143815a1fe023d2d75ed8dd5f583",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
