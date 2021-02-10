@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e91c1294_80930921",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-10T15:35:32Z",
+      "side": 1,
+      "message": "@Mark, were you planning to keep merging this upstream?",
+      "revId": "fe064ff9f8ff371b508c7b03e7cb46e2c077d994",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
