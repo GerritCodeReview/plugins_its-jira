@@ -145,7 +145,7 @@ by all configured ITS plugins, can be defined in the file
 `review_site/etc/its/actions.config`. Rules specific to @PLUGIN@ are defined in
 the file `review_site/etc/its/actions-@PLUGIN@.config`.
 
-**Sample actions-@Plugin@.config:**
+**Sample actions-@PLUGIN@.config:**
 
     [rule "open"]
         event-type = patchset-created
@@ -172,7 +172,7 @@ in Jira to `In Progress`. The title of the action `In Progress` should match the
 used by the JIRA server as different versions of JIRA can have different workflow actions.
 
 **Note:** Velocity comments were deprecated in Gerrit 2.14 and will be removed in Gerrit 2.16/3.0;
-the `actions-@Plugin@.config` needs to be changed accordingly. For example, to use Soy comments
+the `actions-@PLUGIN@.config` needs to be changed accordingly. For example, to use Soy comments
 instead of velocity comments:
 
     [rule "open"]
