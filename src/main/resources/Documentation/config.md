@@ -8,7 +8,7 @@ enabled or not. To enable the Jira integration for a project the
 project must have the following entry in its `project.config` file in
 the `refs/meta/config` branch:
 
-```
+```ini
   [plugin "its-jira"]
     enabled = true
 ```
@@ -43,7 +43,7 @@ may be specified.
 E.g. to limit the Jira integration to the `master` branch and all
 stable branches the following could be configured:
 
-```
+```ini
   [plugin "its-jira"]
     enabled = true
     branch = refs/heads/master
@@ -76,10 +76,12 @@ OPTIONAL
 
 Example:
 
+```ini
     [commentLink "its-jira"]
     match = ([A-Z]+-[0-9]+)
     html = "<a href=\"http://jira.example.com/browse/$1\">$1</a>"
     association = SUGGESTED
+```
 
 Jira connectivity
 -----------------
@@ -90,10 +92,12 @@ are required in your `gerrit.config` / `secure.config` under the
 
 Example:
 
+```ini
     [its-jira]
     url=http://jira.example.com
     username=admin
     password=jirapass
+```
 
 Jira credentials and connectivity details are asked and verified during the Gerrit init.
 
@@ -106,6 +110,7 @@ integration and checks the connectivity.
 
 Gerrit init example:
 
+```text
     *** Jira Integration
     ***
 
@@ -133,6 +138,7 @@ Gerrit init example:
            suggested
            optional
     Issue-id enforced in commit message [MANDATORY/?]: suggested
+```
 
 The connectivity of its-jira plugin with Jira server happens on-request. When an
 action is requested, a connection is established based on any of the two
@@ -147,6 +153,7 @@ the file `review_site/etc/its/actions-@PLUGIN@.config`.
 
 **Sample actions-@PLUGIN@.config:**
 
+```ini
     [rule "open"]
         event-type = patchset-created
         action = add-velocity-comment inline Change ${its.formatLink($changeUrl)} is created.
@@ -164,6 +171,7 @@ the file `review_site/etc/its/actions-@PLUGIN@.config`.
         event-type = change-abandoned'
         action = add-velocity-comment inline Change ${its.formatLink($changeUrl)} is abandoned.
         action = To Do
+```
 
 The first rule triggers an action which adds a comment and a hyperlink to the change created
 in gerrit. The comment will appear in an Jira issue's `Comment` section whenever a patchset-created
@@ -175,18 +183,18 @@ used by the JIRA server as different versions of JIRA can have different workflo
 the `actions-@PLUGIN@.config` needs to be changed accordingly. For example, to use Soy comments
 instead of velocity comments:
 
+```ini
     [rule "open"]
         event-type = patchset-created
         action = add-soy-comment Change ${its.formatLink($changeUrl)} is created.
         action = In Progress
+```
 
 Multiple Jira servers integration
 ---------------------------------
 
-```
-Please note that this feature is considered EXPERIMENTAL and should be used with
-caution, as it could expose sensitive information.
-```
+> Please note that this feature is considered EXPERIMENTAL and should be used with
+> caution, as it could expose sensitive information.
 
 In corporate environments, it is not unusual to have multiple Jira servers
 and it is a common requirement to integrate Gerrit projects with those.
@@ -202,6 +210,7 @@ configuration entries by manually editing the *project.config* file in the
 
 A typical Jira server configuration in the *project.config* file will look like:
 
+```ini
     [plugin "its-jira"]
          enabled = true
          instanceUrl = http://jiraserver:8075/
@@ -211,10 +220,12 @@ A typical Jira server configuration in the *project.config* file will look like:
     [commentlink "its-jira"]
          match = ([A-Z]+-[0-9]+)
          link = http://jiraserver:8075/browse/$1
+```
 
 A different project could define its own Jira server in its *project.config*
 file:
 
+```ini
     [plugin "its-jira"]
          enabled = true
          instanceUrl = http://other_jiraserver:7171/
@@ -224,6 +235,7 @@ file:
     [commentlink "its-jira"]
          match = (JIRA-ISSUE:[0-9]+)
          link = http://other_jiraserver:7171/browse/$1
+```
 
 In case its-jira plugin is enabled for a project but no Jira server is configured
 for the project, i.e., it is not specified in the *project.config* file, the
@@ -255,6 +267,6 @@ tag is created in the Gerrit project.
 
 Example with the event property `ref`:
 
-```
+```ini
   action = mark-property-as-released-version ref
 ```
