@@ -54,10 +54,10 @@ Comment links
 -------------
 
 Git commits are associated to Jira issues reusing the existing Gerrit
-[commitLink configuration][1] to extract the issue-id from the commit
+[commentLink configuration][1] to extract the issue-id from the commit
 messages.
 
-[1]: ../../../Documentation/config-gerrit.html#__a_id_commentlink_a_section_commentlink
+[1]: ../../../Documentation/config-gerrit.html#commentlink
 
 Additionally you need to specify the enforcement policy for git commits
 with regards to issue-tracker associations; the following values are supported:
