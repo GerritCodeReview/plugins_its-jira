@@ -15,12 +15,15 @@
 package com.googlesource.gerrit.plugins.its.jira;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.matchingJsonPath;
 import static com.github.tomakehurst.wiremock.client.WireMock.noContent;
 import static com.github.tomakehurst.wiremock.client.WireMock.ok;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static java.lang.String.format;
 import static java.net.HttpURLConnection.HTTP_CREATED;
 import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
@@ -70,7 +73,7 @@ public class JiraITTest extends LightweightPluginDaemonTest {
 
   private Path its_dir;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(options().port(PORT));
   @Inject private ProjectOperations projectOperations;
 
   @Override
@@ -213,6 +216,30 @@ public class JiraITTest extends LightweightPluginDaemonTest {
     verifyIssueCall();
   }
 
+  @Test
+  @GerritConfig(name = COMMENT_SECTION + ".match", value = "([A-Z]+-[0-9]+)")
+  @GerritConfig(
+      name = COMMENT_SECTION + ".html",
+      value = "<a href=\"" + URL + "/browse/$1\">$1</a>")
+  @GerritConfig(name = COMMENT_SECTION + ".association", value = "SUGGESTED")
+  @GerritConfig(name = PLUGIN_NAME + ".url", value = URL)
+  @GerritConfig(name = PLUGIN_NAME + ".username", value = "user")
+  @GerritConfig(name = PLUGIN_NAME + ".password", value = "pass")
+  @GerritConfig(name = PLUGIN_NAME + ".visibilityType", value = "group")
+  @GerritConfig(name = PLUGIN_NAME + ".visibilityValue", value = "AllDev")
+  public void testIssueWithVisibility() throws Exception {
+    createItsRulesConfigWithComment();
+    mockServerCall();
+    mockCommentCall();
+    wireMockRule.givenThat(
+        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE)).willReturn(ok()));
+
+    createChangeWithIssue();
+
+    verifyIssueCall();
+    verifyCommentCallWithVisibility();
+  }
+
   private void mockServerCall() {
     wireMockRule.resetRequests();
     wireMockRule.givenThat(
@@ -256,6 +283,14 @@ public class JiraITTest extends LightweightPluginDaemonTest {
     wireMockRule.verify(
         postRequestedFor(
             urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE + COMMENT_CLASS_PREFIX)));
+  }
+
+  private void verifyCommentCallWithVisibility() {
+    wireMockRule.verify(
+        postRequestedFor(
+                urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE + COMMENT_CLASS_PREFIX))
+            .withRequestBody(matchingJsonPath("$.visibility.type", equalTo("group")))
+            .withRequestBody(matchingJsonPath("$.visibility.value", equalTo("AllDev"))));
   }
 
   private void createChangeWithIssue() throws Exception {

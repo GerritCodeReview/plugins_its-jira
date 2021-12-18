@@ -99,7 +99,10 @@ public class JiraClient {
       log.debug("Trying to add comment for issue {}", issueKey);
       apiBuilder
           .getIssue(server)
-          .doPost(issueKey + "/comment", gson.toJson(new JiraComment(comment)), HTTP_CREATED);
+          .doPost(
+              issueKey + "/comment",
+              gson.toJson(new JiraComment(comment, server.getVisibility())),
+              HTTP_CREATED);
       log.debug("Comment added to issue {}", issueKey);
     } else {
       log.error("Issue {} does not exist or no access permission", issueKey);
