@@ -135,7 +135,7 @@ public class JiraConfig {
         config.addCommentLinkSection(commentlinkSection);
         md.getCommitBuilder().setAuthor(serverUser);
         md.getCommitBuilder().setCommitter(serverUser);
-        projectCache.evict(config.getProject());
+        projectCache.evict(config.getProject().getNameKey());
         config.commit(md);
       }
     } catch (ConfigInvalidException | IOException e) {
