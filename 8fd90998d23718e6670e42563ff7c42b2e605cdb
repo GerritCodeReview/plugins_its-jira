@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ac8aa54_130a01e2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-12-18T02:57:49Z",
+      "side": 1,
+      "message": "Not sure reindex is needed here: we are not changing any meta-data of the project for searching it.",
+      "range": {
+        "startLine": 138,
+        "startChar": 26,
+        "endLine": 138,
+        "endChar": 36
+      },
+      "revId": "8fd90998d23718e6670e42563ff7c42b2e605cdb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
