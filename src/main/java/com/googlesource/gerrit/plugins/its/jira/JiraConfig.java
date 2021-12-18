@@ -33,6 +33,7 @@ import com.google.gerrit.server.project.ProjectConfig;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraURL;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraVisibilityType;
 import java.io.IOException;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Config;
@@ -47,12 +48,16 @@ public class JiraConfig {
   static final String PROJECT_CONFIG_URL_KEY = "instanceUrl";
   static final String PROJECT_CONFIG_USERNAME_KEY = "username";
   static final String PROJECT_CONFIG_PASSWORD_KEY = "password";
+  static final String PROJECT_CONFIG_COMMENT_VISIBILITY_TYPE = "visibilityType";
+  static final String PROJECT_CONFIG_COMMENT_VISIBILITY_VALUE = "visibilityValue";
 
   private static final Logger log = LoggerFactory.getLogger(JiraConfig.class);
   private static final String COMMENTLINK = "commentlink";
   private static final String GERRIT_CONFIG_URL = "url";
   private static final String GERRIT_CONFIG_USERNAME = "username";
   private static final String GERRIT_CONFIG_PASSWORD = "password";
+  private static final String GERRIT_CONFIG_COMMENT_VISIBILITY_TYPE = "visibilityType";
+  private static final String GERRIT_CONFIG_COMMENT_VISIBILITY_VALUE = "visibilityValue";
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
@@ -87,6 +92,10 @@ public class JiraConfig {
         .url(gerritConfig.getString(pluginName, null, GERRIT_CONFIG_URL))
         .username(gerritConfig.getString(pluginName, null, GERRIT_CONFIG_USERNAME))
         .password(gerritConfig.getString(pluginName, null, GERRIT_CONFIG_PASSWORD))
+        .visibility(
+            gerritConfig.getEnum(
+                pluginName, null, GERRIT_CONFIG_COMMENT_VISIBILITY_TYPE, JiraVisibilityType.NOTSET),
+            gerritConfig.getString(pluginName, null, GERRIT_CONFIG_COMMENT_VISIBILITY_VALUE))
         .build();
   }
 
@@ -104,6 +113,12 @@ public class JiraConfig {
         .url(pluginConfig.getString(PROJECT_CONFIG_URL_KEY, null))
         .username(pluginConfig.getString(PROJECT_CONFIG_USERNAME_KEY, null))
         .password(pluginConfig.getString(PROJECT_CONFIG_PASSWORD_KEY, null))
+        .visibility(
+            pluginConfig.getEnum(
+                JiraVisibilityType.values(),
+                PROJECT_CONFIG_COMMENT_VISIBILITY_TYPE,
+                JiraVisibilityType.NOTSET),
+            pluginConfig.getString(PROJECT_CONFIG_COMMENT_VISIBILITY_VALUE, null))
         .build();
   }
 
@@ -124,7 +139,7 @@ public class JiraConfig {
         config.addCommentLinkSection(commentlinkSection);
         md.getCommitBuilder().setAuthor(serverUser);
         md.getCommitBuilder().setCommitter(serverUser);
-        projectCache.evict(config.getProject());
+        projectCache.evict(config.getProject().getNameKey());
         config.commit(md);
       }
     } catch (ConfigInvalidException | IOException e) {
