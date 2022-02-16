@@ -15,22 +15,24 @@
 
 package com.googlesource.gerrit.plugins.its.jira;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraURL;
 import java.net.MalformedURLException;
+import java.time.Duration;
 
 public class JiraItsServerInfo {
   public static class Builder {
     private JiraItsServerInfo instance = new JiraItsServerInfo();
+    private String projectUrl;
+    private Duration connectTimeout;
+    private Duration readTimeout;
 
     private Builder() {}
 
     public Builder url(String projectUrl) {
-      try {
-        instance.url = projectUrl != null ? new JiraURL(projectUrl) : null;
-        return this;
-      } catch (MalformedURLException e) {
-        throw new IllegalArgumentException("Unable to resolve URL", e);
-      }
+      this.projectUrl = projectUrl;
+      return this;
     }
 
     public Builder username(String username) {
@@ -43,8 +45,26 @@ public class JiraItsServerInfo {
       return this;
     }
 
+    public Builder connectTimeout(Duration timeout) {
+      this.connectTimeout = timeout;
+      return this;
+    }
+
+    public Builder readTimeout(Duration timeout) {
+      this.readTimeout = timeout;
+      return this;
+    }
+
     public JiraItsServerInfo build() {
-      return instance;
+      try {
+        checkNotNull(connectTimeout, "Missing connection timeout");
+        checkNotNull(readTimeout, "Missing read timeout");
+        instance.url =
+            projectUrl != null ? new JiraURL(projectUrl, connectTimeout, readTimeout) : null;
+        return instance;
+      } catch (MalformedURLException e) {
+        throw new IllegalArgumentException("Unable to resolve URL", e);
+      }
     }
   }
 

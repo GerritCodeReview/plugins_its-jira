@@ -22,6 +22,7 @@ import static org.mockito.Mockito.*;
 import java.io.ByteArrayOutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.time.Duration;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -33,12 +34,14 @@ public class JiraRestApiTest {
   private static final String JSON_PAYLOAD = "{}";
   private static final String USERNAME = "user";
   private static final String PASSWORD = "pass";
+  private static final Duration CONNECTION_TIMEOUT = Duration.ofSeconds(30);
+  private static final Duration READ_TIMEOUT = Duration.ofSeconds(30);
 
   private JiraURL url;
   private JiraRestApi restApi;
 
   private void setURL(String jiraUrl) throws MalformedURLException {
-    url = new JiraURL(jiraUrl);
+    url = new JiraURL(jiraUrl, CONNECTION_TIMEOUT, READ_TIMEOUT);
   }
 
   @Test
