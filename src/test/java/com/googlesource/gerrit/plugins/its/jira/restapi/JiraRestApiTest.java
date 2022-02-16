@@ -22,6 +22,7 @@ import static org.mockito.Mockito.*;
 import java.io.ByteArrayOutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.time.Duration;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -33,17 +34,20 @@ public class JiraRestApiTest {
   private static final String JSON_PAYLOAD = "{}";
   private static final String USERNAME = "user";
   private static final String PASSWORD = "pass";
+  private static final Duration CONNECTION_TIMEOUT = Duration.ofSeconds(30);
+  private static final Duration READ_TIMEOUT = Duration.ofSeconds(30);
 
   private JiraURL url;
   private JiraRestApi restApi;
 
-  private void setURL(String jiraUrl) throws MalformedURLException {
-    url = new JiraURL(jiraUrl);
+  private void setURL(String jiraUrl, Duration connectionTimeout, Duration readTimeout)
+      throws MalformedURLException {
+    url = new JiraURL(jiraUrl, connectionTimeout, readTimeout);
   }
 
   @Test
   public void testJiraServerInfoForNonRootJiraUrl() throws Exception {
-    setURL("http://jira.mycompany.com/myroot/");
+    setURL("http://jira.mycompany.com/myroot/", CONNECTION_TIMEOUT, READ_TIMEOUT);
     restApi = new JiraRestApi(url, USERNAME, PASSWORD, JiraIssue.class, ISSUE_CLASS_PREFIX);
     String jiraApiUrl = restApi.getBaseUrl().toString();
     assertThat(jiraApiUrl).startsWith(url.toString());
@@ -51,7 +55,7 @@ public class JiraRestApiTest {
 
   @Test
   public void testJiraServerInfoForNonRootJiraUrlNotEndingWithSlash() throws Exception {
-    setURL("http://jira.mycompany.com/myroot");
+    setURL("http://jira.mycompany.com/myroot", CONNECTION_TIMEOUT, READ_TIMEOUT);
     restApi = new JiraRestApi(url, USERNAME, PASSWORD, JiraIssue.class, ISSUE_CLASS_PREFIX);
     String jiraApiUrl = restApi.getBaseUrl().toString();
     assertThat(jiraApiUrl).startsWith(url.toString());
@@ -59,10 +63,21 @@ public class JiraRestApiTest {
 
   @Test
   public void testJiraServerInfoForRootJiraUrl() throws Exception {
-    setURL("http://jira.mycompany.com/myroot");
+    setURL("http://jira.mycompany.com/myroot", CONNECTION_TIMEOUT, READ_TIMEOUT);
     restApi = new JiraRestApi(url, USERNAME, PASSWORD, JiraIssue.class, ISSUE_CLASS_PREFIX);
     String jiraApiUrl = restApi.getBaseUrl().toString();
     assertThat(jiraApiUrl).startsWith(url.toString());
+  }
+
+  @Test
+  public void testJiraServerInfoWithTimeouts() throws Exception {
+    Duration connectionTimeout = Duration.ofSeconds(500L);
+    Duration readTimeout = Duration.ofMillis(10L);
+    setURL("http://jira.mycompany.com/myroot", connectionTimeout, readTimeout);
+    restApi = new JiraRestApi(url, USERNAME, PASSWORD, JiraIssue.class, ISSUE_CLASS_PREFIX);
+    HttpURLConnection httpConnection = restApi.openConnection("/", "GET", false);
+    assertThat(httpConnection.getConnectTimeout()).isEqualTo(connectionTimeout.toMillis());
+    assertThat(httpConnection.getReadTimeout()).isEqualTo(readTimeout.toMillis());
   }
 
   @Test

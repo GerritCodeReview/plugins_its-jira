@@ -101,6 +101,24 @@ Example:
 
 Jira credentials and connectivity details are asked and verified during the Gerrit init.
 
+Timeouts
+--------
+
+The HTTP connection and read timeouts are configurable in every place where the Jira URL is specified,
+either in the `gerrit.config` or `project.config`, whichever has the precedence.
+
+`connectTimeout`
+:	Timeout period for making a new HTTP connection to the Jira URL.
+	The value is in the usual time-unit format like "1 s", "100 ms", etc.
+	By default `2 minutes`.
+
+`readTimeout`
+:	The read timeout for the HTTP operation to complete.
+	The value is in the usual time-unit format like "1 s", "100 ms", etc.
+	A timeout can be used to avoid blocking all of the incoming Git receive-packs threads in case
+	Jira server becomes slow.
+	By default `30 seconds`.
+
 Gerrit init integration
 -----------------------
 

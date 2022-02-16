@@ -37,7 +37,7 @@ class JiraUrlProjectConfigEntry extends ProjectConfigEntry {
   public ConfigValue preUpdate(ConfigValue configValue) {
     if (configValue.value != null && !configValue.value.isEmpty()) {
       try {
-        new JiraURL(configValue.value);
+        JiraURL.validateUrl(configValue.value);
       } catch (MalformedURLException e) {
         configValue.value = INVALID_URL_MSG;
       }
