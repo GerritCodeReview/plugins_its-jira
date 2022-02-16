@@ -70,7 +70,7 @@ public class JiraRestApi<T> {
    * @throws IOException generated if unexpected failCode is returned
    */
   public T doGet(String spec, int passCode, int[] failCodes) throws IOException {
-    HttpURLConnection conn = prepHttpConnection(spec, "GET", false);
+    HttpURLConnection conn = openConnection(spec, "GET", false);
     try {
       if (validateResponse(conn, passCode, failCodes)) {
         readIncomingData(conn);
@@ -99,18 +99,8 @@ public class JiraRestApi<T> {
     return sendPayload("PUT", spec, jsonInput, passCode);
   }
 
-  private boolean sendPayload(String method, String spec, String jsonInput, int passCode)
-      throws IOException {
-    HttpURLConnection conn = prepHttpConnection(spec, method, true);
-    try {
-      writeBodyData(jsonInput, conn);
-      return validateResponse(conn, passCode, null);
-    } finally {
-      conn.disconnect();
-    }
-  }
-
-  private HttpURLConnection prepHttpConnection(String spec, String method, boolean withPayload)
+  /** Open an HTTP connection with the Jira's endpoint URL. */
+  public HttpURLConnection openConnection(String spec, String method, boolean withPayload)
       throws IOException {
     JiraURL url = baseUrl.withSpec(spec);
     ProxySelector proxySelector = ProxySelector.getDefault();
@@ -123,6 +113,17 @@ public class JiraRestApi<T> {
       conn.setDoOutput(true);
     }
     return conn;
+  }
+
+  private boolean sendPayload(String method, String spec, String jsonInput, int passCode)
+      throws IOException {
+    HttpURLConnection conn = openConnection(spec, method, true);
+    try {
+      writeBodyData(jsonInput, conn);
+      return validateResponse(conn, passCode, null);
+    } finally {
+      conn.disconnect();
+    }
   }
 
   /** Write the data to the HTTP connection. */

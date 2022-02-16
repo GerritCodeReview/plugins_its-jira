@@ -23,6 +23,7 @@ import java.net.MalformedURLException;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.net.URL;
+import java.time.Duration;
 import java.util.Objects;
 import org.eclipse.jgit.util.HttpSupport;
 import org.slf4j.Logger;
@@ -36,18 +37,31 @@ public class JiraURL {
 
   private final URL url;
 
-  public JiraURL(String spec) throws MalformedURLException {
-    this.url = new URL(CharMatcher.is('/').trimFrom(spec) + "/");
+  private final int connectionTimeoutMs;
+
+  private final int readTimeoutMs;
+
+  public static URL validateUrl(String spec) throws MalformedURLException {
+    return new URL(CharMatcher.is('/').trimFrom(spec) + "/");
   }
 
-  private JiraURL(URL url) {
+  public JiraURL(String spec, Duration connectionTimeout, Duration readTimeout)
+      throws MalformedURLException {
+    this.url = validateUrl(spec);
+    this.connectionTimeoutMs = (int) connectionTimeout.toMillis();
+    this.readTimeoutMs = (int) readTimeout.toMillis();
+  }
+
+  private JiraURL(URL url, int connectionTimeoutMs, int readTimeoutMs) {
     this.url = requireNonNull(url);
+    this.connectionTimeoutMs = connectionTimeoutMs;
+    this.readTimeoutMs = readTimeoutMs;
   }
 
   public JiraURL resolveUrl(String... paths) {
     String relativePath = String.join("", paths);
     try {
-      return new JiraURL(new URL(url, relativePath));
+      return new JiraURL(new URL(url, relativePath), connectionTimeoutMs, readTimeoutMs);
     } catch (MalformedURLException e) {
       log.error("Unexpected exception while composing URL {} with path {}", url, relativePath, e);
       throw new IllegalArgumentException(e);
@@ -63,12 +77,15 @@ public class JiraURL {
   }
 
   public JiraURL withSpec(String spec) throws MalformedURLException {
-    return new JiraURL(new URL(url, spec));
+    return new JiraURL(new URL(url, spec), connectionTimeoutMs, readTimeoutMs);
   }
 
   public HttpURLConnection openConnection(ProxySelector proxySelector) throws IOException {
     Proxy proxy = HttpSupport.proxyFor(proxySelector, url);
-    return (HttpURLConnection) url.openConnection(proxy);
+    HttpURLConnection conn = (HttpURLConnection) url.openConnection(proxy);
+    conn.setConnectTimeout(connectionTimeoutMs);
+    conn.setReadTimeout(readTimeoutMs);
+    return conn;
   }
 
   public String getPath() {
