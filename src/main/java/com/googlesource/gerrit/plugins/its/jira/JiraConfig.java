@@ -21,6 +21,7 @@ import com.google.gerrit.entities.Project;
 import com.google.gerrit.entities.StoredCommentLinkInfo;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.GerritPersonIdent;
+import com.google.gerrit.server.config.ConfigUtil;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -35,6 +36,8 @@ import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraURL;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraVisibilityType;
 import java.io.IOException;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.PersonIdent;
@@ -58,6 +61,10 @@ public class JiraConfig {
   private static final String GERRIT_CONFIG_PASSWORD = "password";
   private static final String GERRIT_CONFIG_COMMENT_VISIBILITY_TYPE = "visibilityType";
   private static final String GERRIT_CONFIG_COMMENT_VISIBILITY_VALUE = "visibilityValue";
+  public static final String GERRIT_CONFIG_CONNECT_TIMEOUT = "connectTimeout";
+  public static final Duration GERRIT_CONFIG_CONNECT_TIMEOUT_DEFAULT = Duration.ofMinutes(2);
+  public static final String GERRIT_CONFIG_READ_TIMEOUT = "readTimeout";
+  public static final Duration GERRIT_CONFIG_READ_TIMEOUT_DEFAULT = Duration.ofSeconds(30);
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
@@ -96,7 +103,31 @@ public class JiraConfig {
             gerritConfig.getEnum(
                 pluginName, null, GERRIT_CONFIG_COMMENT_VISIBILITY_TYPE, JiraVisibilityType.NOTSET),
             gerritConfig.getString(pluginName, null, GERRIT_CONFIG_COMMENT_VISIBILITY_VALUE))
+        .connectTimeout(
+            getDurationFromConfig(
+                gerritConfig,
+                pluginName,
+                GERRIT_CONFIG_CONNECT_TIMEOUT,
+                GERRIT_CONFIG_CONNECT_TIMEOUT_DEFAULT))
+        .readTimeout(
+            getDurationFromConfig(
+                gerritConfig,
+                pluginName,
+                GERRIT_CONFIG_READ_TIMEOUT,
+                GERRIT_CONFIG_READ_TIMEOUT_DEFAULT))
         .build();
+  }
+
+  private static Duration getDurationFromConfig(
+      Config gerritConfig, String pluginName, String setting, Duration defaultDuration) {
+    return Duration.ofMillis(
+        ConfigUtil.getTimeUnit(
+            gerritConfig,
+            "plugin",
+            pluginName,
+            setting,
+            defaultDuration.toMillis(),
+            TimeUnit.MILLISECONDS));
   }
 
   JiraItsServerInfo getDefaultServerInfo() {
@@ -119,7 +150,22 @@ public class JiraConfig {
                 PROJECT_CONFIG_COMMENT_VISIBILITY_TYPE,
                 JiraVisibilityType.NOTSET),
             pluginConfig.getString(PROJECT_CONFIG_COMMENT_VISIBILITY_VALUE, null))
+        .connectTimeout(
+            getDurationFromConfig(
+                pluginConfig, GERRIT_CONFIG_CONNECT_TIMEOUT, GERRIT_CONFIG_CONNECT_TIMEOUT_DEFAULT))
+        .readTimeout(
+            getDurationFromConfig(
+                pluginConfig, GERRIT_CONFIG_READ_TIMEOUT, GERRIT_CONFIG_READ_TIMEOUT_DEFAULT))
         .build();
+  }
+
+  private static Duration getDurationFromConfig(
+      PluginConfig pluginConfig, String setting, Duration defaultDuration) {
+    return Duration.ofMillis(
+        ConfigUtil.getTimeUnit(
+            pluginConfig.getString(setting, ""),
+            defaultDuration.toMillis(),
+            TimeUnit.MILLISECONDS));
   }
 
   void addCommentLinksSection(Project.NameKey projectName, JiraItsServerInfo jiraItsServerInfo) {

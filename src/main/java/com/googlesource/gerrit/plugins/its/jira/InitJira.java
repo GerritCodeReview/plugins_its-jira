@@ -21,6 +21,7 @@ import com.google.gerrit.pgm.init.api.AllProjectsNameOnInitProvider;
 import com.google.gerrit.pgm.init.api.ConsoleUI;
 import com.google.gerrit.pgm.init.api.InitFlags;
 import com.google.gerrit.pgm.init.api.Section;
+import com.google.gerrit.server.config.ConfigUtil;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.its.base.its.InitIts;
@@ -30,7 +31,9 @@ import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfoRestApi;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraURL;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.time.Duration;
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 
 /** Initialize the GitRepositoryManager configuration section. */
@@ -43,6 +46,8 @@ class InitJira extends InitIts {
   private JiraURL jiraUrl;
   private String jiraUsername;
   private String jiraPassword;
+  private String jiraConnectionTimeout;
+  private String jiraReadTimeout;
 
   @Inject
   InitJira(
@@ -123,9 +128,24 @@ class InitJira extends InitIts {
   public void enterJiraConnectivity() throws MalformedURLException {
     String jiraUrlString = jira.string("Jira URL (empty to skip)", "url", null);
     if (jiraUrlString != null) {
-      jiraUrl = new JiraURL(jiraUrlString);
       jiraUsername = jira.string("Jira username", "username", "");
       jiraPassword = jira.password("username", "password");
+      jiraConnectionTimeout =
+          jira.string(
+              "Connection timeout",
+              JiraConfig.GERRIT_CONFIG_CONNECT_TIMEOUT,
+              JiraConfig.GERRIT_CONFIG_CONNECT_TIMEOUT_DEFAULT.toString());
+      jiraReadTimeout =
+          jira.string(
+              "Read timeout",
+              JiraConfig.GERRIT_CONFIG_READ_TIMEOUT,
+              JiraConfig.GERRIT_CONFIG_READ_TIMEOUT_DEFAULT.toString());
+      jiraUrl =
+          new JiraURL(
+              jiraUrlString,
+              Duration.ofMillis(
+                  ConfigUtil.getTimeUnit(jiraConnectionTimeout, 0, TimeUnit.MILLISECONDS)),
+              Duration.ofMillis(ConfigUtil.getTimeUnit(jiraReadTimeout, 0, TimeUnit.MILLISECONDS)));
     }
   }
 
