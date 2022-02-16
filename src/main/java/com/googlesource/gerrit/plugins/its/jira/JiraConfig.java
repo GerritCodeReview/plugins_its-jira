@@ -20,6 +20,7 @@ import com.google.common.base.Strings;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.GerritPersonIdent;
+import com.google.gerrit.server.config.ConfigUtil;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -34,6 +35,8 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraURL;
 import java.io.IOException;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.PersonIdent;
@@ -53,6 +56,10 @@ public class JiraConfig {
   private static final String GERRIT_CONFIG_URL = "url";
   private static final String GERRIT_CONFIG_USERNAME = "username";
   private static final String GERRIT_CONFIG_PASSWORD = "password";
+  private static final String GERRIT_CONFIG_CONNECT_TIMEOUT = "connectTimeout";
+  private static final Duration GERRIT_CONFIG_CONNECT_TIMEOUT_DEFAULT = Duration.ofMinutes(2);
+  private static final String GERRIT_CONFIG_READ_TIMEOUT = "readTimeout";
+  private static final Duration GERRIT_CONFIG_READ_TIMEOUT_DEFAULT = Duration.ofSeconds(30);
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
@@ -84,7 +91,31 @@ public class JiraConfig {
         .url(gerritConfig.getString(pluginName, null, GERRIT_CONFIG_URL))
         .username(gerritConfig.getString(pluginName, null, GERRIT_CONFIG_USERNAME))
         .password(gerritConfig.getString(pluginName, null, GERRIT_CONFIG_PASSWORD))
+        .connectTimeout(
+            getDurationFromConfig(
+                gerritConfig,
+                pluginName,
+                GERRIT_CONFIG_CONNECT_TIMEOUT,
+                GERRIT_CONFIG_CONNECT_TIMEOUT_DEFAULT))
+        .connectTimeout(
+            getDurationFromConfig(
+                gerritConfig,
+                pluginName,
+                GERRIT_CONFIG_READ_TIMEOUT,
+                GERRIT_CONFIG_READ_TIMEOUT_DEFAULT))
         .build();
+  }
+
+  private static Duration getDurationFromConfig(
+      Config gerritConfig, String pluginName, String setting, Duration defaultDuration) {
+    return Duration.ofMillis(
+        ConfigUtil.getTimeUnit(
+            gerritConfig,
+            "plugin",
+            pluginName,
+            setting,
+            defaultDuration.toMillis(),
+            TimeUnit.MILLISECONDS));
   }
 
   JiraItsServerInfo getDefaultServerInfo() {
@@ -101,7 +132,22 @@ public class JiraConfig {
         .url(pluginConfig.getString(PROJECT_CONFIG_URL_KEY, null))
         .username(pluginConfig.getString(PROJECT_CONFIG_USERNAME_KEY, null))
         .password(pluginConfig.getString(PROJECT_CONFIG_PASSWORD_KEY, null))
+        .connectTimeout(
+            getDurationFromConfig(
+                pluginConfig, GERRIT_CONFIG_CONNECT_TIMEOUT, GERRIT_CONFIG_CONNECT_TIMEOUT_DEFAULT))
+        .connectTimeout(
+            getDurationFromConfig(
+                pluginConfig, GERRIT_CONFIG_READ_TIMEOUT, GERRIT_CONFIG_READ_TIMEOUT_DEFAULT))
         .build();
+  }
+
+  private static Duration getDurationFromConfig(
+      PluginConfig pluginConfig, String setting, Duration defaultDuration) {
+    return Duration.ofMillis(
+        ConfigUtil.getTimeUnit(
+            pluginConfig.getString(setting, ""),
+            defaultDuration.toMillis(),
+            TimeUnit.MILLISECONDS));
   }
 
   void addCommentLinksSection(Project.NameKey projectName, JiraItsServerInfo jiraItsServerInfo) {

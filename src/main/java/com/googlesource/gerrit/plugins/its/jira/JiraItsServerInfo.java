@@ -17,6 +17,7 @@ package com.googlesource.gerrit.plugins.its.jira;
 
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraURL;
 import java.net.MalformedURLException;
+import java.time.Duration;
 
 public class JiraItsServerInfo {
   public static class Builder {
@@ -43,6 +44,16 @@ public class JiraItsServerInfo {
       return this;
     }
 
+    public Builder connectTimeout(Duration timeout) {
+      instance.connectTimeout = timeout;
+      return this;
+    }
+
+    public Builder readTimeout(Duration timeout) {
+      instance.readTimeout = timeout;
+      return this;
+    }
+
     public JiraItsServerInfo build() {
       return instance;
     }
@@ -51,6 +62,8 @@ public class JiraItsServerInfo {
   private JiraURL url;
   private String username;
   private String password;
+  private Duration connectTimeout;
+  private Duration readTimeout;
 
   public static Builder builder() {
     return new JiraItsServerInfo.Builder();
@@ -66,6 +79,14 @@ public class JiraItsServerInfo {
 
   public String getPassword() {
     return password;
+  }
+
+  public Duration getConnectTimeout() {
+    return connectTimeout;
+  }
+
+  public Duration getReadTimeout() {
+    return readTimeout;
   }
 
   public boolean isValid() {
