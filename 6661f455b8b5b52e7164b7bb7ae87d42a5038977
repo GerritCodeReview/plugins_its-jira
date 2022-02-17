@@ -65,6 +65,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2303ebac_9ab612f1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-02-17T17:57:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "feda26c8_95ba783b",
+      "range": {
+        "startLine": 137,
+        "startChar": 14,
+        "endLine": 137,
+        "endChar": 83
+      },
+      "revId": "6661f455b8b5b52e7164b7bb7ae87d42a5038977",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "945d47ce_24c2f175",
@@ -135,6 +159,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61b68a6f_f6ca5d45",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraUrlProjectConfigEntry.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-02-17T17:57:58Z",
+      "side": 1,
+      "message": "Yes, the method only wants to validate the URL and we don\u0027t want to pass all the timeouts as we were trying to really create a connection. Hence I just introduced the validation so that I can avoid passing the unneeded parameters.",
+      "parentUuid": "28a8992c_f42246b8",
+      "range": {
+        "startLine": 40,
+        "startChar": 16,
+        "endLine": 40,
+        "endChar": 27
+      },
+      "revId": "6661f455b8b5b52e7164b7bb7ae87d42a5038977",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b03b35ed_17a05d58",
@@ -172,6 +220,30 @@
       "side": 1,
       "message": "I made the method public, hence gave a more representative name of what it does. I believe it is relevant.",
       "parentUuid": "b03b35ed_17a05d58",
+      "range": {
+        "startLine": 73,
+        "startChar": 29,
+        "endLine": 73,
+        "endChar": 33
+      },
+      "revId": "6661f455b8b5b52e7164b7bb7ae87d42a5038977",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b65863e4_7edbd6c2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-02-17T17:57:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5fde5efd_0127135b",
       "range": {
         "startLine": 73,
         "startChar": 29,
