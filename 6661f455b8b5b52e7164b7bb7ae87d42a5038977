@@ -16,6 +16,121 @@
       "message": "Tested E2E with Jira and working.",
       "revId": "6661f455b8b5b52e7164b7bb7ae87d42a5038977",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f44f5ea_8826f77b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2022-02-17T16:34:15Z",
+      "side": 1,
+      "message": "is that correct to put default in seconds and then in L147 get it in milliseconds?",
+      "range": {
+        "startLine": 137,
+        "startChar": 14,
+        "endLine": 137,
+        "endChar": 83
+      },
+      "revId": "6661f455b8b5b52e7164b7bb7ae87d42a5038977",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "945d47ce_24c2f175",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2022-02-17T16:34:15Z",
+      "side": 1,
+      "message": "why we have default here and in InitJira as well?",
+      "range": {
+        "startLine": 111,
+        "startChar": 16,
+        "endLine": 111,
+        "endChar": 53
+      },
+      "revId": "6661f455b8b5b52e7164b7bb7ae87d42a5038977",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28a8992c_f42246b8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraUrlProjectConfigEntry.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2022-02-17T16:34:15Z",
+      "side": 1,
+      "message": "is this related?",
+      "range": {
+        "startLine": 40,
+        "startChar": 16,
+        "endLine": 40,
+        "endChar": 27
+      },
+      "revId": "6661f455b8b5b52e7164b7bb7ae87d42a5038977",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b03b35ed_17a05d58",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2022-02-17T16:34:15Z",
+      "side": 1,
+      "message": "is this related?",
+      "range": {
+        "startLine": 73,
+        "startChar": 29,
+        "endLine": 73,
+        "endChar": 33
+      },
+      "revId": "6661f455b8b5b52e7164b7bb7ae87d42a5038977",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "011cb3af_626c4540",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1083454
+      },
+      "writtenOn": "2022-02-17T16:34:15Z",
+      "side": 1,
+      "message": "why the order of the methods was changed?",
+      "range": {
+        "startLine": 118,
+        "startChar": 18,
+        "endLine": 118,
+        "endChar": 29
+      },
+      "revId": "6661f455b8b5b52e7164b7bb7ae87d42a5038977",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
