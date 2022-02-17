@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "feda26c8_95ba783b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-02-17T17:53:59Z",
+      "side": 1,
+      "message": "True, it would be best to keep them consistent and show them in millisecs, point taken.",
+      "parentUuid": "9f44f5ea_8826f77b",
+      "range": {
+        "startLine": 137,
+        "startChar": 14,
+        "endLine": 137,
+        "endChar": 83
+      },
+      "revId": "6661f455b8b5b52e7164b7bb7ae87d42a5038977",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "945d47ce_24c2f175",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
         "patchSetId": 6
@@ -54,6 +78,30 @@
       "writtenOn": "2022-02-17T16:34:15Z",
       "side": 1,
       "message": "why we have default here and in InitJira as well?",
+      "range": {
+        "startLine": 111,
+        "startChar": 16,
+        "endLine": 111,
+        "endChar": 53
+      },
+      "revId": "6661f455b8b5b52e7164b7bb7ae87d42a5038977",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6199a57_c7d9104f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/JiraConfig.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-02-17T17:53:59Z",
+      "side": 1,
+      "message": "The InitJira step would store values on gerrit.config, whilst this default is if you don\u0027t have values in gerrit.config.",
+      "parentUuid": "945d47ce_24c2f175",
       "range": {
         "startLine": 111,
         "startChar": 16,
@@ -112,6 +160,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5fde5efd_0127135b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-02-17T17:53:59Z",
+      "side": 1,
+      "message": "I made the method public, hence gave a more representative name of what it does. I believe it is relevant.",
+      "parentUuid": "b03b35ed_17a05d58",
+      "range": {
+        "startLine": 73,
+        "startChar": 29,
+        "endLine": 73,
+        "endChar": 33
+      },
+      "revId": "6661f455b8b5b52e7164b7bb7ae87d42a5038977",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "011cb3af_626c4540",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
         "patchSetId": 6
@@ -123,6 +195,30 @@
       "writtenOn": "2022-02-17T16:34:15Z",
       "side": 1,
       "message": "why the order of the methods was changed?",
+      "range": {
+        "startLine": 118,
+        "startChar": 18,
+        "endLine": 118,
+        "endChar": 29
+      },
+      "revId": "6661f455b8b5b52e7164b7bb7ae87d42a5038977",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca61de8e_4907eb7d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-02-17T17:53:59Z",
+      "side": 1,
+      "message": "Because public methods are coming before the private ones.",
+      "parentUuid": "011cb3af_626c4540",
       "range": {
         "startLine": 118,
         "startChar": 18,
