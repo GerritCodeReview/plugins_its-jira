@@ -26,6 +26,7 @@ import com.googlesource.gerrit.plugins.its.base.its.InvalidTransitionException;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraComment;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraIssue;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraIssueUpdate;
+import com.googlesource.gerrit.plugins.its.jira.restapi.JiraIssueWebLinkUpdate;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraPageRequest;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraProject;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraRestApi;
@@ -104,6 +105,25 @@ public class JiraClient {
               gson.toJson(new JiraComment(comment, server.getVisibility())),
               HTTP_CREATED);
       log.debug("Comment added to issue {}", issueKey);
+    } else {
+      log.error("Issue {} does not exist or no access permission", issueKey);
+    }
+  }
+
+  public void addIssueWebLink(
+      JiraItsServerInfo server, String issueKey, String id, String url, String title)
+      throws IOException {
+
+    if (issueExists(server, issueKey)) {
+      log.debug("Trying to add web link with id {} url {} title {}", id, url, title);
+      System.out.println(gson.toJson(JiraIssueWebLinkUpdate.getUpdate(id, url, title)));
+      apiBuilder
+          .getIssue(server)
+          .doPost(
+              issueKey + "/remotelink",
+              gson.toJson(JiraIssueWebLinkUpdate.getUpdate(id, url, title)),
+              HTTP_CREATED);
+      log.debug("Link added to issue {}", issueKey);
     } else {
       log.error("Issue {} does not exist or no access permission", issueKey);
     }

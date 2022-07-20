@@ -274,6 +274,22 @@ encryption for this information.
 Specific actions
 ----------------
 
+### add-issue-remote-link
+
+The `add-issue-remote-link` action adds a web link into the issue in JIRA. The
+action can be invoked multiple times and will create a single link per the id,
+while updating the title if necessary.
+
+```ini
+  action = add-issue-remote-link id-attr url-attr title-attr
+```
+
+Common use case is the following:
+
+```ini
+  action = add-issue-remote-link changeUrl changeUrl subject
+```
+
 ### mark-property-as-released-version
 
 The `mark-property-as-released-version` action marks a version as released in
