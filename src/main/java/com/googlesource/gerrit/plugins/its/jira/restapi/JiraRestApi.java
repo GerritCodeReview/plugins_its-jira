@@ -72,7 +72,7 @@ public class JiraRestApi<T> {
   public T doGet(String spec, int passCode, int[] failCodes) throws IOException {
     HttpURLConnection conn = openConnection(spec, "GET", false);
     try {
-      if (validateResponse(conn, passCode, failCodes)) {
+      if (validateResponse(conn, new int[] {passCode}, failCodes)) {
         readIncomingData(conn);
       }
       return data;
@@ -117,10 +117,15 @@ public class JiraRestApi<T> {
 
   private boolean sendPayload(String method, String spec, String jsonInput, int passCode)
       throws IOException {
+    return sendPayload(method, spec, jsonInput, new int[] {passCode});
+  }
+
+  public boolean sendPayload(String method, String spec, String jsonInput, int[] passCodes)
+      throws IOException {
     HttpURLConnection conn = openConnection(spec, method, true);
     try {
       writeBodyData(jsonInput, conn);
-      return validateResponse(conn, passCode, null);
+      return validateResponse(conn, passCodes, null);
     } finally {
       conn.disconnect();
     }
@@ -148,10 +153,10 @@ public class JiraRestApi<T> {
    * IOException exception is thrown. If it was part of the list, then the actual response code is
    * returned. returns true if valid response is returned, otherwise false
    */
-  private boolean validateResponse(HttpURLConnection conn, int passCode, int[] failCodes)
+  private boolean validateResponse(HttpURLConnection conn, int[] passCodes, int[] failCodes)
       throws IOException {
     responseCode = conn.getResponseCode();
-    if (responseCode == passCode) {
+    if (ArrayUtils.contains(passCodes, responseCode)) {
       return true;
     }
     if ((failCodes == null) || (!ArrayUtils.contains(failCodes, responseCode))) {
