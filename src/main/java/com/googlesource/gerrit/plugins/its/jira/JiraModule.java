@@ -29,6 +29,8 @@ import com.googlesource.gerrit.plugins.its.base.its.ItsConfig;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacade;
 import com.googlesource.gerrit.plugins.its.base.its.ItsFacadeFactory;
 import com.googlesource.gerrit.plugins.its.base.workflow.CustomAction;
+import com.googlesource.gerrit.plugins.its.jira.workflow.InvokeIssueRestAPI;
+import com.googlesource.gerrit.plugins.its.jira.workflow.InvokeProjectRestAPI;
 import com.googlesource.gerrit.plugins.its.jira.workflow.MarkPropertyAsReleasedVersion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,6 +63,12 @@ public class JiraModule extends LifecycleModule {
         .toInstance(new ProjectConfigEntry("JIRA password", ""));
     bind(ItsConfig.class);
     bind(JiraItsServerInfoProvider.class);
+    bind(CustomAction.class)
+        .annotatedWith(Exports.named(InvokeProjectRestAPI.ACTION_NAME))
+        .to(InvokeProjectRestAPI.class);
+    bind(CustomAction.class)
+        .annotatedWith(Exports.named(InvokeIssueRestAPI.ACTION_NAME))
+        .to(InvokeIssueRestAPI.class);
     bind(CustomAction.class)
         .annotatedWith(Exports.named(MarkPropertyAsReleasedVersion.ACTION_NAME))
         .to(MarkPropertyAsReleasedVersion.class);

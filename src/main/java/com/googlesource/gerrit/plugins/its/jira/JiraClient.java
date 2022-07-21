@@ -109,6 +109,50 @@ public class JiraClient {
     }
   }
 
+  public void invokeProjectRestAPI(
+      JiraItsServerInfo server,
+      String projectKey,
+      String method,
+      String uri,
+      int[] passCodes,
+      String body)
+      throws IOException {
+
+    log.debug(
+        "Trying to invoke project {} restapi method {} uri {} status {} body {}",
+        projectKey,
+        method,
+        uri,
+        Arrays.toString(passCodes),
+        body);
+    apiBuilder.getProjects(server).sendPayload(method, projectKey + uri, body, passCodes);
+    log.debug("reatapi invoked project {}", projectKey);
+  }
+
+  public void invokeIssueRestAPI(
+      JiraItsServerInfo server,
+      String issueKey,
+      String method,
+      String uri,
+      int[] passCodes,
+      String body)
+      throws IOException {
+
+    if (issueExists(server, issueKey)) {
+      log.debug(
+          "Trying to invoke issue {} restapi method {} uri {} status {} body {}",
+          issueKey,
+          method,
+          uri,
+          Arrays.toString(passCodes),
+          body);
+      apiBuilder.getIssue(server).sendPayload(method, issueKey + uri, body, passCodes);
+      log.debug("reatapi invoked issue {}", issueKey);
+    } else {
+      log.error("Issue {} does not exist or no access permission", issueKey);
+    }
+  }
+
   public void createVersion(JiraItsServerInfo server, String projectKey, String version)
       throws IOException {
     log.debug("Trying to create version {} on project {}", version, projectKey);
