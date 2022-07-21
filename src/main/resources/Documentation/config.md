@@ -274,6 +274,67 @@ encryption for this information.
 Specific actions
 ----------------
 
+### invoke-issue-restapi
+
+The `invoke-issue-restapi` invokes RestAPI on the issue, it uses soy template to
+generate the request.
+
+```ini
+  action = invoke-issue-restapi method uri passCodes template
+```
+
+For example if you would like to create a link in issues to review, use the
+following action:
+
+```ini
+  action = invoke-issue-restapi POST /remotelink 200,201 link
+```
+
+With the follwing `its/templates/link.soy` template:
+
+```
+{namespace etc.its.templates}
+{template .link}
+  {@param changeUrl: string}
+  {@param subject: string}
+  {@param status: string}
+{lb}
+	"globalId": "{$changeUrl}",
+	"application": {lb}
+		"type": "com.googlesource.gerrit",
+		"name": "Gerrit"
+	{rb},
+	"object": {lb}
+		"url": "{$changeUrl}",
+		"title": "{$subject}",
+		"icon": {lb}
+			"url16x16": "https://www.gerritcodereview.com/images/diffy_logo.png",
+			"title": "Review"
+		{rb},
+		"status": {lb}
+			{switch $status}
+				{case null}
+					"resolved": false
+				{case 'NEW'}
+					"resolved": false
+				{case 'SUBMITTED'}
+					"resolved": false
+				{case 'MERGED'}
+					"resolved": true
+				{case 'ABANDONED'}
+					"resolved": true
+			{/switch}
+		{rb}
+	{rb}
+{rb}
+{/template}
+```
+
+### invoke-project-restapi
+
+The `invoke-project-restapi` is similar to `invoke-issue-restapi`, it invokes
+project method instead of issue method.
+
 ### mark-property-as-released-version
 
 The `mark-property-as-released-version` action marks a version as released in
