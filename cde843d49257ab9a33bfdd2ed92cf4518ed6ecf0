@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79683d94_507e9865",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-07-23T23:22:37Z",
+      "side": 1,
+      "message": "nit: wrap long line",
+      "range": {
+        "startLine": 9,
+        "startChar": 67,
+        "endLine": 9,
+        "endChar": 78
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faa8abb0_0aa6345d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-07-23T23:22:37Z",
+      "side": 1,
+      "message": "Can you list some example use-cases you envisage?",
+      "range": {
+        "startLine": 16,
+        "startChar": 23,
+        "endLine": 16,
+        "endChar": 70
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b0d2dce_c379c0b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-07-23T23:22:37Z",
+      "side": 1,
+      "message": "Thanks for the initiative: have you also assessed the performance implications of this implementation vs. the coding of the use-case in Java?\n\nLoading a SOY template and rendering it for every REST-API it looks expensive to me, but I haven\u0027t run any tests on it.",
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11d4e16a_ba4696b0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeIssueRestAPI.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-07-23T23:22:37Z",
+      "side": 1,
+      "message": "We are in 2022",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7a3d6c4_a80ce14d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeIssueRestAPI.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-07-23T23:22:37Z",
+      "side": 1,
+      "message": "Would this be executed for every REST-API call? (it looks like from the code)",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 67
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96c6a245_5460450d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeProjectRestAPI.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-07-23T23:22:37Z",
+      "side": 1,
+      "message": "This looks like the copy\u0026paste of InvokeIssueRestAPI: can you make a common implementation for them or at least an abstract class?",
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb640cec_c1dffed6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeProjectRestAPI.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-07-23T23:22:37Z",
+      "side": 1,
+      "message": "We are in 2022",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ecba9ff_a476c926",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeRestAPIParameters.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-07-23T23:22:37Z",
+      "side": 1,
+      "message": "We are in 2022",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87723651_c98bb106",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeRestAPIParametersExtractor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-07-23T23:22:37Z",
+      "side": 1,
+      "message": "We are in 2022",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
