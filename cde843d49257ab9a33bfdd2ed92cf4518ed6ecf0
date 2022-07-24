@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c816815_36ef22b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1040243
+      },
+      "writtenOn": "2022-07-24T00:28:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79683d94_507e9865",
+      "range": {
+        "startLine": 9,
+        "startChar": 67,
+        "endLine": 9,
+        "endChar": 78
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "faa8abb0_0aa6345d",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-23T23:22:37Z",
       "side": 1,
       "message": "Can you list some example use-cases you envisage?",
+      "range": {
+        "startLine": 16,
+        "startChar": 23,
+        "endLine": 16,
+        "endChar": 70
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59e7a93f_c25e5786",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1040243
+      },
+      "writtenOn": "2022-07-24T00:28:00Z",
+      "side": 1,
+      "message": "it is quite long, and I specified it in configuration, do you want to copy it to commit as well?",
+      "parentUuid": "faa8abb0_0aa6345d",
       "range": {
         "startLine": 16,
         "startChar": 23,
@@ -64,6 +112,23 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43b9aed9_118a4db4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040243
+      },
+      "writtenOn": "2022-07-24T00:28:00Z",
+      "side": 1,
+      "message": "Thanks for review! Will submit a fix shortly.",
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11d4e16a_ba4696b0",
@@ -77,6 +142,30 @@
       "writtenOn": "2022-07-23T23:22:37Z",
       "side": 1,
       "message": "We are in 2022",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbbfc776_5f25c1f1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeIssueRestAPI.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1040243
+      },
+      "writtenOn": "2022-07-24T00:28:00Z",
+      "side": 1,
+      "message": "Done. Should I also modify the copyright?",
+      "parentUuid": "11d4e16a_ba4696b0",
       "range": {
         "startLine": 1,
         "startChar": 17,
@@ -112,6 +201,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "feac2a50_ee94af26",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeIssueRestAPI.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1040243
+      },
+      "writtenOn": "2022-07-24T00:28:00Z",
+      "side": 1,
+      "message": "I actually copied it from its-base[1], which is also doing this per action run.\n\nAs we do not know in advance what templates users will use, we cannot pre-compile it.\n\nWe can probably create a cache in both cases, or just keep it simple.\n\n[1] https://gerrit.googlesource.com/plugins/its-base/+/refs/heads/master/src/main/java/com/googlesource/gerrit/plugins/its/base/workflow/AddSoyComment.java#54",
+      "parentUuid": "d7a3d6c4_a80ce14d",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 67
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96c6a245_5460450d",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeProjectRestAPI.java",
         "patchSetId": 1
@@ -129,6 +242,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f61e4ad2_19a4d5dd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeProjectRestAPI.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040243
+      },
+      "writtenOn": "2022-07-24T00:28:00Z",
+      "side": 1,
+      "message": "I thought of this but found no reference of other use cases.\n\nI will provide common class.",
+      "parentUuid": "96c6a245_5460450d",
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb640cec_c1dffed6",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeProjectRestAPI.java",
         "patchSetId": 1
@@ -140,6 +271,30 @@
       "writtenOn": "2022-07-23T23:22:37Z",
       "side": 1,
       "message": "We are in 2022",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05d90880_8c9d1cd7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeProjectRestAPI.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1040243
+      },
+      "writtenOn": "2022-07-24T00:28:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb640cec_c1dffed6",
       "range": {
         "startLine": 1,
         "startChar": 17,
@@ -173,6 +328,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bed4968a_4ab6a868",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeRestAPIParameters.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1040243
+      },
+      "writtenOn": "2022-07-24T00:28:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ecba9ff_a476c926",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87723651_c98bb106",
@@ -186,6 +365,30 @@
       "writtenOn": "2022-07-23T23:22:37Z",
       "side": 1,
       "message": "We are in 2022",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "093eb654_03f6134e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeRestAPIParametersExtractor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1040243
+      },
+      "writtenOn": "2022-07-24T00:28:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87723651_c98bb106",
       "range": {
         "startLine": 1,
         "startChar": 17,
