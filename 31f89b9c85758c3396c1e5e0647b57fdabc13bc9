@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e63c5ab3_f5918605",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040243
+      },
+      "writtenOn": "2022-08-11T09:35:16Z",
+      "side": 1,
+      "message": "Hi,\nIs there anything I can do to push this forward?\nI believed I addressed all the comments.\nThanks!",
+      "revId": "31f89b9c85758c3396c1e5e0647b57fdabc13bc9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
