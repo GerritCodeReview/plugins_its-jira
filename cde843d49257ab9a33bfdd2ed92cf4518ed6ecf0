@@ -176,6 +176,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5c427bb_0c75e9bd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeIssueRestAPI.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-08-19T10:47:35Z",
+      "side": 1,
+      "message": "Nope, that\u0027s enough.",
+      "parentUuid": "dbbfc776_5f25c1f1",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7a3d6c4_a80ce14d",
@@ -213,6 +237,30 @@
       "side": 1,
       "message": "I actually copied it from its-base[1], which is also doing this per action run.\n\nAs we do not know in advance what templates users will use, we cannot pre-compile it.\n\nWe can probably create a cache in both cases, or just keep it simple.\n\n[1] https://gerrit.googlesource.com/plugins/its-base/+/refs/heads/master/src/main/java/com/googlesource/gerrit/plugins/its/base/workflow/AddSoyComment.java#54",
       "parentUuid": "d7a3d6c4_a80ce14d",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 67
+      },
+      "revId": "cde843d49257ab9a33bfdd2ed92cf4518ed6ecf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d2c1dba_36808a2c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/workflow/InvokeIssueRestAPI.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-08-19T10:47:35Z",
+      "side": 1,
+      "message": "Fair enough, the caching should be a separate change though.",
+      "parentUuid": "feac2a50_ee94af26",
       "range": {
         "startLine": 63,
         "startChar": 0,
