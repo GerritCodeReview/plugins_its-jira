@@ -21,8 +21,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.ProxySelector;
+import java.util.Arrays;
 import java.util.Base64;
-import org.apache.commons.lang.ArrayUtils;
 
 /** Jira Rest Client. */
 public class JiraRestApi<T> {
@@ -154,7 +154,7 @@ public class JiraRestApi<T> {
     if (responseCode == passCode) {
       return true;
     }
-    if ((failCodes == null) || (!ArrayUtils.contains(failCodes, responseCode))) {
+    if ((failCodes == null) || Arrays.stream(failCodes).noneMatch(code -> code == responseCode)) {
       throw new IOException(
           "Request failed: "
               + conn.getURL()
