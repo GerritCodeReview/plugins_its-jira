@@ -189,12 +189,16 @@ public class JiraClient {
         .doPost(issueKey + "/transitions", gson.toJson(new JiraTransition(t)), HTTP_NO_CONTENT);
   }
 
-  /** @return Serverinformation of jira */
+  /**
+   * @return Serverinformation of jira
+   */
   public JiraServerInfo sysInfo(JiraItsServerInfo server) throws IOException {
     return apiBuilder.getServerInfo(server).doGet("", HTTP_OK);
   }
 
-  /** @return List of all projects we have access to in jira */
+  /**
+   * @return List of all projects we have access to in jira
+   */
   public JiraProject[] getProjects(JiraItsServerInfo server) throws IOException {
     return apiBuilder.getProjects(server).doGet("", HTTP_OK);
   }
