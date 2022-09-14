@@ -22,6 +22,30 @@
       },
       "revId": "bd820da4da34792152a4a0ff32d13917ec0cb4bc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "166c1cf7_41c2830f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1040243
+      },
+      "writtenOn": "2022-09-14T10:02:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f23dd18_e4962541",
+      "range": {
+        "startLine": 159,
+        "startChar": 4,
+        "endLine": 159,
+        "endChar": 58
+      },
+      "revId": "bd820da4da34792152a4a0ff32d13917ec0cb4bc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
