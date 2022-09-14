@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25c7a5a8_d8ab3f5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-09-14T07:55:55Z",
+      "side": 1,
+      "message": "What google-java-format are you using? I checked with v1.7 (the one used in Gerrit) and it is fine.",
+      "revId": "7716867afda776524be5c49134503238919c1afe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
