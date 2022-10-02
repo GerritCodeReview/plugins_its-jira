@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0504e08b_a1886707",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-10-02T20:56:23Z",
+      "side": 1,
+      "message": "Out of curiosity: what is the rationale of allowing more than one pass code? Can the above API really return two different HTTP status codes?",
+      "range": {
+        "startLine": 21,
+        "startChar": 49,
+        "endLine": 21,
+        "endChar": 56
+      },
+      "revId": "52cd6d592363bf6ffd3b745044bdfd6aab980973",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa002c85_bbf54452",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-10-02T20:56:23Z",
+      "side": 1,
+      "message": "Just one nit/curiosity, everything else looks good to me.\nCan you please verify the change E2E?",
+      "revId": "52cd6d592363bf6ffd3b745044bdfd6aab980973",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
