@@ -13,6 +13,7 @@
 // limitations under the License.
 
 package com.googlesource.gerrit.plugins.its.jira.restapi;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.gson.Gson;
 import com.google.inject.Inject;
@@ -135,7 +136,7 @@ public class JiraRestApi<T> {
   private void writeBodyData(String data, HttpURLConnection conn) throws IOException {
     if (data != null) {
       try (OutputStream os = conn.getOutputStream()) {
-        os.write(data.getBytes());
+        os.write(data.getBytes(UTF_8));
         os.flush();
       }
     }
