@@ -82,8 +82,8 @@ public class JiraRestApiTest {
 
   @Test
   public void testDoPut() throws Exception {
-    JiraURL url = mock(JiraURL.class);
-    when(url.resolveUrl(any())).thenReturn(url);
+    url = mock(JiraURL.class);
+    when(url.resolveUrl(any(), any(), any())).thenReturn(url);
     when(url.withSpec(ISSUE_CLASS_PREFIX)).thenReturn(url);
 
     HttpURLConnection connection = mock(HttpURLConnection.class);
