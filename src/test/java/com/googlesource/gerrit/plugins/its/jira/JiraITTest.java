@@ -37,6 +37,7 @@ import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.UseLocalDisk;
 import com.google.gerrit.acceptance.config.GerritConfig;
 import com.google.gerrit.acceptance.testsuite.project.ProjectOperations;
+import com.google.gerrit.server.config.SitePaths;
 import com.google.gerrit.testing.ConfigSuite;
 import com.google.inject.Inject;
 import java.io.IOException;
@@ -70,7 +71,7 @@ public class JiraITTest extends LightweightPluginDaemonTest {
   private static final int PORT = 19888;
   private static final String URL = "http://localhost:" + PORT;
   private static final String COMMENT_SECTION = "commentLink." + PLUGIN_NAME;
-
+  @Inject private SitePaths sitePaths;
   private Path its_dir;
 
   @Rule public WireMockRule wireMockRule = new WireMockRule(options().port(PORT));
@@ -300,7 +301,7 @@ public class JiraITTest extends LightweightPluginDaemonTest {
   }
 
   private void createItsDir() throws IOException {
-    its_dir = server.getSitePath().resolve("etc").resolve("its");
+    its_dir = sitePaths.resolve("etc").resolve("its");
     Files.createDirectories(its_dir);
   }
 
