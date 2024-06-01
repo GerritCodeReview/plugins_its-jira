@@ -16,6 +16,24 @@
       "message": "Probably want to make this unique, see https://github.com/GerritCodeReview/gerrit/commit/6c6965175104d31fb737d0bcec9256adfae7fa07",
       "revId": "bc81dff179a63644540ff6b0e67e7bb1ccda8339",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21e209ec_9149956c",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2024-06-01T14:52:23Z",
+      "side": 1,
+      "message": "Hmm, i\u0027m not sure if https://github.com/GerritCodeReview/plugins_its-base/blob/1a46c464810c5f9052f92240bd5eafe3a64f08cf/src/main/java/com/googlesource/gerrit/plugins/its/base/workflow/AddSoyComment.java#L68 has to be updated to support this.",
+      "parentUuid": "96067e41_d137d192",
+      "revId": "bc81dff179a63644540ff6b0e67e7bb1ccda8339",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
