@@ -294,7 +294,7 @@ With the follwing `its/templates/link.soy` template:
 
 ```
 {namespace etc.its.templates}
-{template .link}
+{template link}
   {@param changeUrl: string}
   {@param subject: string}
   {@param status: string}
