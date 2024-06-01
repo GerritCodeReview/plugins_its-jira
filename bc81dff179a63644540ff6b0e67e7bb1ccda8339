@@ -34,6 +34,24 @@
       "parentUuid": "96067e41_d137d192",
       "revId": "bc81dff179a63644540ff6b0e67e7bb1ccda8339",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71616ab3_afffe050",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2024-06-01T14:54:34Z",
+      "side": 1,
+      "message": "And https://github.com/GerritCodeReview/gerrit/commit/99a44b7003478de47740802efb8e752d2bfba6a5 ...",
+      "parentUuid": "21e209ec_9149956c",
+      "revId": "bc81dff179a63644540ff6b0e67e7bb1ccda8339",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
