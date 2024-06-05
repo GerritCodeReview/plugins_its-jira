@@ -52,6 +52,24 @@
       "parentUuid": "21e209ec_9149956c",
       "revId": "bc81dff179a63644540ff6b0e67e7bb1ccda8339",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f72b790_b742d091",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2024-06-05T17:38:21Z",
+      "side": 1,
+      "message": "I believe @thomasmulhall410@yahoo.com is right, and this fix is needed from stable-3.4 onwards.",
+      "parentUuid": "71616ab3_afffe050",
+      "revId": "bc81dff179a63644540ff6b0e67e7bb1ccda8339",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
