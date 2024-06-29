@@ -1,0 +1,12 @@
+- job:
+    name: plugins-its-jira-build
+    parent: gerrit-plugin-build
+    required-projects:
+      - plugins/its-base
+
+- project:
+    description: |
+      Build the plugin in check.
+    check:
+      jobs:
+        - plugins-its-jira-build
