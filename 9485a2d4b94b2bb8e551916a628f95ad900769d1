@@ -46,6 +46,30 @@
       },
       "revId": "9485a2d4b94b2bb8e551916a628f95ad900769d1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4414ddf_0961faaa",
+        "filename": ".zuul.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2024-07-03T21:13:47Z",
+      "side": 1,
+      "message": "😂 I should have noticed it !",
+      "parentUuid": "a212cad4_ef0c8f9d",
+      "range": {
+        "startLine": 12,
+        "startChar": 8,
+        "endLine": 12,
+        "endChar": 32
+      },
+      "revId": "9485a2d4b94b2bb8e551916a628f95ad900769d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
