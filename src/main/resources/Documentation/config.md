@@ -68,7 +68,8 @@ MANDATORY
 
 SUGGESTED
 :	 Whenever a git commit message does not contain any issue-id,
-	 a warning message is displayed as a suggestion on the client.
+	 a warning message is displayed as a suggestion on the client. This is the
+	 default.
 
 OPTIONAL
 :	 Issue-ids are linked when found in a git commit message. No warning is
