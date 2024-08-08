@@ -364,7 +364,7 @@ entries in *gerrit.config* or *project.config* file in the *refs/meta/config* br
 
 A typical visibility configuration will look like:
 
-```
+```ini
   [plugin "its-jira"]
     visibilityType = role
     visibilityValue = Dev
