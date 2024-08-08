@@ -78,10 +78,13 @@ OPTIONAL
 Example:
 
 ```ini
+    [plugin "its-jira"]
+    enabled = true
+    association = SUGGESTED
+
     [commentLink "its-jira"]
     match = ([A-Z]+-[0-9]+)
     html = "<a href=\"http://jira.example.com/browse/$1\">$1</a>"
-    association = SUGGESTED
 ```
 
 Jira connectivity
