@@ -1,12 +1,13 @@
 {
   "checks": {
     "zuul-check:plugins_its-jira": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/436397,1",
+      "state": "NOT_RELEVANT",
+      "message": "Project has no jobs configured",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/2afca3ef1b424c3e80376410b12e73d0",
       "started": "2024-09-04T21:43:34Z",
+      "finished": "2024-09-04T21:43:37Z",
       "created": "2024-09-04T21:43:34Z",
-      "updated": "2024-09-04T21:43:34Z"
+      "updated": "2024-09-04T21:43:38Z"
     }
   }
 }
