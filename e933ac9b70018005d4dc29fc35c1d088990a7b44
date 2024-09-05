@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b198e39b_fe7aa097",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1072905
+      },
+      "writtenOn": "2024-09-05T04:56:30Z",
+      "side": 1,
+      "message": "Can you please link the issue? [1]\n\nhttps://issues.gerritcodereview.com/issues/363019833",
+      "revId": "e933ac9b70018005d4dc29fc35c1d088990a7b44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
