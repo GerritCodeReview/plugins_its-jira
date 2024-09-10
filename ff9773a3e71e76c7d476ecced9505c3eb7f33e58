@@ -3,7 +3,7 @@
     "zuul-check:plugins_its-jira": {
       "state": "NOT_STARTED",
       "created": "2024-09-10T13:13:11Z",
-      "updated": "2024-09-10T15:33:34Z"
+      "updated": "2024-09-10T15:33:37Z"
     }
   }
 }
