@@ -25,13 +25,20 @@ import java.net.ProxySelector;
 import java.util.Base64;
 import org.apache.commons.lang3.ArrayUtils;
 
-/** Jira Rest Client. */
+/** 
+ * Jira Rest Client.
+ * Note: The current implementation supports both Basic Authentication (username/password) 
+ * and Personal Access Token (PAT) authentication.
+ * When user is null or "_", Bearer authentication (PAT) will be used.
+ * In all other cases, Basic authentication will be used.
+ */
 public class JiraRestApi<T> {
 
   private static final String BASE_PREFIX = "rest/api/2";
 
   private final JiraURL baseUrl;
   private final String auth;
+  private final boolean useBearerAuth;
   private final Gson gson;
 
   private final Class<T> classOfT;
@@ -46,10 +53,12 @@ public class JiraRestApi<T> {
    * @param pass password of the jira user
    * @param classOfT class type of the object requested
    * @param classPrefix prefix for the rest api request
+   * @note When user is null or "_", pass will be treated as Personal Access Token
    */
   @Inject
   public JiraRestApi(JiraURL url, String user, String pass, Class<T> classOfT, String classPrefix) {
-    this.auth = encode(user, pass);
+    this.useBearerAuth = user == null || "_".equals(user);
+    this.auth = useBearerAuth ? pass : encode(user, pass);
     this.baseUrl = url == null ? url : url.resolveUrl(BASE_PREFIX, classPrefix, "/");
     this.gson = new Gson();
     this.classOfT = classOfT;
@@ -106,7 +115,12 @@ public class JiraRestApi<T> {
     JiraURL url = baseUrl.withSpec(spec);
     ProxySelector proxySelector = ProxySelector.getDefault();
     HttpURLConnection conn = url.openConnection(proxySelector);
-    conn.setRequestProperty("Authorization", "Basic " + auth);
+
+    if (useBearerAuth) {
+      conn.setRequestProperty("Authorization", "Bearer " + auth);
+    } else {
+      conn.setRequestProperty("Authorization", "Basic " + auth);
+    }
     conn.setRequestProperty("Content-Type", "application/json");
 
     conn.setRequestMethod(method.toUpperCase());
