@@ -86,18 +86,42 @@ Example:
 Jira connectivity
 -----------------
 
-In order for Gerrit to connect to Jira/SOAP-API URL and credentials
+In order for Gerrit to connect to Jira/SOAP, API URL and authentication credentials
 are required in your `gerrit.config` / `secure.config` under the
-`[its-jira]` section.
+`[its-jira]` section. The plugin supports both Basic Authentication (username/password)
+and Bearer Token authentication (which can be used with Jira's Personal Access Token).
 
-Example:
+For Basic Authentication, configure as follows:
 
-```ini
+In gerrit.config:
+```
     [its-jira]
     url=http://jira.example.com
     username=admin
+```
+
+In secure.config:
+```
+    [its-jira]
     password=jirapass
 ```
+
+For Bearer Token authentication, configure as follows:
+
+In gerrit.config:
+```
+    [its-jira]
+    url=http://jira.example.com
+    username=_
+```
+
+In secure.config:
+```
+    [its-jira]
+    password=your_token
+```
+
+Note: When username is set to "_", the password field will be treated as a Personal Access Token and used as a Bearer token in API requests.
 
 Jira credentials and connectivity details are asked and verified during the Gerrit init.
 
