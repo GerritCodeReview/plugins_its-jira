@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d027c01_69e481b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2025-02-18T12:17:06Z",
+      "side": 1,
+      "message": "Thanks for the contribution, see some suggestions to improve the solution.",
+      "revId": "6138ca6f16b32a31062952769aaf17fbb77294a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32a7d2f8_f991b9cf",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2025-02-18T12:17:06Z",
+      "side": 1,
+      "message": "nit: empty space",
+      "range": {
+        "startLine": 28,
+        "startChar": 3,
+        "endLine": 28,
+        "endChar": 4
+      },
+      "revId": "6138ca6f16b32a31062952769aaf17fbb77294a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c40378f0_c190a0d8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2025-02-18T12:17:06Z",
+      "side": 1,
+      "message": "nit: empty space",
+      "range": {
+        "startLine": 30,
+        "startChar": 90,
+        "endLine": 30,
+        "endChar": 91
+      },
+      "revId": "6138ca6f16b32a31062952769aaf17fbb77294a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b88d5190_7038b91b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2025-02-18T12:17:06Z",
+      "side": 1,
+      "message": "This is actually a Bearer Token authentication, as I read the code.",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 32
+      },
+      "revId": "6138ca6f16b32a31062952769aaf17fbb77294a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16bb0504_e750f786",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2025-02-18T12:17:06Z",
+      "side": 1,
+      "message": "This looks hacky, why don\u0027t you take the same approach as in the pull-replication plugin? See [1].\n\n[1] https://gerrit.googlesource.com/plugins/pull-replication/+/refs/heads/master/src/main/resources/Documentation/config.md#file-3",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 23
+      },
+      "revId": "6138ca6f16b32a31062952769aaf17fbb77294a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a10dd08_68f93a62",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2025-02-18T12:17:06Z",
+      "side": 1,
+      "message": "Very counter-intuitive: please use a separate config section and set the token into the `secure.config`.",
+      "range": {
+        "startLine": 110,
+        "startChar": 6,
+        "endLine": 110,
+        "endChar": 124
+      },
+      "revId": "6138ca6f16b32a31062952769aaf17fbb77294a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
