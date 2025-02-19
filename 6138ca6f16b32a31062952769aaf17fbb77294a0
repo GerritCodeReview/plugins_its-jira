@@ -41,6 +41,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52c2bc1f_9d6fa73b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1004097
+      },
+      "writtenOn": "2025-02-19T02:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32a7d2f8_f991b9cf",
+      "range": {
+        "startLine": 28,
+        "startChar": 3,
+        "endLine": 28,
+        "endChar": 4
+      },
+      "revId": "6138ca6f16b32a31062952769aaf17fbb77294a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c40378f0_c190a0d8",
@@ -54,6 +78,30 @@
       "writtenOn": "2025-02-18T12:17:06Z",
       "side": 1,
       "message": "nit: empty space",
+      "range": {
+        "startLine": 30,
+        "startChar": 90,
+        "endLine": 30,
+        "endChar": 91
+      },
+      "revId": "6138ca6f16b32a31062952769aaf17fbb77294a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bceefa0e_e5db795f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1004097
+      },
+      "writtenOn": "2025-02-19T02:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c40378f0_c190a0d8",
       "range": {
         "startLine": 30,
         "startChar": 90,
@@ -87,6 +135,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c7cccb0_515dbee9",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1004097
+      },
+      "writtenOn": "2025-02-19T02:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b88d5190_7038b91b",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 32
+      },
+      "revId": "6138ca6f16b32a31062952769aaf17fbb77294a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16bb0504_e750f786",
@@ -100,6 +172,30 @@
       "writtenOn": "2025-02-18T12:17:06Z",
       "side": 1,
       "message": "This looks hacky, why don\u0027t you take the same approach as in the pull-replication plugin? See [1].\n\n[1] https://gerrit.googlesource.com/plugins/pull-replication/+/refs/heads/master/src/main/resources/Documentation/config.md#file-3",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 23
+      },
+      "revId": "6138ca6f16b32a31062952769aaf17fbb77294a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4cf5c3c_84fd3b49",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1004097
+      },
+      "writtenOn": "2025-02-19T02:46:15Z",
+      "side": 1,
+      "message": "Because I don\u0027t know how to change the function to 2 different functions, so I want to keep the current simple implementaion.\npublic JiraRestApi(JiraURL url, String user, String pass, Class\u003cT\u003e classOfT, String classPrefix) {",
+      "parentUuid": "16bb0504_e750f786",
       "range": {
         "startLine": 106,
         "startChar": 0,
@@ -147,6 +243,30 @@
       "side": 1,
       "message": "that need to be like this:\nFor Basic Authentication, configure as follows:\n```\n    [its-jira]\n    url\u003dhttp://jira.example.com\n    username\u003dadmin\n    password\u003djirapass\n```\n\nFor Bearer Token authentication, configure as follows:\n```\n    [its-jira]\n    url\u003dhttp://jira.example.com\n    auth.bearerToken\u003dyour_token\n```\n\nSo I need to add a function like this?\npublic JiraRestApi(JiraURL url, String user, String pass, Class\u003cT\u003e classOfT, String classPrefix) {\n\nCurrently I have no idea how to do this, need sometime to learn.",
       "parentUuid": "7a10dd08_68f93a62",
+      "range": {
+        "startLine": 110,
+        "startChar": 6,
+        "endLine": 110,
+        "endChar": 124
+      },
+      "revId": "6138ca6f16b32a31062952769aaf17fbb77294a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a89f294_0009fe9e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1004097
+      },
+      "writtenOn": "2025-02-19T02:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4351562_378d4159",
       "range": {
         "startLine": 110,
         "startChar": 6,
