@@ -68,7 +68,8 @@ MANDATORY
 
 SUGGESTED
 :	 Whenever a git commit message does not contain any issue-id,
-	 a warning message is displayed as a suggestion on the client.
+	 a warning message is displayed as a suggestion on the client. This is the
+	 default.
 
 OPTIONAL
 :	 Issue-ids are linked when found in a git commit message. No warning is
@@ -77,10 +78,13 @@ OPTIONAL
 Example:
 
 ```ini
+    [plugin "its-jira"]
+    enabled = true
+    association = SUGGESTED
+
     [commentLink "its-jira"]
     match = ([A-Z]+-[0-9]+)
     html = "<a href=\"http://jira.example.com/browse/$1\">$1</a>"
-    association = SUGGESTED
 ```
 
 Jira connectivity
@@ -360,7 +364,7 @@ entries in *gerrit.config* or *project.config* file in the *refs/meta/config* br
 
 A typical visibility configuration will look like:
 
-```
+```ini
   [plugin "its-jira"]
     visibilityType = role
     visibilityValue = Dev
