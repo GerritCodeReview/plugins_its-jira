@@ -298,9 +298,9 @@ With the follwing `its/templates/link.soy` template:
 
 ```
 {namespace etc.its.templates}
-{template link}
+{template link kind="text"}
   {@param changeUrl: string}
-  {@param subject: string}
+  {@param escapedSubject: string}
   {@param status: string}
 {lb}
   "globalId": "{$changeUrl}",
@@ -310,23 +310,17 @@ With the follwing `its/templates/link.soy` template:
   {rb},
   "object": {lb}
     "url": "{$changeUrl}",
-    "title": "{$subject}",
+    "title": "{$escapedSubject}",
     "icon": {lb}
       "url16x16": "https://www.gerritcodereview.com/images/diffy_logo.png",
       "title": "Review"
     {rb},
     "status": {lb}
       {switch $status}
-        {case null}
-          "resolved": false
-        {case 'NEW'}
-          "resolved": false
-        {case 'SUBMITTED'}
-          "resolved": false
-        {case 'MERGED'}
+        {case 'MERGED', 'ABANDONED'}
           "resolved": true
-        {case 'ABANDONED'}
-          "resolved": true
+        {default}
+          "resolved": false
       {/switch}
     {rb}
   {rb}
