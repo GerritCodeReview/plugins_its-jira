@@ -1,13 +1,9 @@
 {
   "checks": {
     "zuul-check:plugins_its-jira": {
-      "state": "SUCCESSFUL",
-      "message": "Change passed all voting jobs",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/3490defe7ab246aa8d381be2e9f5fa74",
-      "started": "2026-03-27T15:42:22Z",
-      "finished": "2026-03-27T15:59:28Z",
+      "state": "NOT_STARTED",
       "created": "2026-03-27T15:42:23Z",
-      "updated": "2026-03-27T15:59:29Z"
+      "updated": "2026-03-27T23:38:57Z"
     }
   }
 }
