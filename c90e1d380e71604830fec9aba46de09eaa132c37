@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac708483_07433198",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4270951
+      },
+      "writtenOn": "2026-03-27T15:44:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b283f65_5e166f6b",
+      "revId": "c90e1d380e71604830fec9aba46de09eaa132c37",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90032c95_40c02e5d",
@@ -35,6 +53,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96ec47f1_47fadcbe",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 4270951
+      },
+      "writtenOn": "2026-03-27T15:44:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90032c95_40c02e5d",
+      "revId": "c90e1d380e71604830fec9aba46de09eaa132c37",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9240833_4f5357c6",
@@ -48,6 +84,24 @@
       "writtenOn": "2026-03-27T15:31:45Z",
       "side": 1,
       "message": "Maybe add a ui message that we\u0027re going to use this value instead of the config value?",
+      "revId": "c90e1d380e71604830fec9aba46de09eaa132c37",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a6d9cba_0fb6d5f5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 4270951
+      },
+      "writtenOn": "2026-03-27T15:44:54Z",
+      "side": 1,
+      "message": "Since the value is only the default value it can still be overridden if the user wants to use something else. Do you think some additional message is needed anyway?",
+      "parentUuid": "b9240833_4f5357c6",
       "revId": "c90e1d380e71604830fec9aba46de09eaa132c37",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
