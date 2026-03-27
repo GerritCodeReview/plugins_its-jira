@@ -104,6 +104,24 @@
       "parentUuid": "b9240833_4f5357c6",
       "revId": "c90e1d380e71604830fec9aba46de09eaa132c37",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ef0a013_d70f9bc1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2026-03-27T15:48:18Z",
+      "side": 1,
+      "message": "It seems like a thing that could surprise a user. Like, where did this different URL come from? So, the message is more of a hint to them that they probably want to use this value instead of the one from the config because we think it will work better in most use cases. I\u0027ll suggest a message on your split change.",
+      "parentUuid": "9a6d9cba_0fb6d5f5",
+      "revId": "c90e1d380e71604830fec9aba46de09eaa132c37",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
