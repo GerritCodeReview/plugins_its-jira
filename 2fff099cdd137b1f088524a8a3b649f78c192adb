@@ -1,7 +1,10 @@
 {
   "checks": {
     "zuul-check:plugins_its-jira": {
-      "state": "NOT_STARTED",
+      "state": "RUNNING",
+      "message": "Jobs have started running",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/566522,2",
+      "started": "2026-03-27T23:39:26Z",
       "created": "2026-03-27T15:42:23Z",
       "updated": "2026-03-27T23:39:31Z"
     }
