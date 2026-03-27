@@ -84,7 +84,7 @@ Example:
 
     [commentLink "its-jira"]
     match = ([A-Z]+-[0-9]+)
-    html = "<a href=\"http://jira.example.com/browse/$1\">$1</a>"
+    link = https://jira.example.com/browse/$1
 ```
 
 Jira connectivity
@@ -98,12 +98,18 @@ Example:
 
 ```ini
     [its-jira]
-    url=http://jira.example.com
+    url=https://jira.example.com
     username=admin
     password=jirapass
 ```
 
 Jira credentials and connectivity details are asked and verified during the Gerrit init.
+
+When using API token with scopes, the URL must be
+`https://api.atlassian.com/ex/jira/{cloudid}` (using your [Cloud ID][cloudid]). Note that
+this differs from the link URL used under the `[commentLink "its-jira"]` section.
+
+[cloudid]: https://support.atlassian.com/jira/kb/retrieve-my-atlassian-sites-cloud-id/
 
 Timeouts
 --------
