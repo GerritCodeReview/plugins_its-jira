@@ -44,6 +44,7 @@ class InitJira extends InitIts {
   private final InitFlags flags;
   private Section jira;
   private JiraURL jiraUrl;
+  private String jiraBaseUri;
   private String jiraUsername;
   private String jiraPassword;
   private String jiraConnectionTimeout;
@@ -115,7 +116,9 @@ class InitJira extends InitIts {
     ui.header("Jira issue-tracking association");
     jiraComment.string("Jira issue-Id regex", "match", "([A-Z]+-[0-9]+)");
     jiraComment.string(
-        "What link would you like to use?", "link", String.format("%s/browse/$1", jiraUrl));
+        "What link would you like to use?",
+        "link",
+        String.format("%s/browse/$1", jiraBaseUri == null ? jiraUrl : jiraBaseUri));
 
     Section pluginConfig = sections.get("plugin", pluginName);
 
@@ -124,10 +127,12 @@ class InitJira extends InitIts {
   }
 
   public void enterJiraConnectivity() throws MalformedURLException {
-    String jiraUrlString = jira.string("Jira URL (empty to skip)", "url", null);
+    String jiraUrlString =
+        jira.string("Jira URL (empty to skip)", JiraConfig.GERRIT_CONFIG_URL, null);
     if (jiraUrlString != null) {
-      jiraUsername = jira.string("Jira username", "username", "");
-      jiraPassword = jira.password("username", "password");
+      jiraUsername = jira.string("Jira username", JiraConfig.GERRIT_CONFIG_USERNAME, "");
+      jiraPassword =
+          jira.password(JiraConfig.GERRIT_CONFIG_USERNAME, JiraConfig.GERRIT_CONFIG_PASSWORD);
       jiraConnectionTimeout =
           jira.string(
               "Connection timeout",
@@ -157,6 +162,7 @@ class InitJira extends InitIts {
         return false;
       }
       ui.message("[OK] - Jira Ver %s\n", serverInfo.getVersion());
+      jiraBaseUri = serverInfo.getBaseUri();
       return true;
     } catch (IOException e) {
       ui.message("*FAILED* (%s)\n", e.toString());

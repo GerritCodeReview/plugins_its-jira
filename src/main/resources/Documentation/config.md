@@ -105,6 +105,11 @@ Example:
 
 Jira credentials and connectivity details are asked and verified during the Gerrit init.
 
+When using API token with scopes, the URL must be
+`https://api.atlassian.com/ex/jira/{cloudid}` (with your [Cloud ID][cloudid]).
+
+[cloudid]: https://support.atlassian.com/jira/kb/retrieve-my-atlassian-sites-cloud-id/
+
 Timeouts
 --------
 
