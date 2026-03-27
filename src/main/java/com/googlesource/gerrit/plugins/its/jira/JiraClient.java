@@ -59,7 +59,7 @@ public class JiraClient {
    */
   public boolean issueExists(JiraItsServerInfo server, String issueKey) throws IOException {
     JiraRestApi<JiraIssue> api = apiBuilder.getIssue(server);
-    api.doGet(issueKey, HTTP_OK, new int[] {HTTP_NOT_FOUND, HTTP_FORBIDDEN});
+    api.doGet(issueKey + "?fields=summary", HTTP_OK, new int[] {HTTP_NOT_FOUND, HTTP_FORBIDDEN});
     Integer code = api.getResponseCode();
     switch (code) {
       case HTTP_OK:

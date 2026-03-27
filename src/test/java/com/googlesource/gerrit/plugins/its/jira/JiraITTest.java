@@ -68,6 +68,7 @@ public class JiraITTest extends LightweightPluginDaemonTest {
   private static final String ISSUE_CLASS_PREFIX = "/issue/";
   private static final String TRANSITIONS_CLASS_PREFIX = "/transitions";
   private static final String JIRA_ISSUE = "JIRA-1000";
+  private static final String FIELDS_SUMMARY = "?fields=summary";
   private static final int PORT = 19888;
   private static final String URL = "http://localhost:" + PORT;
   private static final String COMMENT_SECTION = "commentLink." + PLUGIN_NAME;
@@ -105,7 +106,8 @@ public class JiraITTest extends LightweightPluginDaemonTest {
     createItsRulesConfigWithoutActions();
     mockServerCall();
     wireMockRule.givenThat(
-        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE)).willReturn(ok()));
+        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE + FIELDS_SUMMARY))
+            .willReturn(ok()));
 
     createChangeWithIssue();
     verifyIssueCall();
@@ -125,7 +127,8 @@ public class JiraITTest extends LightweightPluginDaemonTest {
     mockServerCall();
     mockTransitionCalls();
     wireMockRule.givenThat(
-        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE)).willReturn(ok()));
+        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE + FIELDS_SUMMARY))
+            .willReturn(ok()));
 
     createChangeWithIssue();
 
@@ -147,7 +150,8 @@ public class JiraITTest extends LightweightPluginDaemonTest {
     mockServerCall();
     mockCommentCall();
     wireMockRule.givenThat(
-        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE)).willReturn(ok()));
+        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE + FIELDS_SUMMARY))
+            .willReturn(ok()));
 
     createChangeWithIssue();
 
@@ -170,7 +174,8 @@ public class JiraITTest extends LightweightPluginDaemonTest {
     mockTransitionCalls();
     mockCommentCall();
     wireMockRule.givenThat(
-        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE)).willReturn(ok()));
+        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE + FIELDS_SUMMARY))
+            .willReturn(ok()));
 
     createChangeWithIssue();
 
@@ -192,7 +197,7 @@ public class JiraITTest extends LightweightPluginDaemonTest {
     createItsRulesConfigWithoutActions();
     mockServerCall();
     wireMockRule.givenThat(
-        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE))
+        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE + FIELDS_SUMMARY))
             .willReturn(aResponse().withStatus(HTTP_NOT_FOUND)));
     createChangeWithIssue();
     verifyIssueCall();
@@ -211,7 +216,7 @@ public class JiraITTest extends LightweightPluginDaemonTest {
     createItsRulesConfigWithoutActions();
     mockServerCall();
     wireMockRule.givenThat(
-        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE))
+        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE + FIELDS_SUMMARY))
             .willReturn(aResponse().withStatus(HTTP_FORBIDDEN)));
     createChangeWithIssue();
     verifyIssueCall();
@@ -233,7 +238,8 @@ public class JiraITTest extends LightweightPluginDaemonTest {
     mockServerCall();
     mockCommentCall();
     wireMockRule.givenThat(
-        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE)).willReturn(ok()));
+        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE + FIELDS_SUMMARY))
+            .willReturn(ok()));
 
     createChangeWithIssue();
 
@@ -268,7 +274,9 @@ public class JiraITTest extends LightweightPluginDaemonTest {
   }
 
   private void verifyIssueCall() {
-    wireMockRule.verify(getRequestedFor(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE)));
+    wireMockRule.verify(
+        getRequestedFor(
+            urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE + FIELDS_SUMMARY)));
   }
 
   private void verifyTransitionCalls() {
