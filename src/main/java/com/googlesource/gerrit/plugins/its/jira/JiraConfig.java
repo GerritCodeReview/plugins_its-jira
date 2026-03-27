@@ -56,11 +56,11 @@ public class JiraConfig {
 
   private static final Logger log = LoggerFactory.getLogger(JiraConfig.class);
   private static final String COMMENTLINK = "commentlink";
-  private static final String GERRIT_CONFIG_URL = "url";
-  private static final String GERRIT_CONFIG_USERNAME = "username";
-  private static final String GERRIT_CONFIG_PASSWORD = "password";
   private static final String GERRIT_CONFIG_COMMENT_VISIBILITY_TYPE = "visibilityType";
   private static final String GERRIT_CONFIG_COMMENT_VISIBILITY_VALUE = "visibilityValue";
+  public static final String GERRIT_CONFIG_URL = "url";
+  public static final String GERRIT_CONFIG_USERNAME = "username";
+  public static final String GERRIT_CONFIG_PASSWORD = "password";
   public static final String GERRIT_CONFIG_CONNECT_TIMEOUT = "connectTimeout";
   public static final Duration GERRIT_CONFIG_CONNECT_TIMEOUT_DEFAULT = Duration.ofMinutes(2);
   public static final String GERRIT_CONFIG_READ_TIMEOUT = "readTimeout";

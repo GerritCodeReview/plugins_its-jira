@@ -124,10 +124,12 @@ class InitJira extends InitIts {
   }
 
   public void enterJiraConnectivity() throws MalformedURLException {
-    String jiraUrlString = jira.string("Jira URL (empty to skip)", "url", null);
+    String jiraUrlString =
+        jira.string("Jira URL (empty to skip)", JiraConfig.GERRIT_CONFIG_URL, null);
     if (jiraUrlString != null) {
-      jiraUsername = jira.string("Jira username", "username", "");
-      jiraPassword = jira.password("username", "password");
+      jiraUsername = jira.string("Jira username", JiraConfig.GERRIT_CONFIG_USERNAME, "");
+      jiraPassword =
+          jira.password(JiraConfig.GERRIT_CONFIG_USERNAME, JiraConfig.GERRIT_CONFIG_PASSWORD);
       jiraConnectionTimeout =
           jira.string(
               "Connection timeout",
