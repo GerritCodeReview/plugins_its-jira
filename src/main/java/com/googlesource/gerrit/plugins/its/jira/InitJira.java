@@ -31,6 +31,7 @@ import com.googlesource.gerrit.plugins.its.jira.restapi.JiraServerInfoRestApi;
 import com.googlesource.gerrit.plugins.its.jira.restapi.JiraURL;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
@@ -44,6 +45,7 @@ class InitJira extends InitIts {
   private final InitFlags flags;
   private Section jira;
   private JiraURL jiraUrl;
+  private URL jiraBaseUri;
   private String jiraUsername;
   private String jiraPassword;
   private String jiraConnectionTimeout;
@@ -99,6 +101,15 @@ class InitJira extends InitIts {
     }
   }
 
+  @Override
+  public boolean isConnectivityRequested(String url) {
+    return ui.yesno(
+        false,
+        "Test connectivity to %s"
+            + " (and get server-provided canonical base URL for issue comment links)",
+        url);
+  }
+
   private void init() throws MalformedURLException {
     this.jira = sections.get(pluginName, null);
     Section jiraComment = sections.get(COMMENT_LINK_SECTION, pluginName);
@@ -115,7 +126,9 @@ class InitJira extends InitIts {
     ui.header("Jira issue-tracking association");
     jiraComment.string("Jira issue-Id regex", "match", "([A-Z]+-[0-9]+)");
     jiraComment.string(
-        "What link would you like to use?", "link", String.format("%s/browse/$1", jiraUrl));
+        "What link would you like to use?",
+        "link",
+        String.format("%sbrowse/$1", jiraBaseUri == null ? jiraUrl : jiraBaseUri));
 
     Section pluginConfig = sections.get("plugin", pluginName);
 
@@ -125,7 +138,7 @@ class InitJira extends InitIts {
 
   public void enterJiraConnectivity() throws MalformedURLException {
     String jiraUrlString =
-        jira.string("Jira URL (empty to skip)", JiraConfig.GERRIT_CONFIG_URL, null);
+        jira.string("Jira API URL (empty to skip)", JiraConfig.GERRIT_CONFIG_URL, null);
     if (jiraUrlString != null) {
       jiraUsername = jira.string("Jira username", JiraConfig.GERRIT_CONFIG_USERNAME, "");
       jiraPassword =
@@ -159,6 +172,17 @@ class InitJira extends InitIts {
         return false;
       }
       ui.message("[OK] - Jira Ver %s\n", serverInfo.getVersion());
+      try {
+        URL baseUri = JiraURL.validateUrl(serverInfo.getBaseUri());
+        if (!baseUri.toString().equals(jiraUrl.toString())) {
+          ui.message(
+              "[INFO] - Recommending server-provided canonical base URL (%s) for issue comment"
+                  + " links instead of user provided API URL (%s)",
+              baseUri, jiraUrl);
+          jiraBaseUri = baseUri;
+        }
+      } catch (Exception ignored) {
+      }
       return true;
     } catch (IOException e) {
       ui.message("*FAILED* (%s)\n", e.toString());

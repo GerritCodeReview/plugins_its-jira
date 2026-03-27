@@ -142,18 +142,19 @@ Gerrit init example:
     *** Jira connectivity
     ***
 
-    Jira URL (empty to skip)       [http://jira.example.com]:
+    Jira API URL (empty to skip)   [https://jira.example.com]:
     Jira username                  [admin]:
     Change admin's password        [y/N]? y
     admin's password               : *****
                   confirm password : *****
-    Test connectivity to http://jira.example.com [y/N]: y
+    Test connectivity to https://jira.example.com (and get server-provided canonical base URL for issue comment links) [y/N]: y
     Checking Jira connectivity ... [OK]
 
     *** Jira issue-tracking association
     ***
 
     Jira issue-Id regex            [([A-Z]+-[0-9]+)]:
+    What link would you like to use? [https://jira.example.com/browse/$1]:
     Issue-id enforced in commit message [MANDATORY/?]: ?
            Supported options are:
            mandatory
