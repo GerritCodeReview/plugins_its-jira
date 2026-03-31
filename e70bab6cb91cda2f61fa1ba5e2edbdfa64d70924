@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "303f2645_3e7a3db5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 4270951
+      },
+      "writtenOn": "2026-03-31T09:42:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "803918a7_6bdd4146",
+      "revId": "e70bab6cb91cda2f61fa1ba5e2edbdfa64d70924",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30da28b0_0f1b7acb",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-03-27T16:22:12Z",
       "side": 1,
       "message": "I don\u0027t know if we expect `jiraBaseUri` or `jiraUrl` to end with a `/`, but you could check for that and handle it to ensure we don\u0027t end up with `//` in the url.",
+      "revId": "e70bab6cb91cda2f61fa1ba5e2edbdfa64d70924",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff7777fa_5ccaee28",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 4270951
+      },
+      "writtenOn": "2026-03-31T09:42:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30da28b0_0f1b7acb",
       "revId": "e70bab6cb91cda2f61fa1ba5e2edbdfa64d70924",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -52,6 +88,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb263954_927c4428",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 4270951
+      },
+      "writtenOn": "2026-03-31T09:42:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05c0bb56_9cf34a2c",
+      "revId": "e70bab6cb91cda2f61fa1ba5e2edbdfa64d70924",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ec1a5b6_f9c2720a",
@@ -65,6 +119,24 @@
       "writtenOn": "2026-03-27T16:22:12Z",
       "side": 1,
       "message": "Let\u0027s give the user a hint that they probably want to use this value instead of the one from the config (or entered previously) because we think it\u0027s the correct one for issue links. Something like this? Please adjust it as necessary to have more accurate rationale, as you know the specifics here better than I do.\n```suggestion\n      jiraBaseUri \u003d serverInfo.getBaseUri();\n      ui.message(\"[INFO] - Recommending server-provided canonical base URL (%s) for issue comment links instead of user provided API URL (%s)\", jiraBaseUri, jiraUrl);\n```",
+      "revId": "e70bab6cb91cda2f61fa1ba5e2edbdfa64d70924",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c024169d_cf2fce05",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 4270951
+      },
+      "writtenOn": "2026-03-31T09:42:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ec1a5b6_f9c2720a",
       "revId": "e70bab6cb91cda2f61fa1ba5e2edbdfa64d70924",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
