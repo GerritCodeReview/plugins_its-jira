@@ -16,6 +16,24 @@
       "message": "Thinking more on how this goes with the change before this, maybe explain here that this URL doesn\u0027t need (and with Jira Cloud isn\u0027t expected) to match the comment-link URL?",
       "revId": "2fff099cdd137b1f088524a8a3b649f78c192adb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f92bc074_cbf918c5",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 4270951
+      },
+      "writtenOn": "2026-03-31T09:42:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "863e6629_37cd1165",
+      "revId": "2fff099cdd137b1f088524a8a3b649f78c192adb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
