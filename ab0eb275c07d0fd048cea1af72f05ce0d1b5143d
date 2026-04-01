@@ -16,6 +16,41 @@
       "message": "I\u0027ve made an attempt to address your comments. Please have a look and see if I should change something more.",
       "revId": "ab0eb275c07d0fd048cea1af72f05ce0d1b5143d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2268e616_62632cd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2026-04-01T16:57:06Z",
+      "side": 1,
+      "message": "Thanks. Just one other small change I noticed.",
+      "parentUuid": "175b5402_b71c13ac",
+      "revId": "ab0eb275c07d0fd048cea1af72f05ce0d1b5143d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2c88a5c_4281e2a4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2026-04-01T16:57:06Z",
+      "side": 1,
+      "message": "Should this also be a `JiraURL`? Then we can later add a method to that class that appends the suffix for us and ensures slashes are always correct. It also simplifies your equality check on L177.",
+      "revId": "ab0eb275c07d0fd048cea1af72f05ce0d1b5143d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
