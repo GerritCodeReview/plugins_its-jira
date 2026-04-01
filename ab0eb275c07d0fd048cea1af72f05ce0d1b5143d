@@ -69,6 +69,24 @@
       "parentUuid": "f2c88a5c_4281e2a4",
       "revId": "ab0eb275c07d0fd048cea1af72f05ce0d1b5143d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d5266dc_66287dbf",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2026-04-01T22:07:02Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e4bff7f8_94b12eee",
+      "revId": "ab0eb275c07d0fd048cea1af72f05ce0d1b5143d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
