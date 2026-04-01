@@ -51,6 +51,24 @@
       "message": "Should this also be a `JiraURL`? Then we can later add a method to that class that appends the suffix for us and ensures slashes are always correct. It also simplifies your equality check on L177.",
       "revId": "ab0eb275c07d0fd048cea1af72f05ce0d1b5143d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4bff7f8_94b12eee",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/InitJira.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 4270951
+      },
+      "writtenOn": "2026-04-01T18:47:19Z",
+      "side": 1,
+      "message": "I considered using `JiraURL` but since the constructor requires two timeout arguments it felt a bit cumbersome to use, so I went with `JiraURL.validateUrl()` which makes sure that the URL ends with a slash. And given that URL.equals seems to do hostname lookup I went with a simple string compare instead.",
+      "parentUuid": "f2c88a5c_4281e2a4",
+      "revId": "ab0eb275c07d0fd048cea1af72f05ce0d1b5143d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
