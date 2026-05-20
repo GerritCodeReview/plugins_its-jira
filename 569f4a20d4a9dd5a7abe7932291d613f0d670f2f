@@ -1,6 +1,24 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4f21281_423fa522",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4858022
+      },
+      "writtenOn": "2026-05-20T13:24:33Z",
+      "side": 1,
+      "message": "Delete gmaiil",
+      "revId": "569f4a20d4a9dd5a7abe7932291d613f0d670f2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "e6b3ed51_15d4171b",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
@@ -20,10 +38,10 @@
         "endChar": 61
       },
       "revId": "569f4a20d4a9dd5a7abe7932291d613f0d670f2f",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": true
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "4acb940d_3b02c14b",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApiTest.java",
@@ -44,8 +62,7 @@
         "endChar": 61
       },
       "revId": "569f4a20d4a9dd5a7abe7932291d613f0d670f2f",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
