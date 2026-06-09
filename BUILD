@@ -1,13 +1,11 @@
-load("//tools/bzl:junit.bzl", "junit_tests")
 load(
-    "//tools/bzl:plugin.bzl",
+    "@com_googlesource_gerrit_bazlets//:gerrit_plugin.bzl",
     "gerrit_plugin",
-    "PLUGIN_DEPS",
-    "PLUGIN_TEST_DEPS",
+    "gerrit_plugin_tests",
 )
 
 gerrit_plugin(
-    name = "its-jira",
+    plugin = "its-jira",
     srcs = glob(["src/main/java/**/*.java"]),
     manifest_entries = [
         "Gerrit-PluginName: its-jira",
@@ -23,26 +21,12 @@ gerrit_plugin(
     ],
 )
 
-junit_tests(
+gerrit_plugin_tests(
     name = "its_jira_tests",
-    testonly = 1,
-    srcs = glob(
-        ["src/test/java/**/*.java"],
-    ),
+    srcs = glob(["src/test/java/**/*.java"]),
+    ext_deps = ["com.github.tomakehurst:wiremock-standalone:2.27.2"],
+    plugin = "its-jira",
+    skip_dependency_tests = True,
     tags = ["its-jira"],
-    deps = [
-        "its-jira__plugin_test_deps",
-    ],
-)
-
-java_library(
-    name = "its-jira__plugin_test_deps",
-    testonly = 1,
-    visibility = ["//visibility:public"],
-    exports = PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
-        ":its-jira__plugin",
-        "//plugins/its-base",
-        "@mockito//jar",
-        "@wiremock//jar",
-    ],
+    deps = ["//plugins/its-base"],
 )
