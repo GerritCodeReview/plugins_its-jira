@@ -16,6 +16,75 @@
       "message": "@david.ostrovsky@gmail.com WDYT?",
       "revId": "d8309b9dcc6449c4d40cda5a96bec019436fb0e2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4df50e3_e7652b4c",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-06-10T11:28:10Z",
+      "side": 1,
+      "message": "You don\u0027t need specify the version here! DRY, you bump the version in MODULE.bazel, but forget to update it here.\n\n\n\n```suggestion\n    ext_deps \u003d [\"com.github.tomakehurst:wiremock-standalone\"],\n```",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 69
+      },
+      "revId": "d8309b9dcc6449c4d40cda5a96bec019436fb0e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "841f3372_bc8a19af",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-06-10T11:28:10Z",
+      "side": 1,
+      "message": "Not needed and could be removed, as you pass plugin name, the name is generated for your.\n\n```suggestion\n    srcs \u003d glob([\"src/test/java/**/*.java\"]),\n    ext_deps \u003d [\"com.github.tomakehurst:wiremock-standalone:2.27.2\"],\n```",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 0
+      },
+      "revId": "d8309b9dcc6449c4d40cda5a96bec019436fb0e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e330b165_e814286a",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2026-06-10T11:28:10Z",
+      "side": 1,
+      "message": "tags is also generated for you, because you are passing plugin name.\n\n```suggestion\n    deps \u003d [\"//plugins/its-base\"],\n```",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 34
+      },
+      "revId": "d8309b9dcc6449c4d40cda5a96bec019436fb0e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
