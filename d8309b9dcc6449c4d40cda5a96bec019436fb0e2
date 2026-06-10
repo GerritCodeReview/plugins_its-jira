@@ -64,6 +64,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b4b4ded_cf99da2f",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1155599
+      },
+      "writtenOn": "2026-06-10T12:10:59Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "e4df50e3_e7652b4c",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 69
+      },
+      "revId": "d8309b9dcc6449c4d40cda5a96bec019436fb0e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b5aa885_e78baa2f",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1155599
+      },
+      "writtenOn": "2026-06-10T12:10:59Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "841f3372_bc8a19af",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 0
+      },
+      "revId": "d8309b9dcc6449c4d40cda5a96bec019436fb0e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e330b165_e814286a",
@@ -77,6 +125,54 @@
       "writtenOn": "2026-06-10T11:28:10Z",
       "side": 1,
       "message": "tags is also generated for you, because you are passing plugin name.\n\n```suggestion\n    deps \u003d [\"//plugins/its-base\"],\n```",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 34
+      },
+      "revId": "d8309b9dcc6449c4d40cda5a96bec019436fb0e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20041d08_53b64b65",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1155599
+      },
+      "writtenOn": "2026-06-10T12:10:59Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "e330b165_e814286a",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 34
+      },
+      "revId": "d8309b9dcc6449c4d40cda5a96bec019436fb0e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e51de684_45be2639",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1155599
+      },
+      "writtenOn": "2026-06-10T12:10:59Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "e330b165_e814286a",
       "range": {
         "startLine": 30,
         "startChar": 0,
