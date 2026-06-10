@@ -1,13 +1,9 @@
 {
   "checks": {
     "zuul-check:plugins_its-jira": {
-      "state": "FAILED",
-      "message": "Change failed",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/84b13c5c15bd4595b52d66cc8e92e6ad",
-      "started": "2026-06-10T07:27:37Z",
-      "finished": "2026-06-10T07:40:17Z",
+      "state": "NOT_STARTED",
       "created": "2026-06-09T18:30:00Z",
-      "updated": "2026-06-10T07:40:18Z"
+      "updated": "2026-06-10T08:42:56Z"
     }
   }
 }
