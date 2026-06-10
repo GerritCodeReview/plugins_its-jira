@@ -1,9 +1,12 @@
 {
   "checks": {
     "zuul-check:plugins_its-jira": {
-      "state": "NOT_STARTED",
+      "state": "SCHEDULED",
+      "message": "Change has been enqueued in check",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/592621,2",
+      "started": "2026-06-10T08:43:18Z",
       "created": "2026-06-09T18:30:00Z",
-      "updated": "2026-06-10T08:42:56Z"
+      "updated": "2026-06-10T08:43:19Z"
     }
   }
 }
