@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10203775_e8d8b434",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1025452
+      },
+      "writtenOn": "2026-06-10T10:58:35Z",
+      "side": 1,
+      "message": "@david.ostrovsky@gmail.com WDYT?",
+      "revId": "d8309b9dcc6449c4d40cda5a96bec019436fb0e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
