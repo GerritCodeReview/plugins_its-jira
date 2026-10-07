@@ -25,6 +25,5 @@ gerrit_plugin_tests(
     srcs = glob(["src/test/java/**/*.java"]),
     ext_deps = ["com.github.tomakehurst:wiremock-standalone"],
     plugin = "its-jira",
-    skip_dependency_tests = True,
     deps = ["//plugins/its-base"],
 )
