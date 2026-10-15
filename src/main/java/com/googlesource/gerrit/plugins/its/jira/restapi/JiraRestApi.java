@@ -19,16 +19,22 @@ import com.google.gson.Gson;
 import com.google.inject.Inject;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.InterruptedIOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.ProxySelector;
 import java.util.Base64;
+import java.util.concurrent.ThreadLocalRandom;
 import org.apache.commons.lang3.ArrayUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** Jira Rest Client. */
 public class JiraRestApi<T> {
 
+  private static final Logger log = LoggerFactory.getLogger(JiraRestApi.class);
   private static final String BASE_PREFIX = "rest/api/2";
+  private static final int HTTP_TOO_MANY_REQUESTS = 429;
 
   private final JiraURL baseUrl;
   private final String auth;
@@ -71,7 +77,7 @@ public class JiraRestApi<T> {
    * @throws IOException generated if unexpected failCode is returned
    */
   public T doGet(String spec, int passCode, int[] failCodes) throws IOException {
-    HttpURLConnection conn = openConnection(spec, "GET", false);
+    HttpURLConnection conn = connect(spec, "GET", false, null);
     try {
       if (validateResponse(conn, new int[] {passCode}, failCodes)) {
         readIncomingData(conn);
@@ -123,13 +129,56 @@ public class JiraRestApi<T> {
 
   public boolean sendPayload(String method, String spec, String jsonInput, int[] passCodes)
       throws IOException {
-    HttpURLConnection conn = openConnection(spec, method, true);
+    HttpURLConnection conn = connect(spec, method, true, jsonInput);
     try {
-      writeBodyData(jsonInput, conn);
       return validateResponse(conn, passCodes, null);
     } finally {
       conn.disconnect();
     }
+  }
+
+  private HttpURLConnection connect(
+      String spec, String method, boolean withPayload, String jsonInput) throws IOException {
+    int maxRetries = baseUrl.getMaxRateLimitRetries();
+    for (int attempt = 0; ; attempt++) {
+      HttpURLConnection conn = openConnection(spec, method, withPayload);
+      long delaySeconds;
+      try {
+        writeBodyData(jsonInput, conn);
+        if (conn.getResponseCode() != HTTP_TOO_MANY_REQUESTS || attempt >= maxRetries) {
+          return conn;
+        }
+        delaySeconds = computeRetryDelaySeconds(conn.getHeaderField("Retry-After"), attempt);
+      } catch (IOException | RuntimeException e) {
+        conn.disconnect();
+        throw e;
+      }
+      conn.disconnect();
+      log.warn(
+          "Jira rate limited {} {}, retry {} of {} in {}s",
+          method,
+          conn.getURL(),
+          attempt + 1,
+          maxRetries,
+          delaySeconds);
+      try {
+        Thread.sleep(delaySeconds * 1000 + ThreadLocalRandom.current().nextLong(1000));
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        throw new InterruptedIOException("Interrupted while waiting to retry " + conn.getURL());
+      }
+    }
+  }
+
+  private static long computeRetryDelaySeconds(String retryAfter, int attempt) {
+    if (retryAfter != null) {
+      try {
+        return Math.max(0, Long.parseLong(retryAfter.trim()));
+      } catch (NumberFormatException e) {
+        // HTTP-date form of Retry-After is not supported. Fall back to exponential backoff.
+      }
+    }
+    return 1L << attempt;
   }
 
   /** Write the data to the HTTP connection. */

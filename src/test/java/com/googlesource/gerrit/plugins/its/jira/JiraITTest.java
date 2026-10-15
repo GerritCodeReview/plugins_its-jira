@@ -29,8 +29,10 @@ import static java.net.HttpURLConnection.HTTP_CREATED;
 import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
 import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
 
+import com.github.tomakehurst.wiremock.client.ResponseDefinitionBuilder;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.stubbing.Scenario;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.NoHttpd;
 import com.google.gerrit.acceptance.TestPlugin;
@@ -70,6 +72,10 @@ public class JiraITTest extends LightweightPluginDaemonTest {
   private static final int PORT = 19888;
   private static final String URL = "http://localhost:" + PORT;
   private static final String COMMENT_SECTION = "commentLink." + PLUGIN_NAME;
+  private static final String COMMENT_URL =
+      BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE + COMMENT_CLASS_PREFIX;
+  private static final String RATE_LIMIT_SCENARIO = "rate-limit";
+  private static final int HTTP_TOO_MANY_REQUESTS = 429;
 
   private Path its_dir;
 
@@ -238,6 +244,84 @@ public class JiraITTest extends LightweightPluginDaemonTest {
 
     verifyIssueCall();
     verifyCommentCallWithVisibility();
+  }
+
+  @Test
+  @GerritConfig(name = COMMENT_SECTION + ".match", value = "([A-Z]+-[0-9]+)")
+  @GerritConfig(
+      name = COMMENT_SECTION + ".html",
+      value = "<a href=\"" + URL + "/browse/$1\">$1</a>")
+  @GerritConfig(name = COMMENT_SECTION + ".association", value = "SUGGESTED")
+  @GerritConfig(name = PLUGIN_NAME + ".url", value = URL)
+  @GerritConfig(name = PLUGIN_NAME + ".username", value = "user")
+  @GerritConfig(name = PLUGIN_NAME + ".password", value = "pass")
+  public void testCommentRetriedAfterRateLimit() throws Exception {
+    createItsRulesConfigWithComment();
+    mockServerCall();
+    wireMockRule.givenThat(
+        WireMock.post(urlEqualTo(COMMENT_URL))
+            .inScenario(RATE_LIMIT_SCENARIO)
+            .whenScenarioStateIs(Scenario.STARTED)
+            .willReturn(rateLimited())
+            .willSetStateTo("allowed"));
+    wireMockRule.givenThat(
+        WireMock.post(urlEqualTo(COMMENT_URL))
+            .inScenario(RATE_LIMIT_SCENARIO)
+            .whenScenarioStateIs("allowed")
+            .willReturn(aResponse().withStatus(HTTP_CREATED)));
+    wireMockRule.givenThat(
+        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE)).willReturn(ok()));
+
+    createChangeWithIssue();
+
+    wireMockRule.verify(2, postRequestedFor(urlEqualTo(COMMENT_URL)));
+  }
+
+  @Test
+  @GerritConfig(name = COMMENT_SECTION + ".match", value = "([A-Z]+-[0-9]+)")
+  @GerritConfig(
+      name = COMMENT_SECTION + ".html",
+      value = "<a href=\"" + URL + "/browse/$1\">$1</a>")
+  @GerritConfig(name = COMMENT_SECTION + ".association", value = "SUGGESTED")
+  @GerritConfig(name = PLUGIN_NAME + ".url", value = URL)
+  @GerritConfig(name = PLUGIN_NAME + ".username", value = "user")
+  @GerritConfig(name = PLUGIN_NAME + ".password", value = "pass")
+  public void testCommentRetriesStopAfterMaxAttempts() throws Exception {
+    createItsRulesConfigWithComment();
+    mockServerCall();
+    wireMockRule.givenThat(WireMock.post(urlEqualTo(COMMENT_URL)).willReturn(rateLimited()));
+    wireMockRule.givenThat(
+        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE)).willReturn(ok()));
+
+    createChangeWithIssue();
+
+    wireMockRule.verify(4, postRequestedFor(urlEqualTo(COMMENT_URL)));
+  }
+
+  @Test
+  @GerritConfig(name = COMMENT_SECTION + ".match", value = "([A-Z]+-[0-9]+)")
+  @GerritConfig(
+      name = COMMENT_SECTION + ".html",
+      value = "<a href=\"" + URL + "/browse/$1\">$1</a>")
+  @GerritConfig(name = COMMENT_SECTION + ".association", value = "SUGGESTED")
+  @GerritConfig(name = PLUGIN_NAME + ".url", value = URL)
+  @GerritConfig(name = PLUGIN_NAME + ".username", value = "user")
+  @GerritConfig(name = PLUGIN_NAME + ".password", value = "pass")
+  @GerritConfig(name = PLUGIN_NAME + ".maxRateLimitRetries", value = "1")
+  public void testCommentRetriesStopAfterConfiguredMaxRetries() throws Exception {
+    createItsRulesConfigWithComment();
+    mockServerCall();
+    wireMockRule.givenThat(WireMock.post(urlEqualTo(COMMENT_URL)).willReturn(rateLimited()));
+    wireMockRule.givenThat(
+        WireMock.get(urlEqualTo(BASE_PREFIX + ISSUE_CLASS_PREFIX + JIRA_ISSUE)).willReturn(ok()));
+
+    createChangeWithIssue();
+
+    wireMockRule.verify(2, postRequestedFor(urlEqualTo(COMMENT_URL)));
+  }
+
+  private static ResponseDefinitionBuilder rateLimited() {
+    return aResponse().withStatus(HTTP_TOO_MANY_REQUESTS).withHeader("Retry-After", "0");
   }
 
   private void mockServerCall() {
