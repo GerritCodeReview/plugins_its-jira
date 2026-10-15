@@ -36,13 +36,14 @@ public class JiraRestApiTest {
   private static final String PASSWORD = "pass";
   private static final Duration CONNECTION_TIMEOUT = Duration.ofSeconds(30);
   private static final Duration READ_TIMEOUT = Duration.ofSeconds(30);
+  private static final int MAX_RATE_LIMIT_RETRIES = 3;
 
   private JiraURL url;
   private JiraRestApi restApi;
 
   private void setURL(String jiraUrl, Duration connectionTimeout, Duration readTimeout)
       throws MalformedURLException {
-    url = new JiraURL(jiraUrl, connectionTimeout, readTimeout);
+    url = new JiraURL(jiraUrl, connectionTimeout, readTimeout, MAX_RATE_LIMIT_RETRIES);
   }
 
   @Test

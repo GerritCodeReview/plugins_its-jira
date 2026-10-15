@@ -65,6 +65,8 @@ public class JiraConfig {
   public static final Duration GERRIT_CONFIG_CONNECT_TIMEOUT_DEFAULT = Duration.ofMinutes(2);
   public static final String GERRIT_CONFIG_READ_TIMEOUT = "readTimeout";
   public static final Duration GERRIT_CONFIG_READ_TIMEOUT_DEFAULT = Duration.ofSeconds(30);
+  public static final String GERRIT_CONFIG_MAX_RATE_LIMIT_RETRIES = "maxRateLimitRetries";
+  public static final int GERRIT_CONFIG_MAX_RATE_LIMIT_RETRIES_DEFAULT = 3;
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
@@ -115,6 +117,12 @@ public class JiraConfig {
                 pluginName,
                 GERRIT_CONFIG_READ_TIMEOUT,
                 GERRIT_CONFIG_READ_TIMEOUT_DEFAULT))
+        .maxRateLimitRetries(
+            gerritConfig.getInt(
+                pluginName,
+                null,
+                GERRIT_CONFIG_MAX_RATE_LIMIT_RETRIES,
+                GERRIT_CONFIG_MAX_RATE_LIMIT_RETRIES_DEFAULT))
         .build();
   }
 
@@ -156,6 +164,9 @@ public class JiraConfig {
         .readTimeout(
             getDurationFromConfig(
                 pluginConfig, GERRIT_CONFIG_READ_TIMEOUT, GERRIT_CONFIG_READ_TIMEOUT_DEFAULT))
+        .maxRateLimitRetries(
+            pluginConfig.getInt(
+                GERRIT_CONFIG_MAX_RATE_LIMIT_RETRIES, GERRIT_CONFIG_MAX_RATE_LIMIT_RETRIES_DEFAULT))
         .build();
   }
 

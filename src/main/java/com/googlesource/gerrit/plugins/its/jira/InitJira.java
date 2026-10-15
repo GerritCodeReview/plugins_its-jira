@@ -143,7 +143,8 @@ class InitJira extends InitIts {
               jiraUrlString,
               Duration.ofMillis(
                   ConfigUtil.getTimeUnit(jiraConnectionTimeout, 0, TimeUnit.MILLISECONDS)),
-              Duration.ofMillis(ConfigUtil.getTimeUnit(jiraReadTimeout, 0, TimeUnit.MILLISECONDS)));
+              Duration.ofMillis(ConfigUtil.getTimeUnit(jiraReadTimeout, 0, TimeUnit.MILLISECONDS)),
+              JiraConfig.GERRIT_CONFIG_MAX_RATE_LIMIT_RETRIES_DEFAULT);
     }
   }
 

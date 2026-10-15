@@ -41,27 +41,33 @@ public class JiraURL {
 
   private final int readTimeoutMs;
 
+  private final int maxRateLimitRetries;
+
   public static URL validateUrl(String spec) throws MalformedURLException {
     return new URL(CharMatcher.is('/').trimFrom(spec) + "/");
   }
 
-  public JiraURL(String spec, Duration connectionTimeout, Duration readTimeout)
+  public JiraURL(
+      String spec, Duration connectionTimeout, Duration readTimeout, int maxRateLimitRetries)
       throws MalformedURLException {
     this.url = validateUrl(spec);
     this.connectionTimeoutMs = (int) connectionTimeout.toMillis();
     this.readTimeoutMs = (int) readTimeout.toMillis();
+    this.maxRateLimitRetries = maxRateLimitRetries;
   }
 
-  private JiraURL(URL url, int connectionTimeoutMs, int readTimeoutMs) {
+  private JiraURL(URL url, int connectionTimeoutMs, int readTimeoutMs, int maxRateLimitRetries) {
     this.url = requireNonNull(url);
     this.connectionTimeoutMs = connectionTimeoutMs;
     this.readTimeoutMs = readTimeoutMs;
+    this.maxRateLimitRetries = maxRateLimitRetries;
   }
 
   public JiraURL resolveUrl(String... paths) {
     String relativePath = String.join("", paths);
     try {
-      return new JiraURL(new URL(url, relativePath), connectionTimeoutMs, readTimeoutMs);
+      return new JiraURL(
+          new URL(url, relativePath), connectionTimeoutMs, readTimeoutMs, maxRateLimitRetries);
     } catch (MalformedURLException e) {
       log.error("Unexpected exception while composing URL {} with path {}", url, relativePath, e);
       throw new IllegalArgumentException(e);
@@ -77,7 +83,7 @@ public class JiraURL {
   }
 
   public JiraURL withSpec(String spec) throws MalformedURLException {
-    return new JiraURL(new URL(url, spec), connectionTimeoutMs, readTimeoutMs);
+    return new JiraURL(new URL(url, spec), connectionTimeoutMs, readTimeoutMs, maxRateLimitRetries);
   }
 
   public HttpURLConnection openConnection(ProxySelector proxySelector) throws IOException {
@@ -90,6 +96,10 @@ public class JiraURL {
 
   public String getPath() {
     return url.getPath();
+  }
+
+  public int getMaxRateLimitRetries() {
+    return maxRateLimitRetries;
   }
 
   @Override
