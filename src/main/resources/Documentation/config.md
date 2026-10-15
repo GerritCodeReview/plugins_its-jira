@@ -123,6 +123,15 @@ either in the `gerrit.config` or `project.config`, whichever has the precedence.
 	Jira server becomes slow.
 	By default `30 seconds`.
 
+Rate limiting
+-------------
+
+When Jira responds with HTTP 429 (Too Many Requests), the request is retried
+up to 3 times. The wait before each retry is taken from the `Retry-After`
+response header, or is 1, 2 and 4 seconds when the header is absent, plus up to
+1 second of random jitter. If the retries are exhausted, the request fails and
+the error is logged.
+
 Gerrit init integration
 -----------------------
 
