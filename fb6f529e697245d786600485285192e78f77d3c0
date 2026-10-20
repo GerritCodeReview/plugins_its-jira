@@ -16,6 +16,24 @@
       "message": "I\u0027m not sure failing above 30 seconds is required. That is a reasonable delay for rate limitng ?",
       "revId": "fb6f529e697245d786600485285192e78f77d3c0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fdd8372_a0e5c1ad",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 4665459
+      },
+      "writtenOn": "2026-10-20T20:35:28Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure if the plugin should retry if Retry-After is really high. When we don\u0027t run the plugin in async mode (i.e with no evaluation and action threads configured), the threads triggering the Jira work will block on these retries, so having a limit on how long they wait is probably preferable. That said, 30s was just an arbitrary number I came up with. I can remove it for now, and we can add it back in another change if needed.",
+      "parentUuid": "3638ec01_8bf1f3d6",
+      "revId": "fb6f529e697245d786600485285192e78f77d3c0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
