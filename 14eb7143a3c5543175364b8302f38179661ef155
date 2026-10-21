@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9a47d6a_45c88270",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4665459
+      },
+      "writtenOn": "2026-10-21T20:33:09Z",
+      "side": 1,
+      "message": "```\n  └──➤ git -C plugins/its-jira log --oneline -1 --no-decorate\n14eb714 Retry Jira requests on HTTP 429 honoring Retry-After\n\n  └──➤ bazelisk test //plugins/its-jira:its_jira_tests --cache_test_results\u003dno\nINFO: Invocation ID: a75e5adf-32b5-4e6f-9fbc-b73665d4520c\nINFO: Options provided by the client:\n  Inherited \u0027common\u0027 options: --isatty\u003d1 --terminal_columns\u003d158\nINFO: Reading rc options for \u0027test\u0027 from /Users/klingarkar/workspace/upstream/.bazelrc:\n  Inherited \u0027build\u0027 options: --workspace_status_command\u003dpython3 ./tools/workspace_status.py --repository_cache\u003d~/.gerritcodereview/bazel-cache/repository --action_env\u003dPATH --disk_cache\u003d~/.gerritcodereview/bazel-cache/cas --java_language_version\u003d17 --java_runtime_version\u003dremotejdk_17 --tool_java_language_version\u003d17 --tool_java_runtime_version\u003dremotejdk_17 --incompatible_strict_action_env --announce_rc\nINFO: Reading rc options for \u0027test\u0027 from /Users/klingarkar/workspace/upstream/.bazelrc:\n  \u0027test\u0027 options: --build_tests_only --test_output\u003derrors --incompatible_sandbox_hermetic_tmp\nINFO: Analyzed target //plugins/its-jira:its_jira_tests (0 packages loaded, 101 targets configured).\nINFO: Found 1 test target...\nTarget //plugins/its-jira:its_jira_tests up-to-date:\n  bazel-bin/plugins/its-jira/its_jira_tests.jar\n  bazel-bin/plugins/its-jira/its_jira_tests\nINFO: Elapsed time: 23.179s, Critical Path: 22.95s\nINFO: 2 processes: 1 internal, 1 darwin-sandbox.\nINFO: Build completed successfully, 2 total actions\n//plugins/its-jira:its_jira_tests                                        PASSED in 21.9s\n\nExecuted 1 out of 1 test: 1 test passes.\n```",
+      "revId": "14eb7143a3c5543175364b8302f38179661ef155",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
