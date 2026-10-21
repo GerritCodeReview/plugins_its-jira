@@ -16,6 +16,24 @@
       "message": "Add as a config?",
       "revId": "c9438357daadc277fb4c9b4fe1bb993c7778db19",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86d90ea5_eabb0770",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 4665459
+      },
+      "writtenOn": "2026-10-21T18:07:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a22c52b2_af6a1f2b",
+      "revId": "c9438357daadc277fb4c9b4fe1bb993c7778db19",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
