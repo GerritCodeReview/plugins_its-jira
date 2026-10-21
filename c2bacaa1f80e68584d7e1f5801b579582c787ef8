@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68421ce3_79210451",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 3604707
+      },
+      "writtenOn": "2026-10-21T18:24:01Z",
+      "side": 1,
+      "message": "style: remove the empty line above this?",
+      "revId": "c2bacaa1f80e68584d7e1f5801b579582c787ef8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c25ba2db_9e3704cc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/its/jira/restapi/JiraRestApi.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 3604707
+      },
+      "writtenOn": "2026-10-21T18:24:01Z",
+      "side": 1,
+      "message": "This feels like it should be in a library somewhere along with other codes? Is there anything like that in core?",
+      "revId": "c2bacaa1f80e68584d7e1f5801b579582c787ef8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd2d6861_ea1e0da9",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/its/jira/JiraITTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 3604707
+      },
+      "writtenOn": "2026-10-21T18:24:01Z",
+      "side": 1,
+      "message": "Repeated?",
+      "revId": "c2bacaa1f80e68584d7e1f5801b579582c787ef8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
