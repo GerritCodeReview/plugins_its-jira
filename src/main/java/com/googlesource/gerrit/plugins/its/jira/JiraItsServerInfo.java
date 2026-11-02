@@ -30,6 +30,7 @@ public class JiraItsServerInfo {
     private String projectUrl;
     private Duration connectTimeout;
     private Duration readTimeout;
+    private int maxRateLimitRetries = JiraConfig.GERRIT_CONFIG_MAX_RATE_LIMIT_RETRIES_DEFAULT;
 
     private Builder() {}
 
@@ -67,12 +68,19 @@ public class JiraItsServerInfo {
       return this;
     }
 
+    public Builder maxRateLimitRetries(int retries) {
+      this.maxRateLimitRetries = retries;
+      return this;
+    }
+
     public JiraItsServerInfo build() {
       try {
         checkNotNull(connectTimeout, "Missing connection timeout");
         checkNotNull(readTimeout, "Missing read timeout");
         instance.url =
-            projectUrl != null ? new JiraURL(projectUrl, connectTimeout, readTimeout) : null;
+            projectUrl != null
+                ? new JiraURL(projectUrl, connectTimeout, readTimeout, maxRateLimitRetries)
+                : null;
         return instance;
       } catch (MalformedURLException e) {
         throw new IllegalArgumentException("Unable to resolve URL", e);
